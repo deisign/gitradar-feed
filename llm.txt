@@ -1,0 +1,4670 @@
+# Creative Radar — LLM Snapshot
+
+Generated: 2026-08-19T23:37:06
+Date: 2026-08-19
+
+Public scope: this file is generated from curated cards and today's shortlist only.
+Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vault.
+
+## Status
+
+- Total curated cards: 150
+- Buckets: 19
+
+## Bucket summary
+
+- Agent Security / Governance: 1
+- Broadcast / Playout / Automation: 2
+- Design Systems / Visual QA: 13
+- Font Creation / Typography Tools: 13
+- Full-Song AI / Suno Alternatives: 4
+- Infographics / Visual Storytelling: 13
+- Interactive Reports / Data Apps: 5
+- Lancelot / Agent Infrastructure: 19
+- Media / Social Monitoring: 3
+- Media Kits / Brand Automation: 1
+- Mixing / Mastering / Audio Engineering: 9
+- Music Generation / AI Music: 5
+- n8n / Workflow Automation: 7
+- Newsroom / Data Journalism: 12
+- OSINT / Investigations: 7
+- Publishing / Layout / PDF: 6
+- Radio / Audio Ops: 9
+- Telegram Bots / Automation: 1
+- Video Production / Editing: 20
+
+## Today's run
+
+- items=984
+- errors=0
+- KEEP: 118
+- WATCH: 496
+- SKIP: 223
+- NOISE: 147
+
+# CURATED CARDS
+
+## BUCKET: Agent Security / Governance
+
+Cards: 1
+
+### GenAI-Security-Project/agent-control-standard
+
+URL: https://github.com/GenAI-Security-Project/agent-control-standard
+VERDICT: KEEP
+SCORE: 22
+STARS: —
+
+WHAT:
+Agent Control Standard — открытый стандарт OWASP GenAI Security Project для наблюдаемости и управления AI-агентами во время исполнения.
+
+Основная модель строится вокруг трёх требований:
+
+- inspectable — видно используемые модели, инструменты, версии, возможности и доступ к данным;
+- traceable — действия агента можно связать с исходной задачей и цепочкой исполнения;
+- instrumentable — в исполнение можно вставлять централизованные policy/control hooks.
+
+Стандарт также описывает взаимодействие Observed Agent ↔ Guardian Agent.
+
+FIT:
+Это хорошо ложится на архитектуру, где LLM не получает произвольный доступ к исполнительному слою.
+
+Целевая схема:
+
+agent proposal
+→ semantic / allowlisted tool
+→ policy validation
+→ approval при необходимости
+→ deterministic execution
+→ trace / audit
+
+Особенно релевантны runtime hooks, observability и возможность централизованно deny/modify действия агента.
+
+PROJECT:
+Agent Security / Governance.
+
+Связан с Private AI, MCP tool layer и всеми системами, где агент способен совершать реальные действия.
+
+NEXT:
+Сравнить ACS control model с нашим planned MCP execution layer:
+
+- semantic allowlisted tools;
+- current/desired state validation;
+- approval gates;
+- audit trail;
+- restricted capabilities;
+- deterministic execution.
+
+Не внедрять весь стандарт автоматически: сначала определить минимальный совместимый control envelope.
+
+---
+
+## BUCKET: Broadcast / Playout / Automation
+
+Cards: 2
+
+### CasparCG/server
+
+URL: https://github.com/CasparCG/server
+VERDICT: KEEP
+SCORE: 31
+STARS: 1076
+
+WHAT:
+Профессиональный headless playout и recording engine для broadcast-задач. Проигрывает и композитит графику, видео и аудио и отдаёт результат на несколько outputs. Используется в broadcast production много лет.
+
+FIT:
+Это не видеоредактор и не радиоавтоматика, а исполнительный эфирный движок. Его можно поставить под собственный controller: расписание, metadata, агент или MCP-слой решают, что должно произойти, а CasparCG исполняет playout.
+
+Особенно интересна архитектура для полностью автоматического visual radio: клипы, заставки, lower thirds, now-playing, брендовая HTML-графика и fallback-визуализация для треков без видео.
+
+PROJECT:
+Кома / visual radio / автоматизированный линейный видеоканал.
+
+В потенциальной agentic-архитектуре CasparCG должен оставаться детерминированным execution layer; LLM не получает unrestricted raw playout control, а работает через ограниченные и валидируемые actions.
+
+NEXT:
+Собрать минимальный spike: источник now-playing metadata → небольшой controller → CasparCG → 1080p program output.
+
+Второй этап — MCP adapter с безопасными tools вроде `get_on_air_state`, `take_clip`, `update_now_playing`, `show_lower_third`, `take_next`.
+
+---
+
+### Sofie-Automation/sofie-core
+
+URL: https://github.com/Sofie-Automation/sofie-core
+VERDICT: KEEP
+SCORE: 0
+STARS: 343
+
+WHAT:
+Core-компонент Sofie TV Automation System — web-based системы автоматизации телевизионной студии и live-шоу.
+
+Sofie строится вокруг state-based device control и playout видео, аудио и графики, поддерживает модульную архитектуру устройств и ingest, включая newsroom/MOS-сценарии.
+
+FIT:
+CasparCG решает задачу «исполнить эфир», а Sofie показывает, как строить уровень выше: rundown, редакционную логику, desired state и управление несколькими устройствами.
+
+Для agentic broadcast это особенно важный референс: агент может предлагать редакционное и визуальное состояние, но фактический переход оборудования выполняет детерминированный resolver/controller.
+
+PROJECT:
+Кома / visual radio / автоматизация эфира.
+
+Сейчас Sofie интереснее как архитектурный донор, чем как обязательная зависимость: задача Комы значительно проще полноценной news-studio automation.
+
+NEXT:
+Разобрать три слоя: Sofie Core, Playout Gateway и механизм state-based device control.
+
+Сравнить две архитектуры пилота:
+
+1. собственный лёгкий controller + CasparCG;
+2. использование отдельных Sofie-библиотек/паттернов.
+
+Полную Sofie разворачивать только если visual-radio перерастёт в студию с live inputs, несколькими устройствами и сложными rundown'ами.
+
+---
+
+## BUCKET: Design Systems / Visual QA
+
+Cards: 13
+
+### dembrandt/dembrandt
+
+URL: https://github.com/dembrandt/dembrandt
+VERDICT: KEEP
+SCORE: 46
+STARS: 2173
+
+WHAT:
+Extract any website’s design system into tokens in seconds: logo, colors, typography, borders & more. One command.
+
+FIT:
+извлечение дизайн-системы сайта в tokens: logo, colors, typography, borders
+
+PROJECT:
+Visual System Extractor / Media Kits
+
+NEXT:
+прогнать на сайтах Коордштаба / ХВ / ХН / ХКС как design audit
+
+---
+
+### design-tokens/community-group
+
+URL: https://github.com/design-tokens/community-group
+VERDICT: KEEP
+SCORE: 36
+STARS: 2069
+
+WHAT:
+This is the official DTCG repository for the design tokens site and specification.
+
+FIT:
+официальная база DTCG design tokens; стандарт для описания цветов, типографики, spacing
+
+PROJECT:
+Design System Methodology
+
+NEXT:
+использовать как reference при формализации палитр и токенов проектов
+
+---
+
+### lyse-labs/lyse
+
+URL: https://github.com/lyse-labs/lyse
+VERDICT: KEEP
+SCORE: 80
+STARS: 31
+
+WHAT:
+Open-source design-system drift scanner — audit tokens, components, a11y & docs; score adoption; hand fixes to your coding agent. Local-first & deterministic.
+
+FIT:
+design-system drift scanner; проверка токенов, компонентов, a11y и документации
+
+PROJECT:
+Design QA / Visual Regression / Media Kits
+
+NEXT:
+проверить установку и применимость к нашим HTML/PDF отчётам
+
+---
+
+### marvkr/better-design
+
+URL: https://github.com/marvkr/better-design
+VERDICT: KEEP
+SCORE: 38
+STARS: 181
+
+WHAT:
+🎨 Open-source design MCP server + shadcn/ui registry — AI design systems for Claude Code, Cursor, Codex, GitHub Copilot & any MCP client. 31 brand-grade themes (Linear, Stripe, Vercel, Notion, Apple, Supabase, Figma…) + design tokens, UI principles & WCAG rules. Install any component with one command.
+
+FIT:
+design QA fit, design system, design tokens, design-system, figma, stars>=100, tokens
+
+PROJECT:
+Design system / visual QA
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### miapre/mimic-ai
+
+URL: https://github.com/miapre/mimic-ai
+VERDICT: KEEP
+SCORE: 38
+STARS: 12
+
+WHAT:
+The design system copilot that builds Figma from HTML using your real components and tokens. Learns your system, surfaces your gaps.
+
+FIT:
+audit, design QA fit, design system, design tokens, design-system, figma, tokens
+
+PROJECT:
+Design system / visual QA
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### plugin87/ux-ui-agent-skills
+
+URL: https://github.com/plugin87/ux-ui-agent-skills
+VERDICT: KEEP
+SCORE: 38
+STARS: 473
+
+WHAT:
+Turn Claude into a Senior Design Architect — DTCG design tokens, 42 components, WCAG 2.2 accessibility, any-framework code, 138 design systems, and runnable skills.
+
+FIT:
+design QA fit, design system, design tokens, design-system, figma, stars>=100, tokens
+
+PROJECT:
+Design system / visual QA
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### Railly/tinte
+
+URL: https://github.com/Railly/tinte
+VERDICT: KEEP
+SCORE: 33
+STARS: —
+
+WHAT:
+Инструмент, который превращает дизайн-систему не только в набор токенов, но и в исполняемый контекст для AI-агента.
+
+Tinte может:
+
+- извлечь визуальную идентичность из существующей страницы;
+- нормализовать её в единый identity config;
+- сгенерировать `tokens.css`;
+- сформировать `SKILL.md` с типографикой, голосом и правилами композиции;
+- собрать installable Agent Plugin;
+- проверять код и ловить цвета/стили, которые обходят design tokens.
+
+Также умеет конвертировать одну систему semantic OKLCH tokens в shadcn/ui, VS Code, терминальные темы и другие форматы.
+
+FIT:
+Это следующий слой после обычных design tokens.
+
+Terrazzo решает задачу:
+
+`design tokens → CSS / JS / TS / Tailwind / Swift`
+
+Tinte добавляет:
+
+`identity + tokens + composition rules → контекст и ограничения для AI-агента`
+
+То есть агент получает не абстрактное указание «сделай в нашем стиле», а машинно-читаемую дизайн-систему.
+
+Практически это может дать единый визуальный язык для:
+
+- Browser OSINT Workbench;
+- аналитических интерфейсов;
+- публичных отчётов;
+- внутренних dashboards;
+- AI-generated UI.
+
+PROJECT:
+- Design Systems / Visual QA
+- Agent Skills
+- Browser Workbench
+- PWA / web interfaces
+- automated UI generation
+
+NEXT:
+Провести spike на одной нашей существующей визуальной системе:
+
+1. извлечь identity;
+2. получить tokens;
+3. собрать Agent Plugin;
+4. дать агенту сделать небольшой UI;
+5. проверить результат через `tinte lint`;
+6. сравнить с обычным prompt-only подходом.
+
+---
+
+### southleft/design-systems-mcp
+
+URL: https://github.com/southleft/design-systems-mcp
+VERDICT: KEEP
+SCORE: 68
+STARS: 193
+
+WHAT:
+I'm your specialized design systems assistant. Ask me about components, tokens, patterns, and best practices.
+
+FIT:
+MCP-ассистент для компонентов, tokens, patterns и best practices
+
+PROJECT:
+Agentic Design QA
+
+NEXT:
+проверить, можно ли использовать поверх наших design tokens и шаблонов
+
+---
+
+### adobe/spectrum-design-data
+
+URL: https://github.com/adobe/spectrum-design-data
+VERDICT: WATCH
+SCORE: 33
+STARS: 148
+
+WHAT:
+Design data, including design tokens, component schemas, and tooling for Spectrum, Adobe's design system.
+
+FIT:
+design QA fit, design system, design tokens, design-system, stars>=100, tokens
+
+PROJECT:
+Design Systems / Visual QA
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### kunchenguid/axi
+
+URL: https://github.com/kunchenguid/axi
+VERDICT: WATCH
+SCORE: 31
+STARS: 1723
+
+WHAT:
+Design principles for agent ergonomics. Higher accuracy with lower token cost than both MCP and regular CLI.
+
+FIT:
+design QA fit, design system, design tokens, stars>=1000, tokens
+
+PROJECT:
+Design Systems / Visual QA
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### line/abc-def
+
+URL: https://github.com/line/abc-def
+VERDICT: WATCH
+SCORE: 33
+STARS: 105
+
+WHAT:
+ABC Def is an efficient design system using a three-tier token structure and Headless UI to create web components with consistent design and flexible customization.
+
+FIT:
+design QA fit, design system, design tokens, design-system, stars>=100, tokens
+
+PROJECT:
+Design Systems / Visual QA
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### tarasenko-by/veritheme
+
+URL: https://github.com/tarasenko-by/veritheme
+VERDICT: WATCH
+SCORE: 33
+STARS: 12
+
+WHAT:
+Veritheme — one source of truth for Figma, code & AI. 66 UI components: pure CSS utility classes, design tokens, dark mode, vanilla JS bundle.
+
+FIT:
+design QA fit, design system, design tokens, design-system, figma, tokens
+
+PROJECT:
+Design Systems / Visual QA
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### terrazzoapp/terrazzo
+
+URL: https://github.com/terrazzoapp/terrazzo
+VERDICT: WATCH
+SCORE: 33
+STARS: 434
+
+WHAT:
+Инструментарий для design tokens.
+
+Terrazzo CLI принимает токены в формате DTCG и генерирует из единого источника представления для разных платформ:
+
+- CSS;
+- Sass;
+- JavaScript / TypeScript;
+- Tailwind;
+- Swift.
+
+В проект также входит собственный wide-gamut color picker. Ранее проект назывался Cobalt UI.
+
+FIT:
+Интересен не как ещё одна component library, а как инфраструктурный слой между дизайном и кодом.
+
+Потенциально позволяет держать единый набор:
+
+- цветов;
+- типографики;
+- spacing;
+- размеров;
+- radius;
+- semantic tokens;
+
+и генерировать из него представления для разных приложений.
+
+Это особенно полезно, если несколько наших интерфейсов должны выглядеть как одна система, но собраны разными способами.
+
+PROJECT:
+- Design Systems / Visual QA
+- Browser Workbench
+- PWA / web interfaces
+- desktop UI
+- публичные аналитические продукты
+
+Не заменяет Radix/shadcn или другую компонентную систему. Его роль ниже уровнем: единый источник design tokens.
+
+NEXT:
+Сделать небольшой spike:
+
+1. взять 10–15 реальных токенов из одной нашей палитры;
+2. оформить их как DTCG JSON;
+3. сгенерировать CSS и TypeScript;
+4. проверить dark/light semantic aliases;
+5. оценить, действительно ли Terrazzo уменьшает ручную синхронизацию.
+
+До такого теста оставлять WATCH.
+
+---
+
+## BUCKET: Font Creation / Typography Tools
+
+Cards: 13
+
+### Corne2Plum3/Giphurs
+
+URL: https://github.com/Corne2Plum3/Giphurs
+VERDICT: KEEP
+SCORE: 50
+STARS: 95
+
+WHAT:
+A sans serif font like Arial, Circular, Helvetica on budget made with Fontforge, with the goal to upload it on Google Fonts.
+
+FIT:
+font, font creation, font/typography tooling fit, fontforge, fonts, opentype, stars>=20, typeface
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### f-actions/font-bakery
+
+URL: https://github.com/f-actions/font-bakery
+VERDICT: KEEP
+SCORE: 43
+STARS: 11
+
+WHAT:
+A GitHub Action for continuous integration testing with the fonttools/fontbakery font quality assurance tool
+
+FIT:
+font, font creation, font/typography tooling fit, fonts, fonttools, opentype, typeface, typography
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### fontforge/designwithfontforge.com
+
+URL: https://github.com/fontforge/designwithfontforge.com
+VERDICT: KEEP
+SCORE: 46
+STARS: 1037
+
+WHAT:
+A book about how to design new typefaces with FontForge
+
+FIT:
+font, font creation, font/typography tooling fit, fontforge, fonts, stars>=1000, typeface, typography
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### fontforge/fontforge
+
+URL: https://github.com/fontforge/fontforge
+VERDICT: KEEP
+SCORE: 41
+STARS: 7872
+
+WHAT:
+Free (libre) font editor for Windows, Mac OS X and GNU+Linux
+
+FIT:
+font, font creation, font editor, font/typography tooling fit, fontforge, stars>=1000, typography
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### fontra/fontra
+
+URL: https://github.com/fontra/fontra
+VERDICT: KEEP
+SCORE: 38
+STARS: 807
+
+WHAT:
+A browser-based font editor
+
+FIT:
+font, font creation, font editor, font/typography tooling fit, fonts, stars>=100, typography
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### fonttools/fonttools
+
+URL: https://github.com/fonttools/fonttools
+VERDICT: KEEP
+SCORE: 46
+STARS: 5180
+
+WHAT:
+A library to manipulate font files from Python.
+
+FIT:
+font, font creation, font/typography tooling fit, fonts, fonttools, opentype, stars>=1000, typography
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### glyphr-studio/Glyphr-Studio-2
+
+URL: https://github.com/glyphr-studio/Glyphr-Studio-2
+VERDICT: KEEP
+SCORE: 43
+STARS: 303
+
+WHAT:
+The free & open source web-based font editor, made for hobbyists and typeface design beginners.
+
+FIT:
+font, font creation, font editor, font/typography tooling fit, glyph, stars>=100, typeface, typography
+
+PROJECT:
+Design system / visual QA
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### quitequinn/glyphrow
+
+URL: https://github.com/quitequinn/glyphrow
+VERDICT: KEEP
+SCORE: 43
+STARS: 17
+
+WHAT:
+Accessible, dependency-free type tester for the web — vanilla core + optional React. Composable OpenType features, variable-font axes, auto-fit.
+
+FIT:
+font, font creation, font/typography tooling fit, fonts, glyph, opentype, typography, variable font
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### twardoch/fonttools-opentype-feature-freezer
+
+URL: https://github.com/twardoch/fonttools-opentype-feature-freezer
+VERDICT: KEEP
+SCORE: 43
+STARS: 481
+
+WHAT:
+OTFeatureFreezer GUI app and pyftfeatfreeze commandline tool in Python to permanently "apply" OpenType features to fonts, by remapping their Unicode assignments
+
+FIT:
+font, font creation, font/typography tooling fit, fonts, fonttools, opentype, stars>=100, typography
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### VdustR/font-splitter
+
+URL: https://github.com/VdustR/font-splitter
+VERDICT: KEEP
+SCORE: 40
+STARS: 41
+
+WHAT:
+Python library and CLI for splitting large fonts into unicode-range WOFF/WOFF2 subsets.
+
+FIT:
+font, font creation, font/typography tooling fit, fonts, fonttools, stars>=20, typography, webfont
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### web-alchemy/fonttools
+
+URL: https://github.com/web-alchemy/fonttools
+VERDICT: KEEP
+SCORE: 43
+STARS: 19
+
+WHAT:
+Node.js adapter of python font tools via Pyodide
+
+FIT:
+font, font creation, font/typography tooling fit, fonts, fonttools, opentype, typography, webfont
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### abhay-ramesh/Wordmark
+
+URL: https://github.com/abhay-ramesh/Wordmark
+VERDICT: WATCH
+SCORE: 33
+STARS: 125
+
+WHAT:
+🎨 Meet Wordmark: Your Logo Maker with Google Fonts. No-fuss, smart logo creation. 🚀
+
+FIT:
+font, font creation, font/typography tooling fit, fonts, stars>=100, typography
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### gero3/facetype.js
+
+URL: https://github.com/gero3/facetype.js
+VERDICT: WATCH
+SCORE: 33
+STARS: 723
+
+WHAT:
+typeface.js generator
+
+FIT:
+font, font creation, font/typography tooling fit, stars>=100, typeface, typography
+
+PROJECT:
+Font Creation / Typography Tools
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+## BUCKET: Full-Song AI / Suno Alternatives
+
+Cards: 4
+
+### ace-step/ACE-Step-1.5
+
+URL: https://github.com/ace-step/ACE-Step-1.5
+VERDICT: KEEP
+SCORE: 48
+STARS: 12162
+
+WHAT:
+Открытая full-song music foundation model. Генерирует законченные песни длительностью от 10 секунд до 10 минут, поддерживает вокал и lyrics, reference audio, covers, repaint/edit, stems, multitrack, BPM/key control и LoRA.
+
+FIT:
+Сейчас это наиболее практичный кандидат на локальную альтернативу Suno: есть полноценный local inference, Gradio, Python API, REST API и CLI. Особенно интересен как программируемый song-generation backend, а не только UI.
+
+PROJECT:
+Full-Song AI / Suno Alternatives · Кома · локальный creative AI pipeline.
+
+NEXT:
+Поставить минимальную 2B/turbo конфигурацию и сделать одинаковый prompt/lyrics benchmark против Suno: качество вокала, структура песни, русский/украинский текст, время генерации и VRAM.
+
+---
+
+### ASLP-lab/DiffRhythm
+
+URL: https://github.com/ASLP-lab/DiffRhythm
+VERDICT: KEEP
+SCORE: 35
+STARS: 2332
+
+WHAT:
+Open-source full-song generation research/model line из ASLP-lab. Radar рассматривает официальный upstream как канонический reference candidate для lyrics-conditioned song generation.
+
+FIT:
+Полезен как четвёртая независимая архитектурная линия рядом с ACE-Step, YuE и HeartMuLa — прежде всего для сравнения подходов к ритму, lyrics conditioning и длинной генерации.
+
+PROJECT:
+Full-Song AI / Suno Alternatives · research/reference.
+
+NEXT:
+Перед deployment отдельно разобрать текущий upstream, hardware requirements и качество актуальных checkpoints; после этого включить в общий benchmark четырёх моделей.
+
+---
+
+### HeartMuLa/heartlib
+
+URL: https://github.com/HeartMuLa/heartlib
+VERDICT: KEEP
+SCORE: 35
+STARS: 3836
+
+WHAT:
+Семейство open-source music foundation models. HeartMuLa генерирует музыку по lyrics + tags, поддерживает множество языков; рядом идут HeartCodec, lyrics transcriptor и audio-text embedding model HeartCLAP.
+
+FIT:
+Интересен как более модульная альтернатива Suno: отдельно song model, codec, transcription и retrieval/alignment. Открытая 3B версия запускается локально; upstream также развивает более крупную 7B линию.
+
+PROJECT:
+Full-Song AI / Suno Alternatives · music AI experiments.
+
+NEXT:
+Сравнить 3B с ACE-Step на одинаковом lyrics/style prompt. Особенно проверить языковую управляемость, вокал и стабильность длинной структуры.
+
+---
+
+### multimodal-art-projection/YuE
+
+URL: https://github.com/multimodal-art-projection/YuE
+VERDICT: KEEP
+SCORE: 35
+STARS: 6375
+
+WHAT:
+Open-source lyrics2song foundation model. Генерирует многоминутные законченные песни с вокальной и инструментальной дорожками; поддерживает разные языки, жанры, vocal techniques, reference-song ICL и LoRA.
+
+FIT:
+Очень чистый эталон именно задачи text/lyrics → song. Главный минус — тяжёлый inference: полноценные длинные песни требуют существенно больше GPU, чем ACE-Step.
+
+PROJECT:
+Full-Song AI / Suno Alternatives · benchmark/reference.
+
+NEXT:
+Не разворачивать первым. Использовать как quality/reference benchmark; отдельно проверить облегчённые YuE runtimes/UI для 24 GB и меньшего VRAM.
+
+---
+
+## BUCKET: Infographics / Visual Storytelling
+
+Cards: 13
+
+### agno-agi/vibe-video
+
+URL: https://github.com/agno-agi/vibe-video
+VERDICT: KEEP
+SCORE: 30
+STARS: —
+
+WHAT:
+Multi-agent pipeline для производства коротких motion-graphics видео из natural-language запроса.
+
+Архитектура разделена на специализированные роли:
+
+- Team Leader — координация;
+- Researcher — web research;
+- CodeExplorer — read-only исследование Git-репозиториев;
+- Animator — сценарий анимации, HTML/GSAP композиция и render.
+
+Финальная композиция создаётся через Hyperframes и рендерится в MP4.
+
+FIT:
+В отличие от очередной фабрики «viral shorts», здесь интересен сам производственный pipeline:
+
+`research → structured brief → programmable animation → lint → render → iteration`
+
+Можно использовать как референс или основу для:
+
+- OSINT explainers;
+- видеоприложений к расследованиям;
+- Structural Risk visual briefs;
+- обучающих материалов;
+- OSINT-курса;
+- технических объяснялок;
+- автоматизированных видеодайджестов.
+
+Особенно интересен режим, когда CodeExplorer читает конкретный GitHub repo, а затем система делает визуальное объяснение его устройства.
+
+PROJECT:
+- Infographics / Visual Storytelling
+- Video Production
+- OSINT Course
+- Structural Risk Memo
+- automated explainers
+
+NEXT:
+Дать один реальный материал:
+
+1. короткий OSINT-кейс;
+2. briefing;
+3. 30–45 секунд;
+4. проверить factual fidelity;
+5. проверить визуальное качество;
+6. оценить, насколько просто вручную докручивать Hyperframes output.
+
+---
+
+### CodingFeng101/CanvasAnvil
+
+URL: https://github.com/CodingFeng101/CanvasAnvil
+VERDICT: KEEP
+SCORE: 40
+STARS: 90
+
+WHAT:
+CanvasAnvil is an AI multi-canvas creation platform for flowcharts, interior design, presentations, posters, infographics, and product storytelling.
+
+FIT:
+chart, diagram, infographic, infographics, infographics/visual storytelling fit, stars>=20, svg, visual storytelling
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### graphieros/vue-data-ui
+
+URL: https://github.com/graphieros/vue-data-ui
+VERDICT: KEEP
+SCORE: 51
+STARS: 2424
+
+WHAT:
+An open source user-empowering data visualization Vue 3 components library for eloquent data storytelling
+
+FIT:
+chart, data storytelling, data visualization, infographic, infographics, infographics/visual storytelling fit, map, stars>=1000
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### nolangz/data2motion
+
+URL: https://github.com/nolangz/data2motion
+VERDICT: KEEP
+SCORE: 40
+STARS: 83
+
+WHAT:
+—
+
+FIT:
+chart, data storytelling, infographic, infographics, infographics/visual storytelling fit, stars>=20, svg, visual storytelling
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### Anil-matcha/vox-ai-motion-graphics-generator
+
+URL: https://github.com/Anil-matcha/vox-ai-motion-graphics-generator
+VERDICT: WATCH
+SCORE: 33
+STARS: 102
+
+WHAT:
+🎬 Turn any topic into a finished Vox-style paper-collage explainer / motion graphics video — script, collage keyframes, animation, voice-over, music & captions, all automated. An agent skill for Claude Code, Codex & other coding agents.
+
+FIT:
+explainer graphics, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+
+PROJECT:
+Video production / Shorts / subtitles
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### codevise/pageflow
+
+URL: https://github.com/codevise/pageflow
+VERDICT: WATCH
+SCORE: 33
+STARS: 712
+
+WHAT:
+Multimedia story telling for the web.
+
+FIT:
+infographic, infographics, infographics/visual storytelling fit, scrollytelling, stars>=100, visual storytelling
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### haloshin/ip-diagram-creator
+
+URL: https://github.com/haloshin/ip-diagram-creator
+VERDICT: WATCH
+SCORE: 33
+STARS: 228
+
+WHAT:
+个人 IP 图解创作器：用你的 IP 形象，生成专属内容图解。
+
+FIT:
+diagram, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### iart-ai/motion-skills
+
+URL: https://github.com/iart-ai/motion-skills
+VERDICT: WATCH
+SCORE: 33
+STARS: 309
+
+WHAT:
+50 open-source skills that teach your AI coding agent to make motion graphics, animation & video — kinetic typography, data-viz, explainers, TikTok/Reels, WebGL, Manim. 14 installable packs. By iart.ai, the AI motion agent.
+
+FIT:
+explainer graphics, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+
+PROJECT:
+Video production / Shorts / subtitles
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### markdown-viewer/markdown-viewer-extension
+
+URL: https://github.com/markdown-viewer/markdown-viewer-extension
+VERDICT: WATCH
+SCORE: 31
+STARS: 1738
+
+WHAT:
+Markdown to perfect Word in one click — Mermaid, Vega, drawio, canvas, Infographic, Graphviz, LaTeX (editable), code highlighting, local processing
+
+FIT:
+infographic, infographics, infographics/visual storytelling fit, stars>=1000, visual storytelling
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### rdmurphy/scroller
+
+URL: https://github.com/rdmurphy/scroller
+VERDICT: WATCH
+SCORE: 33
+STARS: 181
+
+WHAT:
+📜 A super-tiny library for your scrollytelling needs.
+
+FIT:
+infographic, infographics, infographics/visual storytelling fit, scrollytelling, stars>=100, visual storytelling
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### squirrelsquirrel78/react-scrollama
+
+URL: https://github.com/squirrelsquirrel78/react-scrollama
+VERDICT: WATCH
+SCORE: 33
+STARS: 405
+
+WHAT:
+Simple scrollytelling with the IntersectionObserver in React.
+
+FIT:
+infographic, infographics, infographics/visual storytelling fit, scrollytelling, stars>=100, visual storytelling
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### vgshenoy/vue-scrollama
+
+URL: https://github.com/vgshenoy/vue-scrollama
+VERDICT: WATCH
+SCORE: 33
+STARS: 475
+
+WHAT:
+Vue 3 component to setup scroll-driven interactions (aka scrollytelling)
+
+FIT:
+infographic, infographics, infographics/visual storytelling fit, scrollytelling, stars>=100, visual storytelling
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### ZCZHAO-1999/shakespeare-writing-studio
+
+URL: https://github.com/ZCZHAO-1999/shakespeare-writing-studio
+VERDICT: WATCH
+SCORE: 33
+STARS: 200
+
+WHAT:
+Agent-ready writing studio for Chinese WeChat articles, English essays, research writing, human voice editing, source-bound data storytelling, and statistical graphics.
+
+FIT:
+data storytelling, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+
+PROJECT:
+Infographics / Visual Storytelling
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+## BUCKET: Interactive Reports / Data Apps
+
+Cards: 5
+
+### observablehq/framework
+
+URL: https://github.com/observablehq/framework
+VERDICT: KEEP
+SCORE: 78
+STARS: 3557
+
+WHAT:
+A static site generator for data apps, dashboards, reports, and more. Observable Framework combines JavaScript on the front-end for interactive graphics with any language on the back-end for data analysis.
+
+FIT:
+static site generator для data apps, dashboards, reports; ключевой кандидат для интерактивных отчётов
+
+PROJECT:
+Interactive Evidence Reports / OSINT Signal / Horizon
+
+NEXT:
+сделать мини-прототип отчёта из CSV/YAML в интерактивный HTML
+
+---
+
+### avitorio/outstatic
+
+URL: https://github.com/avitorio/outstatic
+VERDICT: WATCH
+SCORE: 33
+STARS: 3155
+
+WHAT:
+Outstatic - A Static Site CMS for Markdown. A dashboard to write, edit, and publish Markdown and MDX stored in your GitHub repository.
+
+FIT:
+dashboard, data app, interactive report, report, stars>=1000, static site
+
+PROJECT:
+Interactive Reports / Data Apps
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### drasimwagan/mdv
+
+URL: https://github.com/drasimwagan/mdv
+VERDICT: WATCH
+SCORE: 30
+STARS: 501
+
+WHAT:
+MDV — a Markdown superset for documents, dashboards, and slides with embedded data and visualizations. HTML + PDF export, live preview, VS Code extension.
+
+FIT:
+Markdown superset для documents, dashboards, slides; HTML/PDF export
+
+PROJECT:
+Publishing / Interactive Reports
+
+NEXT:
+проверить как lightweight Markdown → dashboard/report инструмент
+
+---
+
+### holoviz/panel
+
+URL: https://github.com/holoviz/panel
+VERDICT: WATCH
+SCORE: 28
+STARS: 5723
+
+WHAT:
+Panel: The powerful data exploration & web app framework for Python
+
+FIT:
+Python framework для data exploration и web apps
+
+PROJECT:
+Interactive Reports / Data Apps
+
+NEXT:
+держать как альтернативу Observable, особенно если backend/data analysis на Python
+
+---
+
+### ntamero/globalpulse
+
+URL: https://github.com/ntamero/globalpulse
+VERDICT: WATCH
+SCORE: 32
+STARS: 22
+
+WHAT:
+Real-Time World Intelligence Dashboard — AI-powered news monitoring, OSINT, live TV/radio, interactive maps, event timelines. 200+ sources, 13 languages, self-hosted with Docker.
+
+FIT:
+dashboard, data app, interactive report, map, report, stars>=20, timeline
+
+PROJECT:
+coma.fm / Audio-Radio stack
+
+NEXT:
+проверить Docker/локальный запуск и порты
+
+---
+
+## BUCKET: Lancelot / Agent Infrastructure
+
+Cards: 19
+
+### askalf/redstamp
+
+URL: https://github.com/askalf/redstamp
+VERDICT: KEEP
+SCORE: 35
+STARS: 5
+
+WHAT:
+Deterministic offline firewall for AI-agent tool calls. Policy decisions are made outside the model before dangerous operations execute.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: security, mcp, tools, permissions, bridge
+
+USE FOR LANCELOT:
+Reference architecture for a deterministic execution firewall. Возможная цель — собственный узкий policy gate перед опасными capabilities, а не прямое копирование всего продукта.
+
+---
+
+### fu351/Doberman-Core
+
+URL: https://github.com/fu351/Doberman-Core
+VERDICT: KEEP
+SCORE: 35
+STARS: 206
+
+WHAT:
+Runtime authorization/guardrail layer, который стоит прямо на execution path между AI-агентом и инструментами. Каждый вызов получает PASS, AUTH или BLOCK до выполнения.
+
+FIT:
+Очень близок к будущему permission boundary Lancelot: MCP proxy/host hooks, fail-closed поведение, human approval, audit trail и raise-only policy. Полезен именно как исполняемый chokepoint, а не advisory scanner.
+
+PROJECT:
+Lancelot · tool permissions · security · MCP/Bridge governance.
+
+NEXT:
+Сравнить Doberman с Prismor и HOL Guard по enforcement point, approval lifecycle, fail-closed semantics и audit model. Вытащить один общий контракт для Lancelot tool gateway.
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: security, mcp, observability
+
+USE FOR LANCELOT:
+Заимствовать execution-gate модель: ни один чувствительный tool/Bridge call не исполняется до PASS/AUTH/BLOCK решения; неизвестность должна приводить к approval/deny, а не к pass.
+
+---
+
+### guyowen/typegraph-mcp
+
+URL: https://github.com/guyowen/typegraph-mcp
+VERDICT: KEEP
+SCORE: 32
+STARS: 12
+
+WHAT:
+MCP server for type-aware TypeScript navigation and semantic code analysis.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+LANCELOT:
+Score: 8/10
+Tier: HIGH
+Tags: mcp, typescript, tools, codegraph
+
+USE FOR LANCELOT:
+Potential semantic TypeScript navigation capability. Сначала проверить, что даёт сверх существующего read/grep и codegraph tooling.
+
+---
+
+### hashgraph-online/hol-guard
+
+URL: https://github.com/hashgraph-online/hol-guard
+VERDICT: KEEP
+SCORE: 35
+STARS: 432
+
+WHAT:
+Local-first runtime security layer для AI agents, tools, skills, MCP servers и package installs. Может allow, block или отправлять неоднозначное действие на human approval и записывает security receipts.
+
+FIT:
+Это хороший архитектурный reference для того слоя, который должен стоять между решением Lancelot и реальным tool/Bridge execution: policy, injection defense, approvals, supply-chain checks и audit trail.
+
+PROJECT:
+Lancelot / security · tool permissions · Bridge · Skills.
+
+NEXT:
+Не тащить Python runtime в Worker. Разобрать policy model, risk classification, approval receipts и supply-chain scanner и перенести минимальный контракт в TypeScript.
+
+LANCELOT:
+Score: 8/10
+Tier: HIGH
+Tags: mcp, security
+
+USE FOR LANCELOT:
+Взять deny/allow/review policy boundary перед MCP, Skills и Camelot Bridge. Добавить проверку prompt/tool injection и сохранять структурированный receipt каждого разрешённого или заблокированного опасного действия.
+
+---
+
+### iosrxwy/skillint
+
+URL: https://github.com/iosrxwy/skillint
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Практически eslint для SKILL.md/AGENTS.md: inventory, spec/frontmatter diagnostics, conflict resolution, security audit, context-size estimates, provenance/update management и pre-install scanning чужих skill repositories.
+
+FIT:
+Почти готовая hygiene subsystem для будущего Skills слоя Lancelot. Полезнее писать собственный валидатор с нуля: можно проверять каталог, supply-chain риски и размер контекста до того, как skill попадёт агенту.
+
+PROJECT:
+Lancelot / Agent Skills · supply-chain · validation.
+
+NEXT:
+Прогнать read-only scan на будущем каталоге skills Lancelot и сравнить его модель discovery/resolution с нашим loader.
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: skills, mcp, security
+
+USE FOR LANCELOT:
+Использовать как внешний lint/audit gate для SKILL.md: валидировать metadata, ловить injection/destructive patterns, контролировать дубли и context bloat до установки skill.
+
+---
+
+### ismailexe/nexus-team-agent
+
+URL: https://github.com/ismailexe/nexus-team-agent
+VERDICT: KEEP
+SCORE: 35
+STARS: 1
+
+WHAT:
+Модульная агентная платформа на Cloudflare Workers. Per-user Durable Objects с SQLite, streaming harness, dynamic tool registry, MCP over HTTP, memory summarization, approval для чувствительных tools и Telegram webhook.
+
+FIT:
+Практически контрольный организм для Lancelot: тот же serverless/edge класс, persistent state, tools, memory, MCP и Telegram. Особенно ценно, что механизмы разделены на небольшие переносимые слои.
+
+PROJECT:
+Lancelot / runtime · tools · memory · MCP · Telegram.
+
+NEXT:
+Разобрать отдельно Nexus Harness, Tool Registry, memory summarization и approval flow. Не переносить приложение целиком — сравнить каждый механизм с текущим Lancelot.
+
+LANCELOT:
+Score: 8/10
+Tier: HIGH
+Tags: cloudflare, mcp, telegram
+
+USE FOR LANCELOT:
+В первую очередь взять архитектуру dynamic Tool Registry + approval gates и сравнить per-user Durable Object / memory summarization с текущим workspace и памятью Lancelot. Telegram webhook использовать как второй reference для существующего интерфейса.
+
+---
+
+### kohen-mahler/personal-mcp
+
+URL: https://github.com/kohen-mahler/personal-mcp
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Локальный StreamableHTTP MCP server для Obsidian vaults с read/write/append/patch/search tools и явной границей между пользовательским vault и AI-maintained wiki.
+
+FIT:
+Особенно ценна архитектура ownership: активный workspace пользователя агент меняет только по прямому указанию, а собственный knowledge substrate может читать и пополнять автономно. Есть path-traversal protection и atomic writes.
+
+PROJECT:
+Lancelot · persistent workspace · memory · MCP filesystem.
+
+NEXT:
+Сравнить vault/wiki boundary с нашими context blocks и workspace filesystem. Заимствовать ownership/permission семантику, а не сам Obsidian-specific stack.
+
+LANCELOT:
+Score: 8/10
+Tier: HIGH
+Tags: mcp, memory, security
+
+USE FOR LANCELOT:
+Разделить persistent data Lancelot на user-owned workspace и agent-owned knowledge substrate с разными write policies; для targeted edits использовать patch вместо полной перезаписи.
+
+---
+
+### letta-ai/letta-code
+
+URL: https://github.com/letta-ai/letta-code
+VERDICT: KEEP
+SCORE: 35
+STARS: 2995
+
+WHAT:
+Stateful agent harness из экосистемы создателей MemGPT. Агенты имеют долговременную память и identity, могут эволюционировать через memory/skills, запускать subagents, работать через messaging channels и жить во времени.
+
+FIT:
+Один из наиболее прямых архитектурных сравнительных объектов для Lancelot: memory lifecycle, skills, subagents, hooks, permissions, Telegram/custom channels, heartbeats/crons и remote execution environments собраны в одном harness.
+
+PROJECT:
+Lancelot / architecture reference · memory · skills · subagents · scheduling · messaging.
+
+NEXT:
+Сделать architecture diff Letta Code ↔ Lancelot по памяти, skills lifecycle, scheduling, permissions и remote environments. Не мигрировать на Letta; использовать как donor/reference.
+
+LANCELOT:
+Score: 10/10
+Tier: HIGH
+Tags: memory, skills, subagents, telegram, scheduler, automation, security
+
+USE FOR LANCELOT:
+Разобрать self-managed memory + skill learning, async/sync subagents, heartbeat/cron model и permission modes. Особенно сравнить remote environments с будущим ограниченным Bridge Lancelot → Camelot.
+
+---
+
+### luckyPipewrench/pipelock
+
+URL: https://github.com/luckyPipewrench/pipelock
+VERDICT: KEEP
+SCORE: 35
+STARS: 786
+
+WHAT:
+Open-source AI agent firewall, который ставится между агентом и внешней сетью. Инспектирует mediated HTTP, WebSocket, MCP и A2A traffic на secret exfiltration, prompt injection, SSRF, tool poisoning и опасные цепочки вызовов. Помимо allow/block решений умеет выпускать криптографически подписанные action receipts и строить offline evidence report.
+
+FIT:
+Закрывает другой уровень, чем MCPProxy: не выбор инструмента, а фактический egress агента. Для Lancelot особенно ценны signed receipts, потому что дают evidence вне собственного agent transcript. Связка Lancelot session log + MCP activity + Pipelock receipts может дать нормальный reconstructable audit trail.
+
+PROJECT:
+Lancelot / Agent Infrastructure · egress security · verifiable audit · network boundary.
+
+NEXT:
+Не ставить сразу в рабочий контур. Сначала запустить community demo в отдельной среде, проверить создание и offline verification signed receipts. После этого протестировать audit mode на тестовом агенте и посмотреть, какие реальные действия остаются вне mediated boundary.
+
+LANCELOT:
+Score: 10/10
+Tier: HIGH
+Tags: security, network, mcp, observability, audit
+
+USE FOR LANCELOT:
+Рассматривать как внешний security/evidence boundary после Lancelot и его tool layer. Главный pattern — решение о сетевом действии фиксируется и подписывается компонентом вне agent runtime. Использовать этот подход для доказуемого журнала outbound actions и eventual Bridge → Camelot.
+
+---
+
+### NevaMind-AI/memU
+
+URL: https://github.com/NevaMind-AI/memU
+VERDICT: KEEP
+SCORE: 35
+STARS: 14100
+
+WHAT:
+Лёгкая shared-memory система между сессиями, агентами и устройствами. Помимо хранения/retrieval памяти умеет превращать историю agent sessions в reusable Markdown skills: разбивает историю на jobs, агент решает создать новый skill, обновить существующий или ничего не делать, после чего результат индексируется для будущего retrieval. Есть local SQLite и Postgres/pgvector варианты.
+
+FIT:
+Интересен не как замена operational state Lancelot, а как donor для отсутствующего у нас learning loop: успешные повторяемые процедуры из session history могут становиться кандидатами в долговременные skills.
+
+PROJECT:
+Lancelot / Agent Infrastructure · long-term memory · session-to-skill learning.
+
+NEXT:
+Сделать architecture diff memU ↔ текущая память Lancelot. Отдельно разобрать host adapters, session slicing, retrieval injection и skill evolution. Первый prototype делать только на копии session logs; никакого автоматического переписывания активных инструкций.
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: memory, skills, automation, cross-agent, retrieval
+
+USE FOR LANCELOT:
+Заимствовать controlled session → candidate procedure → reusable skill loop, но добавить более жёсткую дисциплину: synthesis создаёт только candidate, затем SkillSpector/security review и explicit PROMOTE. Think/Durable Object operational state не заменять memU-подобной памятью.
+
+---
+
+### NVIDIA/SkillSpector
+
+URL: https://github.com/NVIDIA/SkillSpector
+VERDICT: KEEP
+SCORE: 35
+STARS: 14300
+
+WHAT:
+Security scanner NVIDIA для Agent Skills до их установки. Принимает Git repositories, URLs, ZIP, directories и отдельные SKILL.md; делает static analysis и опциональный semantic LLM pass. Проверяет prompt injection, data exfiltration, privilege escalation, memory poisoning, dangerous code, MCP least privilege/tool poisoning и другие supply-chain риски. Есть JSON, Markdown, SARIF, risk score и baseline известных findings.
+
+FIT:
+Практически готовый pre-install gate для нашего Agent Skills слоя. Особенно хорошо ложится на GitRadar: найденный skill не должен автоматически становиться доступным Lancelot только потому, что выглядит полезным.
+
+PROJECT:
+Lancelot / Agent Infrastructure · Agent Skills supply chain · pre-install security gate.
+
+NEXT:
+Сделать Docker/static-only smoke на небольшой контрольной выборке: несколько наших известных skills и несколько внешних кандидатов. Измерить false positives и качество finding explanations. До калибровки использовать как review gate, а не автоматический hard block.
+
+LANCELOT:
+Score: 10/10
+Tier: HIGH
+Tags: skills, security, mcp, supply-chain
+
+USE FOR LANCELOT:
+Встроить модель candidate skill → SkillSpector scan → review → PROMOTE. Никакой внешний SKILL.md не должен автоматически переходить из Radar/интернета в active Lancelot skills. После калибровки можно сделать этот gate обязательной частью promotion pipeline.
+
+---
+
+### optave/ops-codegraph-tool
+
+URL: https://github.com/optave/ops-codegraph-tool
+VERDICT: KEEP
+SCORE: 35
+STARS: 87
+
+WHAT:
+Fully-local code intelligence layer: строит function-level dependency graph по кодовой базе, хранит его в SQLite и выдаёт через CLI, API, CI gates и MCP.
+
+FIT:
+Даёт Lancelot структурное представление репозитория вместо дорогого чтения файлов вслепую: callers, dependencies, blast radius изменений, dead code, boundaries, complexity и git-aware impact analysis.
+
+PROJECT:
+Lancelot · repo/code intelligence · GitHub research · agent-assisted development.
+
+NEXT:
+Поставить на копии небольшого TypeScript-проекта и сравнить MCP context consumption с обычными grep/read инструментами. Особенно проверить diff-impact и architecture boundaries.
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: mcp, github, research
+
+USE FOR LANCELOT:
+Использовать как локальную карту кода перед чтением и изменениями: Lancelot сначала получает callers/dependencies/impact через graph, а уже затем открывает только нужные файлы.
+
+---
+
+### PrismorSec/prismor
+
+URL: https://github.com/PrismorSec/prismor
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Self-hosted runtime security/control layer для AI agents. Перехватывает agent actions и tool calls, применяет policy, может observe, block или отправить действие на human approval.
+
+FIT:
+Сильный reference для границы между решением Lancelot и реальным исполнением tools/MCP/Bridge: policy engine, MCP gateway, prompt-injection checks, capability tags, IAM, audit trail и supply-chain controls.
+
+PROJECT:
+Lancelot / security · MCP · permissions · Bridge governance.
+
+NEXT:
+Сравнить с HOL Guard по четырём слоям: tool interception, MCP gateway, approval model и audit receipts. Не тащить оба стека целиком — выбрать лучшие контракты.
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: security, mcp, observability
+
+USE FOR LANCELOT:
+Взять policy boundary перед MCP/Skills/Camelot Bridge: observe → allow/block/review, capability-based tool rules, сканирование tool results на injection и проверяемый audit trail.
+
+---
+
+### rahilp/second-brain-cloudflare
+
+URL: https://github.com/rahilp/second-brain-cloudflare
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Cloudflare-native Second Brain for storing and retrieving knowledge across AI tools through MCP.
+
+The architecture combines Cloudflare Workers with durable structured storage, semantic retrieval and AI-assisted memory workflows.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+LANCELOT:
+Score: 10/10
+Tier: HIGH
+Tags: memory, cloudflare, mcp, rag, vectorize, d1, workers-ai
+
+USE FOR LANCELOT:
+ADOPT candidate.
+
+Использовать как возможный штатный long-term semantic memory layer Lancelot, но не заменять им Think/Durable Object operational state.
+
+Radar study material не должен автоматически попадать в Second Brain: только через explicit PROMOTE.
+
+---
+
+### rodolfboctor/mcp-scan
+
+URL: https://github.com/rodolfboctor/mcp-scan
+VERDICT: KEEP
+SCORE: 35
+STARS: 23
+
+WHAT:
+Open-source security scanner for MCP configurations and server integrations.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: security, mcp, skills, tools, supply-chain
+
+USE FOR LANCELOT:
+Reference for MCP admission scanning before promotion into trusted capabilities. Не считать сам факт успешного scan достаточным разрешением на установку или execution.
+
+---
+
+### rzem-ai/agent-memory
+
+URL: https://github.com/rzem-ai/agent-memory
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Long-term agent memory как MCP server поверх Postgres + pgvector. Разделяет собственные thoughts и внешний documents corpus, а поиск объединяет semantic similarity, freshness и quality.
+
+FIT:
+Нам интересен прежде всего не Postgres backend, а сам контракт памяти: capture, dedup, superseding старых фактов, единый ranked recall, credential namespaces и различение internal/external memory.
+
+PROJECT:
+Lancelot / long-term memory · retrieval · MCP.
+
+NEXT:
+Сопоставить алгоритм capture/search с текущей памятью Lancelot и выделить переносимые правила без обязательного переноса pgvector-инфраструктуры.
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: mcp, memory
+
+USE FOR LANCELOT:
+Взять модель thoughts + documents и composite ranking (semantic relevance + freshness + quality), а также dedup/supersede при записи. Особенно полезна идея taint/provenance: собственная память агента и внешние документы не должны иметь одинаковый trust level.
+
+---
+
+### smart-mcp-proxy/mcpproxy-go
+
+URL: https://github.com/smart-mcp-proxy/mcpproxy-go
+VERDICT: KEEP
+SCORE: 35
+STARS: 304
+
+WHAT:
+Локальный MCP gateway и federation layer перед множеством MCP-серверов. Вместо загрузки сотен tool schemas агент сначала ищет нужные инструменты через progressive discovery, получает описание только выбранных tools, а вызовы разделяются по intent на read / write / destructive. Есть quarantine, approvals, sensitive-data detection, activity log и preflight для unattended automation.
+
+FIT:
+Очень прямой кандидат в donor для tool layer Lancelot. Закрывает сразу discovery, context bloat, permissions, quarantine, audit и безопасный запуск большого набора MCP-инструментов. Особенно интересен как единая policy boundary между Lancelot и внешними MCP servers.
+
+PROJECT:
+Lancelot / Agent Infrastructure · MCP routing · permissions · tool discovery · audit.
+
+NEXT:
+Сделать architecture diff MCPProxy ↔ текущий tool layer Lancelot. Отдельно разобрать progressive discovery, read/write/destructive intent, approval fingerprints, quarantine, prompt/tool rug-pull detection, preflight и request correlation. Затем поднять изолированный pilot с двумя тестовыми MCP-серверами; не заменять текущий runtime до сравнения.
+
+LANCELOT:
+Score: 10/10
+Tier: HIGH
+Tags: mcp, security, permissions, observability, tool-routing
+
+USE FOR LANCELOT:
+Главный donor для будущего bounded MCP layer. Заимствовать progressive tool discovery вместо загрузки полного tool surface, явную классификацию read/write/destructive, quarantine новых и изменившихся capabilities, preflight для cron/automation и единый activity trail. Особенно проверить сегодняшнюю модель baseline/rug-pull detection для изменившихся MCP prompts и tools.
+
+---
+
+### snyk/agent-scan
+
+URL: https://github.com/snyk/agent-scan
+VERDICT: KEEP
+SCORE: 35
+STARS: 2500
+
+WHAT:
+Scanner Snyk для inventory и security audit уже установленных agent components: harnesses, MCP servers, tools, prompts, resources и skills. Автоматически обнаруживает конфигурации популярных agent hosts и ищет prompt injection, tool poisoning, sensitive-data risks, malicious payloads и другие проблемы.
+
+FIT:
+Дополняет SkillSpector с другой стороны жизненного цикла: SkillSpector полезнее до установки, Agent Scan — как периодический аудит того, что уже появилось на машине и могло измениться после установки.
+
+PROJECT:
+Lancelot / Agent Infrastructure · installed component inventory · periodic MCP/skill audit.
+
+NEXT:
+Тестировать только в sandbox/VM. При анализе stdio MCP конфигураций Agent Scan может запускать указанные в них server commands, поэтому не делать первый эксперимент на рабочем Camelot. Сравнить findings и coverage со SkillSpector.
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: security, skills, mcp, inventory
+
+USE FOR LANCELOT:
+Потенциальный scheduled auditor для установленного agent supply chain: обнаруживать новые/изменившиеся skills и MCP servers и отправлять их на review. Не использовать как единственную security boundary и не запускать непроверенные MCP configs на основном host.
+
+---
+
+### thomasgauvin/buzz-cf-agents
+
+URL: https://github.com/thomasgauvin/buzz-cf-agents
+VERDICT: KEEP
+SCORE: 35
+STARS: 10
+
+WHAT:
+Always-on remote agent на Cloudflare Workers. Использует @cloudflare/think; каждый thread получает persistent ThinkAgent session. Lifecycle держат Durable Objects, а tools намеренно ограничены.
+
+FIT:
+Самый близкий к текущему Lancelot reference именно по runtime: Workers + Agents + Think + persistent session. Особенно интересна модель always-on агента без локального процесса и без unrestricted filesystem/shell.
+
+PROJECT:
+Lancelot / Cloudflare runtime · Think · lifecycle · security.
+
+NEXT:
+Сделать code-diff архитектуры Buzz ThinkAgent и текущего Lancelot: lifecycle, persistence, turn loop, tool boundary и механизм получения фоновых событий.
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: cloudflare
+
+USE FOR LANCELOT:
+Взять реализацию persistent per-thread @cloudflare/think agent и bounded-tool boundary. Это прямой reference для долгоживущих сессий Lancelot и будущего ограниченного Bridge к Camelot.
+
+---
+
+## BUCKET: Media / Social Monitoring
+
+Cards: 3
+
+### 0xzerolight/topic_watch
+
+URL: https://github.com/0xzerolight/topic_watch
+VERDICT: KEEP
+SCORE: 0
+STARS: —
+
+WHAT:
+Self-hosted news monitor, который ведёт rolling knowledge state отдельно для каждой темы.
+
+Новая статья сравнивается не только с ключевыми словами, а с тем, что по теме уже известно. Если она повторяет уже известное — система молчит. Если добавляет новую информацию — обновляет state и создаёт alert.
+
+FIT:
+Это решает одну из главных проблем мониторинга: десять публикаций одного и того же инфоповода не должны выглядеть как десять новых событий.
+
+Есть importance scoring, revisions/diff knowledge state, feed health, webhooks, retry queue, OPML/JSON/CSV и уведомления через Apprise.
+
+Поддерживает LiteLLM и локальный Ollama.
+
+PROJECT:
+Media Monitoring / OSINT Signal как novelty и event-state layer поверх collection.
+
+NEXT:
+Проверить модель knowledge state на нашем потоке публикаций и определить, насколько хорошо она разделяет новое событие, развитие события и обычную перепечатку.
+
+---
+
+### moguiyu/NewsPrism
+
+URL: https://github.com/moguiyu/NewsPrism
+VERDICT: KEEP
+SCORE: 0
+STARS: —
+
+WHAT:
+Self-hosted news-analysis pipeline, который собирает материалы из множества источников, дедуплицирует их и группирует по реальным событиям.
+
+Дальше система сравнивает, как разные издания освещают одно событие, оценивает значимость, строит развивающиеся storylines и публикует отчёт.
+
+FIT:
+Наиболее интересен не сбор, а слой после него:
+
+collect → dedup → event cluster → quality/impact → perspectives → storyline → report.
+
+Есть редакторская обратная связь: оценки редактора могут корректировать веса и persistent editorial policy.
+
+PROJECT:
+Media Monitoring, OSINT Signal и аналитические продукты типа Structural Risk Memo.
+
+NEXT:
+Разобрать event identity/clustering, cross-source comparison и calibration loop. Рассматривать как архитектурного донора, а не как немедленную замену нашего monitoring stack.
+
+---
+
+### obris-dev/openmagpie
+
+URL: https://github.com/obris-dev/openmagpie
+VERDICT: KEEP
+SCORE: 17
+STARS: —
+
+WHAT:
+Self-hosted social listening / monitoring system.
+
+Текущий shipped-контур собирает Reddit, Hacker News и RSS/Atom в reusable feeds. Watches подписываются на feeds и пропускают новые элементы через action chain: semantic filter → webhook или log.
+
+Relevance engine работает через OpenAI-compatible API, включая Ollama, vLLM, llama.cpp и LM Studio.
+
+FIT:
+Очень чистое разделение:
+
+source → feed → watch → filter → delivery.
+
+Один feed может обслуживать несколько watches, поэтому источник не нужно повторно опрашивать для каждого правила.
+
+Полезны также instant/digest delivery и audit каждой попытки доставки.
+
+PROJECT:
+Media Monitoring и OSINT Signal.
+
+Не как обязательная замена существующего pipeline, а как сильный архитектурный референс для collection/filter/delivery слоя.
+
+NEXT:
+Разобрать модели Feed, Watch, WatchAction и WatchActionDelivery и сравнить с нашим текущим pipeline.
+
+---
+
+## BUCKET: Media Kits / Brand Automation
+
+Cards: 1
+
+### open-xml-templating/docxtemplater
+
+URL: https://github.com/open-xml-templating/docxtemplater
+VERDICT: KEEP
+SCORE: 58
+STARS: 3608
+
+WHAT:
+Generate docx, pptx, and xlsx from templates (Word, Powerpoint and Excel documents), from Node.js or the browser. Demo: https://www.docxtemplater.com/demo. #docx #office #generator #templating #report #json #generate #generation #template #create #pptx #docx #xlsx #react #vuejs #angularjs #browser #typescript #image #html #table #chart
+
+FIT:
+генерация docx/pptx/xlsx из шаблонов
+
+PROJECT:
+Media Kits / Brand Automation
+
+NEXT:
+оценить для медиакитов, писем, CRM exports
+
+---
+
+## BUCKET: Mixing / Mastering / Audio Engineering
+
+Cards: 9
+
+### DropSnorz/OwlPlug
+
+URL: https://github.com/DropSnorz/OwlPlug
+VERDICT: KEEP
+SCORE: 38
+STARS: 499
+
+WHAT:
+Audio plugin manager. Desktop application to manage VST / AU / LV2 plugins on Windows, MacOS and Linux.
+
+FIT:
+audio plugin, lv2, mastering, mixing, mixing/mastering/audio engineering fit, stars>=100, vst
+
+PROJECT:
+Mixing / Mastering / Audio Engineering
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### juce-framework/JUCE
+
+URL: https://github.com/juce-framework/JUCE
+VERDICT: KEEP
+SCORE: 41
+STARS: 8701
+
+WHAT:
+JUCE is an open-source cross-platform C++ application framework for desktop and mobile applications, including VST, VST3, AU, AUv3, LV2 and AAX audio plug-ins.
+
+FIT:
+audio plugin, lv2, mastering, mixing, mixing/mastering/audio engineering fit, stars>=1000, vst
+
+PROJECT:
+Mixing / Mastering / Audio Engineering
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### nodiscc/awesome-linuxaudio
+
+URL: https://github.com/nodiscc/awesome-linuxaudio
+VERDICT: KEEP
+SCORE: 41
+STARS: 1757
+
+WHAT:
+[mirror] A list of software and resources for professional audio/video/live events production on Linux.
+
+FIT:
+linux audio, lv2, mastering, mixing, mixing/mastering/audio engineering fit, stars>=1000, vst
+
+PROJECT:
+Mixing / Mastering / Audio Engineering
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### nomadkaraoke/python-audio-separator
+
+URL: https://github.com/nomadkaraoke/python-audio-separator
+VERDICT: KEEP
+SCORE: 31
+STARS: 1305
+
+WHAT:
+Python-пакет и CLI для локального разделения аудио на отдельные стемы.
+
+Поддерживает модели семейств MDX-Net, VR Arch, Demucs и MDXC. Может отделять вокал от инструментала, а также извлекать барабаны, бас, пианино, гитару и выполнять отдельные задачи вроде denoise и удаления echo/reverb.
+
+Работает как:
+
+- CLI;
+- Python dependency;
+- Docker-контейнер;
+- CPU inference;
+- NVIDIA CUDA;
+- Apple CoreML;
+- экспериментально DirectML.
+
+FIT:
+Это не ещё одна отдельная GUI-морда, а нормальный компонент аудиоконвейера.
+
+Практические сценарии:
+
+- отделить речь от музыки перед Whisper;
+- очистить интервью и полевые записи;
+- подготовить звук для видео;
+- выделить вокал или инструментал;
+- пакетно обрабатывать аудиофайлы;
+- встроить stem separation в автоматический pipeline.
+
+Особенно полезно как промежуточный слой:
+
+`audio/video → stem separation → speech track → Whisper → transcript`
+
+PROJECT:
+- Radio / Audio Ops
+- Mixing / Mastering / Audio Engineering
+- Video Production / Editing
+- локальный media-processing pipeline
+
+Для GUI-задач уже есть UVR5-UI, но этот проект ценнее именно как CLI/API-компонент и средство автоматизации.
+
+NEXT:
+Провести Docker smoke test на одном реальном материале:
+
+1. vocals/instrumental separation;
+2. проверить качество речевого стема;
+3. прогнать исходник и очищенный стем через Whisper;
+4. сравнить качество транскрипции;
+5. оценить CPU-время и размер моделей.
+
+Если выигрыш по Whisper заметный — закрепить как preprocessing stage.
+
+---
+
+### asteroid-team/asteroid
+
+URL: https://github.com/asteroid-team/asteroid
+VERDICT: WATCH
+SCORE: 31
+STARS: 2579
+
+WHAT:
+The PyTorch-based audio source separation toolkit for researchers
+
+FIT:
+mastering, mixing, mixing/mastering/audio engineering fit, source separation, stars>=1000
+
+PROJECT:
+Mixing / Mastering / Audio Engineering
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### Eddycrack864/UVR5-UI
+
+URL: https://github.com/Eddycrack864/UVR5-UI
+VERDICT: WATCH
+SCORE: 33
+STARS: 709
+
+WHAT:
+Ultimate Vocal Remover 5 with Gradio UI. Separate an audio file into various stems, using multiple models
+
+FIT:
+mastering, mixing, mixing/mastering/audio engineering fit, stars>=100, stem separation, vocal remover
+
+PROJECT:
+coma.fm / Audio-Radio stack
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### lucianodato/noise-repellent
+
+URL: https://github.com/lucianodato/noise-repellent
+VERDICT: WATCH
+SCORE: 33
+STARS: 537
+
+WHAT:
+Lv2 suite of plugins for broadband noise reduction
+
+FIT:
+audio plugin, lv2, mastering, mixing, mixing/mastering/audio engineering fit, stars>=100
+
+PROJECT:
+Mixing / Mastering / Audio Engineering
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### mikeoliphant/neural-amp-modeler-lv2
+
+URL: https://github.com/mikeoliphant/neural-amp-modeler-lv2
+VERDICT: WATCH
+SCORE: 33
+STARS: 513
+
+WHAT:
+Neural Amp Modeler LV2 plugin
+
+FIT:
+audio plugin, lv2, mastering, mixing, mixing/mastering/audio engineering fit, stars>=100
+
+PROJECT:
+Mixing / Mastering / Audio Engineering
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### Mr-Hamza1001/RoomReverb
+
+URL: https://github.com/Mr-Hamza1001/RoomReverb
+VERDICT: WATCH
+SCORE: 33
+STARS: 11
+
+WHAT:
+🔊 Simulate room acoustics with this JUCE-based audio plugin that generates realistic reverb using ray-tracing techniques for improved sound design.
+
+FIT:
+audio plugin, lv2, mastering, mixing, mixing/mastering/audio engineering fit, vst
+
+PROJECT:
+Mixing / Mastering / Audio Engineering
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+## BUCKET: Music Generation / AI Music
+
+Cards: 5
+
+### huggingface/diffusers
+
+URL: https://github.com/huggingface/diffusers
+VERDICT: WATCH
+SCORE: 31
+STARS: 34215
+
+WHAT:
+🤗 Diffusers: State-of-the-art diffusion models for image, video, and audio generation in PyTorch.
+
+FIT:
+ai music, audio generation, music generation, music generation fit, stars>=1000
+
+PROJECT:
+Music Generation / AI Music
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### mudler/LocalAI
+
+URL: https://github.com/mudler/LocalAI
+VERDICT: WATCH
+SCORE: 31
+STARS: 48129
+
+WHAT:
+LocalAI is the open-source AI engine. Run any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.
+
+FIT:
+ai music, music generation, music generation fit, musicgen, stars>=1000
+
+PROJECT:
+Music Generation / AI Music
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### rsxdalv/TTS-WebUI
+
+URL: https://github.com/rsxdalv/TTS-WebUI
+VERDICT: WATCH
+SCORE: 31
+STARS: 3222
+
+WHAT:
+A single Gradio + React WebUI with extensions for ACE-Step, OmniVoice, Kimi Audio, Piper TTS, GPT-SoVITS, CosyVoice, XTTSv2, DIA, Kokoro, OpenVoice, ParlerTTS, Stable Audio, MMS, StyleTTS2, MAGNet, AudioGen, MusicGen, Tortoise, RVC, Vocos, Demucs, SeamlessM4T, and Bark!
+
+FIT:
+ai music, music generation, music generation fit, musicgen, stars>=1000
+
+PROJECT:
+Music Generation / AI Music
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### Stability-AI/stable-audio-tools
+
+URL: https://github.com/Stability-AI/stable-audio-tools
+VERDICT: WATCH
+SCORE: 31
+STARS: 3830
+
+WHAT:
+Generative models for conditional audio generation
+
+FIT:
+ai music, audio generation, music generation, music generation fit, stars>=1000
+
+PROJECT:
+Music Generation / AI Music
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### supercollider/supercollider
+
+URL: https://github.com/supercollider/supercollider
+VERDICT: WATCH
+SCORE: 31
+STARS: 6666
+
+WHAT:
+An audio server, programming language, and IDE for sound synthesis and algorithmic composition.
+
+FIT:
+ai music, algorithmic composition, music generation, music generation fit, stars>=1000
+
+PROJECT:
+Music Generation / AI Music
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+## BUCKET: n8n / Workflow Automation
+
+Cards: 7
+
+### czlonkowski/n8n-mcp
+
+URL: https://github.com/czlonkowski/n8n-mcp
+VERDICT: KEEP
+SCORE: 35
+STARS: 22682
+
+WHAT:
+Canonical MCP layer для n8n: даёт AI-ассистентам структурированные знания о node schemas, operations, docs и workflow templates, а при подключении n8n API — управление живыми workflows и executions.
+
+FIT:
+Это правильный upstream вместо случайных мини-клонов MCP. Особенно ценны node discovery, многоуровневая validation, workflow validation и безопасное программное управление n8n из агентного интерфейса.
+
+PROJECT:
+n8n / Workflow Automation · Lancelot MCP/tooling.
+
+NEXT:
+Поднять локально без production credentials и проверить node search + validation. Затем подключить отдельную тестовую n8n-инстанцию и проверить create/update через копии workflows.
+
+LANCELOT:
+Score: 8/10
+Tier: HIGH
+Tags: mcp, automation
+
+USE FOR LANCELOT:
+Дать Lancelot специализированное знание n8n и validation перед изменением workflows. Любые записи сначала делать только в тестовой копии и после явной проверки diff/backup.
+
+---
+
+### czlonkowski/n8n-skills
+
+URL: https://github.com/czlonkowski/n8n-skills
+VERDICT: KEEP
+SCORE: 35
+STARS: 6044
+
+WHAT:
+Набор Agent Skills для построения и проверки n8n workflows: expressions, node configuration, workflow patterns, validation and related tooling.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+LANCELOT:
+Score: 7/10
+Tier: KEEP
+Tags: skills, n8n, automation, tooling
+
+USE FOR LANCELOT:
+Study domain decomposition, skill routing, validation knowledge and enforcement hooks. Не копировать Claude-specific assumptions автоматически.
+
+---
+
+### DanEvenSegler/n8n-nodes-searxng-tool
+
+URL: https://github.com/DanEvenSegler/n8n-nodes-searxng-tool
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Community node, который подключает SearXNG к n8n и может работать как обычный search node или как Tool для n8n AI Agent.
+
+FIT:
+Очень естественный мост для наших self-hosted research и monitoring workflows: свой SearXNG, категории/engines/time filters и компактный структурированный результат для LLM.
+
+PROJECT:
+n8n · OSINT / Investigations · Media Monitoring · agent research.
+
+NEXT:
+Проверить с локальным SearXNG: обычный workflow search и режим AI Agent Tool. Посмотреть, насколько хорошо сохраняются source URL и provenance.
+
+LANCELOT:
+Score: 5/10
+Tier: WATCH
+Tags: research, automation
+
+USE FOR LANCELOT:
+Возможный research tool через n8n для задач, где нужен self-hosted metasearch и структурированный ответ без подключения отдельного browser stack.
+
+---
+
+### n8n-io/n8n
+
+URL: https://github.com/n8n-io/n8n
+VERDICT: KEEP
+SCORE: 35
+STARS: 200508
+
+WHAT:
+Fair-code платформа для workflow automation и AI agents: визуальный canvas сочетается с JavaScript/Python, self-hosted или cloud deployment и большим каталогом интеграций.
+
+FIT:
+Это anchor для отдельной n8n-экосистемы Radar.
+
+Нас интересует не только сам n8n, а всё, что делает его полезнее как рабочий automation layer:
+
+- community/custom nodes;
+- reusable integrations;
+- качественные workflow packs;
+- MCP и AI-agent bridges;
+- backup, migration и testing;
+- monitoring и observability;
+- deployment/ops tooling.
+
+PROJECT:
+n8n / Workflow Automation
+
+Вторично — automation layer для Lancelot, Media Monitoring, OSINT и внутренних production workflows.
+
+NEXT:
+Использовать официальный репозиторий как positive control для n8n scorer. Новые ecosystem-кандидаты оценивать по самостоятельной технологической ценности, а не по одному наличию слова n8n.
+
+Отдельно учитывать Sustainable Use License / fair-code модель самого n8n.
+
+---
+
+### n8n-io/n8n-nodes-starter
+
+URL: https://github.com/n8n-io/n8n-nodes-starter
+VERDICT: KEEP
+SCORE: 35
+STARS: 1169
+
+WHAT:
+Официальный starter repository для разработки собственных n8n community/custom nodes.
+
+FIT:
+Positive control новой n8n-корзины и правильная исходная точка, когда стандартных nodes не хватает и нам нужно обернуть собственный API, сервис или локальный инструмент в нормальный n8n node.
+
+PROJECT:
+n8n / Workflow Automation · custom integrations.
+
+NEXT:
+Использовать как canonical scaffold при первом собственном n8n node. Не изобретать структуру package/build/test вручную.
+
+---
+
+### stephaneheckel/n8n-nodes-duckdb-quack
+
+URL: https://github.com/stephaneheckel/n8n-nodes-duckdb-quack
+VERDICT: KEEP
+SCORE: 35
+STARS: 2
+
+WHAT:
+Community node для DuckDB: аналитические SQL-запросы прямо в n8n workflow, in-memory или persistent .db, плюс remote Quack mode.
+
+FIT:
+Очень хорошо соединяет наш DuckDB/data-processing контур с automation layer: можно агрегировать и join-ить большие табличные данные внутри workflow вместо Code node и передавать CSV/JSON/Parquet.
+
+PROJECT:
+n8n / Workflow Automation · Data pipelines · DuckDB.
+
+NEXT:
+Проверить локальный :memory: и persistent file mode на Debian-based n8n. Quack пока считать экспериментальным и не делать его обязательной частью архитектуры.
+
+---
+
+### trngthnh369/n8nctl
+
+URL: https://github.com/trngthnh369/n8nctl
+VERDICT: KEEP
+SCORE: 35
+STARS: 1
+
+WHAT:
+CLI в стиле gh/kubectl для управления n8n через REST API. Поддерживает multi-instance profiles, machine-readable output, backup и отдельный offline workflow validator.
+
+FIT:
+Гораздо полезнее очередного community node: даёт агентам и shell automation стабильный интерфейс к workflow lifecycle без управления через canvas. Есть JSON/jq/templates, validation и MCP helpers.
+
+PROJECT:
+n8n / Workflow Automation · Lancelot automation tooling.
+
+NEXT:
+Сделать smoke-test на тестовой n8n-инстанции: login, list, validate, backup. Отдельно оценить validator как CI gate для workflow JSON.
+
+LANCELOT:
+Score: 7/10
+Tier: KEEP
+Tags: automation, mcp, skills
+
+USE FOR LANCELOT:
+Может стать безопасным CLI surface для Lancelot → n8n: машиночитаемые команды, validation до записи и backup перед изменением workflow.
+
+---
+
+## BUCKET: Newsroom / Data Journalism
+
+Cards: 12
+
+### biglocalnews/warn-transformer
+
+URL: https://github.com/biglocalnews/warn-transformer
+VERDICT: KEEP
+SCORE: 65
+STARS: 6
+
+WHAT:
+Consolidate, enrich and republish the data gathered by warn-scraper
+
+FIT:
+scrape → transform → enrich → republish data pattern
+
+PROJECT:
+Data Journalism / Media Monitoring
+
+NEXT:
+изучить pipeline как образец для наших импортов
+
+---
+
+### datadesk/nifc-wildfires
+
+URL: https://github.com/datadesk/nifc-wildfires
+VERDICT: KEEP
+SCORE: 35
+STARS: 16
+
+WHAT:
+Download wildfires data from the National Interagency Fire Center
+
+FIT:
+data journalism, datadesk, journalism, newsroom, newsroom fit, wildfire
+
+PROJECT:
+Newsroom / data journalism / OSINT workflow
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### localangle/backfield
+
+URL: https://github.com/localangle/backfield
+VERDICT: KEEP
+SCORE: 35
+STARS: 8
+
+WHAT:
+Платформа structured journalism: превращает неструктурированные новости в данные — места, людей, организации, цитаты, темы и другие сущности. Включает extraction/enrichment workflows, human review, canonical entity layer и API.
+
+FIT:
+Сильный архитектурный донор для Media Monitoring и аналитических продуктов. Особенно интересна связка Agate → review → Stylebook: сначала извлечение данных из публикаций, затем нормализация сущностей и построение живого knowledge graph.
+
+PROJECT:
+Media Monitoring · Newsroom / Data Journalism · OSINT enrichment · knowledge graph.
+
+NEXT:
+Разобрать отдельно Agate workflow model, Stylebook entity resolution и API. Проверить, какие части можно использовать как паттерны для нашего monitoring/enrichment pipeline.
+
+---
+
+### nrjones8/news-archive-explorer
+
+URL: https://github.com/nrjones8/news-archive-explorer
+VERDICT: KEEP
+SCORE: 40
+STARS: 10
+
+WHAT:
+Webapp to compare news homepages at any hour, starting Jan 1, 2019. See https://github.com/nrjones8/website-screenshotter for accessing screenshots
+
+FIT:
+просмотр и сравнение архивов главных страниц по времени
+
+PROJECT:
+Horizon / Media Agenda Timeline
+
+NEXT:
+посмотреть UX: как сделано сравнение homepage snapshots
+
+---
+
+### OpenNews/opennews-source
+
+URL: https://github.com/OpenNews/opennews-source
+VERDICT: KEEP
+SCORE: 65
+STARS: 7
+
+WHAT:
+Code refactor for Source, a website that spotlights work from the developers, designers, and data analysts at the intersection of journalism and tech: https://source.opennews.org
+
+FIT:
+data journalism, journalism, newsroom, newsroom fit, opennews, seed/strong manual candidate
+
+PROJECT:
+Newsroom / Data Journalism
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### OpenRefine/OpenRefine
+
+URL: https://github.com/OpenRefine/OpenRefine
+VERDICT: KEEP
+SCORE: 68
+STARS: 11925
+
+WHAT:
+OpenRefine is a free, open source power tool for working with messy data and improving it
+
+FIT:
+data journalism, journalism, newsroom, newsroom fit, seed/strong manual candidate, stars>=1000
+
+PROJECT:
+Newsroom / data journalism / OSINT workflow
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### palewire/first-basemap
+
+URL: https://github.com/palewire/first-basemap
+VERDICT: KEEP
+SCORE: 65
+STARS: 14
+
+WHAT:
+Create a shockingly fast and virtually free interactive map of the world using OpenStreetMap and PMTiles
+
+FIT:
+быстрые дешёвые интерактивные карты на OSM/PMTiles
+
+PROJECT:
+Geo Evidence Desk / Interactive Reports
+
+NEXT:
+проверить как базу для reports/map timeline
+
+---
+
+### palewire/muckrockbot
+
+URL: https://github.com/palewire/muckrockbot
+VERDICT: KEEP
+SCORE: 70
+STARS: 17
+
+WHAT:
+A Fediverse robot account that posts the latest public records requests filed and completed at muckrock.com
+
+FIT:
+data journalism, journalism, muckrock, newsroom, newsroom fit, public records, seed/strong manual candidate
+
+PROJECT:
+Newsroom / data journalism / OSINT workflow
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### palewire/news-homepages
+
+URL: https://github.com/palewire/news-homepages
+VERDICT: KEEP
+SCORE: 80
+STARS: 159
+
+WHAT:
+An open-source archive that gathers, saves, shares and analyzes news homepages
+
+FIT:
+media agenda archive; регулярный архив главных страниц медиа
+
+PROJECT:
+Media Monitoring / Horizon / OSINT Signal
+
+NEXT:
+inspect install/docs; понять, можно ли адаптировать под украинские/российские медиа и наши проекты
+
+---
+
+### palewire/news-homepages-runner
+
+URL: https://github.com/palewire/news-homepages-runner
+VERDICT: KEEP
+SCORE: 70
+STARS: 8
+
+WHAT:
+A task runner for the homepages.news open-source archive
+
+FIT:
+runner для news-homepages; полезен как паттерн scheduled archive jobs
+
+PROJECT:
+Media Monitoring
+
+NEXT:
+сравнить с нашим systemd/timer подходом и ArchiveBox
+
+---
+
+### globeandmail/startr
+
+URL: https://github.com/globeandmail/startr
+VERDICT: WATCH
+SCORE: 30
+STARS: 127
+
+WHAT:
+A template for data journalism in R
+
+FIT:
+data journalism, journalism, newsroom, newsroom fit, stars>=100
+
+PROJECT:
+Newsroom / data journalism / OSINT workflow
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### jgraph/drawio-desktop
+
+URL: https://github.com/jgraph/drawio-desktop
+VERDICT: WATCH
+SCORE: 33
+STARS: 62413
+
+WHAT:
+Official electron build of draw.io
+
+FIT:
+data journalism, journalism, newsroom, newsroom fit, stars>=1000
+
+PROJECT:
+Newsroom / Data Journalism
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+## BUCKET: OSINT / Investigations
+
+Cards: 7
+
+### buriedsignals/scoutpost-os
+
+URL: https://github.com/buriedsignals/scoutpost-os
+VERDICT: KEEP
+SCORE: 67
+STARS: 34
+
+WHAT:
+Open-source monitoring for investigative and local journalism
+
+FIT:
+monitoring for investigative/local journalism
+
+PROJECT:
+Media Monitoring / OSINT Course
+
+NEXT:
+проверить архитектуру и применимость к расследовательскому мониторингу
+
+---
+
+### opensanctions/opensanctions
+
+URL: https://github.com/opensanctions/opensanctions
+VERDICT: KEEP
+SCORE: 35
+STARS: 785
+
+WHAT:
+Open-source инфраструктура и база для работы с международными санкциями, politically exposed persons, persons of interest и связанными сущностями.
+
+Upstream собирает данные из множества исходных источников, затем:
+
+- парсит исходные данные;
+- нормализует структуры;
+- очищает и дедуплицирует сущности;
+- связывает записи между источниками;
+- экспортирует данные в пригодные для анализа форматы.
+
+В качестве основной модели данных используется FollowTheMoney. В экосистеме OpenSanctions также есть отдельные компоненты для entity resolution/search и data lineage.
+
+Код репозитория лицензирован под MIT. Лицензирование самих данных отдельное: значительная часть производных datasets распространяется под CC BY-NC 4.0, а отдельные сторонние источники сохраняют собственные условия.
+
+FIT:
+Это не просто очередной sanctions lookup.
+
+Для наших OSINT-задач интересны сразу несколько слоёв:
+
+- готовая sanctions / PEP / persons-of-interest база;
+- нормализованная entity-модель;
+- aliases и cross-source entity resolution;
+- связи между людьми, организациями и другими сущностями;
+- provenance / lineage исходных данных;
+- архитектура для объединения неоднородных реестров.
+
+Особенно полезен как reference для investigator-oriented entity layer: одна сущность может фигурировать под разными именами, транслитерациями и идентификаторами, но должна собираться в единый объект с понятным происхождением каждого утверждения.
+
+PROJECT:
+- OSINT / Investigations
+- украинский OSINT-курс
+- entity resolution / due diligence
+- sanctions / PEP screening
+- будущий Browser OSINT Workbench
+- расследовательские графы и профили сущностей
+
+NEXT:
+Не разворачивать весь OpenSanctions stack первым шагом.
+
+Сначала:
+
+1. разобрать FollowTheMoney schema;
+2. отдельно посмотреть search/entity-matching слой экосистемы OpenSanctions;
+3. проверить API и доступные datasets;
+4. сделать тест на 10 реальных сущностях с русскими/украинскими/латинскими вариантами ФИО;
+5. проверить качество alias matching и provenance;
+6. отдельно зафиксировать ограничения лицензии данных перед любым локальным зеркалированием или публичной перепубликацией.
+
+Если entity resolution окажется сильным, использовать OpenSanctions/FtM как reference model для собственного расследовательского entity layer, а не обязательно как монолитную зависимость.
+
+---
+
+### r3dg0d/vidocq
+
+URL: https://github.com/r3dg0d/vidocq
+VERDICT: KEEP
+SCORE: 0
+STARS: 8
+
+WHAT:
+Username-enumerator на Rust, проверяющий сотни социальных сетей, форумов и других площадок. Помимо HTTP status использует redirects, содержимое страниц и platform-specific правила.
+
+FIT:
+В отличие от очередного огромного OSINT-комбайна это маленькая понятная функция, которую легко встроить в workflow. Есть JSON output и один compiled binary.
+
+PROJECT:
+Browser OSINT Workbench как один из SOCMINT-модулей; также хороший практический инструмент для лабораторных работ OSINT-курса.
+
+NEXT:
+Прогнать сравнительный тест против Sherlock/Maigret и отдельно измерить false positives. Любой найденный профиль считать lead, а не установленной идентичностью.
+
+---
+
+### Samarth-23-eng/scope-intelligence
+
+URL: https://github.com/Samarth-23-eng/scope-intelligence
+VERDICT: KEEP
+SCORE: 15
+STARS: 24
+
+WHAT:
+Self-hosted OSINT research workspace, ориентированный не на выдачу «ответа ИИ», а на доказательную цепочку: версии источников, citations, provenance, relationships, corroboration, contradictions и review state.
+
+FIT:
+Архитектурно очень близко к тому, что мы строим вокруг мониторинга и OSINT Signal. Особенно ценны evidence model, verification queue, human decisions, source health и связь утверждений с конкретными evidence chunks.
+
+PROJECT:
+OSINT Signal и Media Monitoring прежде всего как архитектурный донор, а не как готовая замена нашего стека.
+
+NEXT:
+Разобрать архитектуру и модели данных. Проект pre-alpha, поэтому интересуют прежде всего отдельные решения и паттерны, а не deployment целиком.
+
+---
+
+### sophymarine/openregistry
+
+URL: https://github.com/sophymarine/openregistry
+VERDICT: KEEP
+SCORE: 33
+STARS: 16
+
+WHAT:
+MCP-сервер для прямого обращения к официальным корпоративным реестрам разных стран. Возвращает данные реестров и исходные filing-документы без собственной нормализации.
+
+FIT:
+Это не ещё одна база-агрегатор, а интерфейс к первичным источникам. Особенно интересны ownership chains, officers, shareholders, filings и возможность сохранять provenance до государственного реестра.
+
+PROJECT:
+OSINT Signal, Browser OSINT Workbench, Structural Risk Memo и любые расследования юридических лиц и сетей собственности.
+
+NEXT:
+Проверить реальный workflow на нескольких юрисдикциях и оценить, где заканчивается бесплатный слой и начинается платный.
+
+---
+
+### kodamaChameleon/wmn-docker
+
+URL: https://github.com/kodamaChameleon/wmn-docker
+VERDICT: WATCH
+SCORE: 25
+STARS: 19
+
+WHAT:
+Docker API wrapper around WhatsMyName username enumeration.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+LANCELOT:
+Score: 3/10
+Tier: DROP
+Tags: osint, api, container
+
+USE FOR LANCELOT:
+Useful pattern: expose one narrow OSINT capability behind a controlled API instead of exposing a general shell.
+
+---
+
+### Muhib-Mehdi/OSINT-NEXUS
+
+URL: https://github.com/Muhib-Mehdi/OSINT-NEXUS
+VERDICT: WATCH
+SCORE: 28
+STARS: 36
+
+WHAT:
+Cross-platform OSINT application combining multiple collectors with entity correlation, graph analytics and reporting.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+LANCELOT:
+Score: 2/10
+Tier: DROP
+Tags: osint, graph, entities, reporting
+
+USE FOR LANCELOT:
+Possible reference for a future bounded investigation workflow.
+
+Самостоятельная причина расширять tool surface Lancelot отсутствует.
+
+---
+
+## BUCKET: Publishing / Layout / PDF
+
+Cards: 6
+
+### Kozea/WeasyPrint
+
+URL: https://github.com/Kozea/WeasyPrint
+VERDICT: KEEP
+SCORE: 66
+STARS: 9428
+
+WHAT:
+The awesome document factory
+
+FIT:
+HTML/CSS → PDF; главный кандидат для evidence publishing
+
+PROJECT:
+Evidence Publishing Stack / Media Kits
+
+NEXT:
+сделать мини-тест отчёта из HTML в PDF
+
+---
+
+### pagedjs/pagedjs
+
+URL: https://github.com/pagedjs/pagedjs
+VERDICT: KEEP
+SCORE: 61
+STARS: 1443
+
+WHAT:
+Display paginated content in the browser and generate print books using web technology
+
+FIT:
+paged media в браузере; print CSS и книжная/отчётная верстка
+
+PROJECT:
+Evidence Publishing Stack
+
+NEXT:
+сравнить с WeasyPrint на наших HTML reports
+
+---
+
+### rstudio/pagedown
+
+URL: https://github.com/rstudio/pagedown
+VERDICT: KEEP
+SCORE: 68
+STARS: 928
+
+WHAT:
+Paginate the HTML Output of R Markdown with CSS for Print
+
+FIT:
+R Markdown / HTML pagination / CSS print
+
+PROJECT:
+Publishing Reference
+
+NEXT:
+оставить как reference; не ставить первым, если не нужен R
+
+---
+
+### vivliostyle/vivliostyle-cli
+
+URL: https://github.com/vivliostyle/vivliostyle-cli
+VERDICT: KEEP
+SCORE: 40
+STARS: 224
+
+WHAT:
+⚒ Supercharge command-line publication workflow.
+
+FIT:
+CLI workflow для CSS typesetting / publication
+
+PROJECT:
+Evidence Publishing Stack
+
+NEXT:
+проверить PDF-вывод и сложность шаблонов
+
+---
+
+### vivliostyle/vivliostyle.js
+
+URL: https://github.com/vivliostyle/vivliostyle.js
+VERDICT: KEEP
+SCORE: 40
+STARS: 774
+
+WHAT:
+📖 The power of CSS typesetting, right at your fingertips.
+
+FIT:
+pdf, publishing/pdf fit, seed/strong manual candidate, stars>=100, vivliostyle
+
+PROJECT:
+Publishing / Layout / PDF
+
+NEXT:
+сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки; caution: ios
+
+---
+
+### gunasekar/imprint
+
+URL: https://github.com/gunasekar/imprint
+VERDICT: WATCH
+SCORE: 28
+STARS: 14
+
+WHAT:
+Turn Markdown into branded, typeset PDFs — specs, design docs, and reports that look official.
+
+FIT:
+markdown, pandoc, pdf, publishing/pdf fit, typst
+
+PROJECT:
+Reports / media kits / publishing
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+## BUCKET: Radio / Audio Ops
+
+Cards: 9
+
+### AzuraCast/AzuraCast
+
+URL: https://github.com/AzuraCast/AzuraCast
+VERDICT: KEEP
+SCORE: 81
+STARS: 3960
+
+WHAT:
+A self-hosted web radio management suite, including turnkey installer tools for the full radio software stack and a modern, easy-to-use web app to manage your stations.
+
+FIT:
+self-hosted radio management suite; готовый backend станции
+
+PROJECT:
+Coma.fm / Audio Ops
+
+NEXT:
+проверить ресурсы Docker и пригодность для coma.fm lab
+
+---
+
+### datafruits/radio
+
+URL: https://github.com/datafruits/radio
+VERDICT: KEEP
+SCORE: 63
+STARS: 9
+
+WHAT:
+liquidsoap and icecast configuration for streampusher
+
+FIT:
+Liquidsoap + Icecast конфигурация; полезный минимальный reference
+
+PROJECT:
+Coma.fm / Audio Ops
+
+NEXT:
+изучить как лёгкий пример радиопайплайна
+
+---
+
+### glebovdev/somafm-cli
+
+URL: https://github.com/glebovdev/somafm-cli
+VERDICT: KEEP
+SCORE: 50
+STARS: 13
+
+WHAT:
+🎶 Terminal music player for SomaFM internet radio. Browse stations, see real-time track info, control volume and playback — all from your terminal. Built-in audio streaming, no external player needed. macOS, Linux, Windows.
+
+FIT:
+terminal SomaFM player with now playing
+
+PROJECT:
+Coma.fm Cockpit
+
+NEXT:
+посмотреть UX для будущего coma.fm cockpit
+
+---
+
+### hwdsl2/docker-kokoro
+
+URL: https://github.com/hwdsl2/docker-kokoro
+VERDICT: KEEP
+SCORE: 62
+STARS: 22
+
+WHAT:
+Docker image to run a self-hosted Kokoro TTS server with an OpenAI-compatible audio speech API. 50+ voices across 9 languages, streaming support, all major audio formats, NVIDIA GPU (CUDA) acceleration, offline mode, and persistent model cache. Multi-arch: amd64, arm64.
+
+FIT:
+self-hosted Kokoro TTS API; text → voice/audio
+
+PROJECT:
+Coma.fm / TTS / Rosa Nocturna
+
+NEXT:
+проверить качество RU/UA/EN и голоса
+
+---
+
+### hwdsl2/docker-whisper
+
+URL: https://github.com/hwdsl2/docker-whisper
+VERDICT: KEEP
+SCORE: 62
+STARS: 78
+
+WHAT:
+Docker image for a self-hosted Whisper speech-to-text server with speaker diarization and OpenAI-compatible transcription and translation APIs. Powered by faster-whisper. Supports all Whisper models, NVIDIA GPU (CUDA) acceleration, JSON/SRT/VTT output, SSE streaming, offline mode, and multi-arch (amd64, arm64).
+
+FIT:
+self-hosted Whisper transcription API; audio → text
+
+PROJECT:
+Audio Intelligence / Transcripts
+
+NEXT:
+сравнить с локальным faster-whisper/MinerU контуром
+
+---
+
+### hwdsl2/docker-whisper-live
+
+URL: https://github.com/hwdsl2/docker-whisper-live
+VERDICT: KEEP
+SCORE: 62
+STARS: 23
+
+WHAT:
+Docker image for a self-hosted WhisperLive real-time speech-to-text server, powered by faster-whisper. Provides WebSocket streaming for live audio transcription and an OpenAI-compatible REST API. Supports all Whisper models, VAD, NVIDIA GPU (CUDA) acceleration, offline mode, and multi-arch (amd64, arm64).
+
+FIT:
+real-time speech-to-text; live audio transcription
+
+PROJECT:
+Audio Intelligence / Radio Live
+
+NEXT:
+проверить задержку и GPU/CPU требования
+
+---
+
+### jailsonsb2/RadioPlayer
+
+URL: https://github.com/jailsonsb2/RadioPlayer
+VERDICT: KEEP
+SCORE: 35
+STARS: 30
+
+WHAT:
+🎵 HTML5 Radio Player for websites — Icecast, Shoutcast, Zeno.FM & Azuracast. Now playing, album art, lyrics, PWA. Player de rádio online para seu site, grátis e sem API key.
+
+FIT:
+azuracast, icecast, now playing, radio, radio backend fit, stars>=20, stream
+
+PROJECT:
+coma.fm / Audio-Radio stack
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### moul/radioman
+
+URL: https://github.com/moul/radioman
+VERDICT: KEEP
+SCORE: 60
+STARS: 23
+
+WHAT:
+:musical_note: Web radio solution using Liquidsoap and Icecast
+
+FIT:
+web radio solution using Liquidsoap and Icecast
+
+PROJECT:
+Coma.fm / Audio Ops
+
+NEXT:
+проверить актуальность и простоту запуска
+
+---
+
+### openbroadcaster/observer
+
+URL: https://github.com/openbroadcaster/observer
+VERDICT: WATCH
+SCORE: 33
+STARS: 184
+
+WHAT:
+:radio: OBServer Automation, Scheduler, Media Library and Player Manager
+
+FIT:
+icecast, playlist, radio, radio backend fit, stars>=100, stream
+
+PROJECT:
+coma.fm / Audio-Radio stack
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+## BUCKET: Telegram Bots / Automation
+
+Cards: 1
+
+### hunvreus/heypi
+
+URL: https://github.com/hunvreus/heypi
+VERDICT: KEEP
+SCORE: 15
+STARS: —
+
+WHAT:
+Agent runtime, который подключает одного Pi-совместимого агента к Telegram, Slack, Discord, local applications или trusted webhooks.
+
+Поверх model loop он добавляет conversation routing, isolation runtimes, approvals, memory, attachments, schedules и operational audit.
+
+FIT:
+Это уже не просто библиотека Telegram Bot API.
+
+HeyPi показывает готовую архитектуру для безопасного human-in-the-loop агента в мессенджере:
+
+Telegram → routing → agent → approvals/tools → audit.
+
+PROJECT:
+Telegram Bots / Automation и будущие agentic workflows.
+
+NEXT:
+Проверить Telegram adapter, approvals и sandbox model. Сравнить стоимость внедрения HeyPi с собственным небольшим MCP/Telegram gateway.
+
+---
+
+## BUCKET: Video Production / Editing
+
+Cards: 20
+
+### 0xsline/OpenChatCut
+
+URL: https://github.com/0xsline/OpenChatCut
+VERDICT: KEEP
+SCORE: 38
+STARS: 703
+
+WHAT:
+Open-source, local-first conversational AI video editor with a professional multi-track timeline, Agent Skills, MCP integration, and Remotion rendering.
+
+FIT:
+ffmpeg, render, stars>=100, timeline, video, video editor, video production fit
+
+PROJECT:
+Clip Machine.
+
+OpenChatCut — текущее активное ядро машины нарезки:
+conversational editing, timeline, Agent Skills, MCP и Remotion/render layer.
+
+Новые video-editing проекты из Radar надо сравнивать с OpenChatCut,
+а не рассматривать сам OpenChatCut как нового кандидата.
+
+NEXT:
+Продолжать использовать как core Clip Machine.
+
+Для новых video-editor находок делать differential review относительно
+OpenChatCut: что они добавляют, что способны заменить и какие отдельные
+механизмы стоит заимствовать.
+
+Не выводить OpenChatCut как новую находку Radar.
+
+---
+
+### dohyeondk/sub-tools
+
+URL: https://github.com/dohyeondk/sub-tools
+VERDICT: KEEP
+SCORE: 35
+STARS: 27
+
+WHAT:
+Python toolkit for producing multilingual subtitles from video/audio.
+
+The workflow separates speech transcription/alignment from language-model proofreading and translation.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+LANCELOT:
+Score: 3/10
+Tier: DROP
+Tags: video, subtitles, whisper, transcription, translation
+
+USE FOR LANCELOT:
+Reference for a bounded future media tool.
+
+Не давать Lancelot произвольный video shell; при необходимости сделать узкую capability вроде transcribe-and-subtitle.
+
+---
+
+### francozanardi/tscaps
+
+URL: https://github.com/francozanardi/tscaps
+VERDICT: KEEP
+SCORE: 35
+STARS: 24
+
+WHAT:
+Open-source browser video editor focused on subtitles and short-form content.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+LANCELOT:
+Score: 3/10
+Tier: DROP
+Tags: video, browser, subtitles
+
+USE FOR LANCELOT:
+Reference for browser-local video and subtitle processing; не самостоятельная причина расширять tool surface Ланселота.
+
+---
+
+### IgorShadurin/app.yumcut.com
+
+URL: https://github.com/IgorShadurin/app.yumcut.com
+VERDICT: KEEP
+SCORE: 43
+STARS: 836
+
+WHAT:
+YumCut - free AI video generator to turn a prompt into ready vertical videos for TikTok, Reels and YouTube Shorts. Auto script, scenes, voiceover, subtitles and watermark. Built with Next.js. Local-first pipeline + templates, batch rendering and API hooks for creators and indie makers. Self-hosted, FFmpeg-ready, multi-language output. Low cost fast
+
+FIT:
+AI vertical video generator: script, scenes, voiceover, subtitles
+
+PROJECT:
+Shorts / Reels Automation
+
+NEXT:
+проверить self-hosted pipeline и не является ли это демо-обёрткой
+
+---
+
+### KDE/kdenlive
+
+URL: https://github.com/KDE/kdenlive
+VERDICT: KEEP
+SCORE: 36
+STARS: 5357
+
+WHAT:
+Free and open source video editor, based on MLT Framework and KDE Frameworks
+
+FIT:
+главная Linux-монтажка; MLT/KDE stack
+
+PROJECT:
+Video Production / Editing
+
+NEXT:
+проверить текущую установленную версию и пригодность для шаблонного монтажа
+
+---
+
+### linto-ai/linto-studio
+
+URL: https://github.com/linto-ai/linto-studio
+VERDICT: KEEP
+SCORE: 35
+STARS: 59
+
+WHAT:
+Transcription and annotation interface for recorded audio or video files
+
+FIT:
+интерфейс транскрипции и аннотации аудио/видео
+
+PROJECT:
+Audio/Video Transcription
+
+NEXT:
+проверить для расшифровок интервью, эфиров, видеоисточников
+
+---
+
+### NaufalRizqullah/opensource-clipping
+
+URL: https://github.com/NaufalRizqullah/opensource-clipping
+VERDICT: KEEP
+SCORE: 35
+STARS: 50
+
+WHAT:
+🎬 AI Auto-Clipper & Teaser Generator — Transform long-form videos into viral short-form highlights with face-tracking, karaoke subtitles, B-roll, BGM ducking, and auto-thumbnails. Powered by Whisper, Gemini AI & MediaPipe / YOLO
+
+FIT:
+AI auto-clipper: long video → shorts/highlights
+
+PROJECT:
+Shorts / Reels Automation
+
+NEXT:
+проверить face tracking, subtitles, B-roll и локальность
+
+---
+
+### nganlinh4/oneclick-subtitles-generator
+
+URL: https://github.com/nganlinh4/oneclick-subtitles-generator
+VERDICT: KEEP
+SCORE: 38
+STARS: 236
+
+WHAT:
+🎬 Auto-subtitle videos with AI transcription, translation, voice cloning, professional rendering, background image and music generator
+
+FIT:
+автосубтитры, перевод, voice cloning, rendering
+
+PROJECT:
+Subtitles / Video Automation
+
+NEXT:
+проверить зависимости и качество субтитров
+
+---
+
+### nodaroai/app.nodaro.ai
+
+URL: https://github.com/nodaroai/app.nodaro.ai
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+API-first visual/server-side workflow engine для AI media. Node DAG объединяет image, video, voice, music, FFmpeg и rendering; workflow может выполняться по schedule/webhook и публиковаться как API, SDK/CLI surface или MCP tool.
+
+FIT:
+Для нас интереснее как creative workflow automation, чем как ядро Lancelot. Может стать reference или готовой платформой для повторяемых media pipelines — генерация, монтаж, озвучка, рендер и публикация.
+
+PROJECT:
+Video Production / Editing · Creative Workflow Automation; Lancelot как secondary MCP/automation overlay.
+
+NEXT:
+Поднять Community Edition отдельно и собрать один реальный pipeline. Перед production учитывать fair-code ограничения основного Community кода.
+
+LANCELOT:
+Score: 6/10
+Tier: KEEP
+Tags: mcp, automation, scheduler
+
+USE FOR LANCELOT:
+Изучить модель workflow-as-tool: server-side DAG с retries, schedules и webhooks публикуется как MCP/API surface. Это полезный pattern для длинных автоматизаций, но не runtime ядро.
+
+---
+
+### OpenShot/openshot-qt
+
+URL: https://github.com/OpenShot/openshot-qt
+VERDICT: KEEP
+SCORE: 36
+STARS: 6099
+
+WHAT:
+OpenShot Video Editor is an award-winning free and open-source video editor for Linux, Mac, and Windows, and is dedicated to delivering high quality video editing and animation solutions to the world.
+
+FIT:
+простая open-source монтажка для Linux/Mac/Windows
+
+PROJECT:
+Video Production / Editing
+
+NEXT:
+держать как простой вариант для несложных монтажных задач
+
+---
+
+### Reubencfernandes/Open-Video-Craft
+
+URL: https://github.com/Reubencfernandes/Open-Video-Craft
+VERDICT: KEEP
+SCORE: 43
+STARS: 12
+
+WHAT:
+Open-source, local-first screen recorder and timeline video editor for macOS and Windows.
+
+FIT:
+ffmpeg, subtitle, subtitles, timeline, transcription, video, video editor, video production fit
+
+PROJECT:
+Video production / Shorts / subtitles
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### welovemedia/ffmate
+
+URL: https://github.com/welovemedia/ffmate
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Automation layer и extensible media-processing engine поверх FFmpeg. Даёт REST API, очередь задач, presets, watchfolders, webhooks, pre/post-processing hooks и Web UI.
+
+FIT:
+Полезен как готовый слой детерминированной обработки медиа: принять файл или задачу, прогнать FFmpeg pipeline, следить за очередью и вернуть результат через API/webhook. Это снижает потребность в россыпи самописных shell-скриптов.
+
+PROJECT:
+Video Production / Editing · Media Monitoring · автоматизированная подготовка аудио/видео.
+
+NEXT:
+Проверить deployment footprint и API. Отдельно учитывать AGPL-3.0 перед встраиванием в собственные сервисы.
+
+---
+
+### Anil-matcha/AI-Youtube-Shorts-Generator
+
+URL: https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator
+VERDICT: WATCH
+SCORE: 31
+STARS: 4454
+
+WHAT:
+Open-source alternative to Opus Clip, Vidyo.ai, Klap & SubMagic. Turn long-form YouTube videos into viral 9:16 shorts using LLM highlight detection, Whisper transcription, and auto vertical cropping — free, no watermarks, no per-clip credits.
+
+FIT:
+short video, stars>=1000, transcription, video, video production fit
+
+PROJECT:
+Video Production / Editing
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### av8d-levelup/local-av-to-text
+
+URL: https://github.com/av8d-levelup/local-av-to-text
+VERDICT: WATCH
+SCORE: 33
+STARS: 6
+
+WHAT:
+本地・免費・資料不外流的影音/語音轉文字＋摘要工具｜Local, free, private video/audio → transcript + summary (Mac/Windows, 繁中優化, whisper+ffmpeg+Ollama)
+
+FIT:
+локальный video/audio → transcript + summary на whisper/ffmpeg/Ollama
+
+PROJECT:
+Audio/Video Transcription
+
+NEXT:
+проверить privacy/local workflow
+
+---
+
+### crafter-station/trx
+
+URL: https://github.com/crafter-station/trx
+VERDICT: WATCH
+SCORE: 30
+STARS: —
+
+WHAT:
+Agent-first CLI для локальной транскрипции audio/video через whisper.cpp.
+
+Pipeline:
+
+`URL/file → yt-dlp → ffmpeg cleanup → whisper.cpp → WAV + SRT + TXT + JSON`
+
+Сам по себе transcription stack для нас не новый.
+
+Главная ценность проекта — то, как CLI специально спроектирован для использования AI-агентами.
+
+FIT:
+Не как замена уже выбранному Whisper-контуру.
+
+Интересен как архитектурный образец для наших собственных инструментов:
+
+- Media Monitoring CLI;
+- OSINT Workbench;
+- document processing;
+- collectors;
+- enrichment tools;
+- локальные media utilities.
+
+Особенно важны:
+
+- JSON-first automation;
+- schema discovery;
+- dry-run перед действием;
+- минимизация context consumption;
+- явная валидация входов.
+
+PROJECT:
+- Agent-first CLI design
+- Video Production
+- Radio / Audio Ops
+- Browser OSINT Workbench tooling
+- Media Monitoring tooling
+
+NEXT:
+Не устанавливать ещё один Whisper stack без причины.
+
+Вместо этого провести architecture review:
+
+1. CLI contracts;
+2. JSON schema;
+3. `--dry-run`;
+4. `--fields`;
+5. SKILL.md;
+6. validation;
+7. doctor/schema commands.
+
+После этого перенести лучшие паттерны в наши CLI.
+
+---
+
+### kouhxp/yapsnap
+
+URL: https://github.com/kouhxp/yapsnap
+VERDICT: WATCH
+SCORE: 33
+STARS: 289
+
+WHAT:
+Snap any video URL or audio file into plaintext. No GPU. No cloud. One command.
+
+FIT:
+video/audio URL → plaintext без GPU и облака
+
+PROJECT:
+Audio/Video Transcription
+
+NEXT:
+проверить как быстрый CLI для вытаскивания текста из видео
+
+---
+
+### mltframework/mlt
+
+URL: https://github.com/mltframework/mlt
+VERDICT: WATCH
+SCORE: 31
+STARS: 1821
+
+WHAT:
+MLT Multimedia Framework
+
+FIT:
+ffmpeg, mlt, stars>=1000, video, video production fit
+
+PROJECT:
+Video Production / Editing
+
+NEXT:
+проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### mltframework/shotcut
+
+URL: https://github.com/mltframework/shotcut
+VERDICT: WATCH
+SCORE: 31
+STARS: 14632
+
+WHAT:
+cross-platform (Qt), open-source (GPLv3) video editor
+
+FIT:
+надёжная open-source монтажка на MLT
+
+PROJECT:
+Video Production / Editing
+
+NEXT:
+сравнить с Kdenlive: стабильность, batch/export, шаблоны
+
+---
+
+### OStudi/short-video-generator-AI
+
+URL: https://github.com/OStudi/short-video-generator-AI
+VERDICT: WATCH
+SCORE: 33
+STARS: 326
+
+WHAT:
+Free open-source project designed for turning youtube-viedos into viral short videos. Highlight detection, subtitles, translation, voiceover, all in one for your content.
+
+FIT:
+short video, stars>=100, subtitle, subtitles, video, video production fit
+
+PROJECT:
+Video production / Shorts / subtitles
+
+NEXT:
+проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### SamurAIGPT/AI-Youtube-Shorts-Generator
+
+URL: https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator
+VERDICT: WATCH
+SCORE: 31
+STARS: 4374
+
+WHAT:
+Open-source alternative to Opus Clip, Vidyo.ai, Klap & SubMagic. Turn long-form YouTube videos into viral 9:16 shorts using LLM highlight detection, Whisper transcription, and auto vertical cropping — free, no watermarks, no per-clip credits.
+
+FIT:
+long-form YouTube → 9:16 shorts через LLM/Whisper/cropping
+
+PROJECT:
+Shorts / Reels Automation
+
+NEXT:
+проверить живость, зависимости и качество нарезки
+
+---
+
+
+# TODAY'S SHORTLIST
+
+---
+title: Creative Radar Shortlist 2026-08-19
+date: 2026-08-19
+status: shortlist
+tags:
+  - radar
+  - creative-radar
+  - shortlist
+---
+
+# Creative Radar Shortlist — 2026-08-19
+
+Source: [[../scored/2026-08-19|Scored 2026-08-19]]
+
+## Навигация
+
+- [Design Systems / Visual QA](#design-systems-visual-qa) — 6
+- [Font Creation / Typography Tools](#font-creation-typography-tools) — 16
+- [Full-Song AI / Suno Alternatives](#full-song-ai-suno-alternatives) — 3
+- [Infographics / Visual Storytelling](#infographics-visual-storytelling) — 13
+- [Interactive Reports / Data Apps](#interactive-reports-data-apps) — 2
+- [Media / Social Monitoring](#media-social-monitoring) — 1
+- [Media Kits / Brand Automation](#media-kits-brand-automation) — 1
+- [Mixing / Mastering / Audio Engineering](#mixing-mastering-audio-engineering) — 5
+- [Music Generation / AI Music](#music-generation-ai-music) — 4
+- [Newsroom / Data Journalism](#newsroom-data-journalism) — 8
+- [OSINT / Investigations](#osint-investigations) — 1
+- [Publishing / Layout / PDF](#publishing-layout-pdf) — 5
+- [Radio / Audio Ops](#radio-audio-ops) — 8
+- [Video Production / Editing](#video-production-editing) — 7
+
+## Design Systems / Visual QA
+
+### southleft/figma-console-mcp-skills
+
+- Verdict: **KEEP**
+- Score: 45
+- Stars: 70
+- Raw: #774
+- URL: https://github.com/southleft/figma-console-mcp-skills
+- Description: The most powerful Figma Console MCP capabilities, repackaged as Markdown skills for the native Figma MCP server — design tokens, variables, component analysis, WCAG lint, a11y audits, version history, FigJam & Slides.
+- Why: a11y, audit, design QA fit, design system, design tokens, design-system, figma, stars>=20
+
+### terrazzoapp/terrazzo
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 447
+- Raw: #735
+- URL: https://github.com/terrazzoapp/terrazzo
+- Description: Use DTCG tokens JSON to generate code for web, mobile, native apps, and more
+- Why: design QA fit, design system, design tokens, design-system, stars>=100, tokens
+
+### adobe/spectrum-design-data
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 148
+- Raw: #733
+- URL: https://github.com/adobe/spectrum-design-data
+- Description: Design data, including design tokens, component schemas, and tooling for Spectrum, Adobe's design system.
+- Why: design QA fit, design system, design tokens, design-system, stars>=100, tokens
+
+### sugarcube-sh/sugarcube
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 122
+- Raw: #732
+- URL: https://github.com/sugarcube-sh/sugarcube
+- Description: Design tokens in, CSS and components out.
+- Why: design QA fit, design system, design tokens, design-system, stars>=100, tokens
+
+### CoreBunch/Core-Framework
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 120
+- Raw: #736
+- URL: https://github.com/CoreBunch/Core-Framework
+- Description: A visual CSS framework and design-token builder for the web, WordPress, and Figma.
+- Why: design QA fit, design system, design tokens, figma, stars>=100, tokens
+
+### wikimedia/design-codex
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 110
+- Raw: #731
+- URL: https://github.com/wikimedia/design-codex
+- Description: Codex is the Design System for Wikimedia. Codex features a toolkit for building user interfaces, containing design tokens, Vue 3 components and VitePress documentation site packages. This is a mirror from https://gerrit.wikimedia.org/g/design/codex/
+- Why: design QA fit, design system, design tokens, design-system, stars>=100, tokens
+
+
+## Font Creation / Typography Tools
+
+### Corne2Plum3/Giphurs
+
+- Verdict: **KEEP**
+- Score: 55
+- Stars: 99
+- Raw: #20
+- URL: https://github.com/Corne2Plum3/Giphurs
+- Description: Giphurs is a néo-grotesque font inspired Helvetica and Arial for Latin, Greek and Cyrillic. The font has variable weight, support for italics and font features including small caps.
+- Why: font, font creation, font/typography tooling fit, fontforge, fonts, opentype, stars>=20, typeface
+
+### fonttools/fonttools
+
+- Verdict: **KEEP**
+- Score: 46
+- Stars: 5207
+- Raw: #32
+- URL: https://github.com/fonttools/fonttools
+- Description: A library to manipulate font files from Python.
+- Why: font, font creation, font/typography tooling fit, fonts, fonttools, opentype, stars>=1000, typography
+
+### fontforge/designwithfontforge.com
+
+- Verdict: **KEEP**
+- Score: 46
+- Stars: 1040
+- Raw: #41
+- URL: https://github.com/fontforge/designwithfontforge.com
+- Description: A book about how to design new typefaces with FontForge
+- Why: font, font creation, font/typography tooling fit, fontforge, fonts, stars>=1000, typeface, typography
+
+### twardoch/fonttools-opentype-feature-freezer
+
+- Verdict: **KEEP**
+- Score: 43
+- Stars: 484
+- Raw: #25
+- URL: https://github.com/twardoch/fonttools-opentype-feature-freezer
+- Description: OTFeatureFreezer GUI app and pyftfeatfreeze commandline tool in Python to permanently "apply" OpenType features to fonts, by remapping their Unicode assignments
+- Why: font, font creation, font/typography tooling fit, fonts, fonttools, opentype, stars>=100, typography
+
+### glyphr-studio/Glyphr-Studio-2
+
+- Verdict: **KEEP**
+- Score: 43
+- Stars: 305
+- Raw: #8
+- URL: https://github.com/glyphr-studio/Glyphr-Studio-2
+- Description: The free & open source web-based font editor, made for hobbyists and typeface design beginners.
+- Why: font, font creation, font editor, font/typography tooling fit, glyph, stars>=100, typeface, typography
+
+### web-alchemy/fonttools
+
+- Verdict: **KEEP**
+- Score: 43
+- Stars: 19
+- Raw: #28
+- URL: https://github.com/web-alchemy/fonttools
+- Description: Node.js adapter of python font tools via Pyodide
+- Why: font, font creation, font/typography tooling fit, fonts, fonttools, opentype, typography, webfont
+
+### f-actions/font-bakery
+
+- Verdict: **KEEP**
+- Score: 43
+- Stars: 11
+- Raw: #29
+- URL: https://github.com/f-actions/font-bakery
+- Description: A GitHub Action for continuous integration testing with the fonttools/fontbakery font quality assurance tool
+- Why: font, font creation, font/typography tooling fit, fonts, fonttools, opentype, typeface, typography
+
+### fontforge/fontforge
+
+- Verdict: **KEEP**
+- Score: 41
+- Stars: 7900
+- Raw: #37
+- URL: https://github.com/fontforge/fontforge
+- Description: Free (libre) font editor for Windows, Mac OS X and GNU+Linux
+- Why: font, font creation, font editor, font/typography tooling fit, fontforge, stars>=1000, typography
+
+### VdustR/font-splitter
+
+- Verdict: **KEEP**
+- Score: 40
+- Stars: 41
+- Raw: #46
+- URL: https://github.com/VdustR/font-splitter
+- Description: Python library and CLI for splitting large fonts into unicode-range WOFF/WOFF2 subsets.
+- Why: font, font creation, font/typography tooling fit, fonts, fonttools, stars>=20, typography, webfont
+
+### gero3/facetype.js
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 723
+- Raw: #15
+- URL: https://github.com/gero3/facetype.js
+- Description: typeface.js generator
+- Why: font, font creation, font/typography tooling fit, stars>=100, typeface, typography
+
+### abhay-ramesh/Wordmark
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 127
+- Raw: #14
+- URL: https://github.com/abhay-ramesh/Wordmark
+- Description: 🎨 Meet Wordmark: Your Logo Maker with Google Fonts. No-fuss, smart logo creation. 🚀
+- Why: font, font creation, font/typography tooling fit, fonts, stars>=100, typography
+
+### nicoverbruggen/kobo-font-fix
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 17
+- Raw: #36
+- URL: https://github.com/nicoverbruggen/kobo-font-fix
+- Description: Python script to generate Kobo-friendly fonts and process fonts in bulk with various presets.
+- Why: font, font creation, font/typography tooling fit, fonts, fonttools, typography
+
+
+## Full-Song AI / Suno Alternatives
+
+### smthemex/ComfyUI_YuE
+
+- Verdict: **KEEP**
+- Score: 44
+- Stars: 188
+- Raw: #383
+- URL: https://github.com/smthemex/ComfyUI_YuE
+- Description: YuE is a groundbreaking series of open-source foundation models designed for music generation, specifically for transforming lyrics into full songs (lyrics2song). you can use it in comfyUI
+- Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit, reusable/local model fit, stars>=100
+
+### aivrar/portable-music-server
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 3
+- Raw: #382
+- URL: https://github.com/aivrar/portable-music-server
+- Description: Portable multi-GPU music generation server for Windows -- 8 models, one-click install, zero dependencies
+- Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit
+
+### nerdpudding/ACE-Step-1.5
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 1
+- Raw: #371
+- URL: https://github.com/nerdpudding/ACE-Step-1.5
+- Description: Docker setup for ACE-Step AI music generation — full songs with vocals and instruments from text prompts, running on your local GPU
+- Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit
+
+
+## Infographics / Visual Storytelling
+
+### graphieros/vue-data-ui
+
+- Verdict: **KEEP**
+- Score: 51
+- Stars: 2440
+- Raw: #79
+- URL: https://github.com/graphieros/vue-data-ui
+- Description: An open source user-empowering data visualization Vue 3 components library for eloquent data storytelling
+- Why: chart, data storytelling, data visualization, infographic, infographics, infographics/visual storytelling fit, map, stars>=1000
+
+### CodingFeng101/CanvasAnvil
+
+- Verdict: **KEEP**
+- Score: 40
+- Stars: 90
+- Raw: #112
+- URL: https://github.com/CodingFeng101/CanvasAnvil
+- Description: CanvasAnvil is an AI multi-canvas creation platform for flowcharts, interior design, presentations, posters, infographics, and product storytelling.
+- Why: chart, diagram, infographic, infographics, infographics/visual storytelling fit, stars>=20, svg, visual storytelling
+
+### nolangz/data2motion
+
+- Verdict: **KEEP**
+- Score: 40
+- Stars: 87
+- Raw: #83
+- URL: https://github.com/nolangz/data2motion
+- Description: 
+- Why: chart, data storytelling, infographic, infographics, infographics/visual storytelling fit, stars>=20, svg, visual storytelling
+
+### codevise/pageflow
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 712
+- Raw: #88
+- URL: https://github.com/codevise/pageflow
+- Description: Multimedia story telling for the web.
+- Why: infographic, infographics, infographics/visual storytelling fit, scrollytelling, stars>=100, visual storytelling
+
+### vgshenoy/vue-scrollama
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 475
+- Raw: #93
+- URL: https://github.com/vgshenoy/vue-scrollama
+- Description: Vue 3 component to setup scroll-driven interactions (aka scrollytelling)
+- Why: infographic, infographics, infographics/visual storytelling fit, scrollytelling, stars>=100, visual storytelling
+
+### iart-ai/motion-skills
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 367
+- Raw: #98
+- URL: https://github.com/iart-ai/motion-skills
+- Description: 50 open-source skills that teach your AI coding agent to make motion graphics, animation & video — kinetic typography, data-viz, explainers, TikTok/Reels, WebGL, Manim. 14 installable packs. By iart.ai, the AI motion agent.
+- Why: explainer graphics, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+
+### haloshin/ip-diagram-creator
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 239
+- Raw: #113
+- URL: https://github.com/haloshin/ip-diagram-creator
+- Description: 个人 IP 图解创作器：用你的 IP 形象，生成专属内容图解。
+- Why: diagram, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+
+### rdmurphy/scroller
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 181
+- Raw: #91
+- URL: https://github.com/rdmurphy/scroller
+- Description: 📜 A super-tiny library for your scrollytelling needs.
+- Why: infographic, infographics, infographics/visual storytelling fit, scrollytelling, stars>=100, visual storytelling
+
+### ZCZHAO-1999/shakespeare-writing-studio
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 179
+- Raw: #82
+- URL: https://github.com/ZCZHAO-1999/shakespeare-writing-studio
+- Description: Agent-ready writing studio for Chinese WeChat articles, English essays, research writing, human voice editing, source-bound data storytelling, and statistical graphics.
+- Why: data storytelling, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+
+### Anil-matcha/vox-ai-motion-graphics-generator
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 162
+- Raw: #96
+- URL: https://github.com/Anil-matcha/vox-ai-motion-graphics-generator
+- Description: 🎬 Turn any topic into a finished Vox-style paper-collage explainer / motion graphics video — script, collage keyframes, animation, voice-over, music & captions, all automated. An agent skill for Claude Code, Codex & other coding agents.
+- Why: explainer graphics, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+
+### agno-agi/vibe-video
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 101
+- Raw: #99
+- URL: https://github.com/agno-agi/vibe-video
+- Description: Create motion-graphics videos from natural-language using Hyperframes. Researches topics, explains GitHub repos, renders the result.
+- Why: explainer graphics, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+
+### antvis/Infographic
+
+- Verdict: **WATCH**
+- Score: 31
+- Stars: 6360
+- Raw: #64
+- URL: https://github.com/antvis/Infographic
+- Description: 🦋 An Infographic Generation and Rendering Framework, bring words to life with AI!
+- Why: infographic, infographics, infographics/visual storytelling fit, stars>=1000, visual storytelling
+
+
+## Interactive Reports / Data Apps
+
+### observablehq/framework
+
+- Verdict: **KEEP**
+- Score: 78
+- Stars: 3595
+- Raw: #856
+- URL: https://github.com/observablehq/framework
+- Description: A static site generator for data apps, dashboards, reports, and more. Observable Framework combines JavaScript on the front-end for interactive graphics with any language on the back-end for data analysis.
+- Why: dashboard, data app, interactive report, observable, report, seed/strong manual candidate, stars>=1000, static site
+
+### evidence-dev/evidence
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 6861
+- Raw: #858
+- URL: https://github.com/evidence-dev/evidence
+- Description: Business intelligence as code: build fast, interactive data visualizations in SQL and markdown
+- Why: dashboard, data app, interactive report, report, stars>=1000, visualization
+
+
+## Media / Social Monitoring
+
+### CoolGenius-123/Realtime-Social-Media-Monitoring
+
+- Verdict: **WATCH**
+- Score: 32
+- Stars: 21
+- Raw: #308
+- URL: https://github.com/CoolGenius-123/Realtime-Social-Media-Monitoring
+- Description: Created a Realtime Sentiment Analysis Social Media Monitoring Using Machine Learning and Web Scraping of Any Brand.
+- Why: media monitoring, media source + observation fit, monitoring exact-phrase fit, monitoring value-chain fit, social media monitoring, stars>=20
+
+
+## Media Kits / Brand Automation
+
+### open-xml-templating/docxtemplater
+
+- Verdict: **KEEP**
+- Score: 58
+- Stars: 3613
+- Raw: #980
+- URL: https://github.com/open-xml-templating/docxtemplater
+- Description: Generate docx, pptx, and xlsx from templates (Word, Powerpoint and Excel documents), from Node.js or the browser. Demo: https://www.docxtemplater.com/demo. #docx #office #generator #templating #report #json #generate #generation #template #create #pptx #docx #xlsx #react #vuejs #angularjs #browser #typescript #image #html #table #chart
+- Why: document, media kit, seed/strong manual candidate, stars>=1000, template
+
+
+## Mixing / Mastering / Audio Engineering
+
+### juce-framework/JUCE
+
+- Verdict: **KEEP**
+- Score: 41
+- Stars: 8796
+- Raw: #225
+- URL: https://github.com/juce-framework/JUCE
+- Description: JUCE is an open-source cross-platform C++ application framework for desktop and mobile applications, including VST, VST3, AU, AUv3, LV2 and AAX audio plug-ins.
+- Why: audio plugin, lv2, mastering, mixing, mixing/mastering/audio engineering fit, stars>=1000, vst
+
+### nodiscc/awesome-linuxaudio
+
+- Verdict: **KEEP**
+- Score: 41
+- Stars: 1769
+- Raw: #249
+- URL: https://github.com/nodiscc/awesome-linuxaudio
+- Description: [mirror] A list of software and resources for professional audio/video/live events production on Linux.
+- Why: linux audio, lv2, mastering, mixing, mixing/mastering/audio engineering fit, stars>=1000, vst
+
+### mikeoliphant/neural-amp-modeler-lv2
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 522
+- Raw: #231
+- URL: https://github.com/mikeoliphant/neural-amp-modeler-lv2
+- Description: Neural Amp Modeler LV2 plugin
+- Why: audio plugin, lv2, mastering, mixing, mixing/mastering/audio engineering fit, stars>=100
+
+### ebu/ear-production-suite
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 123
+- Raw: #238
+- URL: https://github.com/ebu/ear-production-suite
+- Description: The EAR Production Suite is a set of VST® plugins and tools for producing immersive and personalizable audio content suitable for any  Next Generation Audio codec. It is based on the Audio Definition Model (ITU-R BS.2076) and the ITU ADM Renderer (ITU-R BS.2127) and enables monitoring on any ITU-R BS.2051 loudspeaker configuration.
+- Why: audio plugin, mastering, mixing, mixing/mastering/audio engineering fit, stars>=100, vst
+
+### Mr-Hamza1001/RoomReverb
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 11
+- Raw: #226
+- URL: https://github.com/Mr-Hamza1001/RoomReverb
+- Description: 🔊 Simulate room acoustics with this JUCE-based audio plugin that generates realistic reverb using ray-tracing techniques for improved sound design.
+- Why: audio plugin, lv2, mastering, mixing, mixing/mastering/audio engineering fit, vst
+
+
+## Music Generation / AI Music
+
+### mudler/LocalAI
+
+- Verdict: **WATCH**
+- Score: 31
+- Stars: 48566
+- Raw: #137
+- URL: https://github.com/mudler/LocalAI
+- Description: LocalAI is the open-source AI engine. Run any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.
+- Why: ai music, music generation, music generation fit, musicgen, stars>=1000
+
+### huggingface/diffusers
+
+- Verdict: **WATCH**
+- Score: 31
+- Stars: 34340
+- Raw: #176
+- URL: https://github.com/huggingface/diffusers
+- Description: 🤗 Diffusers: State-of-the-art diffusion models for image, video, and audio generation in PyTorch.
+- Why: ai music, audio generation, music generation, music generation fit, stars>=1000
+
+### supercollider/supercollider
+
+- Verdict: **WATCH**
+- Score: 31
+- Stars: 6692
+- Raw: #163
+- URL: https://github.com/supercollider/supercollider
+- Description: An audio server, programming language, and IDE for sound synthesis and algorithmic composition.
+- Why: ai music, algorithmic composition, music generation, music generation fit, stars>=1000
+
+### rsxdalv/TTS-WebUI
+
+- Verdict: **WATCH**
+- Score: 31
+- Stars: 3239
+- Raw: #141
+- URL: https://github.com/rsxdalv/TTS-WebUI
+- Description: A single Gradio + React WebUI with extensions for ACE-Step, OmniVoice, Kimi Audio, Piper TTS, GPT-SoVITS, CosyVoice, XTTSv2, DIA, Kokoro, OpenVoice, ParlerTTS, Stable Audio, MMS, StyleTTS2, MAGNet, AudioGen, MusicGen, Tortoise, RVC, Vocos, Demucs, SeamlessM4T, and Bark!
+- Why: ai music, music generation, music generation fit, musicgen, stars>=1000
+
+
+## Newsroom / Data Journalism
+
+### palewire/news-homepages
+
+- Verdict: **KEEP**
+- Score: 80
+- Stars: 159
+- Raw: #929
+- URL: https://github.com/palewire/news-homepages
+- Description: An open-source archive that gathers, saves, shares and analyzes news homepages
+- Why: archive, data journalism, homepage, journalism, news homepages, newsroom, newsroom fit, seed/strong manual candidate
+
+### palewire/muckrockbot
+
+- Verdict: **KEEP**
+- Score: 70
+- Stars: 17
+- Raw: #974
+- URL: https://github.com/palewire/muckrockbot
+- Description: A Fediverse robot account that posts the latest public records requests filed and completed at muckrock.com
+- Why: data journalism, journalism, muckrock, newsroom, newsroom fit, public records, seed/strong manual candidate
+
+### palewire/news-homepages-runner
+
+- Verdict: **KEEP**
+- Score: 70
+- Stars: 8
+- Raw: #965
+- URL: https://github.com/palewire/news-homepages-runner
+- Description: A task runner for the homepages.news open-source archive
+- Why: archive, data journalism, homepage, journalism, newsroom, newsroom fit, seed/strong manual candidate
+
+### OpenRefine/OpenRefine
+
+- Verdict: **KEEP**
+- Score: 68
+- Stars: 11942
+- Raw: #925
+- URL: https://github.com/OpenRefine/OpenRefine
+- Description: OpenRefine is a free, open source power tool for working with messy data and improving it
+- Why: data journalism, journalism, newsroom, newsroom fit, seed/strong manual candidate, stars>=1000
+
+### buriedsignals/scoutpost-os
+
+- Verdict: **KEEP**
+- Score: 67
+- Stars: 34
+- Raw: #924
+- URL: https://github.com/buriedsignals/scoutpost-os
+- Description: Open-source monitoring for investigative and local journalism
+- Why: data journalism, investigative, journalism, newsroom, newsroom fit, seed/strong manual candidate, stars>=20
+
+### palewire/first-basemap
+
+- Verdict: **KEEP**
+- Score: 65
+- Stars: 13
+- Raw: #952
+- URL: https://github.com/palewire/first-basemap
+- Description: Create a shockingly fast and virtually free interactive map of the world using OpenStreetMap and PMTiles
+- Why: basemap, data journalism, journalism, newsroom, newsroom fit, seed/strong manual candidate
+
+### nrjones8/news-archive-explorer
+
+- Verdict: **KEEP**
+- Score: 40
+- Stars: 10
+- Raw: #966
+- URL: https://github.com/nrjones8/news-archive-explorer
+- Description: Webapp to compare news homepages at any hour, starting Jan 1, 2019. See https://github.com/nrjones8/website-screenshotter for accessing screenshots
+- Why: archive, data journalism, homepage, journalism, news homepages, newsroom, newsroom fit
+
+### jgraph/drawio-desktop
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 62677
+- Raw: #957
+- URL: https://github.com/jgraph/drawio-desktop
+- Description: Official electron build of draw.io
+- Why: data journalism, journalism, newsroom, newsroom fit, stars>=1000
+
+
+## OSINT / Investigations
+
+### sophymarine/openregistry
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 17
+- Raw: #906
+- URL: https://github.com/sophymarine/openregistry
+- Description: Real-time, direct-from-official-registry company data via MCP. 30 national registries; unmodified raw fields and raw filing bytes. Tools: search, profile, officers, shareholders, charges, filings, financial documents.
+- Why: filings, national registries, officers, osint/investigations fit, sanctions, shareholders
+
+
+## Publishing / Layout / PDF
+
+### rstudio/pagedown
+
+- Verdict: **KEEP**
+- Score: 68
+- Stars: 928
+- Raw: #838
+- URL: https://github.com/rstudio/pagedown
+- Description: Paginate the HTML Output of R Markdown with CSS for Print
+- Why: markdown, pagedown, pdf, print css, publishing/pdf fit, seed/strong manual candidate, stars>=100
+
+### Kozea/WeasyPrint
+
+- Verdict: **KEEP**
+- Score: 66
+- Stars: 9513
+- Raw: #832
+- URL: https://github.com/Kozea/WeasyPrint
+- Description: The awesome document factory
+- Why: pdf, print css, publishing/pdf fit, seed/strong manual candidate, stars>=1000, weasyprint
+
+### pagedjs/pagedjs
+
+- Verdict: **KEEP**
+- Score: 61
+- Stars: 1479
+- Raw: #810
+- URL: https://github.com/pagedjs/pagedjs
+- Description: Display paginated content in the browser and generate print books using web technology
+- Why: pagedjs, pdf, publishing/pdf fit, seed/strong manual candidate, stars>=1000
+
+### vivliostyle/vivliostyle.js
+
+- Verdict: **KEEP**
+- Score: 40
+- Stars: 780
+- Raw: #816
+- URL: https://github.com/vivliostyle/vivliostyle.js
+- Description: 📖 The power of CSS typesetting, right at your fingertips.
+- Why: pdf, publishing/pdf fit, seed/strong manual candidate, stars>=100, vivliostyle
+- Caution: ios
+
+### vivliostyle/vivliostyle-cli
+
+- Verdict: **KEEP**
+- Score: 40
+- Stars: 230
+- Raw: #815
+- URL: https://github.com/vivliostyle/vivliostyle-cli
+- Description: ⚒ Supercharge command-line publication workflow.
+- Why: pdf, publishing/pdf fit, seed/strong manual candidate, stars>=100, vivliostyle
+- Caution: ios
+
+
+## Radio / Audio Ops
+
+### AzuraCast/AzuraCast
+
+- Verdict: **KEEP**
+- Score: 81
+- Stars: 4003
+- Raw: #250
+- URL: https://github.com/AzuraCast/AzuraCast
+- Description: A self-hosted web radio management suite, including turnkey installer tools for the full radio software stack and a modern, easy-to-use web app to manage your stations.
+- Why: azuracast, icecast, liquidsoap, radio, radio backend fit, seed/strong manual candidate, self-hosted, stars>=1000
+
+### datafruits/radio
+
+- Verdict: **KEEP**
+- Score: 63
+- Stars: 9
+- Raw: #275
+- URL: https://github.com/datafruits/radio
+- Description: liquidsoap and icecast configuration for streampusher
+- Why: icecast, liquidsoap, radio, radio backend fit, seed/strong manual candidate, stream
+
+### hwdsl2/docker-whisper
+
+- Verdict: **KEEP**
+- Score: 62
+- Stars: 95
+- Raw: #285
+- URL: https://github.com/hwdsl2/docker-whisper
+- Description: Docker image for a self-hosted Whisper speech-to-text server with speaker diarization and OpenAI-compatible transcription and translation APIs. Powered by faster-whisper. Supports all Whisper models, NVIDIA GPU (CUDA) acceleration, JSON/SRT/VTT output, SSE streaming, offline mode, and multi-arch (amd64, arm64).
+- Why: radio, seed/strong manual candidate, self-hosted, stars>=20, stream, transcription, whisper
+
+### hwdsl2/docker-whisper-live
+
+- Verdict: **KEEP**
+- Score: 62
+- Stars: 30
+- Raw: #284
+- URL: https://github.com/hwdsl2/docker-whisper-live
+- Description: Docker image for a self-hosted WhisperLive real-time speech-to-text server, powered by faster-whisper. Provides WebSocket streaming for live audio transcription and an OpenAI-compatible REST API. Supports all Whisper models, VAD, NVIDIA GPU (CUDA) acceleration, offline mode, and multi-arch (amd64, arm64).
+- Why: radio, seed/strong manual candidate, self-hosted, stars>=20, stream, transcription, whisper
+
+### hwdsl2/docker-kokoro
+
+- Verdict: **KEEP**
+- Score: 62
+- Stars: 22
+- Raw: #286
+- URL: https://github.com/hwdsl2/docker-kokoro
+- Description: Docker image to run a self-hosted Kokoro TTS server with an OpenAI-compatible audio speech API. 50+ voices across 9 languages, streaming support, all major audio formats, NVIDIA GPU (CUDA) acceleration, offline mode, and persistent model cache. Multi-arch: amd64, arm64.
+- Why: kokoro, radio, seed/strong manual candidate, self-hosted, stars>=20, stream, tts
+
+### moul/radioman
+
+- Verdict: **KEEP**
+- Score: 60
+- Stars: 23
+- Raw: #274
+- URL: https://github.com/moul/radioman
+- Description: :musical_note: Web radio solution using Liquidsoap and Icecast
+- Why: icecast, liquidsoap, radio, radio backend fit, seed/strong manual candidate, stars>=20
+
+### glebovdev/somafm-cli
+
+- Verdict: **KEEP**
+- Score: 50
+- Stars: 14
+- Raw: #301
+- URL: https://github.com/glebovdev/somafm-cli
+- Description: 🎶 Terminal music player for SomaFM internet radio. Browse stations, see real-time track info, control volume and playback — all from your terminal. Built-in audio streaming, no external player needed. macOS, Linux, Windows.
+- Why: radio, seed/strong manual candidate, somafm, stream
+
+### openbroadcaster/observer
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 184
+- Raw: #291
+- URL: https://github.com/openbroadcaster/observer
+- Description: :radio: OBServer Automation, Scheduler, Media Library and Player Manager
+- Why: icecast, playlist, radio, radio backend fit, stars>=100, stream
+
+
+## Video Production / Editing
+
+### IgorShadurin/app.yumcut.com
+
+- Verdict: **KEEP**
+- Score: 43
+- Stars: 849
+- Raw: #709
+- URL: https://github.com/IgorShadurin/app.yumcut.com
+- Description: YumCut - free AI video generator to turn a prompt into ready vertical videos for TikTok, Reels and YouTube Shorts. Auto script, scenes, voiceover, subtitles and watermark. Built with Next.js. Local-first pipeline + templates, batch rendering and API hooks for creators and indie makers. Self-hosted, FFmpeg-ready, multi-language output. Low cost fast
+- Why: ffmpeg, render, stars>=100, subtitle, subtitles, template, video, video production fit
+
+### 0xsline/OpenChatCut
+
+- Verdict: **KEEP**
+- Score: 41
+- Stars: 1248
+- Raw: #656
+- URL: https://github.com/0xsline/OpenChatCut
+- Description: Open-source, local-first conversational AI video editor with a professional multi-track timeline, Agent Skills, MCP integration, and Remotion rendering.
+- Why: ffmpeg, render, stars>=1000, timeline, video, video editor, video production fit
+
+### AH64-dll/OpenEdit
+
+- Verdict: **KEEP**
+- Score: 40
+- Stars: 44
+- Raw: #653
+- URL: https://github.com/AH64-dll/OpenEdit
+- Description: AI-native video editor driven as a local MCP server. Linux + Windows: ingest, transcribe, edit graph, melt/ffmpeg render, QC.
+- Why: ffmpeg, mlt, render, stars>=20, video, video editing, video editor, video production fit
+
+### kouhxp/yapsnap
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 293
+- Raw: #690
+- URL: https://github.com/kouhxp/yapsnap
+- Description: Snap any video URL or audio file into plaintext. No GPU. No cloud. One command.
+- Why: stars>=100, subtitle, subtitles, transcription, video, video production fit
+
+### av8d-levelup/local-av-to-text
+
+- Verdict: **WATCH**
+- Score: 33
+- Stars: 10
+- Raw: #692
+- URL: https://github.com/av8d-levelup/local-av-to-text
+- Description: 本地・免費・資料不外流的影音/語音轉文字＋摘要工具｜Local, free, private video/audio → transcript + summary (Mac/Windows, 繁中優化, whisper+ffmpeg+Ollama)
+- Why: ffmpeg, subtitle, subtitles, transcription, video, video production fit
+
+### Anil-matcha/AI-Youtube-Shorts-Generator
+
+- Verdict: **WATCH**
+- Score: 31
+- Stars: 4628
+- Raw: #718
+- URL: https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator
+- Description: Open-source alternative to Opus Clip, Vidyo.ai, Klap & SubMagic. Turn long-form YouTube videos into viral 9:16 shorts using LLM highlight detection, Whisper transcription, and auto vertical cropping — free, no watermarks, no per-clip credits.
+- Why: short video, stars>=1000, transcription, video, video production fit
+
+### mltframework/mlt
+
+- Verdict: **WATCH**
+- Score: 31
+- Stars: 1830
+- Raw: #706
+- URL: https://github.com/mltframework/mlt
+- Description: MLT Multimedia Framework
+- Why: ffmpeg, mlt, stars>=1000, video, video production fit
+
+
