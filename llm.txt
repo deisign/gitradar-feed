@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-08-20T08:21:15
+Generated: 2026-08-20T19:10:03
 Date: 2026-08-20
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,16 +8,16 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 150
+- Total curated cards: 153
 - Buckets: 19
 
 ## Bucket summary
 
 - Agent Security / Governance: 1
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 13
+- Design Systems / Visual QA: 14
 - Font Creation / Typography Tools: 13
-- Full-Song AI / Suno Alternatives: 4
+- Full-Song AI / Suno Alternatives: 5
 - Infographics / Visual Storytelling: 13
 - Interactive Reports / Data Apps: 5
 - Lancelot / Agent Infrastructure: 19
@@ -31,7 +31,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Publishing / Layout / PDF: 6
 - Radio / Audio Ops: 9
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 20
+- Video Production / Editing: 21
 
 ## Today's run
 
@@ -166,7 +166,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 13
+Cards: 14
 
 ### dembrandt/dembrandt
 
@@ -373,6 +373,33 @@ Agentic Design QA
 
 NEXT:
 проверить, можно ли использовать поверх наших design tokens и шаблонов
+
+---
+
+### southleft/figma-console-mcp-skills
+
+URL: https://github.com/southleft/figma-console-mcp-skills
+VERDICT: KEEP
+SCORE: 45
+STARS: 71
+
+WHAT:
+Набор Markdown skills поверх native Figma MCP: design tokens, variables, component analysis, WCAG/a11y lint, version history, FigJam и Slides.
+
+Это не ещё один отдельный Figma runtime, а готовая библиотека агентных процедур вокруг уже существующего MCP surface.
+
+FIT:
+Очень прямо ложится на наш Interface Skills слой. Особенно интересны skills для design-token audit, component analysis и accessibility QA.
+
+Ценность здесь не в установке ещё одного инструмента, а в готовых процедурах, которые можно разобрать и перенести в наш собственный набор skills.
+
+PROJECT:
+Interface Skills / Design Systems / Media Factory.
+
+NEXT:
+Разобрать skills по одному. Сначала проверить token/variables, component analysis и WCAG/a11y.
+
+Полезные процедуры переносить выборочно в наш Interface Skills после review/security check, не тащить весь repository как доверенный пакет.
 
 ---
 
@@ -797,7 +824,7 @@ NEXT:
 
 ## BUCKET: Full-Song AI / Suno Alternatives
 
-Cards: 4
+Cards: 5
 
 ### ace-step/ACE-Step-1.5
 
@@ -880,6 +907,33 @@ Full-Song AI / Suno Alternatives · benchmark/reference.
 
 NEXT:
 Не разворачивать первым. Использовать как quality/reference benchmark; отдельно проверить облегчённые YuE runtimes/UI для 24 GB и меньшего VRAM.
+
+---
+
+### smthemex/ComfyUI_YuE
+
+URL: https://github.com/smthemex/ComfyUI_YuE
+VERDICT: KEEP
+SCORE: 44
+STARS: 189
+
+WHAT:
+ComfyUI integration вокруг YuE full-song / lyrics-to-song models.
+
+Даёт более привычный node-based workflow для запуска YuE внутри существующей ComfyUI ecosystem.
+
+FIT:
+Интересен как способ быстрее тестировать и компоновать YuE, но не как отдельная модель или самостоятельная архитектура генерации музыки.
+
+Карточку держим именно как integration/reference layer.
+
+PROJECT:
+COMA / Full-Song AI / Local creative AI.
+
+NEXT:
+Не делать отдельный большой pilot до benchmark самого YuE.
+
+При следующем тесте YuE проверить, упрощает ли ComfyUI wrapper работу с conditioning, generation parameters и повторяемостью workflow.
 
 ---
 
@@ -2900,27 +2954,6 @@ NEXT:
 
 ---
 
-### sophymarine/openregistry
-
-URL: https://github.com/sophymarine/openregistry
-VERDICT: KEEP
-SCORE: 33
-STARS: 16
-
-WHAT:
-MCP-сервер для прямого обращения к официальным корпоративным реестрам разных стран. Возвращает данные реестров и исходные filing-документы без собственной нормализации.
-
-FIT:
-Это не ещё одна база-агрегатор, а интерфейс к первичным источникам. Особенно интересны ownership chains, officers, shareholders, filings и возможность сохранять provenance до государственного реестра.
-
-PROJECT:
-OSINT Signal, Browser OSINT Workbench, Structural Risk Memo и любые расследования юридических лиц и сетей собственности.
-
-NEXT:
-Проверить реальный workflow на нескольких юрисдикциях и оценить, где заканчивается бесплатный слой и начинается платный.
-
----
-
 ### kodamaChameleon/wmn-docker
 
 URL: https://github.com/kodamaChameleon/wmn-docker
@@ -2978,6 +3011,33 @@ USE FOR LANCELOT:
 Possible reference for a future bounded investigation workflow.
 
 Самостоятельная причина расширять tool surface Lancelot отсутствует.
+
+---
+
+### sophymarine/openregistry
+
+URL: https://github.com/sophymarine/openregistry
+VERDICT: WATCH
+SCORE: 33
+STARS: 17
+
+WHAT:
+MCP-native слой прямого real-time доступа к 30 официальным company registries.
+
+Возвращает исходные registry fields без нормализации и умеет отдавать raw filing bytes. Инструменты покрывают company search, profiles, officers, shareholders, charges, filings и financial documents. Поддерживает cross-border chain queries.
+
+FIT:
+Очень сильный кандидат для company/ownership OSINT именно из-за provenance: агент получает не очередную агрегированную базу, а исходный ответ государственного реестра.
+
+Особенно интересно для расследования цепочек владения между юрисдикциями и сохранения source-linked evidence.
+
+PROJECT:
+OSINT / Investigations / Company intelligence.
+
+NEXT:
+Проверить 10 известных компаний в нескольких юрисдикциях: поиск, officers, shareholders, filings и raw documents.
+
+Сравнить completeness с прямыми registry interfaces и OpenCorporates. Отдельно проверить quotas, evidence preservation и лицензии конкретных upstream datasets.
 
 ---
 
@@ -3337,7 +3397,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 20
+Cards: 21
 
 ### 0xsline/OpenChatCut
 
@@ -3369,6 +3429,33 @@ OpenChatCut: что они добавляют, что способны заме�
 механизмы стоит заимствовать.
 
 Не выводить OpenChatCut как новую находку Radar.
+
+---
+
+### AH64-dll/OpenEdit
+
+URL: https://github.com/AH64-dll/OpenEdit
+VERDICT: KEEP
+SCORE: 40
+STARS: 44
+
+WHAT:
+AI-native local video editor, работающий как MCP server.
+
+Внутри: SHA-256 content-addressed ingest, word-level faster-whisper transcription, append-only IR edit graph в SQLite/WAL, melt + ffmpeg rendering, proxy/final renders и deterministic QC gate. Cloud и встроенного LLM нет; creative loop принадлежит внешнему агенту.
+
+FIT:
+Нам интересен не как «ещё один редактор вместо OpenChatCut», а как donor для Clip Machine.
+
+Особенно сильные идеи: append-only reversible edit graph, project-pinned MCP surface, разделение proxy/final render и детерминированный QC после render.
+
+PROJECT:
+Clip Machine.
+
+NEXT:
+Сделать differential architecture review OpenEdit ↔ наш активный OpenChatCut.
+
+Отдельно проверить edit graph, reversible operations, render jobs, QC gate и sandbox для run_script. Пилотировать изолированно; текущий core не менять.
 
 ---
 
