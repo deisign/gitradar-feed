@@ -1,6 +1,6 @@
 {
   "schema": "creative-radar-cards-feed-v1",
-  "generated_at": "2026-08-20T16:10:04.586527+00:00",
+  "generated_at": "2026-08-20T17:41:39.496651+00:00",
   "count": 153,
   "buckets": {
     "Agent Security / Governance": 1,
@@ -23,6 +23,6 @@
     "Video Production / Editing": 21,
     "n8n / Workflow Automation": 7
   },
-  "sha256": "5bca683ce66607b80335695e63cf32786b1c72443d4e7cfdbf89ec582e47ef17",
+  "sha256": "791ebc4e6bb166691246ac200a3bb2e18a624e533eb8885468786d6d71a8ed06",
   "feed": "cards.jsonl"
 }

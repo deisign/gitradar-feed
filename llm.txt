@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-08-20T19:10:03
+Generated: 2026-08-20T20:41:38
 Date: 2026-08-20
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -210,6 +210,80 @@ NEXT:
 
 ---
 
+### kunchenguid/axi
+
+URL: https://github.com/kunchenguid/axi
+VERDICT: KEEP
+SCORE: 31
+STARS: 1871
+
+WHAT:
+AXI — Agent eXperience Interface: набор принципов для инструментов,
+которыми пользуются прежде всего AI-агенты, а не люди.
+
+Проект исходит из того, что обычные CLI и MCP часто создают лишний
+контекст и лишние round trips.
+
+Ключевые принципы:
+
+- token-efficient output;
+- минимальные default schemas;
+- controlled truncation с явным full mode;
+- pre-computed aggregates;
+- однозначные empty states;
+- structured errors и exit codes;
+- non-interactive/idempotent mutations;
+- contextual disclosure следующих действий.
+
+Есть reference implementations для GitHub и browser automation.
+Авторы также публикуют собственные benchmark'и AXI против обычного CLI
+и MCP.
+
+FIT:
+Содержательно это не Design Systems tool, несмотря на автоматический bucket.
+
+Для Lancelot AXI интересен как reference того, каким должен быть tool surface
+после discovery/security слоя.
+
+MCPProxy отвечает на вопросы:
+
+- какие инструменты доступны;
+- каким можно доверять;
+- какой intent у вызова;
+- нужно ли approval.
+
+AXI отвечает на другой вопрос:
+
+- как сам инструмент должен разговаривать с агентом, чтобы не жрать
+  контекст и не требовать лишних turns.
+
+Особенно полезны compact output, definitive empty state,
+pre-computed aggregates и fail-loud errors.
+
+PROJECT:
+Lancelot / Agent Infrastructure.
+
+Reference для tool UX и bounded execution surface.
+
+NEXT:
+Сделать небольшой architecture diff:
+
+1. обычный `gh`;
+2. GitHub MCP;
+3. `gh-axi`.
+
+На нескольких одинаковых задачах сравнить:
+
+- количество tool calls / turns;
+- объём возвращаемого контекста;
+- качество error states;
+- пригодность output для дальнейшего reasoning.
+
+Отдельно определить, какие AXI principles стоит сделать требованиями
+для собственных tools Lancelot.
+
+---
+
 ### lyse-labs/lyse
 
 URL: https://github.com/lyse-labs/lyse
@@ -415,27 +489,6 @@ Design data, including design tokens, component schemas, and tooling for Spectru
 
 FIT:
 design QA fit, design system, design tokens, design-system, stars>=100, tokens
-
-PROJECT:
-Design Systems / Visual QA
-
-NEXT:
-проверить README, лицензию, активность и сделать smoke-test
-
----
-
-### kunchenguid/axi
-
-URL: https://github.com/kunchenguid/axi
-VERDICT: WATCH
-SCORE: 31
-STARS: 1723
-
-WHAT:
-Design principles for agent ergonomics. Higher accuracy with lower token cost than both MCP and regular CLI.
-
-FIT:
-design QA fit, design system, design tokens, stars>=1000, tokens
 
 PROJECT:
 Design Systems / Visual QA
@@ -1043,19 +1096,69 @@ NEXT:
 URL: https://github.com/nolangz/data2motion
 VERDICT: KEEP
 SCORE: 40
-STARS: 83
+STARS: 87
 
 WHAT:
-—
+Data2Motion — AI skill для превращения структурированных данных
+в анимированные графики.
+
+Pipeline:
+
+`JSON data/spec → chart → motion → standalone HTML`
+
+Lite engine намеренно ограничивает свободу агента:
+агент описывает данные, тип графика, заголовок, takeaway, source,
+style и параметры scale, а визуальный язык и animation принадлежат
+детерминированному renderer.
+
+Поддерживаются KPI, bar, column, diverging, line, multiline, area,
+stacked, scatter, lollipop и dumbbell.
+
+Есть replay/speed/freeze, reduced-motion и deterministic hooks:
+
+- `?static=1`
+- `?t=<ms>`
+
+Готовый HTML не требует runtime JavaScript dependencies.
 
 FIT:
-chart, data storytelling, infographic, infographics, infographics/visual storytelling fit, stars>=20, svg, visual storytelling
+Очень хороший primitive для нашей Media Factory.
+
+Главная идея — не просить LLM каждый раз заново рисовать SVG/CSS,
+а заставить его выдавать маленький проверяемый spec.
+
+Это даёт:
+
+- единый визуальный язык;
+- повторяемость;
+- deterministic QA;
+- возможность получить точный static frame;
+- пригодность для автоматического video/render pipeline.
+
+Может использоваться для инфографики в видео, data stories,
+interactive reports и коротких аналитических визуализаций.
 
 PROJECT:
-Infographics / Visual Storytelling
+Media Factory / Infographics / Visual Storytelling /
+Interactive Reports.
 
 NEXT:
-сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+Сделать smoke-test на трёх наших реальных формах данных:
+
+1. один KPI;
+2. сравнение регионов;
+3. временной ряд.
+
+Проверить:
+
+- animated HTML;
+- `?static=1`;
+- deterministic frame через `?t=`;
+- screenshot/render через Chrome;
+- насколько просто заменить штатные visual styles нашим фирменным языком.
+
+Если всё чисто — использовать как renderer primitive,
+а не как самостоятельное приложение.
 
 ---
 
@@ -2751,16 +2854,45 @@ SCORE: 80
 STARS: 159
 
 WHAT:
-An open-source archive that gathers, saves, shares and analyzes news homepages
+Open-source archive, который собирает, сохраняет, публикует
+и позволяет анализировать главные страницы новостных сайтов.
+
+У проекта есть отдельный task runner и исторический archive workflow.
 
 FIT:
-media agenda archive; регулярный архив главных страниц медиа
+Для Media Monitoring это отдельный класс сигнала.
+
+Обычный article collector отвечает:
+
+«что редакция опубликовала?»
+
+Homepage monitoring добавляет:
+
+- что редакция вынесла на главную;
+- на какую позицию;
+- как долго держала;
+- чем заменила;
+- какие темы поднялись или исчезли.
+
+То есть homepage state можно хранить как самостоятельный evidence object
+для анализа editorial prominence и изменения повестки.
 
 PROJECT:
-Media Monitoring / Horizon / OSINT Signal
+Media Monitoring / Newsroom analysis / Evidence.
 
 NEXT:
-inspect install/docs; понять, можно ли адаптировать под украинские/российские медиа и наши проекты
+Сделать pilot на 10 медиа.
+
+Для каждого периодически сохранять homepage snapshot и сравнивать:
+
+- порядок материалов;
+- headline;
+- position/prominence;
+- появление/исчезновение;
+- длительность присутствия на главной.
+
+Сравнить, сколько нового аналитического сигнала это даёт поверх
+обычного article monitoring.
 
 ---
 
@@ -2772,16 +2904,36 @@ SCORE: 70
 STARS: 8
 
 WHAT:
-A task runner for the homepages.news open-source archive
+Task runner для проекта news-homepages.
+
+Это operational layer, который запускает recurring collection
+и обслуживает homepage archive workflow.
 
 FIT:
-runner для news-homepages; полезен как паттерн scheduled archive jobs
+Сам по себе runner менее интересен, чем основная homepage-библиотека.
+
+Ценность — посмотреть готовые patterns для:
+
+- site configuration;
+- recurring jobs;
+- retries;
+- collector orchestration;
+- archive production.
+
+Может оказаться проще заимствовать эти patterns в существующий
+Media Monitoring, чем тащить runner целиком.
 
 PROJECT:
-Media Monitoring
+Media Monitoring / Homepage archive.
 
 NEXT:
-сравнить с нашим systemd/timer подходом и ArchiveBox
+Разбирать только вместе с `palewire/news-homepages`.
+
+Сравнить его orchestration model с нашим scheduler/collector layer
+и решить:
+
+- использовать runner напрямую;
+- или забрать только site-config и scheduling patterns.
 
 ---
 
@@ -2839,16 +2991,59 @@ SCORE: 67
 STARS: 34
 
 WHAT:
-Open-source monitoring for investigative and local journalism
+Scoutpost — monitoring infrastructure для investigative и local journalism.
+
+Система строится вокруг специализированных recurring scouts:
+
+- Page Scouts — изменения публичных страниц;
+- Beat Scouts — тема или география;
+- Social Scouts — новые и удалённые посты;
+- Civic Scouts — муниципальные страницы, agendas, minutes и PDF;
+- Fleet Scouts — суда, самолёты и спутники.
+
+Результаты превращаются в source-linked deduplicated information units.
+
+Information units остаются leads до human verification.
+Доступ к системе есть через UI, MCP, REST и CLI.
+
+Page Scouts дополнительно умеют сохранять tamper-evident evidence snapshots:
+MHTML + screenshot + RFC 3161 timestamp, с опциональной отправкой
+в Internet Archive.
 
 FIT:
-monitoring for investigative/local journalism
+Архитектурно очень близко к тому, куда движется наш Media Monitoring.
+
+Особенно интересны четыре решения:
+
+1. specialized recurring scouts вместо одного универсального crawler;
+2. deduplication до уровня information unit;
+3. явная граница lead → human verified;
+4. evidence snapshots, пригодные для последующей проверки источника.
+
+Это потенциальный donor сразу для collection, novelty/event layer,
+verification queue и evidence storage.
 
 PROJECT:
-Media Monitoring / OSINT Course
+Media Monitoring / OSINT / Evidence layer.
 
 NEXT:
-проверить архитектуру и применимость к расследовательскому мониторингу
+Сделать architecture diff Scoutpost ↔ наш Media Monitoring:
+
+- collectors/scouts;
+- scheduling;
+- deduplication;
+- event/information-unit model;
+- verification state;
+- evidence snapshot;
+- MCP/API surfaces.
+
+Потом поднять изолированный pilot только с:
+
+1. Page Scout;
+2. Civic Scout.
+
+Полный fork/deployment не делать до отдельной проверки
+Sustainable Use licence.
 
 ---
 
@@ -3246,16 +3441,45 @@ SCORE: 62
 STARS: 22
 
 WHAT:
-Docker image to run a self-hosted Kokoro TTS server with an OpenAI-compatible audio speech API. 50+ voices across 9 languages, streaming support, all major audio formats, NVIDIA GPU (CUDA) acceleration, offline mode, and persistent model cache. Multi-arch: amd64, arm64.
+Docker image для self-hosted Kokoro TTS server
+с OpenAI-compatible speech API.
+
+Заявлены:
+
+- 50+ voices;
+- 9 languages;
+- streaming;
+- основные audio formats;
+- CUDA;
+- offline mode;
+- persistent model cache;
+- amd64/arm64.
 
 FIT:
-self-hosted Kokoro TTS API; text → voice/audio
+Потенциальный стандартный local TTS endpoint для Media Factory
+и radio/video automation.
+
+Как и с Whisper, главный плюс — стабильный OpenAI-compatible API:
+внутренний voice backend можно менять без изменения клиентов.
 
 PROJECT:
-Coma.fm / TTS / Rosa Nocturna
+Media Factory / Radio / Voiceover.
 
 NEXT:
-проверить качество RU/UA/EN и голоса
+Сначала проверить фактическую пригодность нужных нам языков.
+
+Benchmark:
+
+- RU;
+- UA, если реально поддерживается;
+- EN;
+- длинные тексты;
+- latency;
+- streaming;
+- naturalness;
+- стабильность голоса между сегментами.
+
+До этого не считать заменой текущего voiceover stack.
 
 ---
 
@@ -3264,19 +3488,50 @@ NEXT:
 URL: https://github.com/hwdsl2/docker-whisper
 VERDICT: KEEP
 SCORE: 62
-STARS: 78
+STARS: 95
 
 WHAT:
-Docker image for a self-hosted Whisper speech-to-text server with speaker diarization and OpenAI-compatible transcription and translation APIs. Powered by faster-whisper. Supports all Whisper models, NVIDIA GPU (CUDA) acceleration, JSON/SRT/VTT output, SSE streaming, offline mode, and multi-arch (amd64, arm64).
+Docker image для self-hosted Whisper speech-to-text server
+на faster-whisper.
+
+Поддерживает:
+
+- OpenAI-compatible transcription/translation API;
+- speaker diarization;
+- JSON, SRT и VTT;
+- SSE streaming;
+- NVIDIA CUDA;
+- offline mode;
+- amd64 и arm64.
 
 FIT:
-self-hosted Whisper transcription API; audio → text
+Может стать унифицированным локальным STT endpoint сразу для нескольких
+наших систем.
+
+Потенциальная роль:
+
+`media → local STT API → transcript/timestamps → downstream processing`
+
+OpenAI-compatible API особенно удобен: клиенты можно держать
+отвязанными от конкретного transcription backend.
 
 PROJECT:
-Audio Intelligence / Transcripts
+Clip Machine / Media Monitoring / Audio Intelligence.
 
 NEXT:
-сравнить с локальным faster-whisper/MinerU контуром
+Benchmark на одном длинном RU/UA материале.
+
+Сравнить с текущим transcription path:
+
+- WER субъективно/по контрольным кускам;
+- timestamps;
+- diarization;
+- скорость;
+- VRAM;
+- SRT/VTT;
+- длинные файлы.
+
+Ничего не заменять до сравнения.
 
 ---
 
@@ -3285,19 +3540,48 @@ NEXT:
 URL: https://github.com/hwdsl2/docker-whisper-live
 VERDICT: KEEP
 SCORE: 62
-STARS: 23
+STARS: 30
 
 WHAT:
-Docker image for a self-hosted WhisperLive real-time speech-to-text server, powered by faster-whisper. Provides WebSocket streaming for live audio transcription and an OpenAI-compatible REST API. Supports all Whisper models, VAD, NVIDIA GPU (CUDA) acceleration, offline mode, and multi-arch (amd64, arm64).
+Self-hosted WhisperLive real-time speech-to-text server
+на faster-whisper.
+
+Есть:
+
+- WebSocket streaming;
+- OpenAI-compatible REST API;
+- VAD;
+- CUDA;
+- offline mode;
+- amd64/arm64.
 
 FIT:
-real-time speech-to-text; live audio transcription
+Это уже не batch transcription, а потенциальный ingestion layer
+для live monitoring.
+
+Применение:
+
+`radio/live stream → live STT → event extraction → alert`
+
+Особенно интересно для радио, прямых эфиров и длинных live streams,
+где ждать завершения файла нельзя.
 
 PROJECT:
-Audio Intelligence / Radio Live
+Media Monitoring / Radio / Live transcription.
 
 NEXT:
-проверить задержку и GPU/CPU требования
+Прогнать несколько реальных live streams.
+
+Измерить:
+
+- end-to-end latency;
+- reconnect;
+- устойчивость многочасовой сессии;
+- VAD;
+- partial/final transcripts;
+- GPU/CPU нагрузку.
+
+Потом решить, нужен ли отдельный live-STT service.
 
 ---
 
