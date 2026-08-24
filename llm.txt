@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-08-24T08:21:14
+Generated: 2026-08-24T12:17:46
 Date: 2026-08-24
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 153
+- Total curated cards: 154
 - Buckets: 19
 
 ## Bucket summary
@@ -16,9 +16,9 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Agent Security / Governance: 1
 - Broadcast / Playout / Automation: 2
 - Design Systems / Visual QA: 14
-- Font Creation / Typography Tools: 13
+- Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 5
-- Infographics / Visual Storytelling: 13
+- Infographics / Visual Storytelling: 12
 - Interactive Reports / Data Apps: 5
 - Lancelot / Agent Infrastructure: 19
 - Media / Social Monitoring: 3
@@ -28,7 +28,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - n8n / Workflow Automation: 7
 - Newsroom / Data Journalism: 12
 - OSINT / Investigations: 7
-- Publishing / Layout / PDF: 6
+- Publishing / Layout / PDF: 7
 - Radio / Audio Ops: 9
 - Telegram Bots / Automation: 1
 - Video Production / Editing: 21
@@ -173,19 +173,68 @@ Cards: 14
 URL: https://github.com/dembrandt/dembrandt
 VERDICT: KEEP
 SCORE: 46
-STARS: 2173
+STARS: 3163
 
 WHAT:
-Extract any website’s design system into tokens in seconds: logo, colors, typography, borders & more. One command.
+Dembrandt превращает реальный сайт в структурированное описание
+его design system.
+
+Через Playwright он анализирует rendered DOM и computed styles и
+извлекает:
+
+- semantic и palette colors;
+- CSS variables и gradients;
+- typography;
+- spacing;
+- borders и radii;
+- shadows;
+- motion/easing;
+- components;
+- breakpoints;
+- icons и framework fingerprints.
+
+Результат можно получать как обычный JSON, W3C DTCG design tokens,
+Tailwind v4 theme или DESIGN.md для AI-агентов.
+
+Есть multi-page crawl, mobile/dark modes, WCAG contrast analysis
+и сравнение результата с baseline.
 
 FIT:
-извлечение дизайн-системы сайта в tokens: logo, colors, typography, borders
+Это уже не просто утилита «посмотреть цвета чужого сайта».
+
+Для нас особенно интересна связка:
+
+`existing interface → extracted system → DTCG tokens → baseline → drift gate`
+
+То есть Dembrandt может использоваться сразу в двух направлениях.
+
+Первое — reverse engineering собственного существующего визуального языка:
+снять фактические цвета, типографику, spacing и компоненты с уже работающего
+сайта и превратить их в формальную design-system модель.
+
+Второе — QA:
+после каждого изменения интерфейса повторно снять систему и детерминированно
+показать, какие tokens и component styles уплыли.
+
+Есть MCP surface для agentic workflows, но главный актив для нас —
+не MCP сам по себе, а нормализованный deterministic design evidence.
 
 PROJECT:
-Visual System Extractor / Media Kits
+Interface Skills / Design Systems / Media Factory / Visual QA.
 
 NEXT:
-прогнать на сайтах Коордштаба / ХВ / ХН / ХКС как design audit
+Сделать один реальный pilot на нашем существующем интерфейсе.
+
+1. Снять обычный extraction.
+2. Экспортировать DTCG.
+3. Получить DESIGN.md.
+4. Запустить WCAG.
+5. Зафиксировать baseline.
+6. Намеренно изменить несколько CSS tokens.
+7. Проверить drift report.
+
+После этого решить, становится ли Dembrandt стандартным
+`site → tokens → QA` primitive для Interface Skills.
 
 ---
 
@@ -600,7 +649,7 @@ NEXT:
 
 ## BUCKET: Font Creation / Typography Tools
 
-Cards: 13
+Cards: 14
 
 ### Corne2Plum3/Giphurs
 
@@ -746,6 +795,78 @@ Design system / visual QA
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### javierbyte/brutalita
+
+URL: https://github.com/javierbyte/brutalita
+VERDICT: KEEP
+SCORE: 48
+STARS: 303
+
+WHAT:
+Brutalita — экспериментальный browser font editor и одновременно
+CLI/compiler для шрифтов.
+
+Источник шрифта хранится как небольшой JSON:
+
+`config + chars`
+
+где glyphs описаны полилиниями.
+
+Из одного и того же source CLI умеет:
+
+- build → OTF;
+- render → single-stroke SVG;
+- validate;
+- info;
+- init;
+- watch/rebuild;
+- собирать несколько weights.
+
+Browser editor и CLI используют общее font-building core.
+
+Отдельно предусмотрен reproducible-build режим:
+можно зафиксировать timestamp и получить byte-identical OTF
+из неизменившегося source.
+
+FIT:
+Главная ценность для нас не в конкретной эстетике Brutalita
+и не в его 2×4 half-step glyph grid.
+
+Интересен сам архитектурный pattern:
+
+`small structured font source → validation → deterministic compiler → OTF/SVG`
+
+Это хороший reference для программируемой типографики и генеративной
+машины фирменных шрифтов, где исходник должен быть:
+
+- читаемым агентом;
+- version-controlled;
+- валидируемым;
+- воспроизводимо собираемым;
+- пригодным для автоматического render/QA.
+
+BSD-3-Clause позволяет спокойно исследовать и переиспользовать
+архитектурные решения.
+
+PROJECT:
+Font Creation / Typography / Media Factory.
+
+NEXT:
+Сделать небольшой architecture smoke-test.
+
+1. `init` новый font source.
+2. Изменить несколько glyphs в JSON.
+3. `validate`.
+4. Собрать OTF.
+5. Сделать SVG specimen.
+6. Повторить build с фиксированным timestamp.
+7. Проверить byte-identical result.
+
+После этого решить, нужен ли нам сам Brutalita core или только
+его source/compiler/reproducibility pattern.
 
 ---
 
@@ -992,7 +1113,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 13
+Cards: 12
 
 ### agno-agi/vibe-video
 
@@ -1243,27 +1364,6 @@ Video production / Shorts / subtitles
 
 NEXT:
 проверить безопасность, зависимости и реальную пользу на тестовом проекте
-
----
-
-### markdown-viewer/markdown-viewer-extension
-
-URL: https://github.com/markdown-viewer/markdown-viewer-extension
-VERDICT: WATCH
-SCORE: 31
-STARS: 1738
-
-WHAT:
-Markdown to perfect Word in one click — Mermaid, Vega, drawio, canvas, Infographic, Graphviz, LaTeX (editable), code highlighting, local processing
-
-FIT:
-infographic, infographics, infographics/visual storytelling fit, stars>=1000, visual storytelling
-
-PROJECT:
-Infographics / Visual Storytelling
-
-NEXT:
-проверить README, лицензию, активность и сделать smoke-test
 
 ---
 
@@ -3238,7 +3338,7 @@ NEXT:
 
 ## BUCKET: Publishing / Layout / PDF
 
-Cards: 6
+Cards: 7
 
 ### Kozea/WeasyPrint
 
@@ -3258,6 +3358,96 @@ Evidence Publishing Stack / Media Kits
 
 NEXT:
 сделать мини-тест отчёта из HTML в PDF
+
+---
+
+### markdown-viewer/markdown-viewer-extension
+
+URL: https://github.com/markdown-viewer/markdown-viewer-extension
+VERDICT: KEEP
+SCORE: 31
+STARS: 1784
+
+WHAT:
+docu.md Markdown Viewer — local publishing/rendering layer
+для Markdown.
+
+Он сохраняет сложные элементы, которые обычно ломаются при
+передаче Markdown в офисные форматы:
+
+- tables;
+- images;
+- highlighted code;
+- LaTeX/math;
+- Mermaid;
+- Vega/Vega-Lite;
+- draw.io;
+- Canvas;
+- Graphviz;
+- Infographic blocks.
+
+Выходные форматы включают:
+
+- editable DOCX;
+- PDF;
+- self-contained HTML;
+- отдельные image/vector outputs для visual blocks.
+
+Формулы в Word могут оставаться редактируемыми, а не превращаться
+в картинки.
+
+В репозитории есть Node.js CLI, который использует headless Chrome
+и тот же renderer, что и viewer.
+
+FIT:
+Поэтому предыдущая классификация как Infographics слишком узкая.
+
+Это прежде всего publishing/handoff primitive:
+
+`Markdown source → deterministic rendered document → DOCX/PDF/HTML`
+
+Он особенно интересен для документов, которые рождаются автоматически
+или агентом в Markdown, но на выходе должны стать обычным человеческим
+документом для Word, печати или отправки.
+
+Для Media Factory это потенциальный сосед Docxtemplater, WeasyPrint
+и Vivliostyle, но с другой ролью:
+
+- Docxtemplater — template-driven Office documents;
+- WeasyPrint/Vivliostyle — HTML/CSS → print/PDF;
+- docu.md — rich Markdown → editable Office / PDF / HTML handoff.
+
+Обычный preview/export выполняется локально.
+
+PROJECT:
+Media Factory / Publishing / Reports / Document handoff.
+
+NEXT:
+Сделать differential benchmark на одном реальном отчёте.
+
+Исходный Markdown должен содержать:
+
+- таблицу;
+- Mermaid;
+- Vega chart;
+- формулу;
+- code block;
+- изображения;
+- длинный русский/украинский текст.
+
+Получить DOCX, PDF и HTML.
+
+Проверить:
+
+- fidelity;
+- editable formulas;
+- pagination;
+- typography;
+- качество таблиц;
+- diagrams;
+- размер и portability результата.
+
+Сравнить его роль с Docxtemplater и нашим HTML/CSS → PDF stack.
 
 ---
 
