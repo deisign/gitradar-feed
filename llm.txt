@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-08-25T22:14:24
+Generated: 2026-08-25T22:48:21
 Date: 2026-08-25
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,18 +8,18 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 154
+- Total curated cards: 158
 - Buckets: 19
 
 ## Bucket summary
 
 - Agent Security / Governance: 1
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 14
+- Design Systems / Visual QA: 15
 - Font Creation / Typography Tools: 14
-- Full-Song AI / Suno Alternatives: 5
-- Infographics / Visual Storytelling: 12
-- Interactive Reports / Data Apps: 5
+- Full-Song AI / Suno Alternatives: 6
+- Infographics / Visual Storytelling: 13
+- Interactive Reports / Data Apps: 6
 - Lancelot / Agent Infrastructure: 19
 - Media / Social Monitoring: 3
 - Media Kits / Brand Automation: 1
@@ -166,7 +166,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 14
+Cards: 15
 
 ### dembrandt/dembrandt
 
@@ -393,6 +393,83 @@ Design system / visual QA
 
 NEXT:
 проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### natdexterra/work-with-design-systems
+
+URL: https://github.com/natdexterra/work-with-design-systems
+VERDICT: KEEP
+SCORE: 40
+STARS: 50
+
+WHAT:
+Agent skill для работы с design systems в Figma через MCP.
+
+В одном skill объединены два принципиально разных режима:
+
+- `inspect` — read-only аудит;
+- `build` — создание и исправление design system.
+
+Между inspect и build предусмотрена обязательная остановка для решения
+пользователя: результат аудита не превращается автоматически в изменения.
+
+Inspect покрывает:
+
+- token compliance;
+- component state coverage;
+- WCAG/accessibility;
+- detached instances;
+- naming quality;
+- component descriptions;
+- weighted readiness scoring.
+
+Build покрывает foundations, variables, components, slots, документацию
+и итоговую QA-проверку.
+
+Опциональная Phase 6 синхронизирует результат в код и может генерировать:
+
+- `tokens.css`;
+- CI-ready token audit;
+- scoped AI rules для Claude Code, Cursor или Codex.
+
+Лицензия: MIT.
+
+FIT:
+Это почти готовый procedural layer для Interface Skills.
+
+Особенно хороша сама дисциплина:
+
+`inspect → report → explicit decision → repair/build → QA → optional code sync`
+
+То есть агент не получает права молча переписывать design system после аудита.
+
+Вместе с нашими design-token и drift-инструментами это может дать
+нормальный цикл между существующим интерфейсом, Figma и кодом.
+
+PROJECT:
+- Interface Skills
+- Design Systems / Visual QA
+- Media Factory
+- Figma workflows
+- design-to-code QA
+
+NEXT:
+Пилотировать на одном реальном Figma design system.
+
+Сначала только inspect:
+
+1. inventory;
+2. token compliance;
+3. states;
+4. accessibility;
+5. detached instances;
+6. naming;
+7. component documentation.
+
+После просмотра отчёта отдельно решить, какие build/fix операции разрешать.
+
+Phase 6 проверять только после этого и только на копии проекта.
 
 ---
 
@@ -998,7 +1075,7 @@ NEXT:
 
 ## BUCKET: Full-Song AI / Suno Alternatives
 
-Cards: 5
+Cards: 6
 
 ### ace-step/ACE-Step-1.5
 
@@ -1111,64 +1188,84 @@ NEXT:
 
 ---
 
-## BUCKET: Infographics / Visual Storytelling
+### aivrar/portable-music-server
 
-Cards: 12
-
-### agno-agi/vibe-video
-
-URL: https://github.com/agno-agi/vibe-video
-VERDICT: KEEP
-SCORE: 30
-STARS: —
+URL: https://github.com/aivrar/portable-music-server
+VERDICT: WATCH
+SCORE: 33
+STARS: 3
 
 WHAT:
-Multi-agent pipeline для производства коротких motion-graphics видео из natural-language запроса.
+Windows-oriented orchestration server сразу для нескольких
+локальных music-generation моделей.
 
-Архитектура разделена на специализированные роли:
+Заявлены восемь model lines:
 
-- Team Leader — координация;
-- Researcher — web research;
-- CodeExplorer — read-only исследование Git-репозиториев;
-- Animator — сценарий анимации, HTML/GSAP композиция и render.
+- ACE-Step 1.5;
+- ACE-Step;
+- HeartMuLa;
+- DiffRhythm;
+- YuE;
+- MusicGen;
+- Riffusion;
+- Stable Audio Open.
 
-Финальная композиция создаётся через Hyperframes и рендерится в MP4.
+Архитектура разделяет:
+
+- FastAPI gateway;
+- отдельные model workers;
+- отдельный virtual environment для каждой модели;
+- GPU assignment;
+- worker health checks;
+- scaling/failover;
+- output library;
+- optional CLAP scoring;
+- post-processing/mastering.
+
+Есть единый REST API и управление установкой моделей.
 
 FIT:
-В отличие от очередной фабрики «viral shorts», здесь интересен сам производственный pipeline:
+Главный интерес не в Windows-сборке как таковой.
 
-`research → structured brief → programmable animation → lint → render → iteration`
+Ценность — архитектура единого локального music backend:
 
-Можно использовать как референс или основу для:
+`client → gateway → model-specific worker → scoring → mastering → library`
 
-- OSINT explainers;
-- видеоприложений к расследованиям;
-- Structural Risk visual briefs;
-- обучающих материалов;
-- OSINT-курса;
-- технических объяснялок;
-- автоматизированных видеодайджестов.
+Каждая тяжёлая модель живёт в собственной dependency environment,
+поэтому несовместимые PyTorch/CUDA зависимости не обязаны жить
+в одном Python environment.
 
-Особенно интересен режим, когда CodeExplorer читает конкретный GitHub repo, а затем система делает визуальное объяснение его устройства.
+Это хороший donor для будущего собственного music-generation service.
 
 PROJECT:
-- Infographics / Visual Storytelling
-- Video Production
-- OSINT Course
-- Structural Risk Memo
-- automated explainers
+- COMA / Full-Song AI
+- Music Generation
+- local creative AI infrastructure
+- audio post-processing
 
 NEXT:
-Дать один реальный материал:
+Не ставить как основной runtime.
 
-1. короткий OSINT-кейс;
-2. briefing;
-3. 30–45 секунд;
-4. проверить factual fidelity;
-5. проверить визуальное качество;
-6. оценить, насколько просто вручную докручивать Hyperframes output.
+Разобрать архитектурно:
+
+1. gateway contract;
+2. worker lifecycle;
+3. model discovery;
+4. GPU allocation;
+5. health/failover;
+6. common generation schema;
+7. CLAP scoring;
+8. mastering pipeline;
+9. output metadata/library.
+
+После этого сравнить с тем, как лучше обернуть наши выбранные
+ACE-Step / YuE / HeartMuLa / DiffRhythm backends на Linux.
 
 ---
+
+## BUCKET: Infographics / Visual Storytelling
+
+Cards: 13
 
 ### CodingFeng101/CanvasAnvil
 
@@ -1283,24 +1380,205 @@ NEXT:
 
 ---
 
-### Anil-matcha/vox-ai-motion-graphics-generator
+### agno-agi/vibe-video
 
-URL: https://github.com/Anil-matcha/vox-ai-motion-graphics-generator
+URL: https://github.com/agno-agi/vibe-video
 VERDICT: WATCH
 SCORE: 33
 STARS: 102
 
 WHAT:
-🎬 Turn any topic into a finished Vox-style paper-collage explainer / motion graphics video — script, collage keyframes, animation, voice-over, music & captions, all automated. An agent skill for Claude Code, Codex & other coding agents.
+Multi-agent pipeline для коротких motion-graphics explainers.
+
+Роли разделены:
+
+- Team Leader — маршрутизация;
+- Researcher — web research;
+- CodeExplorer — read-only анализ Git repositories;
+- Animator — planning, HTML/GSAP composition, lint, render и iteration.
+
+Animator создаёт Hyperframes HTML composition, после чего она
+рендерится в MP4.
+
+Проект умеет работать и без research, если знаний модели достаточно,
+а также может строить видео на основе конкретного code repository.
+
+Есть отдельный eval harness и цикл проверки regressions.
+
+Лицензия: Apache-2.0.
 
 FIT:
-explainer graphics, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+Очень чистый agentic visual pipeline:
+
+`evidence/research → structured brief → programmable composition → lint → render → inspect/iterate`
+
+Здесь генеративная модель не обязана напрямую синтезировать готовое видео.
+Она строит редактируемую программную композицию.
+
+Это подходит для explainers, аналитических видео и визуального
+объяснения сложных технических или OSINT-материалов.
 
 PROJECT:
-Video production / Shorts / subtitles
+- Media Factory
+- Infographics / Visual Storytelling
+- automated explainers
+- technical explainers
+- Video Production
 
 NEXT:
-проверить безопасность, зависимости и реальную пользу на тестовом проекте
+Сделать pilot на одном 30–45-секундном материале.
+
+Проверить:
+
+1. factual fidelity;
+2. структуру brief;
+3. управляемость визуальным стилем;
+4. качество typography;
+5. lint/render retries;
+6. ручную редактируемость HTML composition;
+7. стоимость и время полного цикла.
+
+Не подключать production data или private repositories на первом тесте.
+
+---
+
+### Anil-matcha/vox-ai-motion-graphics-generator
+
+URL: https://github.com/Anil-matcha/vox-ai-motion-graphics-generator
+VERDICT: WATCH
+SCORE: 33
+STARS: 170
+
+WHAT:
+Agent-native pipeline для автоматического explainer video
+в paper-collage эстетике.
+
+Поддерживает три входных режима:
+
+- B-roll: topic → film;
+- A-roll: talking-head video → collage treatment;
+- C-roll: photo/product → anchored collage.
+
+Основной pipeline строится вокруг `beats.json`:
+
+`input`
+→ beat map
+→ style bake-off
+→ keyframes
+→ motion
+→ narration/music
+→ ffmpeg assembly
+→ final MP4
+
+Есть два явных human approval gate:
+
+1. утверждение beat map;
+2. выбор visual theme.
+
+Текущий runtime существенно использует внешние model APIs
+для image/video/voice/music generation.
+
+Лицензия: MIT.
+
+FIT:
+Главная ценность не в конкретном collage style и не в используемых API.
+
+Полезны три workflow-pattern:
+
+- narrative сначала фиксируется в beat map;
+- перед дорогой генерацией делается style bake-off;
+- ключевые creative decisions имеют human approval gates.
+
+То есть expensive execution начинается только после того,
+как содержание и visual direction уже согласованы.
+
+PROJECT:
+- Media Factory
+- Motion Graphics
+- Video Production
+- automated explainers
+
+NEXT:
+Использовать как workflow reference.
+
+Отдельно разобрать:
+
+1. schema `beats.json`;
+2. story arc selection;
+3. style bake-off;
+4. approval gates;
+5. separation keyframe → motion;
+6. audio ducking/assembly;
+7. restartability каждого stage.
+
+Заимствовать orchestration patterns независимо от MuAPI/Veo/MiniMax/Suno.
+
+---
+
+### antvis/Infographic
+
+URL: https://github.com/antvis/Infographic
+VERDICT: WATCH
+SCORE: 31
+STARS: 6385
+
+WHAT:
+Declarative infographic engine из экосистемы AntV.
+
+Вместо прямой генерации HTML/SVG агент может выдавать компактный
+infographic syntax, который затем интерпретируется renderer'ом.
+
+Есть:
+
+- около 200 встроенных infographic templates;
+- theme system;
+- SVG output;
+- встроенный editor;
+- progressive / streaming rendering;
+- fault-tolerant syntax, рассчитанный на AI output;
+- отдельные Agent Skills для Claude Code и Codex;
+- возможность создавать собственные structures и items.
+
+Лицензия: MIT.
+
+FIT:
+Это хороший primitive между свободным LLM и финальной графикой:
+
+`brief/data → compact infographic spec → deterministic renderer → editable SVG`
+
+То есть модель отвечает за содержание и структуру, а не рисует каждый
+пиксель заново.
+
+Особенно ценно, что результат можно после генерации редактировать
+и что syntax рассчитан на постепенный streaming output агента.
+
+AntV хорошо дополняет Data2Motion:
+
+- Data2Motion — прежде всего deterministic animated data charts;
+- AntV Infographic — editorial infographic composition и SVG.
+
+PROJECT:
+- Media Factory
+- Infographics / Visual Storytelling
+- Interactive Reports
+- social/editorial graphics
+- agent-generated visual briefs
+
+NEXT:
+Сделать три smoke-test:
+
+1. статическая карточка с одним числом и пояснением;
+2. сравнительная инфографика по регионам;
+3. пошаговая/process infographic.
+
+Для каждого проверить:
+
+- качество русского и украинского текста;
+- управляемость фирменной типографикой;
+- SVG export;
+- ручное редактирование;
+- reproducibility;
+- насколько легко ограничить agent output нашим визуальным языком.
 
 ---
 
@@ -1351,19 +1629,80 @@ NEXT:
 URL: https://github.com/iart-ai/motion-skills
 VERDICT: WATCH
 SCORE: 33
-STARS: 309
+STARS: 386
 
 WHAT:
-50 open-source skills that teach your AI coding agent to make motion graphics, animation & video — kinetic typography, data-viz, explainers, TikTok/Reels, WebGL, Manim. 14 installable packs. By iart.ai, the AI motion agent.
+Большой open-source набор Agent Skills для motion graphics.
+
+Текущий upstream содержит 51 skill в 15 тематических packs, включая:
+
+- TikTok / Reels / Shorts;
+- YouTube;
+- data animation;
+- explainer video;
+- editorial map animation;
+- kinetic typography;
+- web animation;
+- motion design;
+- WebGL;
+- Manim;
+- generative illustration.
+
+Skills рассчитаны на Claude Code, Cursor, Codex и другие
+skill-compatible agents.
+
+Для visual artifacts используется важный workflow:
+
+`author → render frame → screenshot/contact sheet → inspect → fix`
+
+То есть агент должен проверять собственный visual output,
+а не считать задачу законченной после генерации кода.
+
+Лицензия: MIT.
 
 FIT:
-explainer graphics, infographic, infographics, infographics/visual storytelling fit, stars>=100, visual storytelling
+Это не один runtime и не ещё одна video application.
+
+Ценность — библиотека профессиональных процедур:
+
+- timing;
+- easing;
+- safe areas;
+- kinetic typography;
+- frame-accurate charts;
+- maps;
+- Remotion;
+- Manim;
+- browser motion;
+- visual verification.
+
+Особенно полезна модель deliver-and-verify, которую можно сделать
+стандартным требованием для наших собственных visual skills.
 
 PROJECT:
-Video production / Shorts / subtitles
+- Media Factory
+- Motion Graphics
+- Infographics / Visual Storytelling
+- Video Production
+- Interface Skills
 
 NEXT:
-проверить безопасность, зависимости и реальную пользу на тестовом проекте
+Не устанавливать все 51 skill как доверенные.
+
+Сначала review четырёх packs:
+
+1. data-animation-skills;
+2. explainer-video-skills;
+3. map-animation-skills;
+4. motion-design-skills.
+
+Для каждого:
+
+- прочитать SKILL.md;
+- проверить scripts/dependencies;
+- выбрать переносимые procedures;
+- прогнать security review;
+- только затем promoted copy в наш собственный skills layer.
 
 ---
 
@@ -1453,7 +1792,7 @@ NEXT:
 
 ## BUCKET: Interactive Reports / Data Apps
 
-Cards: 5
+Cards: 6
 
 ### observablehq/framework
 
@@ -1515,6 +1854,74 @@ Publishing / Interactive Reports
 
 NEXT:
 проверить как lightweight Markdown → dashboard/report инструмент
+
+---
+
+### evidence-dev/evidence
+
+URL: https://github.com/evidence-dev/evidence
+VERDICT: WATCH
+SCORE: 33
+STARS: 6877
+
+WHAT:
+Open-source code-based система для создания аналитических отчётов.
+
+Основная модель:
+
+`data / SQL → Markdown report → generated static site`
+
+Evidence прямо позиционируется как agent-ready tool: проект можно
+разрабатывать локально обычным способом или через Claude Code,
+Cursor и другие coding agents.
+
+Результат можно публиковать в Evidence Studio либо self-host.
+
+Лицензия: MIT.
+
+FIT:
+Evidence занимает полезную нишу между обычным документом и полностью
+кастомным data application.
+
+Для повторяемого аналитического отчёта агенту не обязательно каждый раз
+изобретать приложение:
+
+- SQL получает данные;
+- Markdown задаёт narrative;
+- renderer собирает report;
+- итог можно публиковать как статический сайт.
+
+Это потенциально проще Observable Framework для регулярных
+аналитических продуктов, где структура отчёта известна заранее.
+
+Observable остаётся сильнее там, где нужна максимально кастомная
+интерактивность и произвольный код.
+
+PROJECT:
+- Interactive Reports / Data Apps
+- Media Factory
+- аналитические отчёты
+- monitoring reports
+- evidence-oriented publishing
+
+NEXT:
+Собрать один небольшой реальный отчёт:
+
+1. CSV/SQLite как источник;
+2. несколько SQL queries;
+3. narrative в Markdown;
+4. таблица;
+5. KPI;
+6. chart;
+7. static build.
+
+Проверить:
+
+- self-hosting;
+- deterministic build;
+- качество экспорта;
+- возможность шаблонизации;
+- насколько удобно агенту менять отчёт без разрушения структуры.
 
 ---
 
