@@ -1,8 +1,8 @@
 {
   "schema": "creative-radar-github-mirror-v1",
-  "generated_at": "2026-08-24T09:17:47.160726+00:00",
-  "run_date": "2026-08-24",
+  "generated_at": "2026-08-25T05:11:21.926096+00:00",
+  "run_date": "2026-08-25",
   "canonical": "https://gitradar.deisign.me/",
   "cards_sha256": "4615f88fe4c9af15fcae0445748222ef6bf119117683cf3118744df724c9a638",
-  "llm_sha256": "6e82c5c270676840a0303e69107307499d92786abd81fee9962634e0fcdf74da"
+  "llm_sha256": "1e395ffed7bc57b8ef2ef4c8199b758132a96690f6278e6a758a16d010577712"
 }
