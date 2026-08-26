@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-08-26T08:21:32
+Generated: 2026-08-26T20:18:26
 Date: 2026-08-26
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 161
+- Total curated cards: 165
 - Buckets: 19
 
 ## Bucket summary
@@ -18,7 +18,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Design Systems / Visual QA: 15
 - Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 6
-- Infographics / Visual Storytelling: 14
+- Infographics / Visual Storytelling: 16
 - Interactive Reports / Data Apps: 6
 - Lancelot / Agent Infrastructure: 19
 - Media / Social Monitoring: 3
@@ -31,7 +31,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Publishing / Layout / PDF: 8
 - Radio / Audio Ops: 9
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 21
+- Video Production / Editing: 23
 
 ## Today's run
 
@@ -358,20 +358,58 @@ NEXT:
 
 URL: https://github.com/marvkr/better-design
 VERDICT: KEEP
-SCORE: 38
-STARS: 181
+SCORE: 41
+STARS: 219
 
 WHAT:
-🎨 Open-source design MCP server + shadcn/ui registry — AI design systems for Claude Code, Cursor, Codex, GitHub Copilot & any MCP client. 31 brand-grade themes (Linear, Stripe, Vercel, Notion, Apple, Supabase, Figma…) + design tokens, UI principles & WCAG rules. Install any component with one command.
+Design MCP server + design-system registry + review layer.
+
+Агент получает on demand:
+
+- semantic design tokens;
+- реальные component implementations;
+- UI principles;
+- accessibility rules;
+- visual-design review rules;
+- icon-family selection;
+- готовые design-system contexts.
+
+В отличие от огромного постоянно загруженного
+design knowledge base это runtime context service.
+
+Лицензия: MIT.
 
 FIT:
-design QA fit, design system, design tokens, design-system, figma, stars>=100, tokens
+Хорошо дополняет ux-ui-agent-skills:
+
+`ux-ui-agent-skills`
+→ procedures / knowledge / QA
+
+`Better Design`
+→ runtime context / components / MCP
+
+То есть design context можно выдавать агенту
+только тогда, когда он реально нужен.
 
 PROJECT:
-Design system / visual QA
+- Interface Skills
+- Design Systems
+- MCP
+- frontend generation
+- visual QA
 
 NEXT:
-проверить безопасность, зависимости и реальную пользу на тестовом проекте
+Smoke-test на одном интерфейсе:
+
+1. выбрать design system;
+2. получить tokens;
+3. взять components;
+4. собрать экран;
+5. прогнать review rules;
+6. сравнить результат без MCP и с MCP.
+
+Отдельно проверить работу с нашим собственным
+design system вместо встроенных presets.
 
 ---
 
@@ -477,20 +515,67 @@ Phase 6 проверять только после этого и только н
 
 URL: https://github.com/plugin87/ux-ui-agent-skills
 VERDICT: KEEP
-SCORE: 38
-STARS: 473
+SCORE: 41
+STARS: 772
 
 WHAT:
-Turn Claude into a Senior Design Architect — DTCG design tokens, 42 components, WCAG 2.2 accessibility, any-framework code, 138 design systems, and runnable skills.
+Большой skills/instruction layer для design engineering.
+
+Внутри:
+
+- DTCG design tokens;
+- component specification;
+- WCAG 2.2 accessibility;
+- framework adapters;
+- design review;
+- Figma integration;
+- motion;
+- UX writing;
+- runnable design skills;
+- реальные validation scripts.
+
+Особенно интересна система objective gates:
+rendered states, contrast, keyboard/focus, responsive,
+RTL, reduced motion, clipping, hardcoded values и другие
+проверяемые свойства.
+
+Автор отдельно разделяет:
+
+`correctness → объективно проверяется`
+
+и
+
+`design quality → требует visual critique`
+
+Лицензия: MIT.
 
 FIT:
-design QA fit, design system, design tokens, design-system, figma, stars>=100, tokens
+Не столько из-за библиотеки готовых эстетик,
+сколько как donor процедур для собственного Interface Skills layer.
+
+Хорошая модель:
+
+`brief → tokens/components → implementation → objective QA → visual critique`
 
 PROJECT:
-Design system / visual QA
+- Interface Skills
+- Design Systems / Visual QA
+- frontend QA
+- accessibility
+- Media Factory
 
 NEXT:
-проверить безопасность, зависимости и реальную пользу на тестовом проекте
+Разбирать выборочно:
+
+1. design tokens;
+2. component workflow;
+3. design QA;
+4. accessibility;
+5. critique;
+6. gate scripts.
+
+Сравнить с natdexterra/work-with-design-systems
+и оставить неперекрывающиеся сильные процедуры.
 
 ---
 
@@ -1265,7 +1350,7 @@ ACE-Step / YuE / HeartMuLa / DiffRhythm backends на Linux.
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 14
+Cards: 16
 
 ### CodingFeng101/CanvasAnvil
 
@@ -1285,6 +1370,61 @@ Infographics / Visual Storytelling
 
 NEXT:
 сделать первичный smoke-test и решить, становится ли это частью машины графики/верстки
+
+---
+
+### ericblue/visual-explainer-skill
+
+URL: https://github.com/ericblue/visual-explainer-skill
+VERDICT: KEEP
+SCORE: 38
+STARS: 36
+
+WHAT:
+Skill для превращения текста, документов,
+кода и Mermaid diagrams в visual explanations.
+
+Перед image generation он структурирует:
+
+- concepts;
+- relationships;
+- hierarchy;
+- visual metaphors;
+- spatial layout.
+
+Затем строит подробный style-specific prompt.
+
+Поддерживает whiteboard, infographic,
+presentation, diagram, mind map,
+mockup и multi-frame modes.
+
+FIT:
+Не как renderer, а как workflow donor:
+
+`source`
+→ `content analysis`
+→ `visual abstraction`
+→ `spatial plan`
+→ `structured prompt`
+→ `image generation`
+
+Особенно интересен Mermaid как semantic source,
+а не просто изображение для стилизации.
+
+PROJECT:
+- Media Factory
+- Infographics
+- diagrams
+- presentation graphics
+- visual prompt generation
+
+NEXT:
+Сравнить с declarative AntV workflow:
+
+- где нужен deterministic SVG;
+- где оправдан image generation;
+- какие visual-analysis procedures стоит перенести;
+- как проверять сохранность labels и фактов.
 
 ---
 
@@ -1818,6 +1958,67 @@ NEXT:
 - выбрать переносимые procedures;
 - прогнать security review;
 - только затем promoted copy в наш собственный skills layer.
+
+---
+
+### nateherkai/scroll-craft
+
+URL: https://github.com/nateherkai/scroll-craft
+VERDICT: WATCH
+SCORE: 31
+STARS: 984
+
+WHAT:
+Opinionated skill для scroll-driven storytelling.
+
+Вместо одного шаблона используются
+восемь взаимоисключающих page grammars.
+
+Каждый проект получает:
+
+- feeling curve;
+- один engineered peak;
+- signature interaction;
+- fingerprint against previous builds.
+
+Есть design floors для typography,
+spacing, color, depth и motion.
+
+После build headless browser проходит
+весь scroll range и проверяет:
+
+- dead scroll;
+- невидимые элементы;
+- broken video;
+- реальный composited contrast.
+
+После проверки строится contact sheet.
+
+Лицензия: MIT.
+
+FIT:
+Это хороший antidote против шаблонного AI design:
+
+`narrative grammar`
+→ `feeling curve`
+→ `unique interaction`
+→ `build`
+→ `rendered verification`
+
+PROJECT:
+- Media Factory
+- Interactive Storytelling
+- Scrollytelling
+- editorial interactives
+- visual QA
+
+NEXT:
+Сделать один реальный pilot
+без generated assets.
+
+Проверить mobile, accessibility,
+performance, typography и качество
+full-scroll verification на Linux.
 
 ---
 
@@ -4587,7 +4788,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 21
+Cards: 23
 
 ### 0xsline/OpenChatCut
 
@@ -4774,6 +4975,75 @@ NEXT:
 
 ---
 
+### MartinDelophy/ai-video-editor
+
+URL: https://github.com/MartinDelophy/ai-video-editor
+VERDICT: KEEP
+SCORE: 36
+STARS: 563
+
+WHAT:
+Timeline Studio — local-first browser video editor
+с настоящей multi-track timeline.
+
+Есть:
+
+- visuals и overlays;
+- captions;
+- voiceover;
+- source audio;
+- music;
+- transitions;
+- effects;
+- keyframes;
+- color grading.
+
+Portable `.timeline` project остаётся source of truth.
+
+Отдельный Agent Skill и headless runner умеют:
+
+- inspect project/track/clip/transcript;
+- валидировать edit plan;
+- показывать predicted diff;
+- делать dry-run;
+- применять edits transactionally;
+- использовать idempotent operation IDs;
+- рендерить результат.
+
+Есть отдельный deterministic offline rendering path.
+
+FIT:
+Это прямой организм для сравнения с Clip Machine:
+
+`editable project`
++
+`agent command contract`
++
+`diff/dry-run`
++
+`transactional edits`
++
+`deterministic render`
+
+PROJECT:
+- Clip Machine
+- Video Production / Editing
+- agent-editable media
+- local-first tooling
+
+NEXT:
+Сделать differential review:
+
+`OpenChatCut ↔ OpenEdit ↔ Timeline Studio`
+
+Сравнить project model, edit graph,
+headless operations, reversibility, rendering,
+QC, ingest и extensibility.
+
+Текущий core автоматически не менять.
+
+---
+
 ### NaufalRizqullah/opensource-clipping
 
 URL: https://github.com/NaufalRizqullah/opensource-clipping
@@ -4947,6 +5217,69 @@ Audio/Video Transcription
 
 NEXT:
 проверить privacy/local workflow
+
+---
+
+### calesthio/OpenMontage
+
+URL: https://github.com/calesthio/OpenMontage
+VERDICT: WATCH
+SCORE: 34
+STARS: 50950
+
+WHAT:
+Большая agentic video-production system:
+
+`research`
+→ `concept/script`
+→ `scene plan`
+→ `asset retrieval/generation`
+→ `edit`
+→ `render`
+→ `QC`
+
+Есть несколько production pipelines,
+tool/provider registry и Backlot —
+живой storyboard production run.
+
+Особенно интересны human approval gates:
+можно утвердить script и scene assets
+до дорогого следующего этапа.
+
+Лицензия: AGPLv3.
+
+FIT:
+Не как runtime целиком.
+
+Сильные patterns:
+
+- pipeline selection до выполнения;
+- capability envelope;
+- provider/tool scoring;
+- предварительная оценка стоимости;
+- creative approval gates;
+- production observability;
+- run replay.
+
+PROJECT:
+- Media Factory
+- Video Production
+- agent orchestration
+- approval gates
+- production observability
+
+NEXT:
+Разобрать архитектурно:
+
+1. pipeline manifests;
+2. tool registry;
+3. provider scoring;
+4. cost planning;
+5. approval gates;
+6. Backlot state;
+7. final QC.
+
+Не переносить весь provider zoo.
 
 ---
 
