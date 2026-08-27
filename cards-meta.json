@@ -1,7 +1,7 @@
 {
   "schema": "creative-radar-cards-feed-v1",
-  "generated_at": "2026-08-27T05:21:04.148397+00:00",
-  "count": 165,
+  "generated_at": "2026-08-27T17:16:56.686040+00:00",
+  "count": 167,
   "buckets": {
     "Agent Security / Governance": 1,
     "Broadcast / Playout / Automation": 2,
@@ -16,13 +16,13 @@
     "Mixing / Mastering / Audio Engineering": 9,
     "Music Generation / AI Music": 5,
     "Newsroom / Data Journalism": 12,
-    "OSINT / Investigations": 7,
+    "OSINT / Investigations": 8,
     "Publishing / Layout / PDF": 8,
     "Radio / Audio Ops": 9,
     "Telegram Bots / Automation": 1,
-    "Video Production / Editing": 23,
+    "Video Production / Editing": 24,
     "n8n / Workflow Automation": 7
   },
-  "sha256": "a20e35feffd24f88cf5fb27bbfbeb4139c1fee37fef9f824c1b00c254d1c9403",
+  "sha256": "86f8e99fc9baef6995acb3c2fff11734ffcfe4d4f5cbb54eeba8cd694490407b",
   "feed": "cards.jsonl"
 }

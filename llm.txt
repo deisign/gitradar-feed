@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-08-27T08:21:04
+Generated: 2026-08-27T20:16:56
 Date: 2026-08-27
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 165
+- Total curated cards: 167
 - Buckets: 19
 
 ## Bucket summary
@@ -27,11 +27,11 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Music Generation / AI Music: 5
 - n8n / Workflow Automation: 7
 - Newsroom / Data Journalism: 12
-- OSINT / Investigations: 7
+- OSINT / Investigations: 8
 - Publishing / Layout / PDF: 8
 - Radio / Audio Ops: 9
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 23
+- Video Production / Editing: 24
 
 ## Today's run
 
@@ -3897,7 +3897,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 7
+Cards: 8
 
 ### buriedsignals/scoutpost-os
 
@@ -4122,6 +4122,54 @@ USE FOR LANCELOT:
 Possible reference for a future bounded investigation workflow.
 
 Самостоятельная причина расширять tool surface Lancelot отсутствует.
+
+---
+
+### rawfilejson/awesome-osint-arsenal
+
+URL: https://github.com/rawfilejson/awesome-osint-arsenal
+VERDICT: WATCH
+SCORE: 31
+STARS: 2609
+
+WHAT:
+Большой curated inventory OSINT/security tooling.
+
+Upstream заявляет 753+ инструментов в 50 категориях:
+
+- SOCMINT;
+- GEOINT;
+- image/video OSINT;
+- metadata/forensics;
+- Telegram OSINT;
+- Russian OSINT;
+- monitoring;
+- dark web;
+- APIs;
+- browser extensions;
+- learning resources.
+
+Есть installers для Ubuntu/Debian/Mint/Kali и других систем.
+
+FIT:
+Не как пакет для массовой установки.
+
+Ценность — discovery source для собственной curated OSINT workstation:
+
+`catalog → interesting tool → repo review → license/security check → isolated smoke-test → explicit adoption`
+
+PROJECT:
+- OSINT Workstation
+- OSINT course
+- tool discovery
+- research inventory
+
+NEXT:
+Использовать как upstream inventory.
+
+Не запускать `sudo bash install.sh`.
+
+Добывать оттуда только отдельные инструменты, которых ещё нет в нашем наборе, и проверять каждый отдельно.
 
 ---
 
@@ -4788,7 +4836,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 23
+Cards: 24
 
 ### 0xsline/OpenChatCut
 
@@ -5154,6 +5202,52 @@ Video production / Shorts / subtitles
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### wangxin6x/AutoVideo-Agent
+
+URL: https://github.com/wangxin6x/AutoVideo-Agent
+VERDICT: KEEP
+SCORE: 37
+STARS: 91
+
+WHAT:
+Agent-friendly reproducible video pipeline:
+
+`Markdown → storyboard → scene manifest → media → timeline → FFmpeg → QA → MP4`
+
+v0.1 работает локально и детерминированно без cloud/API:
+создаёт inspectable scene assets, manifest, timeline, QA report и MP4.
+
+Есть graceful degradation без FFmpeg.
+
+v0.2 добавляет provider contracts, command TTS, SRT и экспериментальный ComfyUI provider.
+
+Лицензия: MIT.
+
+FIT:
+Ценность — маленький прозрачный production contract, а не очередной video generator.
+
+Хорошо отделены:
+
+- script/storyboard;
+- intermediate manifest;
+- media providers;
+- normalized timeline;
+- renderer;
+- machine QA.
+
+PROJECT:
+- Media Factory
+- Automated Video
+- Video Production
+- agent workflows
+
+NEXT:
+Разобрать manifest/timeline/provider contracts и сравнить с Vibe Video, OpenMontage и Clip Machine.
+
+Отдельно проверить, насколько легко заменить placeholder media на наш controlled asset pipeline.
 
 ---
 
