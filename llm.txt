@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-08-31T08:21:06
+Generated: 2026-08-31T20:35:34
 Date: 2026-08-31
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,19 +8,19 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 167
+- Total curated cards: 170
 - Buckets: 19
 
 ## Bucket summary
 
 - Agent Security / Governance: 1
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 15
+- Design Systems / Visual QA: 16
 - Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 6
 - Infographics / Visual Storytelling: 16
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 19
+- Lancelot / Agent Infrastructure: 20
 - Media / Social Monitoring: 3
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
@@ -31,7 +31,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Publishing / Layout / PDF: 8
 - Radio / Audio Ops: 9
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 24
+- Video Production / Editing: 25
 
 ## Today's run
 
@@ -166,7 +166,92 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 15
+Cards: 16
+
+### ar27111994/penpot-mcp
+
+URL: https://github.com/ar27111994/penpot-mcp
+VERDICT: KEEP
+SCORE: 42
+STARS: 22
+
+WHAT:
+Agent Skill для работы с Penpot через официальный Penpot MCP Server.
+
+Покрывает:
+
+- создание и аудит design systems;
+- design tokens;
+- components и libraries;
+- prototypes;
+- interactions;
+- overlays;
+- animations;
+- typography;
+- accessibility;
+- design-to-code;
+- HTML/CSS и React handoff;
+- token extraction;
+- drift detection;
+- asset export.
+
+Работает с MCP-compatible агентами, включая
+Claude Code, Codex, Cursor, VS Code/Copilot и другие.
+
+Лицензия: MIT.
+
+FIT:
+Это не ещё один набор визуальных советов агенту.
+
+Он работает непосредственно с живым Penpot document:
+
+`agent`
+→ `Penpot MCP`
+→ `design document`
+→ `tokens / components / prototype`
+→ `verification`
+→ `code / handoff`
+
+Тем самым появляется открытая Penpot-ветка рядом
+с существующими Figma-oriented design-system workflows.
+
+PROJECT:
+- Interface Skills
+- Design Systems / Visual QA
+- Media Factory
+- Penpot
+- design-to-code
+- agentic design tooling
+
+NEXT:
+Сделать smoke-test на небольшом Penpot-проекте:
+
+1. подключить официальный Penpot MCP;
+2. прочитать существующий document;
+3. извлечь tokens;
+4. провести read-only audit;
+5. создать один компонент;
+6. изменить несколько tokens;
+7. собрать небольшой prototype flow;
+8. экспортировать structure/assets;
+9. сделать design-to-code pass;
+10. проверить drift после обратного изменения.
+
+Отдельно сравнить:
+
+`work-with-design-systems ↔ penpot-mcp`
+
+по:
+
+- качеству read-only audit;
+- управлению tokens;
+- component operations;
+- safety write model;
+- verification;
+- design-to-code;
+- пригодности для нашего собственного skills layer.
+
+---
 
 ### dembrandt/dembrandt
 
@@ -2285,7 +2370,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 19
+Cards: 20
 
 ### askalf/redstamp
 
@@ -2313,6 +2398,86 @@ Tags: security, mcp, tools, permissions, bridge
 
 USE FOR LANCELOT:
 Reference architecture for a deterministic execution firewall. Возможная цель — собственный узкий policy gate перед опасными capabilities, а не прямое копирование всего продукта.
+
+---
+
+### cloudflare/agents-starter
+
+URL: https://github.com/cloudflare/agents-starter
+VERDICT: KEEP
+SCORE: 35
+STARS: 1322
+
+WHAT:
+Официальный starter поверх Cloudflare Agents SDK.
+
+Текущий пример включает:
+
+- AIChatAgent;
+- persisted messages;
+- WebSocket recovery;
+- MCP client integration;
+- MCP reconnection after hibernation;
+- server-side tools;
+- client-side tools;
+- approval-gated tools;
+- scheduling;
+- callable RPC;
+- vision input;
+- message pruning.
+
+Лицензия: MIT.
+
+FIT:
+Не как замена Lancelot.
+
+Ценность — current upstream implementation patterns
+из той же платформы, на которой он строится.
+
+Особенно полезны:
+
+- `waitForMcpConnections` после hibernation;
+- разделение server/client/approval tools;
+- idempotent scheduling;
+- callable methods;
+- pruning старых tool calls/reasoning;
+- MCP OAuth lifecycle.
+
+Отдельно хороший pattern для scheduled events:
+
+`scheduled task`
+→ `execute`
+→ `broadcast client event`
+
+а не:
+
+`scheduled task`
+→ `append to chat history`
+
+Потому что повторное попадание служебного события
+в model context способно снова запустить тот же task.
+
+PROJECT:
+- Lancelot
+- Agent Infrastructure
+- Cloudflare Agents SDK
+- scheduling
+- MCP
+- tool execution patterns
+
+NEXT:
+Сделать маленький implementation diff
+с текущим Lancelot:
+
+1. MCP reconnection;
+2. hibernation recovery;
+3. message pruning;
+4. scheduled-task delivery;
+5. approval tools;
+6. callable RPC.
+
+Забирать только конкретные upstream patterns,
+а не переносить starter целиком.
 
 ---
 
@@ -4836,7 +5001,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 24
+Cards: 25
 
 ### 0xsline/OpenChatCut
 
@@ -4895,6 +5060,96 @@ NEXT:
 Сделать differential architecture review OpenEdit ↔ наш активный OpenChatCut.
 
 Отдельно проверить edit graph, reversible operations, render jobs, QC gate и sandbox для run_script. Пилотировать изолированно; текущий core не менять.
+
+---
+
+### cartesiancs/cartcut
+
+URL: https://github.com/cartesiancs/cartcut
+VERDICT: KEEP
+SCORE: 36
+STARS: 590
+
+WHAT:
+Desktop video editor с live MCP bridge.
+
+Агент работает не с отдельной абстрактной копией проекта,
+а с той же timeline, которую пользователь сейчас видит.
+
+Изменения появляются в preview сразу,
+а человек и агент используют общую undo history.
+
+MCP даёт inspect/edit surface для:
+
+- project overview;
+- clips и tracks;
+- transcripts;
+- transcript-driven cuts;
+- subtitles;
+- trim / split / move;
+- batch range removal;
+- filters;
+- keyframes;
+- animation;
+- shapes;
+- fonts;
+- grouping.
+
+MCP server слушает только loopback,
+использует bearer token и отдельную session transport model.
+
+Лицензия: MIT.
+
+FIT:
+Это отдельная архитектурная линия для Clip Machine:
+
+`human editor`
++
+`live project`
++
+`agent via MCP`
++
+`shared undo history`
+
+Сильный procedural принцип:
+
+`одно пользовательское поручение`
+→ `один batch mutation`
+→ `один undo step`
+
+То есть массовая чистка пауз не должна превращаться
+в пятьдесят независимых операций Cmd+Z.
+
+PROJECT:
+- Clip Machine
+- Video Production / Editing
+- agent-editable media
+- MCP
+- human-agent co-editing
+
+NEXT:
+Сделать differential review:
+
+`OpenChatCut ↔ OpenEdit ↔ Timeline Studio ↔ CartCut`
+
+Особенно сравнить:
+
+1. project/timeline model;
+2. MCP surface;
+3. shared undo;
+4. transcript editing;
+5. batch operations;
+6. export/render;
+7. deterministic QC;
+8. failure semantics;
+9. agent safety;
+10. E2E coverage.
+
+Текущий core автоматически не менять.
+
+Upstream 0.4.x сейчас refactor/unstable,
+а собственный E2E suite ещё фиксирует реальные edge cases
+в export и части MCP operations.
 
 ---
 
