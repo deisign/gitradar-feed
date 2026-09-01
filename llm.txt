@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-01T19:43:37
+Generated: 2026-09-01T23:28:00
 Date: 2026-09-01
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,8 +8,8 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 171
-- Buckets: 19
+- Total curated cards: 175
+- Buckets: 20
 
 ## Bucket summary
 
@@ -30,6 +30,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - OSINT / Investigations: 8
 - Publishing / Layout / PDF: 8
 - Radio / Audio Ops: 9
+- System Architecture / Engineering Patterns: 4
 - Telegram Bots / Automation: 1
 - Video Production / Editing: 25
 
@@ -5033,6 +5034,224 @@ coma.fm / Audio-Radio stack
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+## BUCKET: System Architecture / Engineering Patterns
+
+Cards: 4
+
+### binhnguyennus/awesome-scalability
+
+URL: https://github.com/binhnguyennus/awesome-scalability
+VERDICT: WATCH
+SCORE: 0
+STARS: 73652
+
+WHAT:
+Большая карта материалов о scalable,
+reliable и performant large-scale systems.
+
+Содержимое организовано вокруг:
+
+- scalability;
+- availability;
+- stability;
+- performance;
+- architecture;
+- engineering principles;
+- production case studies;
+- canonical distributed-systems material.
+
+Главная ценность —
+ссылки на реальные инженерные разборы
+и архитектуры production-систем.
+
+Лицензия: MIT.
+
+FIT:
+Это слой после foundation и patterns:
+как архитектурные решения выглядят
+в больших реально работающих системах.
+
+Полезен для поиска аналогов:
+кто уже сталкивался с похожим bottleneck,
+failure mode, storage problem
+или scaling boundary.
+
+PROJECT:
+- Architecture Lab
+- production case studies
+- reliability
+- scalability
+- architecture review
+
+NEXT:
+Использовать как production-case-study index
+при проверке архитектурных гипотез.
+
+---
+
+### donnemartin/system-design-primer
+
+URL: https://github.com/donnemartin/system-design-primer
+VERDICT: WATCH
+SCORE: 0
+STARS: 367375
+
+WHAT:
+Большой фундаментальный справочник по проектированию
+масштабируемых систем.
+
+Покрывает:
+
+- latency и throughput;
+- CAP, consistency и availability;
+- DNS, CDN и load balancing;
+- proxy и reverse proxy;
+- базы данных, replication и sharding;
+- cache;
+- asynchronous queues и backpressure;
+- RPC / REST;
+- security;
+- типовые архитектуры больших систем.
+
+Отдельно полезен сам порядок проектирования:
+
+`requirements`
+→ `constraints`
+→ `high-level design`
+→ `core components`
+→ `scale / bottlenecks`
+→ `trade-offs`.
+
+Лицензия: CC BY 4.0.
+
+FIT:
+Это базовый словарь Architecture Lab.
+
+Полезен не как набор готовых рецептов,
+а как каркас для обсуждения архитектурных решений:
+что масштабируем, где хранится state,
+какие failure modes допустимы
+и какие trade-offs мы сознательно принимаем.
+
+PROJECT:
+- Architecture Lab
+- architecture review
+- distributed systems
+- scalability
+- reliability
+
+NEXT:
+Использовать как foundation при архитектурных ревью
+реальных проектов, а не как interview-prep.
+
+---
+
+### InterviewReady/system-design-resources
+
+URL: https://github.com/InterviewReady/system-design-resources
+VERDICT: WATCH
+SCORE: 0
+STARS: 18463
+
+WHAT:
+Курированная подборка инженерных материалов,
+организованная вокруг конкретных проблем системы,
+а не только вокруг общих терминов.
+
+Сильные блоки:
+
+- video processing;
+- cluster и workflow management;
+- queues;
+- service mesh;
+- distributed file systems;
+- time-series databases;
+- rate limiting;
+- database internals;
+- change data capture;
+- distributed transactions;
+- outbox и Saga;
+- tracing и monitoring;
+- testing distributed systems.
+
+Лицензия репозитория: GPL-3.0.
+
+FIT:
+Это мост между архитектурной теорией
+и конкретной инженерной реализацией.
+
+Полезно, когда вопрос уже сформулирован:
+например, как делать CDC,
+как переживать partial failure,
+как проектировать distributed transaction
+или как тестировать распределённую систему.
+
+PROJECT:
+- Architecture Lab
+- engineering patterns
+- reliability
+- data flow
+- failure handling
+
+NEXT:
+Использовать как индекс deep reads
+при конкретных архитектурных вопросах.
+
+---
+
+### karanpratapsingh/system-design
+
+URL: https://github.com/karanpratapsingh/system-design
+VERDICT: WATCH
+SCORE: 0
+STARS: 45903
+
+WHAT:
+Последовательный курс по system design,
+от сетевой базы до распределённых архитектур.
+
+Темы идут примерно так:
+
+networking / TCP / UDP / DNS
+→ load balancing / caching / CDN
+→ storage / ACID / BASE / CAP / PACELC
+→ transactions / sharding
+→ queues / pub-sub / brokers
+→ microservices / event-driven systems
+→ event sourcing / CQRS
+→ REST / GraphQL / gRPC / SSE
+→ rate limiting / circuit breakers
+→ service discovery
+→ SLA / SLO / SLI
+→ disaster recovery
+→ OAuth / OIDC / TLS / mTLS.
+
+Есть case studies.
+
+Лицензия: CC BY-NC-ND 4.0.
+
+FIT:
+В отличие от энциклопедических списков,
+даёт последовательную карту предметной области.
+
+Удобен для проверки:
+какой слой архитектуры мы ещё не рассмотрели
+при проектировании или ревью системы.
+
+PROJECT:
+- Architecture Lab
+- architecture foundation
+- distributed systems
+- reliability
+- API and data-flow design
+
+NEXT:
+Использовать как последовательный review-map.
+Не копировать и не перерабатывать содержимое:
+лицензия BY-NC-ND означает reference/read-only режим.
 
 ---
 
