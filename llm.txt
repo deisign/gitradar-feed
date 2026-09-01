@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-01T08:21:38
+Generated: 2026-09-01T19:43:37
 Date: 2026-09-01
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 170
+- Total curated cards: 171
 - Buckets: 19
 
 ## Bucket summary
@@ -21,7 +21,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Infographics / Visual Storytelling: 16
 - Interactive Reports / Data Apps: 6
 - Lancelot / Agent Infrastructure: 20
-- Media / Social Monitoring: 3
+- Media / Social Monitoring: 4
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
 - Music Generation / AI Music: 5
@@ -3011,7 +3011,7 @@ USE FOR LANCELOT:
 
 ## BUCKET: Media / Social Monitoring
 
-Cards: 3
+Cards: 4
 
 ### 0xzerolight/topic_watch
 
@@ -3097,6 +3097,74 @@ Media Monitoring и OSINT Signal.
 
 NEXT:
 Разобрать модели Feed, Watch, WatchAction и WatchActionDelivery и сравнить с нашим текущим pipeline.
+
+---
+
+### tensake/litehook
+
+URL: https://github.com/tensake/litehook
+VERDICT: WATCH
+SCORE: 30
+STARS: 16
+
+WHAT:
+Небольшой self-hosted Telegram monitoring service на Rust.
+
+Может:
+
+- собирать public Telegram channels;
+- сохранять новые posts в SQLite;
+- отправлять новые posts через webhook;
+- передавать text, media, reactions, views и date;
+- работать через SOCKS proxies;
+- запускаться в Docker;
+- отдавать HTTP API;
+- показывать lightweight dashboard.
+
+Есть также authenticated/self-bot mode
+для private channels и DMs.
+
+Лицензия: Apache-2.0.
+
+FIT:
+Не как замена Media Monitoring.
+
+Интересен как узкий Telegram ingestion layer:
+
+`Telegram`
+→ `collector`
+→ `SQLite`
+→ `normalized webhook`
+→ `наш monitoring pipeline`
+
+Это позволяет отделить получение Telegram posts
+от дальнейшего enrichment, deduplication,
+event detection и content analysis.
+
+PROJECT:
+- Media Monitoring
+- Telegram ingestion
+- OSINT collection
+- webhook infrastructure
+
+NEXT:
+Первый smoke-test — только public channels.
+
+Проверить:
+
+1. полноту posts;
+2. latency;
+3. edits/deletions;
+4. media;
+5. reactions/views;
+6. reconnect/retries;
+7. duplicate behavior;
+8. SQLite schema;
+9. webhook contract;
+10. устойчивость на нескольких каналах.
+
+Self-bot/private mode не включать
+до отдельного security и operational review.
 
 ---
 
@@ -5637,60 +5705,75 @@ NEXT:
 URL: https://github.com/crafter-station/trx
 VERDICT: WATCH
 SCORE: 30
-STARS: —
+STARS: 84
 
 WHAT:
-Agent-first CLI для локальной транскрипции audio/video через whisper.cpp.
+Agent-first CLI для транскрипции audio/video.
 
 Pipeline:
 
-`URL/file → yt-dlp → ffmpeg cleanup → whisper.cpp → WAV + SRT + TXT + JSON`
+`URL/file`
+→ `yt-dlp`
+→ `ffmpeg cleanup`
+→ `Whisper / external backend`
+→ `WAV + SRT + TXT + JSON`
 
-Сам по себе transcription stack для нас не новый.
+Local backend использует whisper.cpp.
 
-Главная ценность проекта — то, как CLI специально спроектирован для использования AI-агентами.
+Также поддерживаются OpenAI, Vercel AI Gateway
+и ElevenLabs Scribe с diarization.
 
 FIT:
-Не как замена уже выбранному Whisper-контуру.
+Главная ценность — не сам Whisper,
+а нормализованный ingress для agent workflow.
 
-Интересен как архитектурный образец для наших собственных инструментов:
+Есть:
 
-- Media Monitoring CLI;
-- OSINT Workbench;
-- document processing;
-- collectors;
-- enrichment tools;
-- локальные media utilities.
+- JSON output;
+- `--fields` для ограничения context;
+- `--dry-run`;
+- schema introspection;
+- input validation;
+- timestamps;
+- SRT/TXT;
+- agent skill.
 
-Особенно важны:
+Особенно важно для Clip Machine разделение:
 
-- JSON-first automation;
-- schema discovery;
-- dry-run перед действием;
-- минимизация context consumption;
-- явная валидация входов.
+`clean transcript`
+
+и
+
+`verbatim transcript`.
+
+Для монтажа verbatim полезнее:
+fillers, false starts и паузы являются потенциальными cut points.
+
+Audio cleanup сохраняет исходную длительность,
+поэтому timestamps остаются привязаны к source media.
 
 PROJECT:
-- Agent-first CLI design
-- Video Production
-- Radio / Audio Ops
-- Browser OSINT Workbench tooling
-- Media Monitoring tooling
+- Clip Machine
+- Media Factory
+- transcription ingress
+- subtitles
+- editorial automation
 
 NEXT:
-Не устанавливать ещё один Whisper stack без причины.
+Сделать differential smoke-test против текущего transcription path:
 
-Вместо этого провести architecture review:
+1. один RU ролик;
+2. один UA ролик;
+3. URL ingest;
+4. local file ingest;
+5. SRT timestamps;
+6. verbatim transcript;
+7. JSON/context size;
+8. скорость;
+9. качество текста;
+10. пригодность результата для автоматической нарезки.
 
-1. CLI contracts;
-2. JSON schema;
-3. `--dry-run`;
-4. `--fields`;
-5. SKILL.md;
-6. validation;
-7. doctor/schema commands.
-
-После этого перенести лучшие паттерны в наши CLI.
+Ничего в текущем pipeline не заменять до сравнения.
 
 ---
 
