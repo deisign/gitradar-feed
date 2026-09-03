@@ -16,8 +16,4 @@ Generated files:
 - `lancelot-meta.json` — Lancelot feed metadata
 - `meta.json` — mirror metadata
 
-Operational runbook:
-
-- [`brain.md`](brain.md) — canonical hosts, paths, refresh procedure, dedup invariants, verification and troubleshooting. Read this before changing or refreshing GitRadar; do not rediscover the pipeline from scratch.
-
 Source-of-truth remains the Creative Radar card collection.

@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-03T08:21:57
+Generated: 2026-09-03T21:39:36
 Date: 2026-09-03
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,17 +8,17 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 176
+- Total curated cards: 182
 - Buckets: 20
 
 ## Bucket summary
 
 - Agent Security / Governance: 1
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 16
+- Design Systems / Visual QA: 18
 - Font Creation / Typography Tools: 14
-- Full-Song AI / Suno Alternatives: 6
-- Infographics / Visual Storytelling: 16
+- Full-Song AI / Suno Alternatives: 8
+- Infographics / Visual Storytelling: 17
 - Interactive Reports / Data Apps: 6
 - Lancelot / Agent Infrastructure: 20
 - Media / Social Monitoring: 4
@@ -30,18 +30,13 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - OSINT / Investigations: 8
 - Publishing / Layout / PDF: 8
 - Radio / Audio Ops: 9
-- System Architecture / Engineering Patterns: 5
+- System Architecture / Engineering Patterns: 6
 - Telegram Bots / Automation: 1
 - Video Production / Editing: 25
 
 ## Today's run
 
-- items=1060
-- errors=0
-- KEEP: 72
-- WATCH: 334
-- SKIP: 453
-- NOISE: 201
+*No stats found.*
 
 # CURATED CARDS
 
@@ -167,7 +162,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 16
+Cards: 18
 
 ### ar27111994/penpot-mcp
 
@@ -726,6 +721,105 @@ NEXT:
 
 ---
 
+### skydashnet/material-design-3-ui-skill
+
+URL: https://github.com/skydashnet/material-design-3-ui-skill
+VERDICT: KEEP
+SCORE: 41
+STARS: 108
+
+WHAT:
+Portable Agent Skill для проектирования и ревью интерфейсов
+по Material Design 3.
+
+Архитектурно skill разделён на:
+
+- компактный `SKILL.md`;
+- 13 тематических files в `references/`;
+- behavioral cases;
+- static validator;
+- installers для нескольких agent runtimes.
+
+`SKILL.md` намеренно работает как decision engine,
+а не как огромный учебник Material Design.
+
+Детальные правила подгружаются только по необходимости:
+
+- accessibility;
+- adaptive design;
+- anti-patterns;
+- color;
+- component selection;
+- forms;
+- navigation;
+- motion;
+- typography;
+- spacing/layout;
+- shape/elevation;
+- M3 Expressive;
+- feedback/overlays.
+
+Есть behavioral regression scenarios,
+которые проверяют решения агента,
+а не только структуру Markdown.
+
+FIT:
+Нам не нужен отдельный агент,
+который всё превращает в Material Design.
+
+Ценность — очень чистая реализация **progressive disclosure**:
+
+`small routing skill`
+→ `task-specific reference`
+→ `decision`
+→ `validation`.
+
+Это хороший ответ на проблему context bloat
+в будущей Media Factory.
+
+Также полезны:
+
+- semantics before appearance;
+- tokens before literals;
+- accessibility как release requirement;
+- явные anti-patterns;
+- behavioral tests;
+- portable package manifest;
+- одинаковый skill package для разных runtimes.
+
+Подход можно перенести в наши собственные skills,
+не перенося сам Material Design.
+
+PROJECT:
+- Interface Skills;
+- Media Factory;
+- Design Systems / Visual QA;
+- skill architecture;
+- context-efficient agent knowledge.
+
+Связать с:
+
+- `natdexterra/work-with-design-systems`;
+- `plugin87/ux-ui-agent-skills`;
+- `kyungseo/skillstead`.
+
+NEXT:
+Разобрать:
+
+1. структуру компактного `SKILL.md`;
+2. routing в `references/`;
+3. `skill-files.txt`;
+4. static validator;
+5. behavioral test cases;
+6. механизм cross-agent distribution.
+
+После этого использовать как один из reference implementations
+для нашего собственного design-agent skill.
+
+Сам M3 knowledge layer целиком не импортировать.
+
+---
+
 ### southleft/design-systems-mcp
 
 URL: https://github.com/southleft/design-systems-mcp
@@ -792,6 +886,96 @@ Design Systems / Visual QA
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### Convertiv/handoff-app
+
+URL: https://github.com/Convertiv/handoff-app
+VERDICT: WATCH
+SCORE: 30
+STARS: 95
+
+WHAT:
+Handoff — deterministic design-token delivery pipeline.
+
+Основная цепочка:
+
+`Figma REST API`
+→ `design foundations / component data`
+→ `JSON`
+→ `design tokens`
+→ `CSS / SCSS / Style Dictionary`
+→ `developer documentation`
+→ `CI/CD`.
+
+Проект состоит из четырёх частей:
+
+- Figma token extraction;
+- transformation pipeline;
+- static documentation web app;
+- delivery / CI tooling.
+
+Может автоматически публиковать актуальную developer documentation
+и frontend artifacts после изменений в Figma.
+
+Проект отмечен upstream как beta.
+
+Лицензия: MIT.
+
+Для публикации Figma library upstream указывает требование
+платного Figma account.
+
+FIT:
+Вчерашние design-agent находки в основном решают семантическую часть:
+
+**что должно быть в design system и правильно ли оно устроено.**
+
+Handoff решает другую задачу:
+
+**как детерминированно доставить уже принятое design decision в код.**
+
+Полезная связка выглядит так:
+
+`agent / human design decision`
+→ `Figma`
+→ `Handoff extraction`
+→ `normalized tokens`
+→ `code artifacts`
+→ `CI`.
+
+То есть LLM не должен самостоятельно переписывать
+цвета, spacing и typography из картинки в CSS.
+
+Формальная часть может выполняться обычным deterministic pipeline.
+
+PROJECT:
+- Interface Skills;
+- Design Systems / Visual QA;
+- Media Factory;
+- design-to-code;
+- Figma → tokens → frontend;
+- drift prevention.
+
+Комплементарен `work-with-design-systems`,
+а не конкурент ему.
+
+NEXT:
+Сделать небольшой pilot на тестовой Figma library:
+
+1. получить design foundations;
+2. сохранить normalized JSON;
+3. сгенерировать CSS/SCSS;
+4. проверить Style Dictionary output;
+5. собрать documentation app;
+6. изменить token в Figma;
+7. повторить fetch;
+8. проверить deterministic diff;
+9. проверить CI mode.
+
+После этого определить,
+нужен ли нам Handoff целиком
+или достаточно взять его extraction/transformation contracts.
 
 ---
 
@@ -1246,7 +1430,7 @@ NEXT:
 
 ## BUCKET: Full-Song AI / Suno Alternatives
 
-Cards: 6
+Cards: 8
 
 ### ace-step/ACE-Step-1.5
 
@@ -1434,9 +1618,199 @@ ACE-Step / YuE / HeartMuLa / DiffRhythm backends на Linux.
 
 ---
 
+### filliptm/ComfyUI_FL-HeartMuLa
+
+URL: https://github.com/filliptm/ComfyUI_FL-HeartMuLa
+VERDICT: WATCH
+SCORE: 38
+STARS: 131
+
+WHAT:
+ComfyUI node suite для уже существующего
+HeartMuLa full-song model family.
+
+Даёт отдельные nodes для:
+
+- model loading;
+- lyric/style conditioning;
+- sampling;
+- decoding через HeartCodec;
+- tag building;
+- transcription.
+
+Поддерживает section markers:
+
+- Verse;
+- Chorus;
+- Bridge;
+- Intro;
+- Outro;
+- Instrumental.
+
+Заявлена генерация до 240 секунд.
+
+Для 3B модели upstream приводит примерно:
+
+- ~12 GB VRAM для fp16;
+- ~6 GB для 4-bit.
+
+Есть memory modes,
+CUDA, Apple Silicon MPS и медленный CPU fallback.
+
+В README явно заявлены lyrics languages:
+
+- English;
+- Chinese;
+- Japanese;
+- Korean;
+- Spanish.
+
+Русский и украинский upstream не заявляет.
+
+Лицензия wrapper: Apache-2.0.
+
+FIT:
+Это не новая альтернатива Suno
+и не новая foundation model.
+
+HeartMuLa у нас уже есть как отдельная модель.
+
+Ценность FL — возможный удобный production/runtime surface:
+
+`lyrics + tags`
+→ `ComfyUI graph`
+→ `HeartMuLa`
+→ `HeartCodec`
+→ `full song`.
+
+Особенно интересно для общего local creative pipeline,
+если ComfyUI станет одним из execution layers Media Factory / Комы.
+
+Главный вопрос для нас —
+не UI, а воспроизводимость,
+VRAM footprint и возможность автоматизированного запуска workflow.
+
+PROJECT:
+COMA / Full-Song AI.
+
+Роль:
+
+**runtime candidate для существующей HeartMuLa.**
+
+Не учитывать как отдельную foundation model
+при сравнении Suno alternatives.
+
+Связанная карточка:
+
+`monnky/ComfyUI-RT-HeartMuLa`
+— optimization/runtime donor той же модели.
+
+NEXT:
+Когда дойдём до HeartMuLa benchmark,
+сравнить три пути:
+
+1. официальный HeartMuLa runtime;
+2. FL HeartMuLa;
+3. RT HeartMuLa.
+
+На одинаковом prompt/lyrics проверить:
+
+- качество;
+- structure adherence;
+- длительность;
+- seed reproducibility;
+- скорость;
+- VRAM;
+- batch behavior;
+- automation/headless suitability.
+
+Отдельно обязательно проверить русский и украинский:
+upstream FL их официально не заявляет.
+
+---
+
+### monnky/ComfyUI-RT-HeartMuLa
+
+URL: https://github.com/monnky/ComfyUI-RT-HeartMuLa
+VERDICT: WATCH
+SCORE: 39
+STARS: 11
+
+WHAT:
+Performance-oriented ComfyUI wrapper
+для существующей HeartMuLa model family.
+
+Главный акцент проекта —
+управление качеством, скоростью и VRAM.
+
+Есть:
+
+- 4-bit quantization;
+- отдельная precision для model и codec;
+- bf16 / fp16 / fp32 варианты;
+- optional model compilation;
+- настройки для 8 GB, 12–16 GB и 24+ GB GPU;
+- aggressive VRAM cache cleanup;
+- оптимизации long-form generation;
+- temperature decay для длинных треков.
+
+Upstream отдельно рекомендует fp32 codec
+для уменьшения high-frequency artifacts,
+а compile — для ускорения повторных batch generations.
+
+Это runtime wrapper, а не новая music foundation model.
+
+FIT:
+Ценность RT — не отдельный продукт для Комы,
+а набор потенциально полезных performance practices
+для HeartMuLa execution.
+
+Особенно интересны:
+
+- model/codec precision split;
+- quantized model + higher precision decoder;
+- cache lifecycle;
+- long-form stabilization;
+- compile для batch production.
+
+Если FL окажется более удобным основным ComfyUI runtime,
+часть этих решений всё равно может оказаться полезной
+как architecture/performance donor.
+
+PROJECT:
+COMA / Full-Song AI.
+
+Роль:
+
+**optimization donor для HeartMuLa runtime.**
+
+Не считать отдельной моделью
+и не создавать вокруг него самостоятельную product track.
+
+Основной сосед:
+
+`filliptm/ComfyUI_FL-HeartMuLa`.
+
+NEXT:
+В рамках общего HeartMuLa benchmark:
+
+1. сравнить RT и FL на одних weights;
+2. измерить VRAM;
+3. сравнить 4-bit и full precision;
+4. проверить model/codec precision split;
+5. измерить compile overhead и batch acceleration;
+6. проверить длинные 3–4-минутные generations;
+7. сравнить artifacts на high frequencies;
+8. посмотреть, какие оптимизации можно использовать
+   независимо от самого RT wrapper.
+
+Отдельный production deployment до этого не делать.
+
+---
+
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 16
+Cards: 17
 
 ### CodingFeng101/CanvasAnvil
 
@@ -1570,6 +1944,124 @@ Infographics / Visual Storytelling
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### kyungseo/skillstead
+
+URL: https://github.com/kyungseo/skillstead
+VERDICT: KEEP
+SCORE: 33
+STARS: 78
+
+WHAT:
+Skillstead — небольшой каталог portable Agent Skills,
+где каждый skill оформлен как самостоятельный проверяемый продукт.
+
+В репозитории есть, среди прочего:
+
+- `svg-infographic`;
+- `docs-claim-check`;
+- `github-release-guide`;
+- `writing-quality-editor`;
+- `street-portrait-artist`.
+
+Особенно важна не тематика skills, а engineering model.
+
+Для публичных skills автор требует:
+
+- явное описание capability и границ;
+- отдельную maturity;
+- runtime support только для реально проверенных runtimes;
+- synthetic validation material;
+- repeatable validation path;
+- examples / fixtures;
+- безопасную установку pinned version.
+
+Например, `svg-infographic` использует цепочку:
+
+`brief`
+→ `layout computation`
+→ `structured SVG`
+→ `source lint`
+→ `browser render`
+→ `dimension-verified PNG`.
+
+`docs-claim-check` атомизирует утверждения и классифицирует их как
+`verified / unsupported / stale-suspected / needs-human`
+только внутри явно заданного evidence scope.
+
+Лицензия: Apache-2.0.
+
+FIT:
+Это очень хороший reference для собственной библиотеки skills
+Media Factory и Lancelot.
+
+Главный принцип:
+
+**skill — это не большой умный prompt.**
+
+Нормальный skill должен иметь:
+
+`contract`
++ `bounded scope`
++ `references`
++ `deterministic tools`
++ `fixtures`
++ `behavioral evals`
++ `runtime support evidence`.
+
+Особенно ценны:
+
+- независимое versioning каждого skill;
+- maturity labels;
+- support matrix по runtimes;
+- behavioural regression cases;
+- evidence bar для публичных capability claims;
+- fail-visible ограничения вместо обещания универсальности.
+
+Это потенциально основа нашего стандарта качества
+для дизайн-, видео-, publishing- и research-agents.
+
+PROJECT:
+- Media Factory;
+- Interface Skills;
+- Lancelot Skills Layer;
+- design-agent;
+- publishing-agent;
+- visual storytelling;
+- skill QA / regression testing.
+
+Не использовать как каталог, который нужно установить целиком.
+
+Ценность — методология создания и проверки собственных skills.
+
+NEXT:
+Разобрать три части:
+
+1. `playbooks/skill-development`;
+2. package `svg-infographic`;
+3. behavioral fixtures и validation pipeline.
+
+После этого сформулировать собственный минимальный стандарт:
+
+`MEDIA_FACTORY_SKILL_SPEC`.
+
+В него должны войти как минимум:
+
+- capability contract;
+- explicit non-goals;
+- progressive disclosure;
+- deterministic validators;
+- fixtures;
+- behavioral evals;
+- runtime support matrix;
+- maturity;
+- provenance/version;
+- regression gate.
+
+Сравнить с `material-design-3-ui-skill`
+и взять неперекрывающиеся сильные механизмы.
 
 ---
 
@@ -5077,7 +5569,114 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 5
+Cards: 6
+
+### Duragraph/duragraph
+
+URL: https://github.com/Duragraph/duragraph
+VERDICT: KEEP
+SCORE: 38
+STARS: 169
+
+WHAT:
+DuraGraph — self-hosted control plane для durable AI-agent workflows.
+
+Вместо хранения только текущего состояния run система записывает
+каждый state transition как immutable event в PostgreSQL.
+
+Основные свойства:
+
+- event-sourced run state;
+- восстановление после падения worker;
+- replay полного run из event log;
+- human-in-the-loop interrupts;
+- tool calls как часть graph execution;
+- live SSE events;
+- dashboard с Runs, Threads, Assistants и Traces;
+- Python и Go worker SDK;
+- outbox pattern → NATS JetStream;
+- Prometheus/OpenTelemetry-friendly observability.
+
+В dev-режиме PostgreSQL и NATS встроены в один binary.
+
+Авторы позиционируют проект как:
+
+`Temporal for AI agents`.
+
+Лицензия: Apache-2.0.
+
+FIT:
+Это хороший reference не для ещё одного agent framework,
+а для недостающего operational слоя Lancelot:
+
+`intent / reasoning`
+→ `durable run`
+→ `tool execution`
+→ `persistent event`
+→ `recovery / replay`
+→ `audit / observability`
+
+Особенно интересны:
+
+- immutable execution history;
+- восстановление run после crash;
+- replay для разбора ошибки;
+- явная модель graph/node execution;
+- human interrupts;
+- разделение command state и streaming events;
+- traceability реальных действий агента.
+
+Это может дать Lancelot более сильную execution-history модель,
+чем обычное хранение последнего состояния session.
+
+Сам DuraGraph при этом тяжелее нашей Cloudflare-native архитектуры:
+Postgres + NATS + отдельный control plane не являются автоматическим
+кандидатом на перенос целиком.
+
+PROJECT:
+Lancelot / Agent Infrastructure.
+
+Роль:
+
+**architecture donor для durable execution, replay и audit trail.**
+
+Связать с уже изученными:
+
+- Cloudflare Agents / Durable Objects;
+- approval authority;
+- Agent Control Standard;
+- HOL Guard / Prismor / Doberman;
+- durable-workflow/workflow.
+
+NEXT:
+Сделать differential architecture review:
+
+`DuraGraph ↔ текущий Lancelot`.
+
+Проверить отдельно:
+
+1. run aggregate и event schema;
+2. node lifecycle;
+3. persistence tool calls;
+4. recovery после worker/tool failure;
+5. защита от повторного side effect при recovery;
+6. human interrupt / resume;
+7. replay;
+8. execution trace;
+9. workflow versioning;
+10. observability.
+
+Цель — определить минимальный event/replay contract,
+который можно реализовать Cloudflare-native.
+
+Postgres, NATS и весь control plane автоматически не переносить.
+
+LANCELOT:
+Score: 8/10
+Tier: HIGH
+Tags: durable-workflow, event-sourcing, replay, observability
+
+---
 
 ### binhnguyennus/awesome-scalability
 
