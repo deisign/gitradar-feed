@@ -1,75 +1,69 @@
 # GitRadar / Creative Radar — operational brain
 
-Last verified: 2026-09-03
+Last verified: 2026-09-03 21:39 Europe/Kyiv
 
-This file exists so the radar update procedure is **not rediscovered from scratch every day**.
+This file is the operational memory for GitRadar. **Do not rediscover the update procedure from scratch.**
 
-## Golden rule
+## 0. Golden rule
 
-When asked to **update the radar**, **add cards**, **publish cards**, or **refresh GitRadar**:
+There are TWO different operations. Do not confuse them.
 
-1. Read this file first.
-2. Do not invent command names.
-3. Do not begin with exploratory `rg`/`find` archaeology unless a documented command actually fails.
-4. Prefer the known systemd entrypoint or the known real scripts below.
-5. Never treat `today.md` as “new discoveries” until it has been deduplicated against the canonical card collection.
+1. **FULL DAILY RADAR RUN** — collect GitHub data, validate raw input, score, update seen ledger, build today's shortlist, rebuild site/feeds, publish mirror.
+2. **MANUAL CARD PUBLISH** — after curated `cards/*.md` were added/edited, rebuild derived artifacts and publish them. **Do not rerun raw collection/scoring/shortlist for this.**
+
+If the user says "делаем карточки", "добавь карточки", "опубликуй карточки", "обнови радар после карточек" → use **MANUAL CARD PUBLISH**.
+
+If the user explicitly wants a fresh daily crawl / today's new GitHub catch → use **FULL DAILY RADAR RUN**.
+
+Never invent command names. All commands below are verified real files on Circus.
 
 ---
 
-## Hosts and paths
+## 1. Canonical host and paths
 
-### Canonical host
+Canonical runtime host: **Circus**.
 
-`Circus` is the always-on machine and canonical runtime for Creative Radar / GitRadar.
-
-Tailscale SSH from Camelot:
+From Camelot:
 
 ```bash
 ssh deisign@100.82.248.7
 ```
 
-### Canonical Creative Radar working directory
+Creative Radar root:
 
 ```text
 /home/deisign/Exchange/notes/90-radars/creative-radar
 ```
 
-Short form after logging into Circus:
+Scripts:
 
-```bash
-cd ~/Exchange/notes/90-radars/creative-radar
+```text
+/home/deisign/Exchange/notes/90-radars/scripts
 ```
 
-### Canonical cards
+Canonical curated cards (SOURCE OF TRUTH):
 
 ```text
 /home/deisign/Exchange/notes/90-radars/creative-radar/cards/
 ```
 
-The **Creative Radar card collection is the source of truth**.
-
-### Generated site/feed directory
+Generated artifacts:
 
 ```text
-/home/deisign/Exchange/notes/90-radars/creative-radar/site/
+/home/deisign/Exchange/notes/90-radars/creative-radar/site/cards.jsonl
+/home/deisign/Exchange/notes/90-radars/creative-radar/site/cards-meta.json
+/home/deisign/Exchange/notes/90-radars/creative-radar/site/lancelot.jsonl
+/home/deisign/Exchange/notes/90-radars/creative-radar/site/llm.txt
+/home/deisign/Exchange/notes/90-radars/creative-radar/site/llm-YYYY-MM-DD.txt
 ```
 
-Known generated artifacts include:
-
-```text
-site/cards.jsonl
-site/cards-meta.json
-site/llm.txt
-site/lancelot.jsonl
-```
-
-The public GitHub mirror is:
+Public machine mirror:
 
 ```text
 deisign/gitradar-feed
 ```
 
-Canonical dashboard:
+Dashboard:
 
 ```text
 https://gitradar.deisign.me/
@@ -77,109 +71,92 @@ https://gitradar.deisign.me/
 
 ---
 
-## Real daily entrypoint
+## 2. VERIFIED MANUAL CARD PUBLISH
 
-The actual systemd service is:
+### When to use
 
-```text
-creative-radar-daily.service
-```
+Use this after manually creating or editing curated card files under `cards/`.
 
-Its real `ExecStart` is:
+**DO NOT start `creative-radar-daily.service` for this job.** The daily service starts raw collection + scoring + shortlist work first and can take time/block. It is the wrong operation for publishing already-curated cards.
 
-```text
-/home/deisign/bin/creative-radar-daily
-```
+### Verified pipeline
 
-The timer is:
+The actual dependency chain is:
 
 ```text
-creative-radar-daily.timer
-```
-
-and runs at:
-
-```text
-08:10 daily
-```
-
-### Canonical full refresh
-
-When a **full daily radar refresh** is wanted, use the real service instead of reconstructing the pipeline by hand:
-
-```bash
-systemctl --user start creative-radar-daily.service
-```
-
-Check result:
-
-```bash
-systemctl --user status creative-radar-daily.service --no-pager
-journalctl --user -u creative-radar-daily.service -n 120 --no-pager
-```
-
-The historical logs confirm that the daily pipeline generates the card/Lancelot feeds and publishes `deisign/gitradar-feed`.
-
-Do **not** make up substitute names for this entrypoint.
-
----
-
-## Known real site builder
-
-The real site builder exists at:
-
-```text
-/home/deisign/Exchange/notes/90-radars/scripts/build-creative-radar-site
-```
-
-This path is documented by the local `SWISS_VIEW_HANDOFF.md` and must be preferred over guessed commands.
-
-### Explicitly forbidden invented commands
-
-These names were previously guessed and are **not established entrypoints**:
-
-```text
+cards/*.md
+  ↓
+build-creative-radar-site
+  ↓
+  site/index.html
+  cards.jsonl + cards-meta.json
+  lancelot.jsonl + lancelot-meta.json
+  ↓
 build-creative-radar-llm
-build-creative-radar-lancelot-feed
-publish-creative-radar-github
+  ↓
+  cards/index.md
+  site/llm.md
+  site/llm.txt
+  ↓
+copy dated llm snapshot
+  ↓
+publish-creative-radar-github RUN_DATE
+  ↓
+deisign/gitradar-feed
 ```
 
-Do not use them unless they are later actually created and this file is updated.
+Important: `build-creative-radar-site` is a SAFE BUILD wrapper and **already calls `build-creative-radar-lancelot-feed` internally**. Do not separately rebuild Lancelot unless diagnosing that specific stage.
 
----
-
-## Manual card workflow
-
-When new curated cards are approved:
-
-1. Work on Circus.
-2. Create one Markdown file per GitHub repository under `cards/`.
-3. Keep a single canonical `repo: owner/name` identity per card.
-4. Do not create one card that represents two different repositories; this breaks repo-level dedup.
-5. Before adding a card, confirm that the repo is not already in the canonical card collection.
-6. After the card files are written, perform a radar refresh using a documented real entrypoint.
-
-### Safest known refresh after manual card changes
-
-Until a separately verified card-only publish entrypoint is documented here, use the canonical daily service:
+### Exact verified commands on Circus
 
 ```bash
-systemctl --user start creative-radar-daily.service
+set -euo pipefail
+
+RUN_DATE="$(date +%F)"
+ROOT="$HOME/Exchange/notes/90-radars"
+RADAR="$ROOT/creative-radar"
+SCRIPTS="$ROOT/scripts"
+
+cd "$RADAR"
+
+"$SCRIPTS/build-creative-radar-site"
+"$SCRIPTS/build-creative-radar-llm"
+cp -f "$RADAR/site/llm.txt" "$RADAR/site/llm-$RUN_DATE.txt"
+"$SCRIPTS/publish-creative-radar-github" "$RUN_DATE"
 ```
 
-This may rerun collection/scoring as well, but it is the known real end-to-end pipeline and is preferable to invented partial commands.
-
-### Verify cards reached generated feed
-
-Example:
+### Same operation from Camelot in one SSH block
 
 ```bash
-cd ~/Exchange/notes/90-radars/creative-radar
+ssh deisign@100.82.248.7 'bash -s' <<'REMOTE'
+set -euo pipefail
 
-grep -F '"repo":"OWNER/REPO"' site/cards.jsonl
+RUN_DATE="$(date +%F)"
+ROOT="$HOME/Exchange/notes/90-radars"
+RADAR="$ROOT/creative-radar"
+SCRIPTS="$ROOT/scripts"
+
+cd "$RADAR"
+
+"$SCRIPTS/build-creative-radar-site"
+"$SCRIPTS/build-creative-radar-llm"
+cp -f "$RADAR/site/llm.txt" "$RADAR/site/llm-$RUN_DATE.txt"
+"$SCRIPTS/publish-creative-radar-github" "$RUN_DATE"
+
+ls -lh \
+  site/cards.jsonl \
+  site/cards-meta.json \
+  site/lancelot.jsonl \
+  site/llm.txt \
+  "site/llm-$RUN_DATE.txt"
+
+printf '\nCARD-ONLY GITRADAR PUBLISH: OK\n'
+REMOTE
 ```
 
-For several repos:
+### Verification after card changes
+
+Before publish or immediately after site build, verify expected repos exist in the generated feed:
 
 ```bash
 for repo in \
@@ -187,141 +164,228 @@ for repo in \
   'OWNER/REPO2'
 do
   printf '%-50s ' "$repo"
-  if grep -Fq "\"repo\":\"$repo\"" site/cards.jsonl; then
-    echo OK
-  else
-    echo MISSING
-  fi
+  grep -Fq "\"repo\":\"$repo\"" site/cards.jsonl \
+    && echo OK \
+    || { echo MISSING; exit 1; }
 done
 ```
 
-### Verify public mirror updated
-
-The feed repository should receive a new push. Historical daily logs contain lines equivalent to:
+Success indicators from the publisher:
 
 ```text
+[main <sha>] Radar snapshot YYYY-MM-DD
 To https://github.com/deisign/gitradar-feed.git
+<old>..<new>  main -> main
 published: deisign/gitradar-feed
 ```
 
-Also check timestamps in generated files:
+### Proven successful run — 2026-09-03
 
-```bash
-ls -lh \
-  site/cards.jsonl \
-  site/cards-meta.json \
-  site/llm.txt \
-  site/lancelot.jsonl
+This exact card-only procedure was executed successfully at 21:39 Europe/Kyiv after adding six cards.
+
+Observed result:
+
+```text
+SAFE BUILD: accepted
+cards: 182
+cards sha256: 24ac3b387a35d9ef1866cc00884220d145af48652400d04d60bca7d33808fad4
+records: 26
+cards=182 buckets=20
+published: deisign/gitradar-feed
+CARD-ONLY GITRADAR PUBLISH: OK
+```
+
+Published mirror commit:
+
+```text
+4f73afc47d69e3bb186c5badbef62dcedde6ca0d
+```
+
+Public `cards-meta.json` changed from 176 to 182 cards and carried the same cards SHA256 above. This verifies not just local generation but successful mirror publication.
+
+The six verified cards were:
+
+```text
+Duragraph/duragraph
+kyungseo/skillstead
+skydashnet/material-design-3-ui-skill
+Convertiv/handoff-app
+filliptm/ComfyUI_FL-HeartMuLa
+monnky/ComfyUI-RT-HeartMuLa
 ```
 
 ---
 
-## Dedup invariant
+## 3. VERIFIED FULL DAILY RADAR RUN
 
-A major bug discovered on 2026-09-03: `today.md` can resurface repositories that already have curated cards.
+### When to use
 
-Therefore the conceptual invariant must be:
+Use only when a new daily GitHub crawl / scoring / shortlist is wanted.
+
+Systemd service:
+
+```text
+creative-radar-daily.service
+```
+
+ExecStart:
+
+```text
+/home/deisign/bin/creative-radar-daily
+```
+
+Timer:
+
+```text
+creative-radar-daily.timer
+```
+
+Schedule:
+
+```text
+08:10 daily
+```
+
+Full daily pipeline implemented in `/home/deisign/bin/creative-radar-daily`:
+
+```text
+creative-radar-raw
+→ creative-radar-validate-raw RUN_DATE
+→ creative-radar-score RUN_DATE
+→ creative-radar-seen-ledger
+→ creative-radar-shortlist RUN_DATE
+→ build-creative-radar-site
+→ build-creative-radar-llm
+→ copy llm-RUN_DATE.txt
+→ publish-creative-radar-github RUN_DATE
+```
+
+Manual start when a fresh full run is explicitly wanted:
+
+```bash
+systemctl --user start creative-radar-daily.service
+```
+
+Inspect status/logs:
+
+```bash
+systemctl --user status creative-radar-daily.service --no-pager
+journalctl --user -u creative-radar-daily.service -n 200 --no-pager
+```
+
+Again: **do not use this just to publish manual cards.**
+
+---
+
+## 4. Verified real scripts
+
+These files exist and are executable on Circus:
+
+```text
+/home/deisign/Exchange/notes/90-radars/scripts/build-creative-radar-site
+/home/deisign/Exchange/notes/90-radars/scripts/build-creative-radar-site.impl
+/home/deisign/Exchange/notes/90-radars/scripts/build-creative-radar-site.core
+/home/deisign/Exchange/notes/90-radars/scripts/build-creative-radar-lancelot-feed
+/home/deisign/Exchange/notes/90-radars/scripts/build-creative-radar-llm
+/home/deisign/Exchange/notes/90-radars/scripts/publish-creative-radar-github
+/home/deisign/Exchange/notes/90-radars/scripts/creative-radar-validate-raw
+/home/deisign/Exchange/notes/90-radars/scripts/creative-radar-score
+/home/deisign/Exchange/notes/90-radars/scripts/creative-radar-seen-ledger
+/home/deisign/Exchange/notes/90-radars/scripts/creative-radar-shortlist
+```
+
+Previous documentation incorrectly called some of these names invented. That was false; the 2026-09-03 inspection proved they exist. Do not repeat that mistake.
+
+---
+
+## 5. Manual card rules
+
+- One Markdown file per GitHub repository.
+- `repo:` is canonical `owner/name` identity.
+- Do not combine two repositories into one card; repo-level dedup depends on one repo identity per card.
+- Before creating a card, check the canonical cards collection to ensure it is not already present.
+- Card files are source-of-truth; `cards.jsonl` is generated output.
+- After cards are added, use the **VERIFIED MANUAL CARD PUBLISH** above.
+
+---
+
+## 6. Dedup invariant for today's catch
+
+Bug discovered 2026-09-03: `today.md` can contain repositories that already exist in curated cards.
+
+Required conceptual invariant:
 
 ```text
 today_new = scored_today(KEEP/WATCH) - canonical_card_repositories
 ```
 
-Normalize repository identity as `owner/repo` case-insensitively (or by stable GitHub repository id when available).
+Normalize repo identity case-insensitively as `owner/repo` (or stable GitHub repo id where available).
 
-### Required behavior
+Required behavior:
 
-- A repo already present in cards must not be presented as a new discovery.
-- A repo carded yesterday must not become “new” today because its stars or score changed.
-- Reference/seed repos may remain in scoring inputs, but should not appear in the public “new catch” unless explicitly requested.
-- Category counts must be computed **after** the final dedup/filter, not before it.
+- already-carded repo must not be presented as new;
+- yesterday-carded repo must remain excluded even if stars/score changed;
+- reference/seed repos may be scored but should not become new discoveries;
+- category counts must be computed after final dedup/filter.
 
-### Regression tests that should exist
+Regression tests to add:
 
 1. carded repo cannot appear in today shortlist;
 2. yesterday-carded repo remains excluded today;
-3. repo URL/casing/trailing `.git` normalization works;
-4. displayed bucket count equals number of rendered entries;
-5. reference seeds can be scored without becoming new discoveries.
+3. URL/case/trailing `.git` normalization works;
+4. rendered category count equals actual rendered entries;
+5. reference seeds can score without becoming new discoveries.
 
 ---
 
-## What to do when a command fails
+## 7. Failure handling
 
-Do not start guessing command names.
+Do not guess replacements when a documented command fails.
 
-Use this order:
+For card-only failures, diagnose the exact stage:
 
-1. Inspect the exact failing command.
-2. If the daily pipeline is involved, read the real script:
+```text
+build-creative-radar-site
+build-creative-radar-llm
+publish-creative-radar-github
+```
+
+Useful inspection commands:
+
+```bash
+sed -n '1,260p' /home/deisign/Exchange/notes/90-radars/scripts/build-creative-radar-site
+sed -n '1,260p' /home/deisign/Exchange/notes/90-radars/scripts/publish-creative-radar-github
+```
+
+For full daily failures:
 
 ```bash
 sed -n '1,320p' /home/deisign/bin/creative-radar-daily
-```
-
-3. If site generation is involved, inspect the real builder:
-
-```bash
-sed -n '1,320p' /home/deisign/Exchange/notes/90-radars/scripts/build-creative-radar-site
-```
-
-4. Check the service log:
-
-```bash
 journalctl --user -u creative-radar-daily.service -n 200 --no-pager
 ```
 
-5. Only then diagnose the specific failing stage.
-
-The goal is **targeted diagnosis of an established pipeline**, not rediscovery of the pipeline.
+Target the failing established stage. Do not restart pipeline archaeology.
 
 ---
 
-## Interaction contract for future ChatGPT sessions
+## 8. Interaction contract for future ChatGPT sessions
 
-If the user says something equivalent to:
+When asked to work with GitRadar:
 
-- “обнови радар”;
-- “делаем карточки”;
-- “закинь карточки в радар”;
-- “опубликуй сегодняшний улов”;
-- “шо там сегодня в GitRadar”;
-
-then:
-
-1. Treat Circus and the paths above as established facts.
-2. Treat the cards collection as canonical dedup state.
-3. Do not ask where GitRadar lives.
-4. Do not invent builders or publishers.
-5. For a full refresh, use `creative-radar-daily.service`.
-6. For a partial/manual refresh, use only partial commands explicitly documented in this file; otherwise use the known full service rather than guessing.
-7. When discussing “today”, first subtract existing cards.
-8. If a new reliable maintenance command is discovered, update **this file in the same session**.
+1. Read `brain.md` first.
+2. Treat Circus and paths here as established facts.
+3. Treat `cards/` as canonical dedup state.
+4. Distinguish manual-card publish from full daily crawl.
+5. Never invent commands or PATH aliases; use full verified paths.
+6. Do not run the full daily service merely to publish curated cards.
+7. When discussing "today's catch", dedup against cards first.
+8. If a procedure changes, first prove the new procedure with an actual successful run, then update this file.
+9. **Never write an unverified operational procedure into this file.**
 
 ---
 
-## 2026-09-03 incident note
+## 9. Important mirror behavior
 
-Six manual cards were created successfully under `cards/`:
+`brain.md` is operational documentation and must persist in `deisign/gitradar-feed` across publisher runs.
 
-```text
-duragraph-duragraph.md
-kyungseo-skillstead.md
-skydashnet-material-design-3-ui-skill.md
-convertiv-handoff-app.md
-filliptm-comfyui-fl-heartmula.md
-monnky-comfyui-rt-heartmula.md
-```
-
-The card creation succeeded.
-
-A later refresh failed because nonexistent commands were guessed (`build-creative-radar-site` without its real path, followed by other invented `build-*`/publish names) under `set -euo pipefail`, which terminated the SSH shell at the first `command not found`.
-
-Correct lesson: **never reconstruct GitRadar operations from memory when the canonical service/script paths are already known and documented here.**
-
----
-
-## Keep this file alive
-
-`brain.md` is operational documentation, **not a generated feed artifact**.
-
-The publisher must preserve it across daily mirror updates. If a future publish deletes it, fix the publisher so non-generated repository files are retained.
+The publisher regenerates the feed snapshot and may rewrite generated/support files such as README content. Do not rely on README as the only pointer to this runbook. The runbook itself must remain preserved in the repository.
