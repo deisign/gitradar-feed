@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-07T08:22:27
+Generated: 2026-09-07T16:57:43
 Date: 2026-09-07
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 182
+- Total curated cards: 185
 - Buckets: 20
 
 ## Bucket summary
@@ -18,9 +18,9 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Design Systems / Visual QA: 18
 - Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 8
-- Infographics / Visual Storytelling: 17
+- Infographics / Visual Storytelling: 18
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 20
+- Lancelot / Agent Infrastructure: 21
 - Media / Social Monitoring: 4
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
@@ -32,7 +32,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Radio / Audio Ops: 9
 - System Architecture / Engineering Patterns: 6
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 25
+- Video Production / Editing: 26
 
 ## Today's run
 
@@ -1815,7 +1815,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 17
+Cards: 18
 
 ### CodingFeng101/CanvasAnvil
 
@@ -2253,6 +2253,130 @@ NEXT:
 
 Если Trazor выигрывает хотя бы на плоской графике и логотипах —
 закрепить как стандартный raster→SVG primitive.
+
+---
+
+### Affitor/affiliate-skills
+
+URL: https://github.com/Affitor/affiliate-skills
+VERDICT: WATCH
+SCORE: 31
+STARS: 651
+
+WHAT:
+Большая Agent Skills library,
+организованная не как россыпь `SKILL.md`,
+а как восьмистадийный workflow:
+
+`Research`
+→ `Content`
+→ `Blog / SEO`
+→ `Offers / Landing`
+→ `Distribution`
+→ `Analytics`
+→ `Automation`
+→ `Meta`.
+
+В репозитории есть:
+
+- `skills/<stage>/<skill>/SKILL.md`;
+- `shared/references/`;
+- machine-readable `registry.json`;
+- tooling;
+- evals.
+
+Registry машинно описывает:
+
+- skill name;
+- stage;
+- version;
+- path;
+- agent compatibility;
+- required tools.
+
+Skills связываются через chain metadata / suggested-next.
+
+Workflow замкнут:
+
+`research`
+→ `production`
+→ `distribution`
+→ `analytics`
+→ обратно в `research`.
+
+Некоторые decision skills имеют явные schemas и scoring procedures.
+Например content-angle ranking разделяет оценку
+на platform fit, competition, predicted engagement и creator fit.
+
+Лицензия: MIT.
+
+FIT:
+Affiliate marketing как предмет нам почти не нужен.
+
+Нужна **архитектура большой библиотеки skills**.
+
+Skillstead хорошо показывает,
+как инженерно оформлять один skill:
+
+`contract + references + tooling + fixtures + validation + evals`.
+
+Affitor показывает следующий слой:
+
+`many skills`
+→ `registry`
+→ `stages`
+→ `handoffs`
+→ `suggested next`
+→ `analytics feedback`
+→ `continuous workflow`.
+
+Для Media Factory это важный вопрос:
+research, script, design, video, publishing, QA и analytics
+нельзя просто сложить в каталог и надеяться,
+что агент сам правильно выстроит производство.
+
+PROJECT:
+Media Factory / Skills Layer.
+
+Orchestration architecture donor.
+
+Связать с:
+
+- Skillstead;
+- Material Design 3 UI Skill;
+- ux-ui-agent-skills;
+- OpenMontage;
+- будущим `MEDIA_FACTORY_SKILL_SPEC`.
+
+Affiliate-specific doctrine не импортировать.
+
+NEXT:
+Разобрать:
+
+1. `registry.json`;
+2. stage taxonomy;
+3. chain metadata / suggested-next;
+4. evals.
+
+Расширить будущий Media Factory Skill Spec полями:
+
+- stage;
+- consumes;
+- produces;
+- required tools;
+- prerequisites;
+- suggested next;
+- cost class;
+- approval requirement;
+- deterministic validators;
+- eval suite;
+- feedback signal.
+
+Отдельно проверить closed-loop модель:
+
+`production analytics`
+→ `research / planning`
+→ следующий production run.
 
 ---
 
@@ -2906,7 +3030,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 20
+Cards: 21
 
 ### askalf/redstamp
 
@@ -3014,6 +3138,140 @@ NEXT:
 
 Забирать только конкретные upstream patterns,
 а не переносить starter целиком.
+
+---
+
+### cloudflare/claude-managed-agents
+
+URL: https://github.com/cloudflare/claude-managed-agents
+VERDICT: KEEP
+SCORE: 35
+STARS: 273
+
+WHAT:
+Cloudflare reference control plane для self-managed Claude Managed Agents.
+
+На каждый agent session поднимается отдельный sandbox.
+
+Есть два execution backend:
+
+- Container / MicroVM;
+- lightweight Isolate.
+
+Control plane обрабатывает lifecycle session,
+поднимает sandbox, сохраняет/восстанавливает state
+и уничтожает execution environment после завершения.
+
+Persistence:
+
+- MicroVM snapshots → R2;
+- Isolate state → Durable Object SQLite.
+
+Также есть:
+
+- dashboard и API;
+- observability;
+- browser automation;
+- email;
+- image generation;
+- custom tools;
+- Workers VPC / private services.
+
+Особенно интересен egress-policy layer.
+
+Он позволяет:
+
+- allow/deny domains;
+- логировать outbound traffic;
+- reroute/modify requests;
+- inject credentials непосредственно в outbound request,
+  не отдавая секрет агенту.
+
+Проект upstream считает alpha.
+Для соответствующих sandbox capabilities нужен Cloudflare Paid/Enterprise.
+
+FIT:
+Это практически reference на тему,
+к которой постепенно приходит Lancelot:
+
+**reasoning process и execution environment — разные сущности.**
+
+У session должны быть собственные:
+
+- lifecycle;
+- execution boundary;
+- capabilities;
+- state;
+- network policy;
+- secrets;
+- observability;
+- private-service access.
+
+Самая ценная идея:
+
+**credential injection at egress**.
+
+Tool может получить авторизованный доступ к сервису,
+при этом модель и выполняемый агентом код
+не обязаны вообще видеть API key.
+
+Вторая сильная идея —
+единый logical sandbox contract поверх разных классов исполнения:
+
+`MicroVM` или `Isolate`.
+
+Workload можно размещать по risk / capability / cost profile.
+
+PROJECT:
+Lancelot / Agent Infrastructure.
+
+Architecture donor для:
+
+- sandbox control plane;
+- host capability model;
+- egress policy;
+- secrets boundary;
+- session persistence.
+
+Связать с:
+
+- Cloudflare Agents;
+- Durable Objects;
+- HOL Guard;
+- DuraGraph;
+- approval authority;
+- skill/tool capability contracts.
+
+Это не предложение переводить Lancelot на Claude Managed Agents.
+
+NEXT:
+Сделать architecture diff:
+
+`Claude Managed Agents control plane ↔ текущий Lancelot`.
+
+Разобрать:
+
+1. session lifecycle;
+2. sandbox identity;
+3. capabilities;
+4. Isolate vs VM policy;
+5. persistence;
+6. sleep/resume;
+7. credential injection;
+8. egress rules;
+9. VPC/private access;
+10. custom tools;
+11. observability;
+12. cleanup.
+
+Отдельно спроектировать минимальную
+Cloudflare-native egress-policy модель для Lancelot,
+не зависящую от Anthropic runtime.
+
+LANCELOT:
+Score: 9/10
+Tier: HIGH
+Tags: - sandboxing
 
 ---
 
@@ -6000,7 +6258,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 25
+Cards: 26
 
 ### 0xsline/OpenChatCut
 
@@ -6059,6 +6317,114 @@ NEXT:
 Сделать differential architecture review OpenEdit ↔ наш активный OpenChatCut.
 
 Отдельно проверить edit graph, reversible operations, render jobs, QC gate и sandbox для run_script. Пилотировать изолированно; текущий core не менять.
+
+---
+
+### AMMIROSOH/Kdenlive-mcp
+
+URL: https://github.com/AMMIROSOH/Kdenlive-mcp
+VERDICT: KEEP
+SCORE: 31
+STARS: 6
+
+WHAT:
+Local-first MCP backend для программного управления видеомонтажом.
+
+Source of truth — versioned JSON project, из которого система
+детерминированно строит MLT/Kdenlive output.
+
+Поддерживаются:
+
+- atomic revisions;
+- checkpoints;
+- undo / redo;
+- media ingest;
+- linked A/V;
+- ripple edits;
+- keyframes;
+- effects;
+- transitions;
+- captions;
+- markers.
+
+Render и preview оформлены как durable jobs:
+
+- queue;
+- progress;
+- cancellation;
+- restart recovery;
+- bounded artifacts.
+
+Есть editable export в Kdenlive и OTIO.
+
+После render автоматически проверяются:
+
+- duration;
+- stream structure;
+- A/V sync;
+- loudness;
+- clipping;
+- black frames;
+- freezes.
+
+Safety model включает allowed roots, защиту от path traversal,
+revision-checked mutations, render без shell и authenticated loopback HTTP.
+
+Лицензия: Apache-2.0.
+
+FIT:
+Сильный backend donor для Clip Machine.
+
+Особенно важен contract:
+
+`canonical project JSON`
+→ `revision-checked edit`
+→ `deterministic MLT`
+→ `durable render`
+→ `technical QC`
+→ `editable export`.
+
+Полезные идеи:
+
+1. **Optimistic revision safety** — mutation действует только на точную текущую revision.
+2. **Editor не является database** — canonical state отделён от Kdenlive.
+3. **Render — durable job**, а не длинный синхронный tool call.
+4. **Exit code 0 недостаточен** — готовый файл проходит отдельный deterministic QC.
+
+PROJECT:
+Clip Machine.
+
+Сравнить напрямую с:
+
+- OpenChatCut;
+- OpenEdit;
+- Timeline Studio.
+
+Особенно интересна схема, где Kdenlive становится
+human-editable projection поверх agent-owned canonical timeline.
+
+NEXT:
+Сделать differential review:
+
+`OpenChatCut ↔ OpenEdit ↔ Timeline Studio ↔ Kdenlive MCP`.
+
+Сравнить:
+
+1. canonical state;
+2. clip IDs;
+3. revision model;
+4. atomic edits;
+5. undo/redo;
+6. diagnostics;
+7. render jobs;
+8. crash recovery;
+9. QC;
+10. editable export;
+11. MCP safety;
+12. headless automation.
+
+Отдельно определить, можно ли забрать revision contract
+и post-render QC независимо от всего остального runtime.
 
 ---
 
