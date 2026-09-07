@@ -1,6 +1,6 @@
 ---
-title: Creative Radar Shortlist 2026-09-06
-date: 2026-09-06
+title: Creative Radar Shortlist 2026-09-07
+date: 2026-09-07
 status: shortlist
 tags:
   - radar
@@ -8,45 +8,35 @@ tags:
   - shortlist
 ---
 
-# Creative Radar Shortlist — 2026-09-06
+# Creative Radar Shortlist — 2026-09-07
 
-Source: [[../scored/2026-09-06|Scored 2026-09-06]]
+Source: [[../scored/2026-09-07|Scored 2026-09-07]]
 
 ## Навигация
 
-- [Design Systems / Visual QA](#design-systems-visual-qa) — 9
+- [Design Systems / Visual QA](#design-systems-visual-qa) — 7
 - [Font Creation / Typography Tools](#font-creation-typography-tools) — 7
 - [Full-Song AI / Suno Alternatives](#full-song-ai-suno-alternatives) — 8
 - [Infographics / Visual Storytelling](#infographics-visual-storytelling) — 6
 - [Interactive Reports / Data Apps](#interactive-reports-data-apps) — 1
-- [Lancelot / Agent Infrastructure](#lancelot-agent-infrastructure) — 3
+- [Lancelot / Agent Infrastructure](#lancelot-agent-infrastructure) — 5
 - [Media Kits / Brand Automation](#media-kits-brand-automation) — 2
-- [Newsroom / Data Journalism](#newsroom-data-journalism) — 7
+- [Newsroom / Data Journalism](#newsroom-data-journalism) — 6
 - [OSINT / Investigations](#osint-investigations) — 1
 - [Publishing / Layout / PDF](#publishing-layout-pdf) — 4
-- [Radio / Audio Ops](#radio-audio-ops) — 6
+- [Radio / Audio Ops](#radio-audio-ops) — 7
 - [System Architecture / Engineering Patterns](#system-architecture-engineering-patterns) — 2
 - [Video Production / Editing](#video-production-editing) — 20
 - [n8n / Workflow Automation](#n8n-workflow-automation) — 4
 
 ## Design Systems / Visual QA
 
-### arvindrk/extract-design-system
-
-- Verdict: **KEEP**
-- Score: 45
-- Stars: 205
-- Raw: #758
-- URL: https://github.com/arvindrk/extract-design-system
-- Description: Extract design tokens (colors, typography, spacing, border radius, shadows) from any public website. Generates JSON and CSS custom properties for local projects. Available as an AI agent skill (Claude, Cursor, Codex) and standalone CLI.
-- Why: agent-native structured implementation, agent-native workflow, audit, design QA fit, design tokens, design-system, stars>=100, tokens
-
 ### natdexterra/work-with-design-systems
 
 - Verdict: **KEEP**
 - Score: 42
 - Stars: 50
-- Raw: #767
+- Raw: #723
 - URL: https://github.com/natdexterra/work-with-design-systems
 - Description: Inspect, build, or extend Figma design systems from Claude Code. Read-only audits with WCAG checks and component scoring, build mode with variable bindings and slots, optional Phase 6 sync to tokens.css + AI rules.
 - Why: agent-native structured implementation, agent-native workflow, design QA fit, design system, design-system, figma, stars>=20, tokens
@@ -55,7 +45,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 41
-- Stars: 881
+- Stars: 887
 - Raw: #766
 - URL: https://github.com/plugin87/ux-ui-agent-skills
 - Description: Turn Claude into a Senior Design Architect — DTCG design tokens, 42 components, WCAG 2.2 accessibility, any-framework code, 138 design systems, and runnable skills.
@@ -65,28 +55,18 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 41
-- Stars: 227
-- Raw: #768
+- Stars: 228
+- Raw: #767
 - URL: https://github.com/marvkr/better-design
 - Description: 🎨 Open-source design MCP server + shadcn/ui registry — AI design systems for Claude Code, Cursor, Codex, GitHub Copilot & any MCP client. 31 brand-grade themes (Linear, Stripe, Vercel, Notion, Apple, Supabase, Figma…) + design tokens, UI principles & WCAG rules. Install any component with one command.
 - Why: agent-native workflow, design QA fit, design system, design tokens, design-system, stars>=100, tokens
-
-### dembrandt/dembrandt
-
-- Verdict: **KEEP**
-- Score: 36
-- Stars: 3332
-- Raw: #722
-- URL: https://github.com/dembrandt/dembrandt
-- Description: Extract any website’s design system into tokens in seconds: logo, colors, typography, borders & more. One command.
-- Why: design QA fit, design system, design-system, drift, stars>=1000, tokens
 
 ### adobe/spectrum-design-data
 
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 151
-- Raw: #727
+- Raw: #722
 - URL: https://github.com/adobe/spectrum-design-data
 - Description: Design data, including design tokens, component schemas, and tooling for Spectrum, Adobe's design system.
 - Why: design QA fit, design system, design tokens, design-system, stars>=100, tokens
@@ -96,7 +76,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 130
-- Raw: #723
+- Raw: #719
 - URL: https://github.com/db-ux-design-system/core-web
 - Description: DB UX Design System monorepo - Provides Design Tokens and components for Web UIs
 - Why: design QA fit, design system, design tokens, design-system, stars>=100, tokens
@@ -105,8 +85,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 6182
-- Raw: #757
+- Stars: 6184
+- Raw: #760
 - URL: https://github.com/chakra-ui/panda
 - Description: 🐼 Universal, Type-Safe, CSS-in-JS Framework for Design Systems ⚡️
 - Why: design QA fit, design system, design-system, stars>=1000, tokens
@@ -115,8 +95,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **WATCH**
 - Score: 30
-- Stars: 95
-- Raw: #764
+- Stars: 94
+- Raw: #761
 - URL: https://github.com/Convertiv/handoff-app
 - Description: A toolchain for Figma design tokens, enabling designers and developers to extract, transform, and distribute design decisions as code
 - Why: design QA fit, design tokens, design-system, figma, stars>=20, tokens
@@ -128,8 +108,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 36
-- Stars: 5231
-- Raw: #31
+- Stars: 5233
+- Raw: #32
 - URL: https://github.com/fonttools/fonttools
 - Description: A library to manipulate font files from Python.
 - Why: font, font/typography tooling fit, fonts, fonttools, opentype, stars>=1000
@@ -159,7 +139,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 312
-- Raw: #4
+- Raw: #5
 - URL: https://github.com/glyphr-studio/Glyphr-Studio-2
 - Description: The free & open source web-based font editor, made for hobbyists and typeface design beginners.
 - Why: font, font editor, font/typography tooling fit, glyph, stars>=100, typeface
@@ -168,7 +148,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 7934
+- Stars: 7935
 - Raw: #38
 - URL: https://github.com/fontforge/fontforge
 - Description: Free (libre) font editor for Windows, Mac OS X and GNU+Linux
@@ -202,7 +182,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 44
 - Stars: 190
-- Raw: #368
+- Raw: #369
 - URL: https://github.com/smthemex/ComfyUI_YuE
 - Description: YuE is a groundbreaking series of open-source foundation models designed for music generation, specifically for transforming lyrics into full songs (lyrics2song). you can use it in comfyUI
 - Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit, reusable/local model fit, stars>=100
@@ -212,7 +192,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 39
 - Stars: 11
-- Raw: #357
+- Raw: #358
 - URL: https://github.com/monnky/ComfyUI-RT-HeartMuLa
 - Description: RT HeartMuLa is a powerful suite of multilingual AI music generation nodes for ComfyUI that enables the creation of professional-quality full songs with lyrics directly on your local hardware. Leveraging the advanced HeartMuLa-3B foundation model, HeartCodec, and HeartTranscriptor, these nodes offer a high-fidelity, open-source alternative to cloud
 - Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit, reusable/local model fit
@@ -222,7 +202,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 38
 - Stars: 131
-- Raw: #353
+- Raw: #354
 - URL: https://github.com/filliptm/ComfyUI_FL-HeartMuLa
 - Description: FL HeartMuLa - Multilingual AI music generation nodes for ComfyUI. Generate full songs with lyrics using HeartMuLa.
 - Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit, stars>=100
@@ -231,8 +211,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 35
-- Stars: 6415
-- Raw: #384
+- Stars: 6413
+- Raw: #385
 - URL: https://github.com/multimodal-art-projection/YuE
 - Description: YuE: Open Full-song Music Generation Foundation Model, something similar to Suno.ai but open
 - Why: full-song identity fit, full-song reference seed, reusable/local model fit, stars>=1000
@@ -241,8 +221,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 35
-- Stars: 3789
-- Raw: #388
+- Stars: 3788
+- Raw: #389
 - URL: https://github.com/HeartMuLa/heartlib
 - Description: HeartMuLa Official Repo: The Most Powerful Open-Source Music Generation Model of 2026
 - Why: full-song reference seed, stars>=1000
@@ -252,7 +232,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 35
 - Stars: 2338
-- Raw: #395
+- Raw: #397
 - URL: https://github.com/ASLP-lab/DiffRhythm
 - Description: Di♪♪Rhythm: Blazingly Fast and Embarrassingly Simple End-to-End Full-Length Song Generation with Latent Diffusion
 - Why: full-song identity fit, full-song reference seed, stars>=1000
@@ -262,7 +242,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 4
-- Raw: #367
+- Raw: #368
 - URL: https://github.com/aivrar/portable-music-server
 - Description: Portable multi-GPU music generation server for Windows -- 8 models, one-click install, zero dependencies
 - Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit
@@ -272,7 +252,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 1
-- Raw: #356
+- Raw: #357
 - URL: https://github.com/nerdpudding/ACE-Step-1.5
 - Description: Docker setup for ACE-Step AI music generation — full songs with vocals and instruments from text prompts, running on your local GPU
 - Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit
@@ -285,7 +265,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 38
 - Stars: 93
-- Raw: #61
+- Raw: #63
 - URL: https://github.com/CodingFeng101/CanvasAnvil
 - Description: CanvasAnvil is an AI multi-canvas creation platform for flowcharts, interior design, presentations, posters, infographics, and product storytelling.
 - Why: agent-native workflow, chart, diagram, infographic, infographics, infographics/visual storytelling fit, stars>=20
@@ -324,7 +304,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 17154
+- Stars: 17164
 - Raw: #56
 - URL: https://github.com/lowlighter/metrics
 - Description: 📊 An infographics generator with 30+ plugins and 300+ options to display stats about your GitHub account and render them as SVG, Markdown, PDF or JSON!
@@ -334,8 +314,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 649
-- Raw: #63
+- Stars: 651
+- Raw: #64
 - URL: https://github.com/Affitor/affiliate-skills
 - Description: 50 AI agent skills for affiliate marketing. Research trending content, write data-backed posts, generate infographics, build landing pages, deploy — full flywheel with social intelligence. Works with Claude Code, Pi, ChatGPT, Gemini, Cursor, Windsurf, any AI.
 - Why: agent-native workflow, infographic, infographics, infographics/visual storytelling fit, stars>=100
@@ -347,7 +327,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 71
-- Stars: 3615
+- Stars: 3617
 - Raw: #927
 - URL: https://github.com/observablehq/framework
 - Description: A static site generator for data apps, dashboards, reports, and more. Observable Framework combines JavaScript on the front-end for interactive graphics with any language on the back-end for data analysis.
@@ -360,8 +340,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 35
-- Stars: 5523
-- Raw: #497
+- Stars: 5526
+- Raw: #500
 - URL: https://github.com/cloudflare/agents
 - Description: Build and deploy AI Agents on Cloudflare
 - Why: lancelot high fit, stars>=1000
@@ -370,8 +350,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 35
-- Stars: 1327
-- Raw: #498
+- Stars: 1328
+- Raw: #501
 - URL: https://github.com/cloudflare/agents-starter
 - Description: A starter kit for building ai agents on Cloudflare
 - Why: lancelot high fit, stars>=1000
@@ -380,10 +360,30 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 35
-- Stars: 558
-- Raw: #489
+- Stars: 564
+- Raw: #492
 - URL: https://github.com/hashgraph-online/hol-guard
 - Description: Open-source antivirus for AI agents: block risky tools, secret access, prompt injection, malicious packages, MCP servers, plugins, and skills at runtime.
+- Why: lancelot high fit, stars>=100
+
+### cloudflare/claude-managed-agents
+
+- Verdict: **KEEP**
+- Score: 35
+- Stars: 272
+- Raw: #502
+- URL: https://github.com/cloudflare/claude-managed-agents
+- Description: 
+- Why: lancelot high fit, stars>=100
+
+### cloudflare/vinext-agents-example
+
+- Verdict: **KEEP**
+- Score: 35
+- Stars: 114
+- Raw: #503
+- URL: https://github.com/cloudflare/vinext-agents-example
+- Description: vinext ⨉ agents sdk
 - Why: lancelot high fit, stars>=100
 
 
@@ -393,8 +393,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 61
-- Stars: 3615
-- Raw: #1050
+- Stars: 3616
+- Raw: #1048
 - URL: https://github.com/open-xml-templating/docxtemplater
 - Description: Generate docx, pptx, and xlsx from templates (Word, Powerpoint and Excel documents), from Node.js or the browser. Demo: https://www.docxtemplater.com/demo. #docx #office #generator #templating #report #json #generate #generation #template #create #pptx #docx #xlsx #react #vuejs #angularjs #browser #typescript #image #html #table #chart
 - Why: brand/document automation fit, document, seed/strong manual candidate, stars>=1000, template
@@ -404,7 +404,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 31
 - Stars: 255
-- Raw: #1054
+- Raw: #1052
 - URL: https://github.com/ferdinandobons/brand-docs
 - Description: BrandDocs is a set of agent skills that learn your existing Word, PowerPoint and Excel templates and generate new on-brand documents from them. Unlike generic AI document generators, it preserves brand, structure, styles and formulas by construction. Built for Claude Code, Codex and compatible AI agents.
 - Why: agent-native workflow, brand/document automation fit, document, stars>=100, template
@@ -417,7 +417,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 70
 - Stars: 161
-- Raw: #1034
+- Raw: #1032
 - URL: https://github.com/palewire/news-homepages
 - Description: An open-source archive that gathers, saves, shares and analyzes news homepages
 - Why: archive, homepage, journalism, news homepages, newsroom fit, seed/strong manual candidate, stars>=100
@@ -427,7 +427,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 60
 - Stars: 17
-- Raw: #1044
+- Raw: #1042
 - URL: https://github.com/palewire/muckrockbot
 - Description: A Fediverse robot account that posts the latest public records requests filed and completed at muckrock.com
 - Why: journalism, muckrock, newsroom fit, public records, seed/strong manual candidate
@@ -437,7 +437,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 60
 - Stars: 8
-- Raw: #1035
+- Raw: #1033
 - URL: https://github.com/palewire/news-homepages-runner
 - Description: A task runner for the homepages.news open-source archive
 - Why: archive, homepage, journalism, newsroom fit, seed/strong manual candidate
@@ -446,7 +446,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 58
-- Stars: 11983
+- Stars: 11986
 - Raw: #992
 - URL: https://github.com/OpenRefine/OpenRefine
 - Description: OpenRefine is a free, open source power tool for working with messy data and improving it
@@ -467,20 +467,10 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 55
 - Stars: 13
-- Raw: #1022
+- Raw: #1020
 - URL: https://github.com/palewire/first-basemap
 - Description: Create a shockingly fast and virtually free interactive map of the world using OpenStreetMap and PMTiles
 - Why: basemap, journalism, newsroom fit, seed/strong manual candidate
-
-### biglocalnews/warn-transformer
-
-- Verdict: **KEEP**
-- Score: 55
-- Stars: 6
-- Raw: #1000
-- URL: https://github.com/biglocalnews/warn-transformer
-- Description: Consolidate, enrich and republish the data gathered by warn-scraper
-- Why: biglocalnews, journalism, newsroom fit, seed/strong manual candidate
 
 
 ## OSINT / Investigations
@@ -489,8 +479,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 2699
-- Raw: #961
+- Stars: 2705
+- Raw: #962
 - URL: https://github.com/rawfilejson/awesome-osint-arsenal
 - Description: OSINT & recon toolkit // 100+ tools, one-command installer, SOCMINT, GEOINT, network recon, dark web, forensics & more.
 - Why: forensics, geoint, osint/investigations fit, socmint, stars>=1000
@@ -512,7 +502,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 61
-- Stars: 9560
+- Stars: 9565
 - Raw: #904
 - URL: https://github.com/Kozea/WeasyPrint
 - Description: The awesome document factory
@@ -522,8 +512,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 61
-- Stars: 1492
-- Raw: #879
+- Stars: 1493
+- Raw: #880
 - URL: https://github.com/pagedjs/pagedjs
 - Description: Display paginated content in the browser and generate print books using web technology
 - Why: pagedjs, pdf, publishing/pdf fit, seed/strong manual candidate, stars>=1000
@@ -533,7 +523,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 40
 - Stars: 233
-- Raw: #884
+- Raw: #887
 - URL: https://github.com/vivliostyle/vivliostyle-cli
 - Description: ⚒ Supercharge command-line publication workflow.
 - Why: pdf, publishing/pdf fit, seed/strong manual candidate, stars>=100, vivliostyle
@@ -546,8 +536,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 71
-- Stars: 4020
-- Raw: #242
+- Stars: 4022
+- Raw: #244
 - URL: https://github.com/AzuraCast/AzuraCast
 - Description: A self-hosted web radio management suite, including turnkey installer tools for the full radio software stack and a modern, easy-to-use web app to manage your stations.
 - Why: azuracast, icecast, liquidsoap, radio backend fit, seed/strong manual candidate, self-hosted, stars>=1000
@@ -557,7 +547,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 63
 - Stars: 9
-- Raw: #265
+- Raw: #266
 - URL: https://github.com/datafruits/radio
 - Description: liquidsoap and icecast configuration for streampusher
 - Why: icecast, liquidsoap, radio, radio backend fit, seed/strong manual candidate, stream
@@ -567,7 +557,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 60
 - Stars: 24
-- Raw: #263
+- Raw: #264
 - URL: https://github.com/moul/radioman
 - Description: :musical_note: Web radio solution using Liquidsoap and Icecast
 - Why: icecast, liquidsoap, radio, radio backend fit, seed/strong manual candidate, stars>=20
@@ -577,7 +567,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 185
-- Raw: #282
+- Raw: #283
 - URL: https://github.com/openbroadcaster/observer
 - Description: :radio: OBServer Automation, Scheduler, Media Library and Player Manager
 - Why: icecast, playlist, radio, radio backend fit, stars>=100, stream
@@ -587,7 +577,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 30
 - Stars: 33
-- Raw: #268
+- Raw: #269
 - URL: https://github.com/jailsonsb2/RadioPlayer
 - Description: 🎵 HTML5 Radio Player for websites — Icecast, Shoutcast, Zeno.FM & Azuracast. Now playing, album art, lyrics, PWA. Player de rádio online para seu site, grátis e sem API key.
 - Why: azuracast, icecast, now playing, radio backend fit, stars>=20, stream
@@ -597,10 +587,20 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 30
 - Stars: 26
-- Raw: #281
+- Raw: #282
 - URL: https://github.com/jailsonsb2/Radioplayer_api
 - Description: 🎵 Multi-station HTML5 Radio Player with 3 switchable layouts — Icecast, Shoutcast, Zeno.FM, Azuracast. Now playing, lyrics, YouTube clip mode, PWA. Player de rádio com 3 visuais prontos.
 - Why: azuracast, icecast, now playing, radio backend fit, stars>=20, stream
+
+### jailsonsb2/RadioPlayer-ZenoRadio
+
+- Verdict: **WATCH**
+- Score: 30
+- Stars: 21
+- Raw: #273
+- URL: https://github.com/jailsonsb2/RadioPlayer-ZenoRadio
+- Description: 🎵 HTML5 Radio Player for Zeno.FM — full page player with now playing, album art, lyrics & PWA. Player de rádio Zeno FM para seu site, grátis e sem API key.
+- Why: azuracast, now playing, radio, radio backend fit, stars>=20, stream
 
 
 ## System Architecture / Engineering Patterns
@@ -619,8 +619,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 1238
-- Raw: #818
+- Stars: 1239
+- Raw: #815
 - URL: https://github.com/durable-workflow/workflow
 - Description: Core package for defining and running durable workflows and activities. Supports long-running persistent workflows, retries, queues, parallel execution, workflow monitoring, dedicated storage connections, and orchestration for microservices, data pipelines, sagas, agentic workflows, and other complex business processes.
 - Why: durable workflow, high-value architecture pattern, saga, stars>=1000, system architecture / engineering patterns fit
@@ -628,12 +628,22 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 ## Video Production / Editing
 
+### 0xsline/OpenChatCut
+
+- Verdict: **KEEP**
+- Score: 48
+- Stars: 1614
+- Raw: #643
+- URL: https://github.com/0xsline/OpenChatCut
+- Description: Open-source, local-first conversational AI video editor with a professional multi-track timeline, Agent Skills, MCP integration, and Remotion rendering.
+- Why: agent-native structured implementation, agent-native workflow, ffmpeg, render, stars>=1000, timeline, video editor, video production fit
+
 ### OpenShot/openshot-qt
 
 - Verdict: **KEEP**
 - Score: 36
-- Stars: 6443
-- Raw: #637
+- Stars: 6453
+- Raw: #634
 - URL: https://github.com/OpenShot/openshot-qt
 - Description: OpenShot Video Editor is an award-winning free and open-source video editor for Linux, Mac, and Windows, and is dedicated to delivering high quality video editing and animation solutions to the world.
 - Why: ffmpeg, stars>=1000, video, video editing, video editor, video production fit
@@ -642,28 +652,28 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 36
-- Stars: 5615
-- Raw: #643
+- Stars: 5620
+- Raw: #642
 - URL: https://github.com/KDE/kdenlive
 - Description: Free and open source video editor, based on MLT Framework and KDE Frameworks
 - Why: kdenlive, mlt, stars>=1000, video, video editor, video production fit
 
-### cartesiancs/cartcut
+### pierrenade/short-video-generator-AI
 
 - Verdict: **KEEP**
 - Score: 36
-- Stars: 595
-- Raw: #648
-- URL: https://github.com/cartesiancs/cartcut
-- Description: Video Editor for AI agents, built on the belief that open source can beat commercial tools
-- Why: agent-native workflow, ffmpeg, stars>=100, video, video editor, video production fit
+- Stars: 1012
+- Raw: #704
+- URL: https://github.com/pierrenade/short-video-generator-AI
+- Description: Free open-source project designed for turning youtube-viedos into viral short videos. Highlight detection, subtitles, translation, voiceover, all in one for your content.
+- Why: short video, stars>=1000, subtitle, subtitles, video, video production fit
 
 ### calesthio/OpenMontage
 
 - Verdict: **WATCH**
 - Score: 34
-- Stars: 56290
-- Raw: #657
+- Stars: 56442
+- Raw: #659
 - URL: https://github.com/calesthio/OpenMontage
 - Description: World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.
 - Why: agent-native workflow, ffmpeg, stars>=1000, video, video production fit
@@ -673,27 +683,17 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 873
-- Raw: #700
+- Raw: #699
 - URL: https://github.com/IgorShadurin/app.yumcut.com
 - Description: YumCut - free AI video generator to turn a prompt into ready vertical videos for TikTok, Reels and YouTube Shorts. Auto script, scenes, voiceover, subtitles and watermark. Built with Next.js. Local-first pipeline + templates, batch rendering and API hooks for creators and indie makers. Self-hosted, FFmpeg-ready, multi-language output. Low cost fast
 - Why: ffmpeg, stars>=100, subtitle, subtitles, template, video production fit
-
-### pierrenade/short-video-generator-AI
-
-- Verdict: **WATCH**
-- Score: 33
-- Stars: 321
-- Raw: #704
-- URL: https://github.com/pierrenade/short-video-generator-AI
-- Description: Free open-source project designed for turning youtube-viedos into viral short videos. Highlight detection, subtitles, translation, voiceover, all in one for your content.
-- Why: short video, stars>=100, subtitle, subtitles, video, video production fit
 
 ### kouhxp/yapsnap
 
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 296
-- Raw: #679
+- Raw: #678
 - URL: https://github.com/kouhxp/yapsnap
 - Description: Snap any video URL or audio file into plaintext. No GPU. No cloud. One command.
 - Why: stars>=100, subtitle, subtitles, transcription, video, video production fit
@@ -712,8 +712,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 15085
-- Raw: #644
+- Stars: 15096
+- Raw: #647
 - URL: https://github.com/mltframework/shotcut
 - Description: cross-platform (Qt), open-source (GPLv3) video editor
 - Why: mlt, stars>=1000, video, video editor, video production fit
@@ -723,7 +723,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 31
 - Stars: 1838
-- Raw: #695
+- Raw: #694
 - URL: https://github.com/mltframework/mlt
 - Description: MLT Multimedia Framework
 - Why: ffmpeg, mlt, stars>=1000, video, video production fit
@@ -733,7 +733,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 31
 - Stars: 6
-- Raw: #691
+- Raw: #690
 - URL: https://github.com/AMMIROSOH/Kdenlive-mcp
 - Description: AI-powered MCP server that lets Claude, Codex, Cursor, and other agents control Kdenlive through natural language for automated video editing workflows.
 - Why: agent-native workflow, kdenlive, video, video editing, video production fit
@@ -743,7 +743,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **WATCH**
 - Score: 30
 - Stars: 84
-- Raw: #676
+- Raw: #675
 - URL: https://github.com/crafter-station/trx
 - Description: Agent-first CLI for audio/video transcription via Whisper
 - Why: stars>=20, subtitle, subtitles, transcription, video, video production fit
@@ -755,8 +755,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **KEEP**
 - Score: 35
-- Stars: 203495
-- Raw: #604
+- Stars: 203586
+- Raw: #602
 - URL: https://github.com/n8n-io/n8n
 - Description: Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.
 - Why: n8n identity fit, n8n ops/tooling fit, n8n reusable implementation, n8n workflow/integration fit, official n8n reference seed, stars>=1000
@@ -766,7 +766,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 35
 - Stars: 22842
-- Raw: #612
+- Raw: #610
 - URL: https://github.com/czlonkowski/n8n-mcp
 - Description: A MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you
 - Why: n8n identity fit, n8n workflow/integration fit, official n8n reference seed, stars>=1000
@@ -776,7 +776,7 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 - Verdict: **KEEP**
 - Score: 35
 - Stars: 1178
-- Raw: #606
+- Raw: #604
 - URL: https://github.com/n8n-io/n8n-nodes-starter
 - Description: Example starter module for custom n8n nodes.
 - Why: n8n identity fit, n8n node/plugin fit, official n8n reference seed, stars>=1000
@@ -785,8 +785,8 @@ Source: [[../scored/2026-09-06|Scored 2026-09-06]]
 
 - Verdict: **WATCH**
 - Score: 30
-- Stars: 6193
-- Raw: #614
+- Stars: 6196
+- Raw: #612
 - URL: https://github.com/czlonkowski/n8n-skills
 - Description: n8n skillset for Claude Code to build flawless n8n workflows
 - Why: n8n identity fit, n8n workflow/integration fit, official n8n reference seed, stars>=1000
