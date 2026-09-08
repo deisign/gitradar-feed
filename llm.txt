@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-08T08:22:08
+Generated: 2026-09-08T20:03:53
 Date: 2026-09-08
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 185
+- Total curated cards: 188
 - Buckets: 20
 
 ## Bucket summary
@@ -20,7 +20,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Full-Song AI / Suno Alternatives: 8
 - Infographics / Visual Storytelling: 18
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 21
+- Lancelot / Agent Infrastructure: 22
 - Media / Social Monitoring: 4
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
@@ -30,9 +30,9 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - OSINT / Investigations: 8
 - Publishing / Layout / PDF: 8
 - Radio / Audio Ops: 9
-- System Architecture / Engineering Patterns: 6
+- System Architecture / Engineering Patterns: 7
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 26
+- Video Production / Editing: 27
 
 ## Today's run
 
@@ -3030,7 +3030,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 21
+Cards: 22
 
 ### askalf/redstamp
 
@@ -3359,6 +3359,179 @@ Tags: mcp, security
 
 USE FOR LANCELOT:
 Взять deny/allow/review policy boundary перед MCP, Skills и Camelot Bridge. Добавить проверку prompt/tool injection и сохранять структурированный receipt каждого разрешённого или заблокированного опасного действия.
+
+---
+
+### hwdsl2/self-hosted-ai-stack
+
+URL: https://github.com/hwdsl2/self-hosted-ai-stack
+VERDICT: KEEP
+SCORE: 0
+STARS: 145
+
+WHAT:
+Self-Hosted AI Stack —
+готовый Docker Compose stack
+из локальных AI services.
+
+В полном составе:
+
+- Ollama;
+- LiteLLM;
+- AnythingLLM;
+- Whisper;
+- WhisperLive;
+- Kokoro;
+- Embeddings;
+- Docling;
+- MCP Gateway.
+
+Сервисы уже соединены
+в одну локальную deployment topology.
+
+Есть lightweight profiles:
+
+- `chat-ui`;
+- `voice-pipeline`;
+- `voice-chat`;
+- `rag-pipeline`;
+- `rag-pipeline-full`;
+- `code-assistant`;
+- `ai-tools`;
+- `chat-only`.
+
+Например:
+
+`voice-pipeline`
+=
+Whisper
++ Ollama
++ LiteLLM
++ Kokoro.
+
+Проект поддерживает:
+
+- CPU;
+- NVIDIA CUDA;
+- amd64;
+- arm64;
+- persistent model caches;
+- optional Caddy HTTPS;
+- localhost binding;
+- generated API keys;
+- offline/local operation.
+
+Whisper service предоставляет
+OpenAI-compatible transcription API.
+
+WhisperLive —
+real-time STT через WebSocket.
+
+Kokoro —
+OpenAI-compatible local TTS.
+
+Лицензия: MIT.
+
+FIT:
+Сегодня Radar отдельно поднял
+`docker-whisper`,
+`docker-whisper-live`
+и `docker-kokoro`.
+
+Но они намного полезнее
+как части одной сервисной архитектуры,
+чем как три независимые карточки.
+
+Проект показывает практический pattern:
+
+**каждая AI capability — отдельный bounded service
+с понятным API и deployment lifecycle.**
+
+Для нашей инфраструктуры это полезнее,
+чем один огромный Python environment,
+куда установлены одновременно:
+
+- speech recognition;
+- LLM runtime;
+- TTS;
+- embeddings;
+- document parsing;
+- MCP tools.
+
+Интересна и topology:
+
+`clients`
+→ `LiteLLM gateway`
+→ models/services
+
+плюс отдельные:
+
+- STT;
+- TTS;
+- embeddings;
+- document parsing;
+- MCP gateway.
+
+Это хорошо ложится
+на Circus / Lancelot / German VDS / future mini-server architecture.
+
+Особенно полезны lightweight profiles:
+можно запускать capability bundle
+по конкретной задаче,
+а не всегда держать весь stack.
+
+PROJECT:
+Lancelot / Self-hosted Infrastructure.
+
+Роль:
+
+**deployment и service-contract donor.**
+
+Не считать это предложением
+заменить текущую архитектуру целиком.
+
+Особенно сравнить с уже существующими у нас:
+
+- Cloudflare-native Lancelot runtime;
+- local host capabilities;
+- health / media services на Circus;
+- German VDS;
+- будущим always-on mini-server.
+
+NEXT:
+Сделать infrastructure diff
+по отдельным service contracts:
+
+1. STT;
+2. realtime STT;
+3. TTS;
+4. LiteLLM gateway;
+5. embeddings;
+6. document parsing;
+7. MCP gateway;
+8. model cache;
+9. health checks;
+10. auth;
+11. local-only networking;
+12. GPU scheduling.
+
+После этого определить,
+какие bounded services имеет смысл
+реально перенести на нашу инфраструктуру.
+
+Отдельно проверить deployment profiles:
+
+- `voice-pipeline`;
+- `rag-pipeline-full`;
+- `code-assistant`.
+
+Не поднимать весь full stack
+просто ради эксперимента.
+
+LANCELOT:
+Score: 8/10
+Tier: HIGH
+Tags: - self-hosted
 
 ---
 
@@ -5832,7 +6005,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 6
+Cards: 7
 
 ### Duragraph/duragraph
 
@@ -5938,6 +6111,175 @@ LANCELOT:
 Score: 8/10
 Tier: HIGH
 Tags: durable-workflow, event-sourcing, replay, observability
+
+---
+
+### ishwarjha/lumen-product-management
+
+URL: https://github.com/ishwarjha/lumen-product-management
+VERDICT: KEEP
+SCORE: 30
+STARS: 15
+
+WHAT:
+Lumen — Claude Code plugin
+с master orchestrator и 18 специализированными агентами.
+
+Он покрывает шесть end-to-end workflows:
+
+- PMF discovery;
+- PMF recovery;
+- quarterly strategy;
+- feature validation;
+- GTM launch;
+- churn analysis.
+
+Предметная область — product management,
+но архитектурно интереснее другое.
+
+Каждый agent описывается Markdown-файлом
+с YAML frontmatter.
+
+В metadata есть:
+
+- model;
+- layer;
+- tier gate;
+- oversight level;
+- required MCP servers.
+
+Главная особенность —
+**51 canonical context slot**.
+
+Агенты передают результаты друг другу
+не произвольным текстовым handoff,
+а через именованные slots.
+
+Пример:
+
+`EventIQ`
+→ `validated_event_schema`
+
+`SignalMonitor`
+читает его
+→ пишет `pmf_score_by_segment`
+
+`DiscoveryOS`
+читает score
+→ пишет `opportunity_solution_tree`
+
+`DecideWell`
+читает tree
+→ пишет `decision_memo`.
+
+Agent явно декларирует:
+
+- required slots;
+- optional slots;
+- outputs.
+
+Если required input отсутствует,
+downstream работа блокируется.
+
+Есть:
+
+- evidence grading `HIGH / MEDIUM / LOW`;
+- human approval gates;
+- oversight levels;
+- MCP capability declarations;
+- graceful degradation при отсутствии integrations;
+- persistence решений и outcomes в knowledge graph.
+
+Лицензия: MIT.
+
+FIT:
+Это хороший donor
+для orchestration layer Media Factory.
+
+Вчерашний Affitor отвечает на вопрос:
+
+**как организовать много skills в stages и registry?**
+
+Lumen отвечает на следующий:
+
+**как между workers передавать состояние так,
+чтобы workflow не превращался в разговор агентов друг с другом?**
+
+Сильный pattern:
+
+`typed artifact/context slot`
+вместо
+`free-form handoff message`.
+
+Ещё важнее evidence quality.
+
+Downstream worker получает
+не только результат,
+но и уровень уверенности / evidence.
+
+Это позволяет строить правила:
+
+- LOW evidence → не публиковать;
+- missing required context → stop;
+- high-risk decision → approval gate;
+- отсутствует integration → degraded mode.
+
+Это очень близко к тому,
+как должна работать Media Factory.
+
+PROJECT:
+Media Factory / Skills Layer / Orchestration.
+
+Связать с:
+
+- Affitor/affiliate-skills;
+- kyungseo/skillstead;
+- OpenMontage;
+- будущим Media Factory Skill Spec;
+- Lancelot capability contracts.
+
+Product-management doctrine
+как таковую не переносить.
+
+NEXT:
+Расширить будущий
+`MEDIA_FACTORY_SKILL_SPEC`
+не только orchestration metadata,
+но и context contract.
+
+Минимальные поля:
+
+- `stage`;
+- `requires`;
+- `optional_context`;
+- `produces`;
+- `evidence_grade`;
+- `required_tools`;
+- `required_integrations`;
+- `oversight_level`;
+- `approval_gate`;
+- `degraded_mode`;
+- `blocking_conditions`;
+- `suggested_next`.
+
+Отдельно определить
+canonical context slots для Media Factory:
+
+- source evidence;
+- brief;
+- audience;
+- narrative;
+- brand context;
+- rights;
+- media inventory;
+- script;
+- selects;
+- visual system;
+- timeline;
+- QA report;
+- approval;
+- delivery manifest;
+- analytics feedback.
 
 ---
 
@@ -6258,7 +6600,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 26
+Cards: 27
 
 ### 0xsline/OpenChatCut
 
@@ -6515,6 +6857,157 @@ NEXT:
 Upstream 0.4.x сейчас refactor/unstable,
 а собственный E2E suite ещё фиксирует реальные edge cases
 в export и части MCP operations.
+
+---
+
+### daniel-p-green/video-chef
+
+URL: https://github.com/daniel-p-green/video-chef
+VERDICT: KEEP
+SCORE: 31
+STARS: 6
+
+WHAT:
+Video Chef — профессиональный video-production plugin для Codex.
+
+Он строит производство не вокруг одного video editor API,
+а вокруг полного контролируемого workflow:
+
+`story`
+→ `media intelligence`
+→ `editorial`
+→ `audio / captions`
+→ `motion graphics`
+→ `finishing`
+→ `technical QC`
+→ `human review`
+→ `verified delivery`.
+
+Внутри отдельные skills:
+
+- `video-chef` — coordinator;
+- `video-story`;
+- `video-media-intelligence`;
+- `video-editorial`;
+- `video-audio-captions`;
+- `video-motion-graphics`;
+- `video-finishing-delivery`;
+- `adobe-video-automation`;
+- Premiere-specific bridge / analysis / rough-cut skills.
+
+Есть deterministic tooling:
+
+- `ffprobe` media inventory;
+- optional SHA-256 media hashes;
+- asset inventory;
+- contact sheets;
+- scene detection;
+- bounded frame extraction;
+- Whisper transcript normalization;
+- speaker-aware / word-level production records;
+- black/freeze detection;
+- EBU loudness QC;
+- SRT/WebVTT timing and reading-speed QC.
+
+Проект ведёт отдельные production records
+для creative brief, selects, rights, speakers,
+audio post, captions, delivery spec,
+decision/change lineage и master QA.
+
+Лицензия оригинального кода: MIT.
+
+FIT:
+Это почти готовый contract
+для Video Department внутри Media Factory.
+
+Самые сильные принципы:
+
+### Source fidelity
+
+Каждый select, цитата и editorial decision
+должны быть связаны с реальным source range.
+
+Generated material не маскируется под captured evidence.
+
+### Разделение состояний
+
+Video Chef не смешивает:
+
+`rendered`
+→ `decoded`
+→ `technically verified`
+→ `owner-approved`
+→ `delivered`.
+
+Это очень полезная модель для нашей фабрики:
+файл, который успешно отрендерился,
+ещё не является готовым deliverable.
+
+### Human review остаётся gate
+
+Automated QC помогает,
+но не заменяет normal-speed picture review,
+sound-on listening и owner approval.
+
+### Guarded automation
+
+Premiere bridge пока intentionally read-only.
+
+Write execution не включается,
+пока система не может доказать:
+
+- project identity;
+- plan identity;
+- isolated sequence creation;
+- undoability;
+- post-edit reinspection;
+- failure-safe restoration.
+
+Это правильнее, чем просто дать агенту mutation API
+и надеяться на лучшее.
+
+PROJECT:
+Media Factory / Video Production / Clip Machine.
+
+Сравнивать с:
+
+- OpenMontage;
+- OpenChatCut;
+- OpenEdit;
+- Kdenlive MCP;
+- Timeline Studio;
+- vibe-video.
+
+Video Chef особенно силён
+не как новый renderer,
+а как **production governance contract**.
+
+NEXT:
+Сделать differential review:
+
+`Video Chef`
+↔ `OpenMontage`
+↔ `OpenChatCut`
+↔ `OpenEdit`
+↔ `Kdenlive MCP`.
+
+Вытащить отдельно:
+
+1. production-state machine;
+2. source-range provenance;
+3. media identity / hashes;
+4. rights records;
+5. editorial plan contract;
+6. approval gates;
+7. render vs verified vs approved states;
+8. media QC;
+9. subtitle QC;
+10. decision/change lineage;
+11. guarded NLE mutations;
+12. delivery verification.
+
+На этой основе описать
+`MEDIA_FACTORY_VIDEO_PRODUCTION_CONTRACT`.
 
 ---
 
