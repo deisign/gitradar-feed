@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-09T08:22:39
+Generated: 2026-09-09T20:13:12
 Date: 2026-09-09
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 188
+- Total curated cards: 190
 - Buckets: 20
 
 ## Bucket summary
@@ -18,7 +18,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Design Systems / Visual QA: 18
 - Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 8
-- Infographics / Visual Storytelling: 18
+- Infographics / Visual Storytelling: 20
 - Interactive Reports / Data Apps: 6
 - Lancelot / Agent Infrastructure: 22
 - Media / Social Monitoring: 4
@@ -1815,7 +1815,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 18
+Cards: 20
 
 ### CodingFeng101/CanvasAnvil
 
@@ -1949,6 +1949,329 @@ Infographics / Visual Storytelling
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### Kayforkind/reimagine-it
+
+URL: https://github.com/Kayforkind/reimagine-it
+VERDICT: KEEP
+SCORE: 31
+STARS: 113
+
+WHAT:
+Content-Derived Design CLI.
+
+Главная идея:
+
+**source file is the design brief.**
+
+На вход подаётся существующий HTML.
+
+Система извлекает из него реальные:
+
+- titles;
+- headings;
+- names;
+- dates;
+- numbers;
+- links;
+- emails;
+- colors;
+- content anchors.
+
+После этого строит новый визуальный artifact,
+не заменяя исходное содержание
+выдуманным маркетинговым filler.
+
+Основной цикл:
+
+`source HTML`
+→ `extract evidence`
+→ `generate design directions`
+→ `rank`
+→ `standalone HTML`
+→ `fidelity / design audit`.
+
+Есть команды:
+
+- generate / `--auto`;
+- `variations`;
+- `lock`;
+- `audit`.
+
+`variations` создаёт несколько
+разных design directions.
+
+`lock` извлекает reusable brand surface:
+
+- palette;
+- typography;
+- voice.
+
+Auto decision может сохранять report:
+
+- selected direction;
+- candidate scores;
+- rationale;
+- seed;
+- source anchors;
+- fidelity checks.
+
+FIT:
+Это очень сильный принцип
+для Design Agency внутри Media Factory.
+
+Вместо:
+
+`prompt: modern / premium / bold`
+→ модель придумывает страницу
+
+используется:
+
+`source evidence`
+→ `design decision`
+→ `artifact`
+→ `fidelity verification`.
+
+То есть визуальный язык
+рождается из содержания.
+
+Это особенно полезно для:
+
+- OSINT;
+- reports;
+- microsites;
+- project pages;
+- media kits;
+- data storytelling;
+- public-information materials.
+
+Есть 17 design builders:
+
+- webpage;
+- landing;
+- dashboard;
+- infographic;
+- cinematic;
+- artistic;
+- photography;
+- SVG;
+- Three.js;
+- simulation;
+- glass;
+- editorial;
+- motion;
+- gradient;
+- showcase;
+- lookbook;
+- particles.
+
+Это разные structural compositions,
+а не просто темы одного шаблона.
+
+PROJECT:
+Media Factory / Design Agency.
+
+Связать с:
+
+- strategy-consulting visualization skill;
+- visual-explainer-skill;
+- CanvasAnvil;
+- Media Factory brand system;
+- future source/evidence provenance layer.
+
+Особенно важный принцип:
+
+**design transformation
+не должна разрушать semantic provenance.**
+
+NEXT:
+Разобрать:
+
+1. source extraction;
+2. anchor model;
+3. direction scoring;
+4. builder registry;
+5. seed/reproducibility;
+6. brand lock;
+7. fidelity audit;
+8. design audit.
+
+Добавить в Media Factory Design Contract:
+
+- source anchors;
+- invariant facts;
+- allowed transformations;
+- forbidden invention;
+- visual direction rationale;
+- reproducibility seed;
+- brand constraints;
+- fidelity score;
+- artifact audit.
+
+Сделать pilot:
+
+наш существующий HTML report / landing
+→ несколько directions
+→ review
+→ fidelity audit
+→ сравнение с исходником.
+
+---
+
+### kgraph57/mckinsey-style-visualization-skill
+
+URL: https://github.com/kgraph57/mckinsey-style-visualization-skill
+VERDICT: KEEP
+SCORE: 42
+STARS: 100
+
+WHAT:
+Agent Skill для создания strategy-consulting
+и board-ready визуализаций.
+
+Основной pipeline:
+
+`notes / metrics / prose`
+→ `structured JSON slide spec`
+→ `SVG slide`
+→ `animated standalone HTML deck`
+→ `PDF / presentation artifact`.
+
+Это не prompt «нарисуй красивый McKinsey-слайд».
+
+В проекте есть детерминированный renderer
+и набор реальных visual patterns.
+
+Поддерживаются, среди прочего:
+
+- waterfall;
+- executive summary;
+- KPI scorecard;
+- benchmark table;
+- process flow;
+- funnel;
+- heatmap;
+- Gantt;
+- 2×2;
+- scatter;
+- distribution;
+- small multiples;
+- covers и section dividers.
+
+Всего сейчас 22 patterns
+реально рендерятся в SVG.
+
+JSON specs можно:
+
+- diff;
+- review;
+- version;
+- regenerate.
+
+Один набор specs можно собрать
+в standalone animated HTML deck.
+
+Есть также:
+
+- browser report mode;
+- Markdown → HTML report;
+- speaker scripts;
+- article/read mode;
+- print/PDF output;
+- deck archetypes.
+
+FIT:
+Это очень правильная архитектура
+для Media Factory.
+
+LLM не должен рисовать конечный artifact
+непосредственно.
+
+Лучше:
+
+`reasoning`
+→ `structured visual specification`
+→ `deterministic renderer`
+→ `validation`
+→ `artifact`.
+
+Такой pipeline даёт:
+
+- воспроизводимость;
+- редактируемость;
+- version control;
+- regression tests;
+- возможность заменить renderer,
+  не меняя semantic specification.
+
+Особенно сильна visual QA часть.
+
+Проверяются:
+
+- соответствие пропорций chart реальным данным;
+- zero baselines;
+- WCAG contrast;
+- читаемость в greyscale;
+- renderer drift;
+- committed examples.
+
+То есть визуализация рассматривается
+как проверяемый engineering artifact.
+
+PROJECT:
+Media Factory / Reports & Presentations.
+
+Сравнивать с:
+
+- visual-explainer-skill;
+- CanvasAnvil;
+- vue-data-ui;
+- Paged.js / WeasyPrint;
+- будущим presentation/report agent.
+
+Особенно интересен слой:
+
+`semantic visual spec`
+между research/analysis
+и конечным artifact.
+
+NEXT:
+Разобрать:
+
+1. schema slide specs;
+2. renderer architecture;
+3. pattern registry;
+4. deck manifests;
+5. validation tests;
+6. report mode;
+7. PDF/export path.
+
+На основе этого описать:
+
+`MEDIA_FACTORY_VISUAL_SPEC`.
+
+Минимально:
+
+- claim / takeaway;
+- evidence;
+- chart type;
+- data;
+- labels;
+- hierarchy;
+- source references;
+- visual constraints;
+- notes;
+- QA rules.
+
+Сделать pilot:
+
+реальный аналитический материал
+→ structured spec
+→ 5–7 slide deck
+→ deterministic render
+→ PDF.
 
 ---
 
