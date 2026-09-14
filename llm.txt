@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-14T08:22:14
+Generated: 2026-09-14T21:00:24
 Date: 2026-09-14
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 190
+- Total curated cards: 192
 - Buckets: 20
 
 ## Bucket summary
@@ -28,11 +28,11 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - n8n / Workflow Automation: 7
 - Newsroom / Data Journalism: 12
 - OSINT / Investigations: 8
-- Publishing / Layout / PDF: 8
+- Publishing / Layout / PDF: 9
 - Radio / Audio Ops: 9
 - System Architecture / Engineering Patterns: 7
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 27
+- Video Production / Editing: 28
 
 ## Today's run
 
@@ -5725,7 +5725,7 @@ NEXT:
 
 ## BUCKET: Publishing / Layout / PDF
 
-Cards: 8
+Cards: 9
 
 ### K-Arthur/varve
 
@@ -5936,6 +5936,164 @@ NEXT:
 - размер и portability результата.
 
 Сравнить его роль с Docxtemplater и нашим HTML/CSS → PDF stack.
+
+---
+
+### muadzhdz/laporan-generator
+
+URL: https://github.com/muadzhdz/laporan-generator
+VERDICT: KEEP
+SCORE: 30
+STARS: 47
+
+WHAT:
+Document-production engine,
+изначально ориентированный
+на академические и thesis workflows.
+
+Source project состоит из:
+
+- Markdown chapters;
+- metadata YAML;
+- BibTeX references;
+- images/assets;
+- formatting preset.
+
+Из одного source tree
+строятся два разных deliverable:
+
+`Markdown + metadata + citations`
+→ `Typst`
+→ `publication-quality PDF`
+
+и одновременно:
+
+`Markdown + metadata + citations`
+→ `Pandoc / Lua`
+→ `OpenXML post-processing`
+→ `native DOCX`.
+
+DOCX сохраняет нативную структуру Word:
+
+- heading levels;
+- dynamic TOC fields;
+- Roman/Arabic page-number sections;
+- figure/table/equation numbering;
+- references.
+
+Есть CLI:
+
+- `init`;
+- `check`;
+- `build`;
+- `stats`;
+- `doctor`;
+- `bundle`;
+- `preset list`;
+- `preset apply`;
+- `preset scan`.
+
+`doctor` проверяет:
+
+- broken/orphan citations;
+- missing images;
+- heading structure;
+- metadata/schema problems.
+
+`preset scan` умеет брать PDF guideline
+и превращать часть layout rules
+в YAML preset.
+
+Есть Docker, Nix, Bash,
+PowerShell и npm wrapper.
+
+Лицензия: MIT.
+
+FIT:
+Предметная специализация
+на университетских документах
+для нас вторична.
+
+Главное — архитектура:
+
+**один semantic source
+→ несколько deterministic publication targets.**
+
+Полезный contract:
+
+`content`
++ `metadata`
++ `citations`
++ `style/preset`
+→ `compiler`
+→ `artifact`
+→ `doctor`
+→ `release bundle`.
+
+PDF получает сильный typesetting Typst.
+
+DOCX получает отдельный pipeline,
+который сохраняет редактируемость
+и нативные возможности Word.
+
+Для Media Factory это позволяет
+не выбирать между:
+
+`красивый PDF`
+и
+`редактируемый DOCX`.
+
+PROJECT:
+Media Factory / Document Production.
+
+Также:
+
+Publishing / Layout / PDF.
+
+Связать с:
+
+- Typst;
+- Pandoc;
+- Paged.js;
+- WeasyPrint;
+- Vivliostyle;
+- strategy-consulting visualization skill;
+- будущим report/document agent.
+
+NEXT:
+Разобрать:
+
+1. semantic source tree;
+2. metadata schema;
+3. Typst compiler;
+4. DOCX/OpenXML compiler;
+5. doctor / validation.
+
+Затем сделать pilot:
+
+реальный аналитический report
+→ один Markdown source
+→ branded PDF
+→ editable DOCX
+→ automated QA.
+
+Проверить:
+
+- tables;
+- charts/images;
+- citations;
+- footnotes;
+- page breaks;
+- TOC;
+- headers/footers;
+- page numbers;
+- Cyrillic;
+- UA/RU typography;
+- brand presets.
+
+Если contract окажется хорошим,
+использовать как donor
+для `MEDIA_FACTORY_DOCUMENT_SPEC`.
 
 ---
 
@@ -6923,7 +7081,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 27
+Cards: 28
 
 ### 0xsline/OpenChatCut
 
@@ -6982,6 +7140,131 @@ NEXT:
 Сделать differential architecture review OpenEdit ↔ наш активный OpenChatCut.
 
 Отдельно проверить edit graph, reversible operations, render jobs, QC gate и sandbox для run_script. Пилотировать изолированно; текущий core не менять.
+
+---
+
+### AIEraDev/Clypra
+
+URL: https://github.com/AIEraDev/Clypra
+VERDICT: KEEP
+SCORE: 36
+STARS: 3201
+
+WHAT:
+Open-source desktop video editor
+на Rust + Tauri + React.
+
+Media backend использует FFmpeg
+и hardware acceleration.
+
+Поддерживаются:
+
+- multi-track timeline;
+- frame-accurate trimming;
+- undo/redo;
+- audio waveforms;
+- A/V sync;
+- text/overlays;
+- filters;
+- preview canvas;
+- H.264 / ProRes export.
+
+Но для нас самое интересное —
+native media/runtime architecture.
+
+У Clypra есть отдельный
+**Native Performance Contract**.
+
+В нём формально заданы budgets:
+
+- preview target — 60 FPS;
+- frame render — 16.667 ms;
+- visible seek — 100 ms;
+- A/V drift — ±16 ms;
+- bounded audio/video lookahead;
+- bounded native media cache;
+- filmstrip latency/cache budgets.
+
+FIT:
+Это donor нижнего слоя Clip Machine.
+
+Большинство наших video-agent находок
+сосредоточены на:
+
+- agent commands;
+- timeline model;
+- editing operations;
+- orchestration;
+- render/export.
+
+Clypra подробно занимается другим:
+
+**как гарантировать корректный
+и быстрый interactive preview.**
+
+Visible frame принимается,
+только если всё ещё совпадают:
+
+- request key;
+- project revision;
+- frame index;
+- generation.
+
+Старый async response
+может попасть в cache,
+но не имеет права заменить
+более новый visible target.
+
+Это особенно важно
+для agent-owned timeline:
+после mutation нельзя показать
+frame от старой revision.
+
+PROJECT:
+Clip Machine / Video Runtime.
+
+Не как замена:
+
+- OpenChatCut;
+- Kdenlive MCP;
+- OpenEdit;
+- Timeline Studio.
+
+А как donor слоя:
+
+`timeline revision`
+→ `frame request`
+→ `scheduler`
+→ `native decode/composition`
+→ `validated visible frame`.
+
+Особенно хорошо дополняет Kdenlive MCP:
+revision identity должна доходить
+до самого preview frame.
+
+NEXT:
+Сделать differential review:
+
+`OpenChatCut ↔ Clypra`
+
+по:
+
+1. frame identity;
+2. project revision binding;
+3. cancellation/stale responses;
+4. seek priority;
+5. prefetch;
+6. cache bounds;
+7. hardware decode;
+8. filmstrip architecture;
+9. A/V sync;
+10. performance telemetry;
+11. P50/P95;
+12. GPU/CPU transfer boundaries.
+
+Извлечь минимальный:
+
+`CLIP_MACHINE_PREVIEW_CONTRACT`.
 
 ---
 
