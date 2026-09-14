@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-14T21:00:24
+Generated: 2026-09-14T22:37:09
 Date: 2026-09-14
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,26 +8,26 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 192
+- Total curated cards: 200
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 1
+- Agent Security / Governance: 5
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 18
+- Design Systems / Visual QA: 19
 - Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 8
-- Infographics / Visual Storytelling: 20
+- Infographics / Visual Storytelling: 21
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 22
+- Lancelot / Agent Infrastructure: 23
 - Media / Social Monitoring: 4
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
 - Music Generation / AI Music: 5
 - n8n / Workflow Automation: 7
 - Newsroom / Data Journalism: 12
-- OSINT / Investigations: 8
+- OSINT / Investigations: 9
 - Publishing / Layout / PDF: 9
 - Radio / Audio Ops: 9
 - System Architecture / Engineering Patterns: 7
@@ -47,7 +47,113 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 1
+Cards: 5
+
+### affaan-m/agentshield
+
+URL: https://github.com/affaan-m/agentshield
+VERDICT: KEEP
+SCORE: 45
+STARS: 1183
+
+WHAT:
+Security auditor
+для AI-agent environments.
+
+Сканирует:
+
+- secrets;
+- permission configs;
+- hooks;
+- MCP servers;
+- agent configs;
+- prompt-injection surfaces;
+- persistence artifacts;
+- package/supply-chain evidence.
+
+На момент проверки
+README описывает
+268 rules в 15 modules.
+
+Есть:
+
+- CLI;
+- GitHub Action;
+- JSON output;
+- HTML report;
+- evidence pack;
+- auto-fix части проблем;
+- CI-friendly scoring.
+
+Отдельно различает:
+
+- active runtime;
+- project-local optional config;
+- template/example;
+- docs examples;
+- plugin cache;
+- hook code.
+
+То есть пытается
+не путать наличие опасного шаблона
+с реально включённым runtime.
+
+Лицензия: MIT.
+
+FIT:
+Это хороший security gate
+для будущего Skills Bucket
+и Lancelot Skill Factory.
+
+Перед установкой:
+
+- skill;
+- MCP server;
+- plugin;
+- hook;
+- agent config
+
+можно прогонять
+через deterministic audit.
+
+Особенно ценны категории:
+
+- unrestricted tools;
+- dangerous hooks;
+- `npx -y` supply-chain risk;
+- remote MCP transports;
+- hardcoded credentials;
+- auto-approval;
+- persistence mechanisms.
+
+PROJECT:
+Lancelot / Skill Security.
+
+Также:
+
+Agent Security / Governance.
+
+NEXT:
+Сделать corpus test
+на наших реальных artifacts:
+
+1. SKILL.md;
+2. MCP configs;
+3. Claude/Codex settings;
+4. hooks;
+5. personal-agent repo;
+6. downloaded third-party skills.
+
+Сравнить findings
+с нашими Berkeley stop-rules.
+
+Если signal/noise хороший,
+выделить:
+
+`SKILL_SECURITY_GATE`
+перед install/adoption.
+
+---
 
 ### GenAI-Security-Project/agent-control-standard
 
@@ -97,6 +203,326 @@ NEXT:
 - deterministic execution.
 
 Не внедрять весь стандарт автоматически: сначала определить минимальный совместимый control envelope.
+
+---
+
+### kajogo777/the-agent-sandbox-taxonomy
+
+URL: https://github.com/kajogo777/the-agent-sandbox-taxonomy
+VERDICT: KEEP
+SCORE: 29
+STARS: 102
+
+WHAT:
+Framework для сравнения
+AI-agent sandboxes.
+
+Модель `7 × 7 × 3`.
+
+Семь defense layers:
+
+1. compute isolation;
+2. resource limits;
+3. filesystem boundary;
+4. network boundary;
+5. credential/secret management;
+6. action governance;
+7. observability/audit.
+
+Семь threat categories:
+
+- data exfiltration;
+- supply-chain compromise;
+- destructive operations;
+- lateral movement;
+- persistence;
+- privilege escalation;
+- denial of service.
+
+Три evaluation dimensions:
+
+- strength;
+- granularity;
+- portability.
+
+Есть:
+
+- fingerprints;
+- threat-coverage matrices;
+- product scorecards;
+- composition patterns;
+- anti-patterns;
+- decision checklist.
+
+Автор прямо отмечает:
+taxonomy и product scores —
+work in progress
+и pending community review.
+
+Лицензия в repository
+при проверке не обнаружена.
+
+FIT:
+Это хороший язык
+для принятия решений
+по Lancelot sandbox layer.
+
+Вместо бинарного:
+
+`есть sandbox / нет sandbox`
+
+получаем:
+
+**какие именно границы
+он реально обеспечивает.**
+
+Особенно важно,
+что taxonomy разделяет:
+
+- compute isolation;
+- egress;
+- secrets;
+- semantic action governance;
+- observability.
+
+То есть контейнер
+с unrestricted network
+не объявляется автоматически
+«безопасным sandbox».
+
+PROJECT:
+Lancelot / Sandbox Evaluation.
+
+Также:
+
+Agent Security / Governance.
+
+NEXT:
+Использовать только
+как evaluation reference.
+
+Сделать нашу матрицу для:
+
+- Cloudflare sandbox;
+- local Docker;
+- Lancelot mini-server;
+- Camelot bridge;
+- managed-agent environments;
+- candidate sandbox donors.
+
+Выход:
+
+`LANCELOT_SANDBOX_SCORECARD`
+
+с evidence
+по каждому layer,
+а не marketing claims.
+
+---
+
+### microsoft/agent-governance-toolkit
+
+URL: https://github.com/microsoft/agent-governance-toolkit
+VERDICT: KEEP
+SCORE: 38
+STARS: 6261
+
+WHAT:
+Production-oriented governance stack
+для автономных AI agents.
+
+Основной принцип:
+
+**опасное действие должно быть
+запрещено application code,
+а не просьбой в system prompt.**
+
+Tool calls, messages и delegation
+перехватываются до исполнения.
+
+Policy может вернуть:
+
+- allow;
+- deny;
+- require approval.
+
+Есть:
+
+- YAML policies;
+- audit trail;
+- identity / attribution;
+- MCP integration;
+- Python;
+- TypeScript;
+- .NET;
+- Rust;
+- Go;
+- compliance CLI;
+- red-team tooling;
+- policy linting.
+
+Проект — Microsoft,
+статус public preview.
+
+Лицензия: MIT.
+
+FIT:
+Это сильный donor
+для governance layer Lancelot.
+
+Наши safety rules,
+Berkeley Protocol,
+approval gates
+и sandbox/control-plane work
+можно собрать вокруг одного принципа:
+
+`agent intent`
+→ `deterministic policy`
+→ `allow / deny / approval`
+→ `execution`
+→ `audit evidence`.
+
+Важно, что policy enforcement
+лежит вне stochastic model behavior.
+
+Это не просто scanner
+и не только sandbox.
+
+Это слой управления
+всем жизненным циклом agent action.
+
+PROJECT:
+Lancelot / Agent Security / Governance.
+
+Связать с:
+
+- Berkeley Protocol;
+- Cloudflare Managed Agents;
+- sandbox/control plane;
+- MCP permissions;
+- approval gates;
+- audit/evidence;
+- Agent Control Standard.
+
+NEXT:
+Сделать differential review:
+
+`Lancelot current safety`
+↔
+`Agent Governance Toolkit`
+
+по:
+
+1. policy model;
+2. action envelope;
+3. approval semantics;
+4. agent identity;
+5. delegation;
+6. MCP interception;
+7. audit evidence;
+8. fail-closed behavior;
+9. sandbox boundaries;
+10. CI/compliance checks.
+
+Извлечь минимальный:
+
+`LANCELOT_GOVERNANCE_CONTRACT`.
+
+---
+
+### safe-agentic-world/nomos
+
+URL: https://github.com/safe-agentic-world/nomos
+VERDICT: KEEP
+SCORE: 39
+STARS: 18
+
+WHAT:
+Permission layer
+для custom AI-agent tools.
+
+Ключевой contract:
+
+`agent proposes action`
+→ `policy evaluates`
+→ `ALLOW / DENY / REQUIRE_APPROVAL`
+→ только потом tool execution.
+
+Permissions описываются
+как проверяемые expectations
+и тестируются в CI.
+
+Есть:
+
+- CLI;
+- Python SDK;
+- LangGraph adapter;
+- Go / TypeScript clients;
+- local runnable example;
+- approval workflow;
+- policy bundle hash;
+- audit records.
+
+Resume workflow
+сам по себе не считается approval:
+
+авторизация проверяется повторно.
+
+Лицензия: Apache-2.0.
+
+FIT:
+Очень чистая реализация
+того, что мы уже хотим
+от Berkeley Protocol:
+
+**разрешение — внешний
+детерминированный факт,
+а не вывод модели.**
+
+Особенно полезны:
+
+- permissions as tests;
+- deny beats approval;
+- approval binding к arguments;
+- expired/rejected approval handling;
+- fail-closed behavior;
+- regression testing policy changes.
+
+Проект специально
+не пытается быть sandbox
+или prompt-injection detector.
+
+Это плюс:
+граница ответственности ясная.
+
+PROJECT:
+Lancelot / Berkeley Protocol.
+
+Также:
+
+Agent Security / Governance.
+
+NEXT:
+Сравнить с текущими
+Lancelot safety checks:
+
+1. action identity;
+2. resource identity;
+3. allow/deny/review;
+4. approval persistence;
+5. argument fingerprint;
+6. resume semantics;
+7. policy regression tests;
+8. idempotency;
+9. audit outcomes.
+
+Прототип:
+
+один реальный Lancelot write-tool
+→ Nomos-style policy
+→ CI permission suite
+→ human approval
+→ re-check on resume.
 
 ---
 
@@ -167,7 +593,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 18
+Cards: 19
 
 ### ar27111994/penpot-mcp
 
@@ -594,6 +1020,120 @@ NEXT:
 После просмотра отчёта отдельно решить, какие build/fix операции разрешать.
 
 Phase 6 проверять только после этого и только на копии проекта.
+
+---
+
+### Noord-Ventures/vlak
+
+URL: https://github.com/Noord-Ventures/vlak
+VERDICT: KEEP
+SCORE: 25
+STARS: 28
+
+WHAT:
+Constraint-first design system
+для product exploration.
+
+Один source layer
+порождает:
+
+- React components;
+- CSS;
+- StyleX source;
+- shadcn registry;
+- token exports;
+- component registry;
+- Markdown docs;
+- JSON;
+- CLI;
+- MCP resources.
+
+Design tokens доступны
+в том числе в DTCG format.
+
+Для coding agents есть:
+
+- `llms.txt`;
+- component docs;
+- JSON props;
+- CLI search/docs/tokens;
+- local MCP;
+- hosted MCP;
+- agent plugin.
+
+То есть design system
+изначально machine-readable,
+а не только человеческая документация.
+
+Есть enforced:
+
+- accessibility tests;
+- axe checks;
+- gzip size budgets;
+- registry integrity;
+- token consistency;
+- packaging smoke tests.
+
+Лицензия: MIT.
+
+FIT:
+Очень сильный donor
+для AI Design Agency.
+
+Главная идея:
+
+**design system должен быть
+одновременно visual system
+и agent-operable API.**
+
+Один источник
+питает:
+
+`human UI`
++
+`code components`
++
+`tokens`
++
+`agent docs`
++
+`MCP tools`.
+
+Это естественный bridge
+между:
+
+- Penpot;
+- design tokens;
+- code generation;
+- visual QA;
+- Media Factory agents.
+
+PROJECT:
+Media Factory / Design Agency.
+
+Также:
+
+Design Systems / Visual QA.
+
+NEXT:
+Разобрать:
+
+1. registry schema;
+2. token generation;
+3. docs generation;
+4. MCP surface;
+5. shadcn export;
+6. accessibility invariants;
+7. machine-readable props;
+8. design.md workflow.
+
+Собрать prototype:
+
+`MEDIA_FACTORY_DESIGN_SYSTEM_SPEC`
+
+где один component registry
+одновременно обслуживает
+designer, coder и agent.
 
 ---
 
@@ -1815,7 +2355,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 20
+Cards: 21
 
 ### CodingFeng101/CanvasAnvil
 
@@ -2576,6 +3116,117 @@ NEXT:
 
 Если Trazor выигрывает хотя бы на плоской графике и логотипах —
 закрепить как стандартный raster→SVG primitive.
+
+---
+
+### Vincentwei1021/anything2explainer
+
+URL: https://github.com/Vincentwei1021/anything2explainer
+VERDICT: KEEP
+SCORE: 24
+STARS: 1200
+
+WHAT:
+Claude Code / Codex skill
+для производства
+narrated explainer video.
+
+Contract:
+
+`topic/document`
+→ `research`
+→ `narration`
+→ `TTS + frame timeline`
+→ `storyboard`
+→ `pilot`
+→ `parallel shot build`
+→ `render`
+→ `QC`
+→ `delivery`.
+
+Каждый frame
+рисуется кодом в Remotion.
+
+Есть:
+
+- sourced research;
+- TTS;
+- word-boundary subtitles;
+- frame-accurate timing;
+- storyboard;
+- shot components;
+- parallel build agents;
+- quantitative frame metrics;
+- chapter QC;
+- fix/recheck loops;
+- complete paper trail.
+
+Особенно хороши
+четыре human checkpoints:
+
+1. length/language;
+2. narration sign-off;
+3. voice choice;
+4. first 30-second pilot.
+
+То есть дорогая работа
+не начинается
+до дешёвой проверки направления.
+
+Лицензия:
+PolyForm Noncommercial.
+
+Коммерческое использование toolkit
+требует отдельного разрешения.
+
+FIT:
+Практически готовый
+production contract
+для Media Factory.
+
+Ценнее самого визуального стиля:
+
+- staged production;
+- immutable narration milestone;
+- representative pilot;
+- parallel shot ownership;
+- deterministic frames;
+- explicit QC;
+- provenance.
+
+Это близко
+к Video Chef / OpenMontage,
+но показывает именно
+**agent skill как целую студию**.
+
+PROJECT:
+Media Factory / Explainer Video.
+
+Также:
+
+Infographics / Visual Storytelling.
+
+NEXT:
+Использовать как reference,
+не копируя noncommercial code.
+
+Извлечь собственный:
+
+`MEDIA_FACTORY_EXPLAINER_SPEC`
+
+с этапами:
+
+1. research evidence;
+2. narration lock;
+3. timing contract;
+4. storyboard schema;
+5. pilot gate;
+6. parallel builders;
+7. quantitative QC;
+8. final human approval.
+
+Отдельно адаптировать
+под 9:16 и 16:9.
 
 ---
 
@@ -3353,7 +4004,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 22
+Cards: 23
 
 ### askalf/redstamp
 
@@ -4296,6 +4947,122 @@ Tags: cloudflare
 
 USE FOR LANCELOT:
 Взять реализацию persistent per-thread @cloudflare/think agent и bounded-tool boundary. Это прямой reference для долгоживущих сессий Lancelot и будущего ограниченного Bridge к Camelot.
+
+---
+
+### tigerless-labs/agent-memory
+
+URL: https://github.com/tigerless-labs/agent-memory
+VERDICT: KEEP
+SCORE: 18
+STARS: 1182
+
+WHAT:
+Long-term memory runtime
+для AI agents.
+
+Главный архитектурный принцип:
+
+**Markdown files are truth;
+indexes are disposable caches.**
+
+Store можно читать:
+
+- обычным filesystem access;
+- grep;
+- BM25/FTS5;
+- optional vector retrieval;
+- graph-like links.
+
+Recall возвращает
+не огромный pasted chunk,
+а path + abstract + anchor + score.
+
+Дальше agent сам выбирает глубину:
+
+- list;
+- abstract;
+- outline;
+- full document.
+
+Есть отдельный
+sleep-time Manage layer:
+
+- consolidate;
+- update;
+- supersede;
+- propose deletion;
+- keep provenance.
+
+Unattended deletion запрещён:
+удаление приходит proposal'ом
+на подтверждение.
+
+Поддерживаются Claude Code,
+Codex CLI и MCP.
+
+Лицензия: MIT.
+
+FIT:
+Это почти напрямую
+про архитектуру Lancelot memory.
+
+Особенно сильные идеи:
+
+`human-readable canonical store`
++
+`rebuildable machine index`.
+
+И отдельно:
+
+**write-time memory**
+не смешивается с
+**sleep-time memory management**.
+
+Это хорошо ложится
+на нашу идею dreaming:
+
+- накопили traces;
+- distill;
+- consolidate;
+- preserve evidence;
+- propose destructive changes.
+
+PROJECT:
+Lancelot / Memory.
+
+Связать с:
+
+- dreaming;
+- skills bucket;
+- R2;
+- provenance;
+- grounding;
+- historical snapshots.
+
+NEXT:
+Сделать differential review:
+
+`Lancelot memory`
+↔
+`agent-memory`
+
+по:
+
+1. canonical storage;
+2. indexing;
+3. progressive disclosure;
+4. provenance;
+5. links/graph;
+6. supersession;
+7. deletion authority;
+8. sleep-time Manage;
+9. multi-host sharing;
+10. rebuild guarantees.
+
+Извлечь:
+
+`LANCELOT_MEMORY_STORE_CONTRACT`.
 
 ---
 
@@ -5420,7 +6187,128 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 8
+Cards: 9
+
+### badchars/satellite-mcp
+
+URL: https://github.com/badchars/satellite-mcp
+VERDICT: KEEP
+SCORE: 18
+STARS: 7
+
+WHAT:
+Большой GEOINT MCP server.
+
+На момент проверки:
+
+**171 tools / 27 categories.**
+
+Покрывает:
+
+- Sentinel-2;
+- Landsat;
+- NASA FIRMS;
+- NASA Earth observation;
+- VIIRS night lights;
+- Planet Labs;
+- aircraft / ADS-B;
+- maritime / AIS;
+- military/defense;
+- orbital tracking;
+- ACLED/GDELT;
+- critical infrastructure;
+- sanctions;
+- terrain;
+- cyber-geo;
+- demographics;
+- humanitarian data;
+- trade;
+- earthquakes;
+- OSM/Overpass;
+- spectral analysis;
+- change detection;
+- weather.
+
+Многие tools работают
+без API keys.
+
+Runtime dependencies
+минимальные:
+
+- MCP SDK;
+- Zod.
+
+Лицензия: MIT.
+
+FIT:
+Для OSINT это не столько
+готовая истина,
+сколько очень широкий
+**tool/data-source map**.
+
+Полезный contract:
+
+`OSINT question`
+→ `specific geospatial source`
+→ `typed MCP tool`
+→ `structured result`.
+
+Особенно интересны
+для наших задач:
+
+- conflict/event monitoring;
+- military infrastructure;
+- aircraft;
+- maritime;
+- sanctions;
+- night-light change;
+- satellite search;
+- OSM;
+- change detection.
+
+Но breadth = риск uneven quality.
+
+Поэтому adoption
+только после выборочного тестирования.
+
+PROJECT:
+OSINT / Investigations.
+
+Также может дать
+отдельный GEOINT skill
+для Lancelot.
+
+NEXT:
+Проверить 10–15 tools
+на реальных кейсах:
+
+1. Sentinel latest/search;
+2. FIRMS;
+3. aircraft tracking;
+4. maritime;
+5. military OSM;
+6. ACLED/GDELT;
+7. OFAC;
+8. night-light compare;
+9. OSM/Overpass;
+10. change detection.
+
+Проверить:
+
+- реальные API responses;
+- error handling;
+- rate limits;
+- attribution;
+- timestamps;
+- coordinate handling;
+- hallucinated convenience layers.
+
+После этого решить:
+использовать repo,
+или только забрать
+taxonomy/data-source map.
+
+---
 
 ### buriedsignals/scoutpost-os
 
