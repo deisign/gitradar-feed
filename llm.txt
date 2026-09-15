@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-15T08:22:57
+Generated: 2026-09-15T21:29:54
 Date: 2026-09-15
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,20 +8,20 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 200
+- Total curated cards: 206
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 5
+- Agent Security / Governance: 8
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 19
+- Design Systems / Visual QA: 20
 - Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 8
 - Infographics / Visual Storytelling: 21
 - Interactive Reports / Data Apps: 6
 - Lancelot / Agent Infrastructure: 23
-- Media / Social Monitoring: 4
+- Media / Social Monitoring: 5
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
 - Music Generation / AI Music: 5
@@ -32,7 +32,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Radio / Audio Ops: 9
 - System Architecture / Engineering Patterns: 7
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 28
+- Video Production / Editing: 29
 
 ## Today's run
 
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 5
+Cards: 8
 
 ### affaan-m/agentshield
 
@@ -152,6 +152,120 @@ NEXT:
 
 `SKILL_SECURITY_GATE`
 перед install/adoption.
+
+---
+
+### Agent-Threat-Rule/agent-threat-rules
+
+URL: https://github.com/Agent-Threat-Rule/agent-threat-rules
+VERDICT: KEEP
+SCORE: 19
+STARS: 391
+
+WHAT:
+ATR —
+open detection-rule format
+для AI-agent security.
+
+Идея:
+
+**Sigma / YARA,
+но для agent runtime.**
+
+Rules — versioned YAML.
+
+Они описывают:
+
+- attack pattern;
+- scan target;
+- fields to inspect;
+- severity;
+- test cases;
+- mappings to security frameworks.
+
+На момент проверки
+README заявляет:
+
+- 825 rules;
+- 10 categories;
+- OWASP Agentic coverage;
+- TypeScript engine;
+- Python wrapper;
+- CLI;
+- GitHub Action;
+- MCP server;
+- SARIF;
+- Splunk export;
+- Elastic export.
+
+Есть maturity lanes:
+
+- `enforce`;
+- `alert`;
+- `hunt`.
+
+Detection и enforcement
+разведены отдельно.
+
+Blocking opt-in.
+
+Лицензия: MIT.
+
+FIT:
+Это недостающий
+**общий язык security detections**.
+
+Наш stack тогда делится:
+
+- scanner finds artifacts;
+- ATR describes detections;
+- policy layer decides;
+- host boundary enforces;
+- sandbox limits blast radius.
+
+Особенно важно:
+ATR уже используется
+за пределами собственного repo.
+
+В Microsoft AGT
+есть community-rule sync
+и runtime annotator,
+который вызывает ATR engine.
+
+PROJECT:
+Lancelot / Agent Security.
+
+Связать с:
+
+- AgentShield;
+- Nomos;
+- Rampart;
+- Microsoft AGT;
+- Berkeley Protocol;
+- skill security gate.
+
+NEXT:
+Сделать ATR bakeoff
+на наших artifacts:
+
+1. SKILL.md;
+2. MCP configs;
+3. tool-call traces;
+4. prompts;
+5. agent configs;
+6. third-party skills.
+
+Проверить:
+
+- useful detections;
+- false positives;
+- stable/enforce lane;
+- mapping to our stop-rules;
+- possibility of custom local ATR rules.
+
+Цель:
+
+`LANCELOT_DETECTION_RULE_CONTRACT`.
 
 ---
 
@@ -320,6 +434,128 @@ NEXT:
 
 ---
 
+### kstenerud/yoloai
+
+URL: https://github.com/kstenerud/yoloai
+VERDICT: KEEP
+SCORE: 29
+STARS: 211
+
+WHAT:
+Sandbox runner
+для coding agents.
+
+Главный workflow:
+
+`copy project`
+→ `agent works freely`
+→ `inspect diff`
+→ `apply selected changes`
+→ `destroy sandbox`.
+
+Real project
+не меняется,
+пока пользователь
+не применил результат.
+
+Есть:
+
+- Docker;
+- Podman;
+- containerd/Kata;
+- Apple Container;
+- Tart;
+- Seatbelt;
+- gVisor;
+- Firecracker.
+
+Network modes:
+
+- open;
+- allowlist;
+- none.
+
+Credentials:
+
+- минимальный sandbox environment;
+- read-only mounts;
+- host-side credential broker
+  для поддерживаемых agents.
+
+API key может вообще
+не попадать внутрь sandbox.
+
+Есть:
+
+- Claude Code;
+- Codex;
+- Gemini CLI;
+- Aider;
+- OpenCode;
+- shell mode;
+- MCP server;
+- MCP proxy;
+- public Go API.
+
+Лицензия: MIT.
+
+FIT:
+Это конкретная реализация
+идеи:
+
+**убери permission fatigue,
+сократив blast radius.**
+
+Вместо сотни approval prompts
+агент получает свободу
+в disposable workspace.
+
+Human approval переносится
+с каждого действия
+на итоговый:
+
+`diff / apply`.
+
+Это очень хорошо
+дополняет Rampart/Nomos:
+
+- policy controls intent/action;
+- sandbox limits consequences.
+
+PROJECT:
+Lancelot / Sandbox.
+
+Также:
+
+Media Factory workers;
+code agents;
+skill testing.
+
+NEXT:
+Оценить
+по Sandbox Taxonomy:
+
+1. compute isolation;
+2. filesystem;
+3. network;
+4. credentials;
+5. action governance;
+6. audit;
+7. portability.
+
+Отдельно проверить:
+
+host-side credential brokering
+и workflow:
+
+`sandbox → commits → diff → apply`.
+
+Цель:
+
+`LANCELOT_DISPOSABLE_WORKSPACE`.
+
+---
+
 ### microsoft/agent-governance-toolkit
 
 URL: https://github.com/microsoft/agent-governance-toolkit
@@ -427,6 +663,123 @@ NEXT:
 Извлечь минимальный:
 
 `LANCELOT_GOVERNANCE_CONTRACT`.
+
+---
+
+### peg/rampart
+
+URL: https://github.com/peg/rampart
+VERDICT: KEEP
+SCORE: 27
+STARS: 84
+
+WHAT:
+Operator-owned policy layer
+для AI agents.
+
+Он ставится
+на реальные host boundaries:
+
+- Claude Code hooks;
+- Codex hooks;
+- Cursor;
+- OpenClaw;
+- Cline;
+- MCP proxy;
+- другие supported adapters.
+
+Action проходит:
+
+`proposed action`
+→ `Rampart policy`
+→ `allow / ask / deny`
+→ host execution.
+
+Core engine:
+
+- local;
+- model-free;
+- fail-closed;
+- YAML policy;
+- hot reload.
+
+Есть:
+
+- human approvals;
+- host-native approvals
+  где доступны;
+- verification canaries;
+- `status`;
+- `doctor`;
+- audit;
+- hash-chain verification.
+
+Rampart прямо говорит:
+это security boundary,
+**не sandbox**.
+
+Лицензия: Apache-2.0.
+
+FIT:
+Nomos даёт
+permission-as-code primitive.
+
+Microsoft AGT —
+широкий governance runtime.
+
+Rampart показывает,
+как поставить
+**одну operator policy**
+поверх нескольких
+реальных agent hosts.
+
+Особенно полезна идея:
+
+configuration ≠ evidence.
+
+`configured`
+ещё не значит
+`boundary verified`.
+
+Rampart отдельно
+проверяет работающий adapter
+canary-verification.
+
+PROJECT:
+Lancelot / Governance.
+
+Связать с:
+
+- Berkeley Protocol;
+- Nomos;
+- AGT;
+- ACS;
+- MCP security;
+- audit trail.
+
+NEXT:
+Сделать differential review:
+
+`Nomos`
+↔
+`Rampart`
+↔
+`AGT`
+
+и определить:
+
+- policy ownership;
+- host integration boundary;
+- approval semantics;
+- evidence/verification;
+- audit contract;
+- fail-closed behavior.
+
+Особенно проверить
+возможность Lancelot-style
+multi-host boundary:
+
+Circus / Camelot / Lancelot.
 
 ---
 
@@ -593,7 +946,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 19
+Cards: 20
 
 ### ar27111994/penpot-mcp
 
@@ -1410,6 +1763,116 @@ NEXT:
 Разобрать skills по одному. Сначала проверить token/variables, component analysis и WCAG/a11y.
 
 Полезные процедуры переносить выборочно в наш Interface Skills после review/security check, не тащить весь repository как доверенный пакет.
+
+---
+
+### uxKero/anydesign
+
+URL: https://github.com/uxKero/anydesign
+VERDICT: KEEP
+SCORE: 36
+STARS: 190
+
+WHAT:
+Claude skill для превращения
+существующего визуального источника
+в структурированный design contract.
+
+Источники:
+
+- screenshot;
+- website;
+- Figma.
+
+Выход:
+
+- `design.md`;
+- W3C DTCG `design-tokens.json`;
+- optional accessibility report;
+- scoped `element.md`.
+
+Это не просто
+«опиши картинку».
+
+Skill пытается диагностировать:
+
+- visual identity;
+- tokens;
+- typography;
+- components;
+- layout;
+- reconstruction rules;
+- brand rules;
+- uncertainty.
+
+Каждый вывод
+может иметь confidence marker.
+
+Есть отдельный element mode:
+
+`navbar / card / illustration`
+→
+scoped rebuild spec
+или image-generation prompt.
+
+Лицензия: MIT.
+
+FIT:
+Это обратная сторона
+Vlak / Penpot / renderer stack.
+
+Цепочка получается:
+
+`visual reference`
+→ `AnyDesign`
+→ `machine-readable design contract`
+→ `design system`
+→ `editable workspace`
+→ `renderer / QA`.
+
+Особенно сильные элементы:
+
+- explicit uncertainty;
+- DTCG;
+- deterministic helper scripts;
+- `design.md` lint;
+- WCAG;
+- live-site drift audit;
+- token-grounded image prompts.
+
+Это полезно и как design donor,
+и как образец production skill.
+
+PROJECT:
+Media Factory / Design Agency.
+
+Связать с:
+
+- Vlak;
+- Penpot MCP;
+- reimagine-it;
+- McKinsey visualization;
+- visual QA.
+
+NEXT:
+Собрать prototype:
+
+`REFERENCE_TO_DESIGN_SYSTEM`
+
+на трёх источниках:
+
+1. screenshot;
+2. live website;
+3. Figma node.
+
+Проверить:
+
+- token fidelity;
+- typography;
+- component extraction;
+- layout reconstruction;
+- confidence discipline;
+- downstream rebuild quality.
 
 ---
 
@@ -5068,7 +5531,7 @@ NEXT:
 
 ## BUCKET: Media / Social Monitoring
 
-Cards: 4
+Cards: 5
 
 ### 0xzerolight/topic_watch
 
@@ -5154,6 +5617,132 @@ Media Monitoring и OSINT Signal.
 
 NEXT:
 Разобрать модели Feed, Watch, WatchAction и WatchActionDelivery и сравнить с нашим текущим pipeline.
+
+---
+
+### Scognamiglio1969/radar-intelligence
+
+URL: https://github.com/Scognamiglio1969/radar-intelligence
+VERDICT: KEEP
+SCORE: 22
+STARS: 6
+
+WHAT:
+Self-hosted
+media intelligence
+и social-listening system.
+
+README заявляет:
+
+- 21 connectors;
+- 15 free;
+- 11 without keys;
+- GDELT;
+- Google News;
+- Bluesky;
+- Mastodon;
+- Hacker News;
+- Telegram;
+- RSS;
+- Stack Exchange;
+- GitHub;
+- SEC EDGAR;
+- arXiv;
+- другие optional sources.
+
+Есть два входа:
+
+1. live listening;
+2. Excel/CSV import.
+
+Import layer:
+
+- определяет смысл колонок;
+- сохраняет custom dimensions;
+- различает posts и measures;
+- делает spot-check
+  source row ↔ stored record.
+
+Analytics:
+
+- sentiment/emotion;
+- topics;
+- source deep dives;
+- Health Index;
+- Share of Voice;
+- Share of Search;
+- Wikipedia monitoring;
+- reviews;
+- geographic views;
+- custom Studio Graph.
+
+AI получает
+не сырые rows,
+а уже рассчитанные SQL figures
+для аналитического комментария.
+
+Есть exports:
+
+- PDF;
+- PowerPoint;
+- Word;
+- Excel.
+
+Лицензия: AGPL-3.0.
+
+FIT:
+Не как замена
+нашему collection pipeline.
+
+А как donor
+следующего слоя:
+
+**monitoring → analysis → evidence → report.**
+
+Особенно интересны:
+
+- import verification;
+- SQL-first metrics;
+- AI over computed figures;
+- clickable citations;
+- POV blocks;
+- custom report running order;
+- source deep dives;
+- multi-format exports.
+
+Это хорошо стыкуется
+с нашим media-monitoring,
+который сейчас сильнее
+на ingestion/provenance,
+чем на analyst UX.
+
+PROJECT:
+media-monitoring / Analytics.
+
+Adoption только reference
+из-за AGPL-3.0.
+
+NEXT:
+Сделать differential review:
+
+`our media-monitoring`
+↔
+`Radar Intelligence`
+
+только по верхним слоям:
+
+1. analytics model;
+2. source deep-dive;
+3. evidence/citations;
+4. POV;
+5. report composition;
+6. visualization catalog;
+7. import QA;
+8. exports.
+
+Не переносить
+AGPL code в PROD
+без отдельного решения.
 
 ---
 
@@ -7969,7 +8558,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 28
+Cards: 29
 
 ### 0xsline/OpenChatCut
 
@@ -8855,6 +9444,129 @@ NEXT:
 Разобрать manifest/timeline/provider contracts и сравнить с Vibe Video, OpenMontage и Clip Machine.
 
 Отдельно проверить, насколько легко заменить placeholder media на наш controlled asset pipeline.
+
+---
+
+### WeftCut/WeftCut
+
+URL: https://github.com/WeftCut/WeftCut
+VERDICT: KEEP
+SCORE: 28
+STARS: 13
+
+WHAT:
+Полноценный desktop NLE,
+спроектированный так,
+чтобы агент управлял
+тем же editor state,
+который видит человек.
+
+MCP surface включает:
+
+- place;
+- trim;
+- split;
+- restyle;
+- keyframe;
+- group;
+- captions;
+- audio;
+- checkpoints;
+- export.
+
+Agent action
+сразу виден в UI.
+
+Нет отдельной
+«headless AI timeline».
+
+Есть:
+
+- atomic tool calls;
+- actor attribution;
+- change feed;
+- checkpoints;
+- history lock;
+- dry-run на throwaway clone;
+- undo/redo;
+- multi-agent sessions.
+
+Отдельная сильная идея —
+**Motifs**:
+
+web-code layer
+(HTML/CSS/SVG/canvas/WebGL)
+становится настоящим
+редактируемым video layer.
+
+Motif —
+pure function of time,
+поэтому scrub и export
+детерминированы.
+
+Лицензия: MIT.
+
+FIT:
+Очень сильный donor
+для Clip Machine.
+
+Kdenlive-MCP показывает,
+как автоматизировать
+существующий NLE.
+
+WeftCut показывает
+другую архитектуру:
+
+**сам editor изначально
+agent-native.**
+
+Особенно ценны:
+
+- shared human/agent state;
+- reversible agent batches;
+- dry-run before mutation;
+- explicit actor identity;
+- one command surface for UI and MCP;
+- deterministic coded overlays;
+- agent-visible project resources.
+
+PROJECT:
+Clip Machine / Media Factory.
+
+Связать с:
+
+- OpenChatCut;
+- Kdenlive MCP;
+- Timeline Studio;
+- OpenMontage;
+- Video Chef;
+- Clypra.
+
+NEXT:
+Сделать differential review:
+
+`OpenChatCut`
+↔
+`Kdenlive MCP`
+↔
+`WeftCut`
+
+по:
+
+1. timeline model;
+2. edit primitives;
+3. undo/checkpoints;
+4. dry-run;
+5. concurrency;
+6. media analysis;
+7. captions/audio;
+8. coded graphics;
+9. agent UX;
+10. project portability.
+
+Отдельно вынести:
+
+`AGENT_NATIVE_NLE_CONTRACT`.
 
 ---
 

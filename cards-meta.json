@@ -1,17 +1,17 @@
 {
   "schema": "creative-radar-cards-feed-v1",
-  "generated_at": "2026-09-15T05:22:57.503956+00:00",
-  "count": 200,
+  "generated_at": "2026-09-15T18:29:53.918456+00:00",
+  "count": 206,
   "buckets": {
-    "Agent Security / Governance": 5,
+    "Agent Security / Governance": 8,
     "Broadcast / Playout / Automation": 2,
-    "Design Systems / Visual QA": 19,
+    "Design Systems / Visual QA": 20,
     "Font Creation / Typography Tools": 14,
     "Full-Song AI / Suno Alternatives": 8,
     "Infographics / Visual Storytelling": 21,
     "Interactive Reports / Data Apps": 6,
     "Lancelot / Agent Infrastructure": 23,
-    "Media / Social Monitoring": 4,
+    "Media / Social Monitoring": 5,
     "Media Kits / Brand Automation": 2,
     "Mixing / Mastering / Audio Engineering": 9,
     "Music Generation / AI Music": 5,
@@ -21,9 +21,9 @@
     "Radio / Audio Ops": 9,
     "System Architecture / Engineering Patterns": 7,
     "Telegram Bots / Automation": 1,
-    "Video Production / Editing": 28,
+    "Video Production / Editing": 29,
     "n8n / Workflow Automation": 7
   },
-  "sha256": "e8db56f09c87406bffb006ff0733d5b3554affd76a5d13be15f18760ae9d6959",
+  "sha256": "ba2f89716aa9bbddf6cbcbb6ab9bd5c0e117ab293c6d54aed821b7e8b9f5a4a3",
   "feed": "cards.jsonl"
 }
