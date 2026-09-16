@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-16T19:51:39
+Generated: 2026-09-16T20:24:13
 Date: 2026-09-16
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,19 +8,19 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 206
+- Total curated cards: 214
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 8
+- Agent Security / Governance: 11
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 20
+- Design Systems / Visual QA: 21
 - Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 8
-- Infographics / Visual Storytelling: 21
+- Infographics / Visual Storytelling: 22
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 23
+- Lancelot / Agent Infrastructure: 25
 - Media / Social Monitoring: 5
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
@@ -32,7 +32,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Radio / Audio Ops: 9
 - System Architecture / Engineering Patterns: 7
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 29
+- Video Production / Editing: 30
 
 ## Today's run
 
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 8
+Cards: 11
 
 ### affaan-m/agentshield
 
@@ -317,6 +317,201 @@ NEXT:
 - deterministic execution.
 
 Не внедрять весь стандарт автоматически: сначала определить минимальный совместимый control envelope.
+
+---
+
+### hellocosmos/ai-firewall
+
+URL: https://github.com/hellocosmos/ai-firewall
+VERDICT: KEEP
+SCORE: 25
+STARS: 3
+
+WHAT:
+TrapDefense AI Firewall
+для agent tool traffic.
+
+Новый проект продолжает направление
+`hellocosmos/agent-runtime-security`,
+но меняет сам boundary.
+
+Старый вариант был SDK,
+встраиваемым в agent process.
+
+Новый:
+
+`AI agent`
+→
+`Envoy / inspector`
+→
+`HTTP / MCP tool`
+→
+`destination`.
+
+На boundary применяются:
+
+- action policy;
+- allow / block;
+- PII redaction;
+- secret inspection;
+- response inspection;
+- audit evidence.
+
+Inline inspection
+заявлен fail-closed.
+
+Есть mirror mode,
+который показывает
+`would_allow / would_block / would_redact`
+без изменения реального traffic.
+
+Лицензия Community: MIT.
+
+Статус:
+Community Preview,
+не production certification.
+
+FIT:
+Главная идея:
+
+**security control
+не обязан жить внутри агента.**
+
+Если enforcement встроен
+в код Lancelot,
+сам агентский процесс
+частично становится частью TCB.
+
+Proxy boundary позволяет
+вынести control
+между агентом и tool/API.
+
+Это особенно интересно
+для MCP и network egress.
+
+PROJECT:
+Lancelot / Agent Security.
+
+Связать с:
+
+- Rampart — host/action boundary;
+- Nomos — authorization policy;
+- Adrian — semantic runtime detector;
+- AGT — governance/evidence;
+- yoloAI — isolation.
+
+NEXT:
+Сделать локальный
+loopback differential POC:
+
+1. HTTP call;
+2. MCP call;
+3. forbidden destination;
+4. secret in request;
+5. secret in response;
+6. mirror vs enforce;
+7. inspector failure;
+8. bypass attempt.
+
+Проверить:
+
+- routing assumptions;
+- fail-closed semantics;
+- latency;
+- audit completeness;
+- можно ли гарантировать,
+  что Lancelot не обойдёт proxy.
+
+---
+
+### inkog-io/inkog
+
+URL: https://github.com/inkog-io/inkog
+VERDICT: KEEP
+SCORE: 35
+STARS: 30
+
+WHAT:
+Agent-specific static analyzer.
+
+Ищет классы проблем,
+которые обычный SAST
+часто не моделирует:
+
+- token bombing;
+- recursive tool calling;
+- unbounded agent loops;
+- prompt-injection sinks;
+- missing human oversight;
+- cross-tenant state leakage;
+- MCP tool poisoning;
+- dangerous agent topology.
+
+Есть:
+
+- repo scan;
+- `skill-scan`;
+- `mcp-scan`;
+- SARIF / JSON / HTML;
+- policy presets;
+- CI integration;
+- framework-specific analysis.
+
+Поддерживается большой набор
+agent frameworks
+и no-code agent systems.
+
+FIT:
+Как reference scanner
+он очень полезен.
+
+Особенно для сравнения:
+
+`Sinewave`
+↔
+`Cisco Skill Scanner`
+↔
+`AgentShield`
+↔
+`Inkog`.
+
+У Inkog интересны
+repo-level категории:
+
+- LLM-controlled termination;
+- recursive delegation;
+- taint into agent prompts;
+- human oversight;
+- agent-specific state boundaries.
+
+PROJECT:
+Lancelot / Skill Security.
+
+Также:
+
+Agent Security / Governance.
+
+NEXT:
+Использовать только на:
+
+- synthetic corpus;
+- open-source fixtures;
+- специально подготовленных
+  non-sensitive repos.
+
+Добавить в scanner bakeoff:
+
+- recall;
+- precision;
+- negation/context;
+- agent-loop classes;
+- oversight findings;
+- MCP poisoning.
+
+На private `personal-agent`
+не запускать,
+пока не принято отдельное
+privacy/self-host решение.
 
 ---
 
@@ -879,6 +1074,109 @@ Lancelot safety checks:
 
 ---
 
+### secureagentics/Adrian
+
+URL: https://github.com/secureagentics/Adrian
+VERDICT: KEEP
+SCORE: 32
+STARS: 564
+
+WHAT:
+Runtime security layer
+для AI agents.
+
+Adrian смотрит не только
+на отдельный tool call,
+но и на контекст поведения агента:
+
+- actions;
+- tool calls;
+- outputs;
+- session history;
+- reasoning traces.
+
+И пытается определить:
+
+- prompt injection;
+- tool poisoning;
+- data exfiltration;
+- credential leakage;
+- privilege escalation;
+- действия вне remit агента;
+- policy drift.
+
+После verdict возможны:
+
+`allow`
+→ `alert`
+→ `human review`
+→ `block`.
+
+Есть Python и TypeScript SDK,
+Claude Code integration
+и self-hosted deployment.
+
+Лицензия: Apache-2.0.
+
+FIT:
+Это другой слой,
+чем Nomos, Rampart
+или обычный static scanner.
+
+Deterministic policy отвечает:
+
+**можно ли агенту вообще
+делать действие X?**
+
+Adrian пытается отвечать:
+
+**не выглядит ли текущее действие
+опасным с учётом того,
+что происходило в сессии?**
+
+То есть полезная схема:
+
+`semantic anomaly detection`
+→
+`deterministic authorization`
+→
+`execution boundary`.
+
+Модельный classifier
+не должен становиться
+единственным источником authorization.
+
+PROJECT:
+Lancelot / Agent Security.
+
+Связать с:
+
+- Nomos;
+- Rampart;
+- TrapDefense;
+- Microsoft AGT;
+- ATR;
+- Berkeley Protocol.
+
+NEXT:
+После static-аудита Lancelot
+сделать отдельный runtime POC:
+
+1. audit-only mode;
+2. benign tool sequence;
+3. indirect injection sequence;
+4. suspicious egress;
+5. out-of-remit action;
+6. измерить false positives;
+7. не давать classifier
+   единолично разрешать действие.
+
+Отдельно оценить
+локальный self-hosted classifier
+и его стоимость по ресурсам.
+
+---
+
 ## BUCKET: Broadcast / Playout / Automation
 
 Cards: 2
@@ -946,7 +1244,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 20
+Cards: 21
 
 ### ar27111994/penpot-mcp
 
@@ -1296,6 +1594,110 @@ Design system / visual QA
 
 NEXT:
 проверить безопасность, зависимости и реальную пользу на тестовом проекте
+
+---
+
+### mizchi/vlmkit
+
+URL: https://github.com/mizchi/vlmkit
+VERDICT: KEEP
+SCORE: 20
+STARS: 21
+
+WHAT:
+Deterministic verification toolkit
+для frontend/UI work.
+
+Проверяет не только pixels.
+
+Есть gates для:
+
+- broken layouts;
+- copy fidelity;
+- responsive boundaries;
+- keyboard operability;
+- scripted flows;
+- visual regression;
+- target-design matching;
+- tokens/theme/palette;
+- accessibility;
+- performance;
+- drift;
+- i18n stress.
+
+Каждый failed gate
+старается выдавать
+machine-readable fix list.
+
+Большая часть проверок
+key-free.
+
+Есть:
+
+- CLI;
+- MCP;
+- agent skill;
+- workflow configs;
+- snapshot baselines.
+
+Лицензия: MIT.
+
+FIT:
+Media Factory
+нужен не только generator.
+
+Нужен loop:
+
+`generate`
+→
+`render`
+→
+`deterministic QA`
+→
+`fix list`
+→
+`repair`
+→
+`rerun until green`.
+
+vlmkit очень близок
+к такому verifier layer.
+
+Особенно важно,
+что VLM reasoning
+не заменяет
+детерминированные checks,
+а дополняет их.
+
+PROJECT:
+Media Factory / Visual QA.
+
+Связать с:
+
+- AnyDesign;
+- design-system layer;
+- visual regression;
+- Media Factory agents;
+- generated landing/pages;
+- dashboards/report interfaces.
+
+NEXT:
+Сделать smoke-test
+на одном нашем UI artifact:
+
+1. integrity;
+2. 3 viewports;
+3. exact copy;
+4. keyboard;
+5. VRT baseline;
+6. intentional regression;
+7. machine fix list;
+8. repair;
+9. rerun-to-green.
+
+Если signal хороший —
+выделить общий
+`VISUAL_QA_GATE`.
 
 ---
 
@@ -2818,7 +3220,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 21
+Cards: 22
 
 ### CodingFeng101/CanvasAnvil
 
@@ -3693,6 +4095,108 @@ NEXT:
 
 ---
 
+### ZhiweiWei-NAMI/PPT-Visual-Replica
+
+URL: https://github.com/ZhiweiWei-NAMI/PPT-Visual-Replica
+VERDICT: KEEP
+SCORE: 18
+STARS: 133
+
+WHAT:
+Agent Skill
+для воспроизведения
+reference visual
+как **редактируемого PPTX**.
+
+Принцип:
+
+- text остаётся text boxes;
+- простые diagrams —
+  native shapes/connectors;
+- layout и hierarchy
+  реконструируются;
+- whole-slide raster
+  не считается
+  editable delivery.
+
+Для новых scientific/
+teaching presentations
+workflow другой:
+
+`sources`
+→
+`imagegen visual draft`
+→
+`editable reconstruction`
+→
+`render check`
+→
+`evidence check`.
+
+При этом реальные:
+
+- данные;
+- формулы;
+- citations
+
+должны браться
+из источников,
+а не из generated visual.
+
+Лицензия: MIT.
+
+FIT:
+Это хороший donor
+для Media Factory,
+потому что разделяет:
+
+**визуальный замысел**
+и
+**редактируемый deliverable**.
+
+Очень полезен сам contract:
+
+generated preview
+не является
+финальным editable artifact.
+
+После reconstruction
+обязателен render-based QA.
+
+PROJECT:
+Media Factory / Presentations.
+
+Связать с:
+
+- presentation generation;
+- visual storytelling;
+- design-spec layer;
+- imagegen;
+- editable artifact QA;
+- template reconstruction.
+
+NEXT:
+Разобрать skill contract
+и вынести общий pipeline:
+
+`reference / source`
+→
+`visual target`
+→
+`editable object model`
+→
+`render`
+→
+`compare`
+→
+`repair`.
+
+Отдельно проверить
+на одном нашем медиаките
+и одной infographic slide.
+
+---
+
 ### Affitor/affiliate-skills
 
 URL: https://github.com/Affitor/affiliate-skills
@@ -4467,7 +4971,97 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 23
+Cards: 25
+
+### AraneaDev/ariadne
+
+URL: https://github.com/AraneaDev/ariadne
+VERDICT: KEEP
+SCORE: 18
+STARS: 1
+
+WHAT:
+Observability layer
+для уже установленных MCP servers.
+
+Ariadne измеряет
+не абстрактное качество server,
+а его реальную стоимость
+в agent sessions.
+
+По каждому server:
+
+- standing definition size;
+- estimated context/token cost;
+- exposed tools;
+- реально использованные tools;
+- calls;
+- p50/p95 latency;
+- result sizes;
+- connection history.
+
+Находит, например:
+
+- server постоянно сидит
+  в context, но не используется;
+- tool возвращает
+  несоразмерно большой payload;
+- configured server
+  давно не подключается;
+- два server дублируют функции.
+
+FIT:
+У Lancelot будет расти
+MCP/tool surface.
+
+Каждый новый server —
+это не только capability,
+но и:
+
+- context pressure;
+- schemas;
+- latency;
+- failure surface;
+- duplicate tools.
+
+Нужен измеритель
+не «сколько MCP установлено»,
+а **какие реально окупают
+свою постоянную стоимость**.
+
+PROJECT:
+Lancelot / MCP Infrastructure.
+
+Рядом с:
+
+- MCP security;
+- tool registry;
+- context budgeting;
+- skill/tool telemetry.
+
+NEXT:
+Разобрать instrumentation contract:
+
+`definition cost`
++
+`reach`
++
+`call frequency`
++
+`latency`
++
+`result size`
++
+`connection health`.
+
+Не привязываться
+к Claude Code implementation.
+
+Перенести саму модель метрик
+в Lancelot telemetry
+для его собственных tools/MCP.
+
+---
 
 ### askalf/redstamp
 
@@ -5526,6 +6120,111 @@ NEXT:
 Извлечь:
 
 `LANCELOT_MEMORY_STORE_CONTRACT`.
+
+---
+
+### vantionlabs/mcp-server-starter
+
+URL: https://github.com/vantionlabs/mcp-server-starter
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Production-oriented
+MCP server skeleton.
+
+Главная ценность —
+не starter boilerplate,
+а security/operations contract
+вокруг каждого tool call.
+
+Есть:
+
+- OIDC protected resource;
+- local JWT verification;
+- scoped API keys;
+- per-tool scopes;
+- typed params/results/errors;
+- refusal before handler execution;
+- audit allowed/refused calls;
+- distributed rate limits;
+- hard time limits;
+- OTLP tracing.
+
+Call flow:
+
+`authenticate`
+→
+`authorize scope`
+→
+`rate/time guard`
+→
+`execute`
+→
+`audit`.
+
+Лицензия: MIT.
+
+FIT:
+Это хороший donor
+для вопроса:
+
+**как должен выглядеть
+нормальный MCP boundary
+для Lancelot?**
+
+Не достаточно
+просто объявить tool.
+
+Нужны:
+
+- principal;
+- capability/scope;
+- execution budget;
+- outcome;
+- evidence.
+
+Особенно ценна
+явная связь:
+
+`identity`
+→
+`tool permission`
+→
+`execution`
+→
+`audit record`.
+
+PROJECT:
+Lancelot / MCP Infrastructure.
+
+Связать с:
+
+- Nomos;
+- ACS;
+- MCP security;
+- AGT;
+- audit/evidence.
+
+NEXT:
+Не тащить starter целиком.
+
+Вынести
+`MCP_AUTHORIZATION_CONTRACT`:
+
+1. principal;
+2. auth mechanism;
+3. per-tool scope;
+4. typed input;
+5. timeout;
+6. rate budget;
+7. result/error contract;
+8. audit record;
+9. tracing correlation.
+
+Сравнить
+с текущими Lancelot tools.
 
 ---
 
@@ -8558,7 +9257,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 29
+Cards: 30
 
 ### 0xsline/OpenChatCut
 
@@ -9398,6 +10097,120 @@ Video production / Shorts / subtitles
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### thecodacus/rendiv
+
+URL: https://github.com/thecodacus/rendiv
+VERDICT: KEEP
+SCORE: 31
+STARS: 129
+
+WHAT:
+Code-first video system,
+спроектированный
+для AI agents.
+
+Видео описывается
+React/TypeScript components.
+
+Frame —
+детерминированная
+function of time.
+
+Есть primitives:
+
+- sequences;
+- series;
+- loops;
+- freeze;
+- interpolation;
+- springs;
+- transitions;
+- audio/video;
+- SVG/canvas/WebGL;
+- coded overlays.
+
+Studio даёт:
+
+- live preview;
+- timeline editing;
+- timeline overrides;
+- scrubbing;
+- props;
+- render queue;
+- integrated agent terminal.
+
+Render:
+
+`React`
+→
+`Playwright frames`
+→
+`FFmpeg`
+→
+MP4/WebM/GIF/audio/stills.
+
+Лицензия: Apache-2.0.
+
+FIT:
+Это не замена
+OpenChatCut или WeftCut
+как NLE.
+
+Это другой primitive:
+
+**programmable deterministic
+video renderer.**
+
+Особенно хорош
+для:
+
+- массовых шаблонных роликов;
+- инфографики;
+- explainers;
+- regional variants;
+- automated titles/lower-thirds;
+- data-driven video;
+- repeatable branded outputs.
+
+PROJECT:
+Clip Machine / Media Factory.
+
+Связать с:
+
+- OpenChatCut;
+- WeftCut;
+- OpenMontage;
+- Video Chef;
+- Clypra;
+- Remotion-style pipelines.
+
+NEXT:
+Сделать differential review:
+
+`Rendiv`
+↔
+`OpenChatCut rendering`
+↔
+`WeftCut Motifs`.
+
+Проверить:
+
+1. render determinism;
+2. text/layout fidelity;
+3. asset management;
+4. captions;
+5. audio;
+6. template parameterization;
+7. render speed;
+8. headless batch jobs;
+9. integration with agent workflow.
+
+Рассматривать
+как renderer backend,
+не как замену timeline core.
 
 ---
 
