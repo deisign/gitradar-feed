@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-16T20:24:13
+Generated: 2026-09-16T20:57:58
 Date: 2026-09-16
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 214
+- Total curated cards: 215
 - Buckets: 20
 
 ## Bucket summary
@@ -30,7 +30,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - OSINT / Investigations: 9
 - Publishing / Layout / PDF: 9
 - Radio / Audio Ops: 9
-- System Architecture / Engineering Patterns: 7
+- System Architecture / Engineering Patterns: 8
 - Telegram Bots / Automation: 1
 - Video Production / Editing: 30
 
@@ -8662,7 +8662,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 7
+Cards: 8
 
 ### Duragraph/duragraph
 
@@ -8937,6 +8937,204 @@ canonical context slots для Media Factory:
 - approval;
 - delivery manifest;
 - analytics feedback.
+
+---
+
+### karpathy/autoresearch
+
+URL: https://github.com/karpathy/autoresearch
+VERDICT: KEEP
+SCORE: 0
+STARS: 96107
+
+WHAT:
+Минимальный autonomous
+experiment loop.
+
+Оригинальная задача —
+улучшать LLM training setup.
+
+Но главный primitive
+намного шире:
+
+`baseline`
+→
+`agent proposes change`
+→
+`modify constrained surface`
+→
+`fixed-budget experiment`
+→
+`objective metric`
+→
+`keep / discard`
+→
+`log`
+→
+`repeat`.
+
+В исходном проекте:
+
+- `prepare.py` —
+  фиксированный evaluator/runtime;
+- `train.py` —
+  единственный mutable file;
+- `program.md` —
+  инструкции исследовательскому агенту;
+- один experiment —
+  фиксированные 5 минут;
+- objective —
+  `val_bpb`;
+- улучшение сохраняется,
+  ухудшение откатывается.
+
+Сам Karpathy описывает
+`program.md`
+как сверхлёгкий skill.
+
+Лицензия: MIT.
+
+FIT:
+Ценность не в ML training.
+
+Ценность —
+в архитектуре
+**bounded autonomous improvement**.
+
+Это почти готовый шаблон
+для систем,
+где есть:
+
+1. ограниченная mutable surface;
+2. стабильный evaluator;
+3. измеримый objective;
+4. дешёвый rollback;
+5. experiment ledger;
+6. много итераций без человека.
+
+Особенно подходит
+для Lancelot Skill Factory.
+
+Не просто:
+
+`создать skill`
+→
+`один раз проверить`.
+
+А:
+
+`skill baseline`
+→
+`одна гипотеза`
+→
+`sealed eval corpus`
+→
+`score`
+→
+`keep/revert`
+→
+`next hypothesis`.
+
+PROJECT:
+### Lancelot / Skill Factory
+
+Автоматическое улучшение:
+
+- SKILL.md;
+- prompt contracts;
+- tool routing;
+- research procedures;
+- context selection.
+
+Evaluator при этом
+должен быть отделён
+от mutable surface.
+
+### GitRadar
+
+Agent меняет:
+
+- weights;
+- signals;
+- penalties;
+- bucket rules;
+- dedup heuristics.
+
+Evaluator —
+исторический human-labelled corpus:
+
+`CARD / WATCH / NOISE`.
+
+### Media Factory
+
+Loop:
+
+`generate`
+→
+`render`
+→
+`deterministic QA`
+→
+`repair`
+→
+`rerun`.
+
+Здесь нужен
+multi-objective evaluator,
+а не одна vanity metric.
+
+NEXT:
+Сделать
+`AUTORESEARCH_LOOP`
+как отдельный Lancelot pattern.
+
+Первый POC —
+не ML.
+
+Выбрать одну из двух задач:
+
+### A. GitRadar scorer
+
+Agent меняет scorer weights/rules.
+
+Evaluator считает:
+
+- CARD precision;
+- useful recall;
+- noise rejection;
+- bucket balance;
+- complexity penalty.
+
+### B. Один Lancelot skill
+
+Agent меняет
+только один `SKILL.md`.
+
+Evaluator:
+
+- task success;
+- safety;
+- grounding;
+- token cost;
+- latency;
+- hidden holdout.
+
+Каждый experiment:
+
+`branch/worktree`
+→
+`change`
+→
+`eval`
+→
+`keep/revert`
+→
+`ledger`.
+
+Цель —
+получить reusable
+`BOUNDED_AUTORESEARCH_CONTRACT`,
+а не отдельный ML toy.
 
 ---
 

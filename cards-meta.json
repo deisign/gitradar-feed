@@ -1,7 +1,7 @@
 {
   "schema": "creative-radar-cards-feed-v1",
-  "generated_at": "2026-09-16T17:24:13.447630+00:00",
-  "count": 214,
+  "generated_at": "2026-09-16T17:57:58.877572+00:00",
+  "count": 215,
   "buckets": {
     "Agent Security / Governance": 11,
     "Broadcast / Playout / Automation": 2,
@@ -19,11 +19,11 @@
     "OSINT / Investigations": 9,
     "Publishing / Layout / PDF": 9,
     "Radio / Audio Ops": 9,
-    "System Architecture / Engineering Patterns": 7,
+    "System Architecture / Engineering Patterns": 8,
     "Telegram Bots / Automation": 1,
     "Video Production / Editing": 30,
     "n8n / Workflow Automation": 7
   },
-  "sha256": "a5ba543d5c4a7c0be033e1aac5d373cce71e56398c651216ed4fcfb58ec86c6b",
+  "sha256": "37f487ade7fa32e361c05b31bf4969e17aed720828e9ff029a293a5537763b60",
   "feed": "cards.jsonl"
 }
