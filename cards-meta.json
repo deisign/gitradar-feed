@@ -1,9 +1,9 @@
 {
   "schema": "creative-radar-cards-feed-v1",
-  "generated_at": "2026-09-21T11:25:37.244234+00:00",
-  "count": 223,
+  "generated_at": "2026-09-21T12:07:12.215700+00:00",
+  "count": 226,
   "buckets": {
-    "Agent Security / Governance": 16,
+    "Agent Security / Governance": 19,
     "Broadcast / Playout / Automation": 2,
     "Design Systems / Visual QA": 22,
     "Font Creation / Typography Tools": 14,
@@ -24,6 +24,6 @@
     "Video Production / Editing": 30,
     "n8n / Workflow Automation": 7
   },
-  "sha256": "faede46e32311b97e244023a3588b9a3e9ad8c37c3ffa850f91f1a4f3a1bb6da",
+  "sha256": "bb1296c4872c838273802495f515def686fa5ef347c58033bad889eda25f9aba",
   "feed": "cards.jsonl"
 }

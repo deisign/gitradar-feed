@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-21T14:25:37
+Generated: 2026-09-21T15:07:12
 Date: 2026-09-21
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,12 +8,12 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 223
+- Total curated cards: 226
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 16
+- Agent Security / Governance: 19
 - Broadcast / Playout / Automation: 2
 - Design Systems / Visual QA: 22
 - Font Creation / Typography Tools: 14
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 16
+Cards: 19
 
 ### affaan-m/agentshield
 
@@ -266,6 +266,67 @@ NEXT:
 Цель:
 
 `LANCELOT_DETECTION_RULE_CONTRACT`.
+
+---
+
+### alexgreensh/repo-forensics
+
+URL: https://github.com/alexgreensh/repo-forensics
+VERDICT: KEEP
+SCORE: 40
+STARS: 177
+
+WHAT:
+Local security vetting tool
+для сторонних:
+
+- repositories;
+- agent skills;
+- plugins;
+- MCP servers.
+
+Основной use case:
+
+**проверить до установки.**
+
+Также пытается защищать
+после установки
+при обновлениях.
+
+FIT:
+—
+
+PROJECT:
+Lancelot / Supply Chain Security.
+
+Связать с:
+
+- AgentShield;
+- SafeAI;
+- Nox;
+- Cisco Skill Scanner;
+- Cisco MCP Scanner;
+- ATR.
+
+NEXT:
+В scanner matrix
+отдельно оценить:
+
+1. malicious skill fixture;
+2. poisoned MCP repo;
+3. hidden binary/bytecode;
+4. Unicode smuggling;
+5. package IOC;
+6. secret → network flow;
+7. update-time mutation;
+8. false positives.
+
+Цель:
+
+`THIRD_PARTY_ARTIFACT_VETTING_GATE`.
+
+Код не импортировать
+из-за лицензии.
 
 ---
 
@@ -818,6 +879,70 @@ loopback differential POC:
 
 ---
 
+### ikaruscareer/SafeAI
+
+URL: https://github.com/ikaruscareer/SafeAI
+VERDICT: KEEP
+SCORE: 44
+STARS: 27
+
+WHAT:
+Offline static analyzer
+для AI-agent applications.
+
+Работает по source/config
+без запуска агента
+и без LLM calls.
+
+На момент проверки
+поддерживает:
+
+- 19 agent frameworks;
+- tool/component identity;
+- MCP discovery;
+- prompt analysis;
+- Skills;
+- workflows;
+- Claude Code configs;
+- cross-file analysis;
+- governance controls;
+- SARIF / JSON / HTML outputs.
+
+FIT:
+—
+
+PROJECT:
+Lancelot / Agent Security.
+
+Сравнить с:
+
+- AgentShield;
+- Nox;
+- Cisco scanners;
+- ATR;
+- capability-policy-gate.
+
+NEXT:
+Сделать scanner matrix
+на одном фиксированном corpus.
+
+Отдельно проверить:
+
+1. capability extraction;
+2. access-mode accuracy;
+3. authority widening;
+4. approval detection;
+5. MCP detection;
+6. cross-file taint;
+7. false positives;
+8. deterministic outputs.
+
+Цель:
+
+`CAPABILITY_SECURITY_REGRESSION_GATE`.
+
+---
+
 ### inkog-io/inkog
 
 URL: https://github.com/inkog-io/inkog
@@ -1252,6 +1377,73 @@ NEXT:
 Извлечь минимальный:
 
 `LANCELOT_GOVERNANCE_CONTRACT`.
+
+---
+
+### Nox-HQ/nox
+
+URL: https://github.com/Nox-HQ/nox
+VERDICT: KEEP
+SCORE: 43
+STARS: 10
+
+WHAT:
+Offline-first security scanner
+с отдельным пониманием
+AI application surfaces.
+
+Кроме обычных:
+
+- secrets;
+- dependency CVEs;
+- IaC;
+- containers
+
+он анализирует:
+
+- prompt injection;
+- agent permissions;
+- embeddings;
+- MCP;
+- coding-agent configs;
+- supply-chain provenance;
+- model/API inventory.
+
+FIT:
+—
+
+PROJECT:
+Lancelot / Agent Security.
+
+Особенно:
+
+- capability composition;
+- MCP security;
+- dependency provenance;
+- AI inventory;
+- supply chain.
+
+NEXT:
+Включить в общий bakeoff.
+
+Проверить отдельно:
+
+1. Lancelot source tree;
+2. Skills;
+3. MCP configs;
+4. intentionally vulnerable fixtures;
+5. slopsquatting fixture;
+6. tool-composition fixture;
+7. provenance fixture;
+8. offline network behavior.
+
+Цель:
+
+понять,
+какие его rules
+действительно дополняют
+SafeAI / AgentShield,
+а какие дублируются.
 
 ---
 
