@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-21T11:34:43
+Generated: 2026-09-21T12:05:30
 Date: 2026-09-21
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,19 +8,19 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 221
+- Total curated cards: 223
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 15
+- Agent Security / Governance: 16
 - Broadcast / Playout / Automation: 2
 - Design Systems / Visual QA: 22
 - Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 8
 - Infographics / Visual Storytelling: 22
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 26
+- Lancelot / Agent Infrastructure: 27
 - Media / Social Monitoring: 5
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 15
+Cards: 16
 
 ### affaan-m/agentshield
 
@@ -451,6 +451,112 @@ NEXT:
 10. local/offline operation.
 
 Результат превратить в regression requirements для `CAPABILITY_POLICY_CONTRACT`.
+
+---
+
+### cisco-ai-defense/mcp-scanner
+
+URL: https://github.com/cisco-ai-defense/mcp-scanner
+VERDICT: KEEP
+SCORE: 42
+STARS: 1073
+
+WHAT:
+Специализированный security scanner
+для MCP servers.
+
+Поддерживает несколько
+независимых analysis paths:
+
+- static/offline scan;
+- YARA rules;
+- optional LLM analysis;
+- Cisco AI Defense analysis;
+- behavioral source-code scan;
+- vulnerable-package scan;
+- VirusTotal hash lookup;
+- PyPI package sandbox scan;
+- readiness checks.
+
+Сканирует не только tools,
+но также:
+
+- prompts;
+- resources;
+- server instructions;
+- source code;
+- dependencies.
+
+Можно работать
+без live MCP connection
+по заранее полученному JSON,
+что особенно полезно
+для CI и air-gapped review.
+
+Лицензия: Apache-2.0.
+
+FIT:
+Это отдельный security surface,
+который не стоит смешивать
+с обычным Skill Scanner.
+
+Наш будущий pipeline:
+
+`MCP candidate`
+→
+`static/offline MCP scan`
+→
+`source/dependency review`
+→
+`policy review`
+→
+`explicit approval`
+→
+`runtime registration`.
+
+То есть scanner
+может стать одним из gates
+перед появлением нового
+MCP server в Lancelot.
+
+PROJECT:
+Lancelot / MCP Security.
+
+Связать с:
+
+- Cisco Skill Scanner;
+- AgentShield;
+- ATR;
+- Nomos;
+- capability-policy-gate;
+- future MCP authorization contract.
+
+Не запускать live/remote scan
+просто потому, что scanner есть.
+
+Сейчас в Lancelot
+активной MCP-конфигурации
+не найдено,
+поэтому practical deployment
+пока не нужен.
+
+NEXT:
+Когда появится первый
+реальный MCP candidate:
+
+1. сохранить его config/source;
+2. прогнать offline/static analysis;
+3. проверить dependencies;
+4. проверить tool descriptions;
+5. проверить prompts/resources;
+6. сравнить findings
+   с AgentShield и ATR;
+7. только затем решать
+   вопрос регистрации runtime.
+
+Цель:
+
+`LANCELOT_MCP_SECURITY_GATE`.
 
 ---
 
@@ -5480,7 +5586,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 26
+Cards: 27
 
 ### AraneaDev/ariadne
 
@@ -6410,6 +6516,123 @@ Tags: skills, security, mcp, supply-chain
 
 USE FOR LANCELOT:
 Встроить модель candidate skill → SkillSpector scan → review → PROMOTE. Никакой внешний SKILL.md не должен автоматически переходить из Radar/интернета в active Lancelot skills. После калибровки можно сделать этот gate обязательной частью promotion pipeline.
+
+---
+
+### oomol-lab/wanta
+
+URL: https://github.com/oomol-lab/wanta
+VERDICT: KEEP
+SCORE: 40
+STARS: 75
+
+WHAT:
+Open-source desktop host
+для AI agents.
+
+Может объединять
+в одном workspace:
+
+- встроенный agent;
+- Claude Code;
+- Codex;
+- Grok;
+- local tools;
+- Skills;
+- browser;
+- knowledge;
+- connected SaaS actions;
+- generated artifacts.
+
+Важная идея:
+
+host не предполагает,
+что все agents одинаковы.
+
+UI и доступные controls
+строятся вокруг capabilities,
+которые конкретный agent
+реально объявляет.
+
+FIT:
+Это хороший внешний reference
+для возможного будущего
+Lancelot control plane.
+
+Не новый agent brain,
+а host вокруг agents:
+
+`agent runtime`
++
+`connectors`
++
+`permissions`
++
+`tool activity`
++
+`artifacts`
++
+`workspace UI`.
+
+Особенно полезна
+архитектурная развязка:
+
+- model;
+- agent harness;
+- integrations;
+- permissions;
+- desktop UX
+
+не обязаны быть
+одним монолитом.
+
+PROJECT:
+Lancelot / Agent Infrastructure.
+
+Также:
+
+- Desktop Host;
+- Connector Layer;
+- Artifact Workspace;
+- Permission UX.
+
+Не заменять Lancelot
+и не переносить
+OOMOL-hosted dependencies
+автоматически.
+
+NEXT:
+Разобрать четыре контракта:
+
+### AGENT_HOST_CONTRACT
+
+Как внешний runtime
+объявляет свои capabilities.
+
+### CONNECTOR_DISCOVERY_CONTRACT
+
+Как тысячи потенциальных actions
+становятся доступны
+без context explosion.
+
+### CONNECTOR_PERMISSION_CONTRACT
+
+Как principal/workspace/action
+связываются с permissions.
+
+### ARTIFACT_WORKSPACE_CONTRACT
+
+Как agent-created output
+становится inspectable
+и usable artifact,
+а не просто chat attachment.
+
+Сравнить с текущими:
+
+- Lancelot tools;
+- plugin/connector model;
+- capability-policy-gate;
+- future desktop/control-plane ideas.
 
 ---
 
