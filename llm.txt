@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-21T08:22:57
+Generated: 2026-09-21T11:34:43
 Date: 2026-09-21
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,19 +8,19 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 218
+- Total curated cards: 221
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 14
+- Agent Security / Governance: 15
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 21
+- Design Systems / Visual QA: 22
 - Font Creation / Typography Tools: 14
 - Full-Song AI / Suno Alternatives: 8
 - Infographics / Visual Storytelling: 22
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 25
+- Lancelot / Agent Infrastructure: 26
 - Media / Social Monitoring: 5
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 14
+Cards: 15
 
 ### affaan-m/agentshield
 
@@ -1465,6 +1465,99 @@ NEXT:
 
 ---
 
+### arcjet/arcjet-js
+
+URL: https://github.com/arcjet/arcjet-js
+VERDICT: WATCH
+SCORE: 39
+STARS: 683
+
+WHAT:
+TypeScript runtime-security SDK
+для web applications
+и AI-agent execution.
+
+Для agent/non-HTTP surface
+есть `@arcjet/guard`.
+
+Он рассчитан на:
+
+- AI tool calls;
+- MCP handlers;
+- queue workers;
+- background jobs.
+
+Guard умеет:
+
+- rate limiting;
+- prompt-injection detection;
+- content moderation;
+- sensitive-information detection;
+- custom rules.
+
+FIT:
+Это другой security layer,
+чем deterministic
+capability authorization.
+
+Lancelot policy gate отвечает:
+
+**имеет ли агент право
+выполнить действие?**
+
+Arcjet-подобный layer
+может отвечать:
+
+**есть ли в данных
+или контексте признаки риска?**
+
+Например:
+
+- injection в fetched webpage;
+- sensitive data;
+- abnormal request volume;
+- unsafe content.
+
+Поэтому его разумная роль —
+
+`semantic/risk signal`
+
+рядом с,
+но не вместо,
+deterministic permission boundary.
+
+PROJECT:
+Lancelot / Runtime Security.
+
+Не использовать
+как единственную
+authorization boundary.
+
+Рассматривать как:
+
+- injection sensor;
+- PII/sensitive-data sensor;
+- usage/rate-limit layer;
+- дополнительный runtime signal.
+
+NEXT:
+Сделать isolated evaluation:
+
+1. какие rules local;
+2. какие требуют remote decision;
+3. какие данные уходят наружу;
+4. latency;
+5. behavior без сети;
+6. false positives;
+7. `hasFailedOpen()` semantics;
+8. возможность host-side fail-closed wrapper.
+
+Сравнить prompt-injection detection
+с Sinewave / Adrian / ai-firewall,
+но отдельно от capability authorization.
+
+---
+
 ## BUCKET: Broadcast / Playout / Automation
 
 Cards: 2
@@ -1532,7 +1625,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 21
+Cards: 22
 
 ### ar27111994/penpot-mcp
 
@@ -2306,6 +2399,134 @@ NEXT:
 4. дать агенту сделать небольшой UI;
 5. проверить результат через `tinte lint`;
 6. сравнить с обычным prompt-only подходом.
+
+---
+
+### simonlin1212/SDesign
+
+URL: https://github.com/simonlin1212/SDesign
+VERDICT: KEEP
+SCORE: 41
+STARS: 35
+
+WHAT:
+Curated design-system library
+для AI-generated interfaces.
+
+На момент проверки:
+
+- 6 aesthetic families;
+- 64 distinct design systems;
+- `SKILL.md` router;
+- `tokens.json`;
+- self-contained `prompt.md`;
+- reference HTML;
+- reference PNG;
+- machine-readable index;
+- mechanical audit script.
+
+Основная идея:
+
+AI не должен
+«просто сделать красиво».
+
+Сначала выбирается
+конкретная aesthetic family,
+затем конкретный system,
+после чего generation
+ограничивается его tokens
+и layout/style rules.
+
+После генерации
+идёт audit.
+
+FIT:
+Это практически готовый pattern
+для Media Factory Design Agency:
+
+`brief`
+→
+`aesthetic routing`
+→
+`design system`
+→
+`tokens`
+→
+`generation`
+→
+`reference comparison`
+→
+`mechanical QA`.
+
+Особенно интересен
+anti-slop layer.
+
+Он пытается механически
+не допускать типичный
+AI-default дизайн:
+
+- одинаковые карточки;
+- бессмысленные gradients;
+- произвольные цвета;
+- слабую hierarchy;
+- generic marketing copy;
+- одинаковый visual rhythm.
+
+При этом правила
+не универсально запрещают
+яркость, gradients или плотность.
+
+Style-specific rules
+могут явно разрешать их.
+
+Это гораздо правильнее,
+чем один глобальный
+«делай минималистично».
+
+PROJECT:
+Media Factory / Design Agency.
+
+Связать с:
+
+- Visual QA;
+- vlmkit;
+- design-system skills;
+- PPT Visual Replica;
+- content-derived design;
+- будущим Media Factory Skill Spec.
+
+Конкретные брендовые
+style references
+не превращать автоматически
+в нашу production library.
+
+Нужен свой curated
+visual vocabulary.
+
+NEXT:
+Вытащить общий
+`DESIGN_SYSTEM_PACKAGE` contract:
+
+- aesthetic_family;
+- style_id;
+- design_tokens;
+- typography;
+- spacing;
+- layout_rules;
+- visual_reference;
+- allowed_exceptions;
+- forbidden_patterns;
+- deterministic_checks;
+- visual_QA_checks.
+
+Потом проверить
+на наших реальных форматах:
+
+- карточка;
+- лендинг;
+- отчёт;
+- презентация;
+- social visual.
 
 ---
 
@@ -5259,7 +5480,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 25
+Cards: 26
 
 ### AraneaDev/ariadne
 
@@ -5377,6 +5598,141 @@ Tags: security, mcp, tools, permissions, bridge
 
 USE FOR LANCELOT:
 Reference architecture for a deterministic execution firewall. Возможная цель — собственный узкий policy gate перед опасными capabilities, а не прямое копирование всего продукта.
+
+---
+
+### clawdotnet/SharpClawCode
+
+URL: https://github.com/clawdotnet/SharpClawCode
+VERDICT: KEEP
+SCORE: 42
+STARS: 94
+
+WHAT:
+Полноценный coding-agent runtime
+на C# / .NET 10.
+
+Для нас язык реализации вторичен.
+
+Интересна архитектура:
+
+- durable sessions;
+- checkpoints;
+- append-only events;
+- workspace knowledge;
+- memory;
+- MCP;
+- plugins;
+- skills;
+- structured telemetry;
+- JSON-friendly CLI;
+- explicit permission engine;
+- approval transport;
+- deterministic test harness.
+
+Permission engine получает
+`ToolExecutionRequest`
+и прогоняет ordered rules.
+
+Результат rule:
+
+- Abstain;
+- Allow;
+- Deny;
+- RequireApproval.
+
+Есть отдельные rules для:
+
+- workspace boundary;
+- allowed tools;
+- dangerous shell;
+- plugin trust;
+- MCP trust.
+
+FIT:
+Это очень близкий внешний reference
+к текущему Lancelot security/runtime design.
+
+Особенно сильны несколько деталей.
+
+### Non-interactive deny
+
+Если approval требуется,
+но interactive approval transport отсутствует,
+операция не считается автоматически разрешённой.
+
+### Remembered approvals
+
+Approval связан не просто
+с «пользователь уже соглашался».
+
+В ключ входят:
+
+- session;
+- tool;
+- scope;
+- source;
+- working directory;
+- plugin identity/trust.
+
+### Bounded auto-approval
+
+Можно разрешить,
+например,
+несколько shell/network operations,
+но задать явный budget.
+
+После исчерпания budget
+runtime возвращается
+к обычному approval flow.
+
+### Authenticated approvals
+
+Embedded runtime умеет
+связывать approval
+с authenticated principal
+и tenant context.
+
+PROJECT:
+Lancelot / Agent Runtime.
+
+Не переносить .NET stack.
+
+Использовать как
+differential architecture donor
+для:
+
+- capability-policy-gate;
+- approval lifecycle;
+- Bridge permissions;
+- durable execution;
+- runtime tests.
+
+NEXT:
+Сравнить:
+
+`SharpClaw`
+↔
+`APort`
+↔
+`Lancelot`
+
+по единому contract:
+
+1. tool/action identity;
+2. permission scopes;
+3. explicit deny precedence;
+4. approval binding;
+5. remembered approval key;
+6. stale/replayed approval;
+7. auto-approval budgets;
+8. non-interactive behavior;
+9. tenant/user identity;
+10. audit evidence.
+
+Повторяющиеся invariants
+превратить в tests
+Lancelot permission boundary.
 
 ---
 
