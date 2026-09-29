@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-29T20:09:28
+Generated: 2026-09-29T23:25:56
 Date: 2026-09-29
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,20 +8,20 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 235
+- Total curated cards: 255
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 22
+- Agent Security / Governance: 23
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 23
+- Design Systems / Visual QA: 27
 - Font Creation / Typography Tools: 15
-- Full-Song AI / Suno Alternatives: 9
+- Full-Song AI / Suno Alternatives: 10
 - Infographics / Visual Storytelling: 22
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 30
-- Media / Social Monitoring: 5
+- Lancelot / Agent Infrastructure: 36
+- Media / Social Monitoring: 6
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
 - Music Generation / AI Music: 5
@@ -29,10 +29,10 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Newsroom / Data Journalism: 12
 - OSINT / Investigations: 9
 - Publishing / Layout / PDF: 9
-- Radio / Audio Ops: 9
-- System Architecture / Engineering Patterns: 8
+- Radio / Audio Ops: 13
+- System Architecture / Engineering Patterns: 9
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 30
+- Video Production / Editing: 32
 
 ## Today's run
 
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 22
+Cards: 23
 
 ### affaan-m/agentshield
 
@@ -618,6 +618,58 @@ NEXT:
 Цель:
 
 `LANCELOT_MCP_SECURITY_GATE`.
+
+---
+
+### cloudflare/security-audit-skill
+
+URL: https://github.com/cloudflare/security-audit-skill
+VERDICT: KEEP
+SCORE: 47
+STARS: 23116
+
+WHAT:
+Security-audit skill, где главный продукт — не список подозрений, а проверяемая audit process.
+
+Фазы:
+
+1. recon + coverage ledger;
+2. isolated hunters/critics;
+3. fresh verifier;
+4. confirmed / needs_validation / rejected;
+5. independent source verification;
+6. reports.
+
+Target code запускается только в ограниченном sandbox.
+
+FIT:
+Один из сильнейших security donors.
+
+Контракты:
+
+`SECURITY_COVERAGE_LEDGER_CONTRACT`
+
+`SECURITY_FINDING_EVIDENCE_CONTRACT`
+
+`INDEPENDENT_FINDING_VERIFICATION_CONTRACT`
+
+`SANDBOXED_SECURITY_REPRO_CONTRACT`
+
+`UNTRUSTED_ARTIFACT_PROMOTION_CONTRACT`
+
+`ACTION_INTENT_BINDING_CONTRACT`
+
+`AUDIT_BUDGET_RESERVATION_CONTRACT`.
+
+PROJECT:
+Lancelot / Security Audit.
+
+После admission/scanner слоя, до принятия серьёзных security conclusions.
+
+NEXT:
+Сам skill сначала пропустить через наш admission pipeline.
+
+Потом проверить на seeded vulnerable repos и измерить verification survival, false confirmations и cost.
 
 ---
 
@@ -2072,7 +2124,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 23
+Cards: 27
 
 ### AnxForever/stylekit
 
@@ -2203,6 +2255,58 @@ NEXT:
 
 ---
 
+### cathrynlavery/diagram-design
+
+URL: https://github.com/cathrynlavery/diagram-design
+VERDICT: KEEP
+SCORE: 48
+STARS: 42770
+
+WHAT:
+Production-grade diagram skill.
+
+Разделяет:
+
+semantic pattern — что система означает;
+
+layout grammar — как этот смысл показать.
+
+Есть semantic patterns, complexity budgets, import fidelity accounting, deterministic connector/geometry checks и brand extraction.
+
+FIT:
+Доноры:
+
+`DIAGRAM_SEMANTIC_PATTERN_CONTRACT`
+
+`VISUAL_FIDELITY_LEDGER_CONTRACT`
+
+`DIAGRAM_GEOMETRY_QA_CONTRACT`
+
+`BRAND_STYLE_EXTRACTION_RECEIPT`
+
+`AUDIENCE_ADAPTIVE_VISUALIZATION_CONTRACT`
+
+`TRACEABLE_VISUAL_BLOCK_CONTRACT`
+
+Особенно силён fidelity ledger при упрощении сложного source diagram.
+
+PROJECT:
+Media Factory / Design Agency.
+
+Реальный кандидат на установку после security admission.
+
+NEXT:
+Прогнать skill через admission.
+
+Потом тест:
+
+- Lancelot architecture diagram;
+- analytical public diagram;
+- geometry QA;
+- fidelity ledger.
+
+---
+
 ### dembrandt/dembrandt
 
 URL: https://github.com/dembrandt/dembrandt
@@ -2294,6 +2398,75 @@ NEXT:
 
 ---
 
+### Hitheshkaranth/EmbeddedDisplayStudio
+
+URL: https://github.com/Hitheshkaranth/EmbeddedDisplayStudio
+VERDICT: KEEP
+SCORE: 47
+STARS: 10
+
+WHAT:
+Embedded HMI design studio с очень переносимой архитектурой.
+
+Pipeline:
+
+brief
+→ registry-bounded semantic widgets
+→ sanitization
+→ deterministic archetype/grid composition
+→ critic
+→ same target renderer
+→ preview
+→ atomic deploy
+→ readiness check
+→ rollback.
+
+`project.edsui` является самим runtime document.
+
+FIT:
+Сильные доноры:
+
+`TARGET_FAITHFUL_PREVIEW_CONTRACT`
+
+`INTERPRETED_CREATIVE_ARTIFACT_CONTRACT`
+
+`SEMANTIC_INTENT_DETERMINISTIC_COMPOSITION_CONTRACT`
+
+`GENERATIVE_UI_SANITIZATION_CONTRACT`
+
+`TARGET_CAPABILITY_BOUNDED_GENERATION_CONTRACT`
+
+`VISUAL_ARTIFACT_CRITIC_CONTRACT`
+
+`SINGLE_SOURCE_COMPONENT_REGISTRY_CONTRACT`
+
+`OUTCOME_VERIFIED_DEPLOYMENT_CONTRACT`
+
+`ATOMIC_RELEASE_ROLLBACK_CONTRACT`
+
+`READINESS_MUST_OBSERVE_EFFECT_CONTRACT`.
+
+PROJECT:
+Media Factory / Design Agency.
+
+Практическое доказательство pipeline:
+
+semantic IR
+→ deterministic composition
+→ target renderer
+→ verified commit.
+
+NEXT:
+Reference, не adoption: domain-specific и privileged deployment surface.
+
+Отдельно забрать lesson для Radar:
+
+GitHub `NOASSERTION`
+→ fallback inspect LICENSE
+→ license classification + provenance.
+
+---
+
 ### kunchenguid/axi
 
 URL: https://github.com/kunchenguid/axi
@@ -2365,6 +2538,54 @@ NEXT:
 
 Отдельно определить, какие AXI principles стоит сделать требованиями
 для собственных tools Lancelot.
+
+---
+
+### lnkiai/m3e-canvas
+
+URL: https://github.com/lnkiai/m3e-canvas
+VERDICT: KEEP
+SCORE: 44
+STARS: 8456
+
+WHAT:
+Agent-friendly visual canvas.
+
+Pipeline:
+
+brief
+→ agent design JSON
+→ visual canvas
+→ human edits
+→ тот же structured artifact
+→ implementation handoff.
+
+Документ хранит screens, components, theme, navigation, actions, behavior notes и geometry.
+
+FIT:
+Доноры:
+
+`VISUAL_DESIGN_DOCUMENT_CONTRACT`
+
+`HUMAN_AGENT_DESIGN_ROUNDTRIP_CONTRACT`
+
+`SEMANTIC_LAYOUT_TO_DETERMINISTIC_GEOMETRY_CONTRACT`
+
+`RESPONSIVE_COMPONENT_TRANSFORM_CONTRACT`
+
+`SELF_CONTAINED_ARTIFACT_HANDOFF`
+
+Главное: человек и агент работают над одним editable IR.
+
+PROJECT:
+Media Factory / Design Agency.
+
+Рядом с Inspo, StyleKit, diagram-design и EmbeddedDisplayStudio.
+
+NEXT:
+Не копировать M3-specific schema буквально.
+
+Выделить abstract design IR и style-system adapters.
 
 ---
 
@@ -2761,6 +2982,55 @@ NEXT:
 где один component registry
 одновременно обслуживает
 designer, coder и agent.
+
+---
+
+### Nutlope/inspo
+
+URL: https://github.com/Nutlope/inspo
+VERDICT: KEEP
+SCORE: 39
+STARS: 803
+
+WHAT:
+Visual-reference MCP для design agents.
+
+Corpus содержит curated sites/pages, canonical component references, JSX examples, DESIGN.md и macrostructures.
+
+Главная функция — не выдавать готовый стиль, а подбирать визуальные evidence/examples под brief.
+
+FIT:
+Закрывает слой до StyleKit.
+
+Доноры:
+
+`VISUAL_MACROSTRUCTURE_CONTRACT`
+
+`DESIGN_REFERENCE_PACKET`
+
+Pipeline:
+
+brief
+→ visual evidence
+→ macrostructure
+→ design synthesis
+→ style pack
+→ renderer
+→ QA.
+
+PROJECT:
+Media Factory / Design Agency.
+
+Связать с M3E Canvas, StyleKit и diagram-design.
+
+NEXT:
+Bakeoff на трёх brief:
+
+1. media report;
+2. editorial landing;
+3. analytical dashboard.
+
+Оценивать качество reference packet, а не буквальное сходство результата с источником.
 
 ---
 
@@ -3867,7 +4137,7 @@ NEXT:
 
 ## BUCKET: Full-Song AI / Suno Alternatives
 
-Cards: 9
+Cards: 10
 
 ### ace-step/ACE-Step-1.5
 
@@ -4005,6 +4275,59 @@ NEXT:
 Не делать отдельный большой pilot до benchmark самого YuE.
 
 При следующем тесте YuE проверить, упрощает ли ComfyUI wrapper работу с conditioning, generation parameters и повторяемостью workflow.
+
+---
+
+### timoncool/YuE2-Studio
+
+URL: https://github.com/timoncool/YuE2-Studio
+VERDICT: KEEP
+SCORE: 45
+STARS: 320
+
+WHAT:
+Local music production workbench вокруг YuE2.
+
+Pipeline:
+
+style + lyrics
+→ editable composition / ABC score
+→ performance
+→ audio codes
+→ waveform.
+
+Derivatives становятся library tracks с parent lineage и operation settings.
+
+Есть MCP и durable jobs.
+
+FIT:
+Сильные контракты:
+
+`GENERATIVE_MUSIC_IR_CONTRACT`
+
+`GENERATIVE_REPLAY_CONTRACT`
+
+`MEDIA_ARTIFACT_LINEAGE_CONTRACT`
+
+`GENERATIVE_ARTIFACT_STAGING_CONTRACT`
+
+`CREATIVE_GPU_JOB_CONTRACT`
+
+`RESUMABLE_BATCH_ARTIFACT_CONTRACT`
+
+`CAPABILITY_SCOPED_MODEL_PROVIDER_CONTRACT`
+
+`MODEL_LICENSE_PROPAGATION_CONTRACT`.
+
+PROJECT:
+Media Factory / Music.
+
+Хороший reference того, как creative AI перестаёт быть prompt → blob.
+
+NEXT:
+Перед установкой — security review и проверка лицензий конкретных model weights.
+
+Потом проверить score-first workflow, replay и derivative lineage.
 
 ---
 
@@ -6026,7 +6349,60 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 30
+Cards: 36
+
+### alphaXiv/OpenResearch
+
+URL: https://github.com/alphaXiv/OpenResearch
+VERDICT: KEEP
+SCORE: 46
+STARS: 6008
+
+WHAT:
+Git-native experiment tree.
+
+Каждый meaningful run связан с immutable recorded commit.
+
+Правила:
+
+- meaningful-result node замораживается;
+- run command/environment фиксированы;
+- варианты меняют committed code/config;
+- technical failure можно repair;
+- научный good/bad/NaN result остаётся историей.
+
+FIT:
+Сильная модель воспроизводимого agent research.
+
+Доноры:
+
+`EXPERIMENT_IMMUTABILITY_CONTRACT`
+
+`REPRODUCIBLE_RUN_CONTRACT`
+
+`IMMUTABLE_EXECUTION_SNAPSHOT_CONTRACT`
+
+`HYPOTHESIS_TREE_CONTRACT`
+
+`EVIDENCE_DRIVEN_ITERATION_CONTRACT`
+
+`EXPERIMENT_EVIDENCE_CONTRACT`
+
+`RESEARCH_DELEGATION_CONTRACT`.
+
+PROJECT:
+Research substrate.
+
+Первый практический кандидат — security scanner bakeoff.
+
+NEXT:
+Собрать наш:
+
+`REPRODUCIBLE_EXPERIMENT_BUNDLE`
+
+source commit + input hashes + tool versions + run contract + compute contract + logs + metrics + parent + hypothesis + decision.
+
+---
 
 ### AraneaDev/ariadne
 
@@ -6594,6 +6970,55 @@ USE FOR LANCELOT:
 
 ---
 
+### google/ax
+
+URL: https://github.com/google/ax
+VERDICT: KEEP
+SCORE: 44
+STARS: 12551
+
+WHAT:
+Agent workload control plane.
+
+Основные сущности:
+
+- Task;
+- Workspace;
+- Model.
+
+CLI/API управляют жизненным циклом workload, а конкретная agent logic остаётся внутри runtime.
+
+Особенно интересны durable workspace и suspend/resume.
+
+FIT:
+Сильный reference для Lancelot, если он перерастёт один локальный execution process.
+
+Доноры:
+
+`AGENT_WORKLOAD_CONTROL_PLANE_CONTRACT`
+
+`AGENT_WORKSPACE_CONTRACT`
+
+`AGENT_EXECUTION_HOST_CONTRACT`
+
+Главное разделение:
+
+workload orchestration ≠ agent semantics.
+
+PROJECT:
+Lancelot / Agent Runtime.
+
+Смотреть рядом с Anvil и resumable workspace/session systems.
+
+NEXT:
+Не переносить Kubernetes-подобную тяжесть сейчас.
+
+Вынести минимальный contract:
+
+task identity → workspace → runtime → lifecycle → suspend/resume → evidence/logs.
+
+---
+
 ### guyowen/typegraph-mcp
 
 URL: https://github.com/guyowen/typegraph-mcp
@@ -6620,6 +7045,57 @@ Tags: mcp, typescript, tools, codegraph
 
 USE FOR LANCELOT:
 Potential semantic TypeScript navigation capability. Сначала проверить, что даёт сверх существующего read/grep и codegraph tooling.
+
+---
+
+### hanumatori/nodumbmode
+
+URL: https://github.com/hanumatori/nodumbmode
+VERDICT: KEEP
+SCORE: 31
+STARS: 49
+
+WHAT:
+Meta-skill pack против recurring engineering-agent failures.
+
+Ключевое правило:
+
+не запускать проверку, если её результат не способен изменить следующий шаг.
+
+Также:
+
+- перед второй попыткой нужен новый факт;
+- edge cases моделируются как state space;
+- feedback закрывает конкретную uncertainty;
+- changelog хранит причины решений.
+
+FIT:
+Доноры:
+
+`DECISION_RELEVANCE_ROUTING_CONTRACT`
+
+`NEW_EVIDENCE_BEFORE_RETRY_CONTRACT`
+
+`EVIDENCE_APPLICABILITY_CONTRACT`
+
+`EDGE_CASE_STATE_SPACE_CONTRACT`
+
+`USER_SYSTEM_STATE_ALIGNMENT_CONTRACT`
+
+`DECISION_MEMORY_CONTRACT`.
+
+PROJECT:
+Lancelot / Engineering Discipline.
+
+NEXT:
+Не копировать содержимое до появления явной лицензии.
+
+Identity test case:
+
+GitHub repo id `1326177141`
+
+old alias `hronicasync/nodumbmode`
+→ canonical `hanumatori/nodumbmode`.
 
 ---
 
@@ -6970,6 +7446,64 @@ USE FOR LANCELOT:
 
 ---
 
+### msitarzewski/agency-agents
+
+URL: https://github.com/msitarzewski/agency-agents
+VERDICT: KEEP
+SCORE: 44
+STARS: 155307
+
+WHAT:
+Большой catalog operational agent roles плюс NEXUS orchestration doctrine.
+
+Есть:
+
+- canonical role Markdown;
+- converters под разные runtimes;
+- machine-readable runbooks;
+- handoff templates;
+- QA pass/fail loops;
+- phase gates;
+- scenario rosters;
+- generated-output checks.
+
+FIT:
+Главные доноры:
+
+`AGENT_ROLE_SPEC_CONTRACT`
+
+`PORTABLE_AGENT_DEFINITION_CONTRACT`
+
+`GENERATED_AGENT_MANIFEST_CONTRACT`
+
+`TEAM_RUNBOOK_CONTRACT`
+
+`AGENT_HANDOFF_CONTRACT`
+
+`EVIDENCE_BOUND_REPAIR_CONTRACT`
+
+`EVIDENCE_GATED_PHASE_TRANSITION_CONTRACT`
+
+`AGENT_STATE_OWNERSHIP_CONTRACT`
+
+Наш upgrade:
+
+`ROLE_CAPABILITY_BINDING_CONTRACT`.
+
+PROJECT:
+Lancelot / Agent Definitions.
+
+Role + domain skill + capability grant + output contract + eval + memory policy должны быть раздельными сущностями.
+
+NEXT:
+Не импортировать весь roster.
+
+Выбрать несколько сильных role specs как reference corpus и отдельно забрать NEXUS handoff/runbook machinery.
+
+Prompt permissions не считать runtime enforcement.
+
+---
+
 ### NevaMind-AI/memU
 
 URL: https://github.com/NevaMind-AI/memU
@@ -6996,6 +7530,53 @@ Tags: memory, skills, automation, cross-agent, retrieval
 
 USE FOR LANCELOT:
 Заимствовать controlled session → candidate procedure → reusable skill loop, но добавить более жёсткую дисциплину: synthesis создаёт только candidate, затем SkillSpector/security review и explicit PROMOTE. Think/Durable Object operational state не заменять memU-подобной памятью.
+
+---
+
+### nowork-studio/notfair-plugin
+
+URL: https://github.com/nowork-studio/notfair-plugin
+VERDICT: KEEP
+SCORE: 43
+STARS: 3881
+
+WHAT:
+Domain skill library для SEO/GEO/ads/analytics.
+
+Главная ценность — operating discipline:
+
+evidence
+→ proposed mutation
+→ approval when needed
+→ live capability resolution
+→ execute
+→ read changed entity back
+→ observe metric window.
+
+Skills не хардкодят конкретные tool IDs.
+
+FIT:
+Доноры:
+
+`DOMAIN_SKILL_OPERATING_CONTRACT`
+
+`LIVE_CAPABILITY_RESOLUTION_CONTRACT`
+
+`REVIEWABLE_MUTATION_CONTRACT`
+
+`METRIC_GROUNDED_GOAL_LOOP_CONTRACT`
+
+`SKILL_EVAL_CONTRACT`
+
+`INTERVENTION_OBSERVATION_CONTRACT`.
+
+PROJECT:
+Lancelot / Domain Automation.
+
+NEXT:
+Извлечь generic operating contract отдельно от hosted execution backend.
+
+Domain heuristics принимать только после независимой проверки.
 
 ---
 
@@ -7171,6 +7752,58 @@ Tags: mcp, github, research
 
 USE FOR LANCELOT:
 Использовать как локальную карту кода перед чтением и изменениями: Lancelot сначала получает callers/dependencies/impact через graph, а уже затем открывает только нужные файлы.
+
+---
+
+### Panniantong/Agent-Reach
+
+URL: https://github.com/Panniantong/Agent-Reach
+VERDICT: KEEP
+SCORE: 47
+STARS: 86175
+
+WHAT:
+Acquisition layer для нестабильных внешних платформ.
+
+Модель:
+
+platform capability
+→ preferred backend
+→ health probe
+→ fallback backend.
+
+`doctor` проверяет не просто наличие бинарника, а работоспособность/config/auth state.
+
+После выбора agent может пользоваться upstream tool напрямую.
+
+FIT:
+Доноры:
+
+`HEALTH_VERIFIED_CAPABILITY_ROUTER_CONTRACT`
+
+`PROVIDER_RESILIENCE_CONTRACT`
+
+`PARTIAL_CAPABILITY_HEALTH_CONTRACT`
+
+`SAFE_CAPABILITY_BOOTSTRAP_CONTRACT`
+
+`SESSION_CREDENTIAL_BOUNDARY_CONTRACT`.
+
+PROJECT:
+Lancelot / Web & Platform Acquisition.
+
+Перед normalized evidence layer и media monitoring.
+
+NEXT:
+Не принимать routing policy «использовать для всего интернета».
+
+Приоритет:
+
+specialized/native connector
+→ resilient capability broker
+→ generic browser/scraping.
+
+Outputs нормализовать отдельным adapter layer.
 
 ---
 
@@ -7662,7 +8295,7 @@ NEXT:
 
 ## BUCKET: Media / Social Monitoring
 
-Cards: 5
+Cards: 6
 
 ### 0xzerolight/topic_watch
 
@@ -7748,6 +8381,57 @@ Media Monitoring и OSINT Signal.
 
 NEXT:
 Разобрать модели Feed, Watch, WatchAction и WatchActionDelivery и сравнить с нашим текущим pipeline.
+
+---
+
+### sansan0/TrendRadar
+
+URL: https://github.com/sansan0/TrendRadar
+VERDICT: KEEP
+SCORE: 46
+STARS: 62617
+
+WHAT:
+Trend monitoring engine с temporal model.
+
+Хранит:
+
+- first_time;
+- last_time;
+- count;
+- rank timeline;
+- выпадение из ranking.
+
+Есть incremental/current/daily modes, period comparison и cross-platform aggregation.
+
+FIT:
+Доноры:
+
+`TEMPORAL_SIGNAL_CONTRACT`
+
+`RANK_TRAJECTORY_CONTRACT`
+
+`MONITORING_VIEW_CONTRACT`
+
+`SIGNAL_PERIOD_DELTA_CONTRACT`
+
+`SOURCE_PROPAGATION_CONTRACT`
+
+Наш upgrade:
+
+`OUTPUT_EVENT_SEPARATION_CONTRACT`
+
+Разные самостоятельные медиа остаются отдельными outputs даже при одном event cluster.
+
+PROJECT:
+Media Monitoring + World System Brief.
+
+Высокий media heat может означать `NO SYSTEM CHANGE DETECTED`.
+
+NEXT:
+Не брать их string similarity как event identity.
+
+Нужны entities + predicate + numbers + time/location + same/related/follow-up/duplicate.
 
 ---
 
@@ -9812,7 +10496,7 @@ NEXT:
 
 ## BUCKET: Radio / Audio Ops
 
-Cards: 9
+Cards: 13
 
 ### AzuraCast/AzuraCast
 
@@ -9835,6 +10519,59 @@ NEXT:
 
 ---
 
+### cjpais/Handy
+
+URL: https://github.com/cjpais/Handy
+VERDICT: KEEP
+SCORE: 45
+STARS: 32427
+
+WHAT:
+Локальный dictation appliance:
+
+hotkey → record → local ASR → insert.
+
+Model catalog хранит capabilities:
+
+- languages;
+- streaming;
+- translation;
+- detect;
+- architecture;
+- quantization;
+- speed/accuracy metadata.
+
+Model artifacts пинятся к revisions и hashes.
+
+FIT:
+Доноры:
+
+`LOCAL_ASR_ENGINE_CONTRACT`
+
+`SPEECH_MODEL_CAPABILITY_CONTRACT`
+
+`MODEL_ARTIFACT_PROVENANCE_CONTRACT`
+
+`STREAMING_TRANSCRIPT_CONTRACT`
+
+`NON_DESTRUCTIVE_POSTPROCESS_CONTRACT`
+
+Особенно хорош committed transcript + tentative volatile suffix.
+
+PROJECT:
+Lancelot / Desktop Voice.
+
+Handy = input primitive.
+OpenWhispr = interaction layer.
+VoiceStudio = production layer.
+
+NEXT:
+Сравнить paste/session semantics Handy и OpenWhispr.
+
+Отдельно вынести model-registry contract.
+
+---
+
 ### datafruits/radio
 
 URL: https://github.com/datafruits/radio
@@ -9853,6 +10590,59 @@ Coma.fm / Audio Ops
 
 NEXT:
 изучить как лёгкий пример радиопайплайна
+
+---
+
+### debpalash/VoiceStudio
+
+URL: https://github.com/debpalash/VoiceStudio
+VERDICT: KEEP
+SCORE: 45
+STARS: 47642
+
+WHAT:
+Local-first speech production platform.
+
+Закрывает:
+
+- voice cloning/design;
+- dubbing;
+- dictation;
+- transcription;
+- diarization;
+- audiobook/longform;
+- batch jobs;
+- MCP/API/CLI;
+- remote workers.
+
+Rust владеет desktop control surface, Python — тяжёлыми speech engines.
+
+FIT:
+Зрелый donor для speech subsystem.
+
+Контракты:
+
+`LOCAL_SPEECH_PLATFORM_CONTRACT`
+
+`MEDIA_ENGINE_ADAPTER_CONTRACT`
+
+`LONGFORM_AUDIO_PROJECT_CONTRACT`
+
+`SPEECH_RESOURCE_SCHEDULER_CONTRACT`
+
+Полезны также session-safe output и binary artifact handles вместо base64 в model context.
+
+PROJECT:
+Media Factory / Speech.
+
+Связать с Handy как input primitive и Dia2 как возможный conversational TTS engine.
+
+NEXT:
+Reference first из-за AGPL.
+
+Разобрать engine adapter, GPU scheduler, longform project и destination/session binding.
+
+Отдельно проверить durable recovery batch queue после restart.
 
 ---
 
@@ -10071,6 +10861,109 @@ NEXT:
 
 ---
 
+### nari-labs/dia2
+
+URL: https://github.com/nari-labs/dia2
+VERDICT: KEEP
+SCORE: 37
+STARS: 1180
+
+WHAT:
+Conversational TTS successor to Dia.
+
+Dialogue context включает speaker labels, audio prefixes и text continuation.
+
+Generation result сохраняет:
+
+- audio tokens;
+- waveform;
+- sample rate;
+- word timestamps.
+
+На текущем этапе English-only и рассчитан на сравнительно короткие conversational segments.
+
+FIT:
+Доноры:
+
+`CONVERSATIONAL_VOICE_CONTEXT_CONTRACT`
+
+`INCREMENTAL_SPEECH_ENGINE_CONTRACT`
+
+`SPEECH_GENERATION_ARTIFACT_CONTRACT`
+
+`DIALOGUE_ACOUSTIC_CONTEXT_CONTRACT`
+
+`GENERATION_NATIVE_TIMING_CONTRACT`
+
+Важно не путать model streaming capability и готовый streaming server.
+
+PROJECT:
+Lancelot / Conversational Voice.
+
+Потенциальный output engine рядом с Handy/OpenWhispr/VoiceStudio.
+
+NEXT:
+Не делать стратегической dependency без bakeoff.
+
+Измерить:
+
+- latency-to-first-audio;
+- speaker stability;
+- continuity;
+- interruption/resume;
+- VRAM.
+
+---
+
+### OpenWhispr/openwhispr
+
+URL: https://github.com/OpenWhispr/openwhispr
+VERDICT: KEEP
+SCORE: 44
+STARS: 8839
+
+WHAT:
+Desktop voice operating layer:
+
+- dictation;
+- translation;
+- selection edit;
+- assistant;
+- meeting transcription;
+- diarization;
+- notes/search;
+- API/MCP.
+
+Async result привязывается к captured target/session и перед вставкой destination проверяется повторно.
+
+FIT:
+Доноры:
+
+`DESKTOP_OUTPUT_BINDING_CONTRACT`
+
+`VOICE_INTERACTION_ROUTING_CONTRACT`
+
+`SPEECH_PROVIDER_ADAPTER_CONTRACT`
+
+Если пользователь сменил окно, completed result не должен автоматически попасть в новый target.
+
+PROJECT:
+Lancelot / Desktop Voice.
+
+Связать с Handy paste mechanics и Dia2 speech output.
+
+NEXT:
+Вывести общий Desktop Action Commit Protocol:
+
+capture target
+→ compute
+→ revalidate
+→ paste transaction
+→ target consumes
+→ restore clipboard.
+
+---
+
 ### openbroadcaster/observer
 
 URL: https://github.com/openbroadcaster/observer
@@ -10094,7 +10987,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 8
+Cards: 9
 
 ### Duragraph/duragraph
 
@@ -10570,6 +11463,57 @@ Evaluator:
 
 ---
 
+### Nighty3098/tsession
+
+URL: https://github.com/Nighty3098/tsession
+VERDICT: KEEP
+SCORE: 29
+STARS: 4
+
+WHAT:
+Tmux session resurrection manager.
+
+Сохраняет:
+
+- windows/panes/layout;
+- cwd;
+- foreground command;
+- selected environment;
+- titles;
+- zoom/active state;
+- optional scrollback.
+
+Restore может повторно исполнять сохранённые команды.
+
+FIT:
+Доноры:
+
+`WORKSPACE_SESSION_SNAPSHOT_CONTRACT`
+
+`DEGRADED_SESSION_RESTORE_CONTRACT`
+
+`RESTORABLE_STATE_IS_CODE_CONTRACT`
+
+`PERSISTED_ENV_POLICY_CONTRACT`
+
+`INTERACTIVE_PROCESS_INTENT_CONTRACT`
+
+`SESSION_RESTORE_AUTHORITY_LADDER`
+
+Главный вывод: restore snapshot частично является исполняемым документом.
+
+PROJECT:
+Lancelot / Workspace Persistence + security fixture.
+
+NEXT:
+Не adoption candidate: слишком молодой и высокопривилегированный restore surface.
+
+Использовать как benign scanner fixture:
+
+/proc environ + env persistence + send-keys + command replay.
+
+---
+
 ### binhnguyennus/awesome-scalability
 
 URL: https://github.com/binhnguyennus/awesome-scalability
@@ -10887,7 +11831,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 30
+Cards: 32
 
 ### 0xsline/OpenChatCut
 
@@ -11179,6 +12123,58 @@ NEXT:
 
 Отдельно определить, можно ли забрать revision contract
 и post-render QC независимо от всего остального runtime.
+
+---
+
+### bradautomates/claude-video
+
+URL: https://github.com/bradautomates/claude-video
+VERDICT: KEEP
+SCORE: 46
+STARS: 17835
+
+WHAT:
+Video-analysis skill, превращающий ролик в multimodal evidence packet:
+
+- metadata;
+- captions/ASR;
+- selected frames;
+- timestamps;
+- provenance;
+- missing intervals.
+
+Есть efficient/balanced/token-burner sampling и targeted frame extraction.
+
+FIT:
+Доноры:
+
+`MULTIMODAL_EVIDENCE_BOUNDARY_CONTRACT`
+
+`PARTIAL_EVIDENCE_CONTRACT`
+
+`MEDIA_EVIDENCE_PROVENANCE_CONTRACT`
+
+`TRANSCRIPT_GUIDED_VISUAL_SAMPLING_CONTRACT`
+
+`EVIDENCE_COVERAGE_BUDGET_CONTRACT`
+
+`PRIVACY_SENSITIVE_FALLBACK_CONTRACT`
+
+`OPTIONAL_HEAVY_ENGINE_ISOLATION_CONTRACT`.
+
+PROJECT:
+Media Factory / OSINT video analysis.
+
+Закрывает регулярную задачу: найти нужный фрагмент и проверить отдельно сказанное и показанное.
+
+NEXT:
+После security admission провести bakeoff:
+
+1. интервью;
+2. длинный report video;
+3. ролик с visual-only evidence.
+
+Проверить WhisperX/local path и timestamp fidelity.
 
 ---
 
@@ -12031,6 +13027,47 @@ Video Production / Editing · Media Monitoring · автоматизирован
 
 NEXT:
 Проверить deployment footprint и API. Отдельно учитывать AGPL-3.0 перед встраиванием в собственные сервисы.
+
+---
+
+### ZeroPointRepo/youtube-skills
+
+URL: https://github.com/ZeroPointRepo/youtube-skills
+VERDICT: KEEP
+SCORE: 34
+STARS: 983
+
+WHAT:
+Agent Skills для YouTube:
+
+- transcript;
+- search;
+- channels;
+- playlists;
+- metadata.
+
+Skill layer открыт, execution опирается на TranscriptAPI.
+
+Не заменяет yt-dlp для acquisition исходного media.
+
+FIT:
+Контракты:
+
+`YOUTUBE_CHANNEL_MONITORING_CONTRACT`
+
+`VIDEO_SOURCE_EVIDENCE_CONTRACT`
+
+`SKILL_SECRET_BOOTSTRAP_CONTRACT`
+
+Отдельно полезен как benign security fixture: email + OTP + API key + persistence секрета.
+
+PROJECT:
+Media ingestion + security scanner bakeoff.
+
+NEXT:
+Использовать как reference/fallback.
+
+Добавить auth-bootstrap workflow в benign high-authority corpus и проверить false positives scanners.
 
 ---
 
