@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-09-29T08:22:35
+Generated: 2026-09-29T20:09:28
 Date: 2026-09-29
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,19 +8,19 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 226
+- Total curated cards: 235
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 19
+- Agent Security / Governance: 22
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 22
-- Font Creation / Typography Tools: 14
-- Full-Song AI / Suno Alternatives: 8
+- Design Systems / Visual QA: 23
+- Font Creation / Typography Tools: 15
+- Full-Song AI / Suno Alternatives: 9
 - Infographics / Visual Storytelling: 22
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 27
+- Lancelot / Agent Infrastructure: 30
 - Media / Social Monitoring: 5
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 19
+Cards: 22
 
 ### affaan-m/agentshield
 
@@ -879,6 +879,48 @@ loopback differential POC:
 
 ---
 
+### humanbound/humanbound-firewall
+
+URL: https://github.com/humanbound/humanbound-firewall
+VERDICT: KEEP
+SCORE: 34
+STARS: 53
+
+WHAT:
+Firewall
+перед model context.
+
+Проверяет не только
+user message,
+но каждый путь,
+по которому данные
+попадают в модель:
+
+- user/request;
+- webpages/documents;
+- tool output;
+- subagent output;
+- memory/database recall.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Включить в security corpus:
+
+1. direct user request;
+2. hostile webpage;
+3. hostile tool result;
+4. poisoned memory row;
+5. hostile child-agent output;
+6. benign quoted attack text;
+7. fail-open/fail-closed behavior.
+
+---
+
 ### ikaruscareer/SafeAI
 
 URL: https://github.com/ikaruscareer/SafeAI
@@ -1267,6 +1309,113 @@ host-side credential brokering
 Цель:
 
 `LANCELOT_DISPOSABLE_WORKSPACE`.
+
+---
+
+### ljchang/mecha
+
+URL: https://github.com/ljchang/mecha
+VERDICT: KEEP
+SCORE: 32
+STARS: 7
+
+WHAT:
+Rust agent harness
+для personal assistants,
+где security model
+является частью runtime.
+
+FIT:
+—
+
+PROJECT:
+После source classification,
+до execution:
+
+`source trust`
+→ `conversation taint`
+→ `capability authorization`
+→ `tool execution`.
+
+NEXT:
+Сделать deterministic fixture:
+
+1. private only;
+2. untrusted only;
+3. send only;
+4. private + send;
+5. untrusted + send;
+6. private + untrusted + send;
+7. same sequence across multiple turns.
+
+Проверить,
+где именно должен происходить deny.
+
+---
+
+### mathematic-inc/earl
+
+URL: https://github.com/mathematic-inc/earl
+VERDICT: KEEP
+SCORE: 32
+STARS: 113
+
+WHAT:
+Secure execution proxy
+между AI-agent
+и внешними сервисами.
+
+Операции описываются
+человеком в HCL:
+
+- endpoint;
+- HTTP method;
+- authentication;
+- allowed parameters;
+- request structure;
+- environment policy.
+
+Модель видит
+имя tool, описание
+и разрешённые параметры,
+но не получает
+произвольный контроль
+над request template.
+
+FIT:
+—
+
+PROJECT:
+Lancelot / Tool Security.
+
+Целевой donor:
+
+`SAFE_OPERATION_TEMPLATE_CONTRACT`
+
+Идея:
+
+`agent intent`
+→ `named approved operation`
+→ `validated parameters`
+→ `host-injected secrets`
+→ `deterministic request`
+→ `audit`.
+
+NEXT:
+Сравнить Earl
+с нашим capability gate:
+
+1. template identity;
+2. parameter schema;
+3. secret injection;
+4. endpoint immutability;
+5. egress policy;
+6. audit evidence;
+7. MCP exposure.
+
+Не заменять authorization gate:
+использовать как более узкую
+execution surface.
 
 ---
 
@@ -1923,7 +2072,51 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 22
+Cards: 23
+
+### AnxForever/stylekit
+
+URL: https://github.com/AnxForever/stylekit
+VERDICT: KEEP
+SCORE: 36
+STARS: 556
+
+WHAT:
+Machine-readable
+visual style library
+для AI-generated UI.
+
+На момент проверки:
+
+- 148 visual styles;
+- design tokens;
+- component recipes;
+- Tailwind constraints;
+- AI rules/prompts;
+- live demos;
+- Agent Skill;
+- MCP;
+- npm CLI.
+
+Дополнительно:
+
+- 60 animation patterns;
+- 36 page templates;
+- shadcn registry;
+- CSS/Tailwind exports;
+- Figma tokens;
+- machine-readable llms files.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
 
 ### ar27111994/penpot-mcp
 
@@ -3298,7 +3491,7 @@ NEXT:
 
 ## BUCKET: Font Creation / Typography Tools
 
-Cards: 14
+Cards: 15
 
 ### Corne2Plum3/Giphurs
 
@@ -3624,6 +3817,33 @@ NEXT:
 
 ---
 
+### eliheuer/runebender-xilem
+
+URL: https://github.com/eliheuer/runebender-xilem
+VERDICT: WATCH
+SCORE: 30
+STARS: 86
+
+WHAT:
+Experimental Rust font editor
+на Linebender/Xilem.
+
+Интересен не только
+как font GUI,
+но как пример
+безопасного AI-assisted editing.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
 ### gero3/facetype.js
 
 URL: https://github.com/gero3/facetype.js
@@ -3647,7 +3867,7 @@ NEXT:
 
 ## BUCKET: Full-Song AI / Suno Alternatives
 
-Cards: 8
+Cards: 9
 
 ### ace-step/ACE-Step-1.5
 
@@ -3688,6 +3908,34 @@ Full-Song AI / Suno Alternatives · research/reference.
 
 NEXT:
 Перед deployment отдельно разобрать текущий upstream, hardware requirements и качество актуальных checkpoints; после этого включить в общий benchmark четырёх моделей.
+
+---
+
+### DenisHumen/ace-step-deck
+
+URL: https://github.com/DenisHumen/ace-step-deck
+VERDICT: KEEP
+SCORE: 37
+STARS: 1
+
+WHAT:
+Desktop studio
+и operational shell
+для ACE-Step 1.5.
+
+Главная ценность
+не новый music model,
+а управление
+тяжёлым local inference.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -5778,7 +6026,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 27
+Cards: 30
 
 ### AraneaDev/ariadne
 
@@ -5896,6 +6144,75 @@ Tags: security, mcp, tools, permissions, bridge
 
 USE FOR LANCELOT:
 Reference architecture for a deterministic execution firewall. Возможная цель — собственный узкий policy gate перед опасными capabilities, а не прямое копирование всего продукта.
+
+---
+
+### BrokkAi/anvil
+
+URL: https://github.com/BrokkAi/anvil
+VERDICT: KEEP
+SCORE: 36
+STARS: 8
+
+WHAT:
+Portable Rust
+Agent Client Protocol server.
+
+Архитектурно Anvil
+отделяет **agent engine**
+от интерфейса.
+
+Runtime владеет:
+
+- model routing;
+- agent loop;
+- tools;
+- permissions;
+- sessions;
+- compaction;
+- sandbox strategy;
+- MCP.
+
+Client владеет UX:
+
+- editor;
+- TUI;
+- bot;
+- internal application.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### christiangrey922/multi-agent-workflow-lab
+
+URL: https://github.com/christiangrey922/multi-agent-workflow-lab
+VERDICT: KEEP
+SCORE: 38
+STARS: 86
+
+WHAT:
+Testing/evaluation framework
+для multi-agent workflows.
+
+Фокус не на финальном ответе,
+а на **поведении execution trace**.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -7034,6 +7351,62 @@ Tags: security, skills, mcp, inventory
 
 USE FOR LANCELOT:
 Потенциальный scheduled auditor для установленного agent supply chain: обнаруживать новые/изменившиеся skills и MCP servers и отправлять их на review. Не использовать как единственную security boundary и не запускать непроверенные MCP configs на основном host.
+
+---
+
+### SylphxAI/anymd
+
+URL: https://github.com/SylphxAI/anymd
+VERDICT: KEEP
+SCORE: 41
+STARS: 965
+
+WHAT:
+Local multi-format
+ingestion engine
+для AI agents.
+
+Конвертирует:
+
+- PDF;
+- Word;
+- PowerPoint;
+- Excel;
+- EPUB;
+- HTML/web;
+- images;
+- audio;
+- video
+
+в clean Markdown.
+
+Rust,
+MCP + CLI,
+без обязательного API key.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Benchmark против
+текущих наших extractors:
+
+1. PDF text;
+2. scanned PDF;
+3. DOCX;
+4. PPTX;
+5. XLSX;
+6. two-column paper;
+7. table-heavy report;
+8. audio transcript;
+9. video subtitles.
+
+Главное:
+качество + citation fidelity,
+не только скорость.
 
 ---
 
