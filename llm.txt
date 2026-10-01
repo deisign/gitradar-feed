@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-01T20:39:31
+Generated: 2026-10-01T22:51:41
 Date: 2026-10-01
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 262
+- Total curated cards: 274
 - Buckets: 20
 
 ## Bucket summary
@@ -19,20 +19,20 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Font Creation / Typography Tools: 15
 - Full-Song AI / Suno Alternatives: 11
 - Infographics / Visual Storytelling: 22
-- Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 39
-- Media / Social Monitoring: 6
+- Interactive Reports / Data Apps: 7
+- Lancelot / Agent Infrastructure: 43
+- Media / Social Monitoring: 8
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
-- Music Generation / AI Music: 5
+- Music Generation / AI Music: 6
 - n8n / Workflow Automation: 7
 - Newsroom / Data Journalism: 12
-- OSINT / Investigations: 9
+- OSINT / Investigations: 10
 - Publishing / Layout / PDF: 9
 - Radio / Audio Ops: 13
-- System Architecture / Engineering Patterns: 9
+- System Architecture / Engineering Patterns: 10
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 33
+- Video Production / Editing: 35
 
 ## Today's run
 
@@ -5443,113 +5443,52 @@ NEXT:
 URL: https://github.com/PhenX/Trazor
 VERDICT: KEEP
 SCORE: 35
-STARS: 34
+STARS: 53
 
 WHAT:
-Полностью browser-local raster-to-SVG studio.
-
-Поддерживает:
-
-- PNG;
-- JPEG;
-- WebP;
-- GIF;
-- BMP.
-
-Основной tracing engine реализует Potrace-class curve fitting
-clean-room способом и работает не только с monochrome,
-но и по цветовым слоям.
+Client-side raster-to-SVG engine с гораздо более серьёзной алгоритмической и evaluation частью, чем у обычных converter apps.
 
 Есть:
 
-- color tracing;
-- grayscale;
-- B&W;
-- centerline tracing;
-- Oklab palette quantization;
-- stacked/cutout layering;
-- seam-free shared boundaries;
+- tracing цветовых слоёв;
+- clean-room Potrace-class curve fitting;
+- seam-free shared boundaries в cutout mode;
+- centerline tracing для настоящих strokes;
+- palette quantization;
+- gradient detection;
 - smooth / polygon / pixel curve modes;
-- palette editing;
-- physical units;
-- SVG optimization;
-- machine-oriented profiles.
+- profiles для illustration, vinyl, laser и pen plotter;
+- детерминированный output.
 
-Отдельно интересен fidelity loop:
-
-`source raster`
-→ `trace`
-→ `SVG`
-→ `rerasterize`
-→ `Oklab ΔE comparison`
-
-UI показывает fidelity score и difference heatmap.
-
-Настройки можно экспортировать как versioned JSON.
-
-Ключевое свойство:
-
-`same image + same settings → byte-identical SVG`
-
-Дополнительные ML-функции работают локально через
-ONNX Runtime Web / WebGPU и не обязательны для основного tracer.
-
-Лицензия: MIT.
+Eval harness заново rasterizes полученный SVG и измеряет perceptual fidelity, node count и boundary errors, в том числе в A/B против VTracer.
 
 FIT:
-Это не просто GUI для ручной векторизации.
+Полезен как воспроизводимый graphics primitive:
 
-Он может стать нормальным deterministic primitive:
+raster asset
+→ versioned settings
+→ SVG
+→ rerasterized QA
+→ editable vector asset.
 
-`raster asset`
-→ `versioned recipe`
-→ `SVG`
-→ `measurable QA`
-
-То есть операция воспроизводима и пригодна для batch/agent pipelines.
-
-Полезно для:
-
-- логотипов;
-- иконок;
-- плоской графики;
-- старых raster assets;
-- подготовки editable SVG;
-- автоматической очистки визуальных исходников.
+Это пригодится для логотипов, иконок, line art, плоских иллюстраций и автоматической очистки исходников внутри Media Factory.
 
 PROJECT:
-- Media Factory
-- Vector Graphics
-- Infographics / Visual Storytelling
-- asset preprocessing
-- deterministic graphics pipeline
+Media Factory / Vector Graphics / Infographics.
+
+Asset preprocessing и reproducible graphics conversion.
 
 NEXT:
-Сделать benchmark:
+Сделать один benchmark set против VTracer и ручной очистки:
 
 1. логотип;
 2. плоская инфографика;
 3. маленькая raster icon;
 4. JPEG с артефактами;
-5. фотография.
+5. line drawing;
+6. иллюстрация с градиентами.
 
-На каждом сравнить:
-
-- Trazor;
-- VTracer;
-- Inkscape Trace Bitmap.
-
-Измерить:
-
-- визуальную ошибку;
-- path/node count;
-- размер SVG;
-- редактируемость;
-- время;
-- количество ручной доработки.
-
-Если Trazor выигрывает хотя бы на плоской графике и логотипах —
-закрепить как стандартный raster→SVG primitive.
+Сравнить fidelity, seams, node count и удобство дальнейшего редактирования.
 
 ---
 
@@ -6363,7 +6302,73 @@ NEXT:
 
 ## BUCKET: Interactive Reports / Data Apps
 
-Cards: 6
+Cards: 7
+
+### bobbycomet/Conky-Studio
+
+URL: https://github.com/bobbycomet/Conky-Studio
+VERDICT: KEEP
+SCORE: 32
+STARS: 10
+
+WHAT:
+Визуальная среда сборки Conky desktop HUD.
+
+Модель простая:
+
+Sources
+→ Logic
+→ Visuals
+→ generated Conky files.
+
+Есть:
+
+- node-based authoring;
+- live preview через настоящий Conky process;
+- multi-window / multi-monitor projects;
+- переносимые `.cstudio` packages;
+- 98+ встроенных nodes;
+- Theme Vault и Node Vault;
+- plugins;
+- импорт и пересборка существующих themes.
+
+На выходе обычные `conky.conf`, Lua и scripts — готовый HUD работает без Conky Studio.
+
+FIT:
+Потенциальный ambient operational layer для Circus.
+
+Вместо ещё одного dashboard-window несколько ключевых показателей всегда лежат на рабочем столе:
+
+- очередь media monitoring;
+- useful outputs сегодня;
+- GitRadar new/KEEP;
+- статус WSB;
+- системные метрики.
+
+Главный плюс — no runtime lock-in после компиляции темы.
+
+PROJECT:
+Desktop Ops / Ambient Dashboards.
+
+Рабочий HUD для Media Monitoring, GitRadar, WSB и состояния машины.
+
+NEXT:
+Поставить на Circus и собрать намеренно скучный operational HUD.
+
+Сначала только 4–8 метрик.
+
+Проверить:
+
+- refresh;
+- custom scripts как data sources;
+- multi-monitor placement;
+- CPU/RAM overhead;
+- persistence после reboot;
+- Wayland/X11 на фактическом desktop.
+
+Декоративные возможности трогать только после этого.
+
+---
 
 ### observablehq/framework
 
@@ -6540,7 +6545,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 39
+Cards: 43
 
 ### alphaXiv/OpenResearch
 
@@ -7132,6 +7137,150 @@ Tags: - sandboxing
 
 ---
 
+### coreyhaines31/marketingskills
+
+URL: https://github.com/coreyhaines31/marketingskills
+VERDICT: KEEP
+SCORE: 46
+STARS: 52138
+
+WHAT:
+Большая библиотека Agent Skills для marketing, research, CRO, SEO, copy, analytics, PR и growth-задач.
+
+Но главный интерес — не сами маркетинговые инструкции, а архитектура:
+
+общий persistent context
+→ узкий skill
+→ lazy-loaded references
+→ отдельный tool layer
+→ действие
+→ evals.
+
+Хорошие решения:
+
+- каноническая структура `.agents/skills/`;
+- небольшие специализированные `SKILL.md`;
+- подробности вынесены в references;
+- общий product context читается разными skills;
+- явный routing и handoffs;
+- tool registry отделён от предметных знаний;
+- версии;
+- большой набор evals.
+
+Особенно полезны PR и customer-research части.
+
+FIT:
+Это reference architecture для наших собственных domain expertise систем.
+
+Что стоит украсть:
+
+- контекст записывается один раз и переиспользуется;
+- skills должны быть узкими;
+- детали загружаются только когда нужны;
+- знания и инструменты не смешиваются;
+- переходы между skills явные;
+- поведение проверяется evals.
+
+Для Media Relations особенно хорошо ложится цепочка:
+
+публикации по теме
+→ нужный журналист
+→ его последние материалы
+→ data/story angle
+→ короткий pitch draft
+→ human edit
+→ send
+→ история отношений в CRM.
+
+PROJECT:
+Lancelot / Skills Architecture.
+
+Media Relations machine.
+
+Донор организации research/PR/Media Factory skills.
+
+NEXT:
+Не устанавливать все skills.
+
+Собрать собственный первый слой:
+
+- `media-relations.md`;
+- `media-signal`;
+- `data-story`;
+- `journalist-research`;
+- `media-pitch`;
+- `media-followup`;
+- `interview-prep`.
+
+Заимствовать routing, references, разделение tools/knowledge и evals, но заменить SaaS/growth-онтологию нашей.
+
+---
+
+### Drakonis96/nodus
+
+URL: https://github.com/Drakonis96/nodus
+VERDICT: KEEP
+SCORE: 44
+STARS: 271
+
+WHAT:
+Local-first research workspace, который связывает источники, evidence, notes и структурированные исследовательские объекты.
+
+Есть:
+
+- общая research library;
+- PDF / EPUB / web / notes;
+- Zotero integration;
+- citations с переходом к исходной странице;
+- semantic search;
+- themes, ideas и knowledge graph;
+- typed databases с relations, formulas и views;
+- research vaults;
+- Skill Marketplace и GitHub skill sources;
+- несколько cloud/local model providers.
+
+Выбранные представления vault можно публиковать через собственный OAuth-защищённый MCP server.
+
+FIT:
+Потенциально это research cockpit, а не ещё один note-taking app.
+
+Интересная цепочка:
+
+source corpus
+→ evidence
+→ entities / structured data
+→ relations
+→ claims / contradictions / gaps
+→ analysis
+→ citations
+→ фильтрованный MCP-доступ другим агентам.
+
+Это очень близко к тому, что нужно World-System Brief и System Ledger.
+
+PROJECT:
+Research Infrastructure.
+
+World-System Brief / System Ledger.
+
+Lancelot knowledge and evidence layer.
+
+NEXT:
+Поставить на Circus, но импортировать только копию тестового корпуса.
+
+Прогнать один реальный research case:
+
+Zotero
+→ import
+→ evidence extraction
+→ graph / structured DB
+→ citation
+→ Deep Research
+→ filtered MCP exposure.
+
+До переноса уникальных материалов отдельно проверить backup/export и устойчивость формата.
+
+---
+
 ### ducks/claux
 
 URL: https://github.com/ducks/claux
@@ -7215,6 +7364,63 @@ Tags: security, mcp, observability
 
 USE FOR LANCELOT:
 Заимствовать execution-gate модель: ни один чувствительный tool/Bridge call не исполняется до PASS/AUTH/BLOCK решения; неизвестность должна приводить к approval/deny, а не к pass.
+
+---
+
+### garrytan/gstack
+
+URL: https://github.com/garrytan/gstack
+VERDICT: KEEP
+SCORE: 45
+STARS: 134690
+
+WHAT:
+Opinionated operating stack для Claude Code, разложенный по явным профессиональным ролям и процедурам.
+
+В наборе есть инструменты, которые работают в режимах:
+
+- CEO / product lead;
+- designer;
+- engineering manager;
+- QA;
+- release manager;
+- documentation engineer;
+- других lifecycle-ролей.
+
+Интересен не конкретный prompt, а сама модель: разные типы работы получают разные процедуры, критерии и gates.
+
+FIT:
+Полезный orchestration reference для Lancelot и Media Factory.
+
+Возможная переносимая структура:
+
+problem framing
+→ product/design decision
+→ implementation
+→ review
+→ QA
+→ release
+→ documentation.
+
+Помогает понять, где действительно нужны разные agent roles, а где достаточно одного skill с разными режимами.
+
+PROJECT:
+Lancelot / Agent Operating Model.
+
+Reference для role taxonomy, handoffs, QA и release procedures.
+
+NEXT:
+Сопоставить 23 tools с нашими существующими lanes.
+
+Вытащить только:
+
+- полезные границы ролей;
+- handoff contracts;
+- QA gates;
+- release checks;
+- documentation procedures.
+
+Сравнить с нашей stage/registry архитектурой и не плодить отдельные роли там, где хватит параметризованного skill.
 
 ---
 
@@ -7373,6 +7579,80 @@ Tags: mcp, security
 
 USE FOR LANCELOT:
 Взять deny/allow/review policy boundary перед MCP, Skills и Camelot Bridge. Добавить проверку prompt/tool injection и сохранять структурированный receipt каждого разрешённого или заблокированного опасного действия.
+
+---
+
+### HQBase/hqbase
+
+URL: https://github.com/HQBase/hqbase
+VERDICT: KEEP
+SCORE: 45
+STARS: 333
+
+WHAT:
+Shared team email workspace, который разворачивается в собственном Cloudflare account.
+
+Использует Cloudflare primitives:
+
+- Workers;
+- D1;
+- R2;
+- Durable Objects;
+- Queues;
+- Email.
+
+OAuth-защищённый remote MCP умеет:
+
+- видеть доступные mailboxes;
+- искать и читать письма;
+- открывать threads;
+- получать attachments;
+- менять labels и message state;
+- создавать и версионировать drafts;
+- прикреплять файлы;
+- send;
+- reply;
+- forward.
+
+Права разделены по scopes/mailboxes, изменения audit’ятся.
+
+FIT:
+Очень близко к недостающему email execution layer нашей Media Relations machine.
+
+Возможный workflow:
+
+journalist research
+→ pitch draft
+→ draft в HQBase
+→ human edit
+→ send
+→ входящий reply
+→ агент читает thread
+→ follow-up / CRM update.
+
+Особенно ценны versioned drafts, mailbox permissions, idempotent send и audit history.
+
+PROJECT:
+Media Relations / PR outreach infrastructure.
+
+Lancelot / Agent Infrastructure.
+
+Мост между domain skills и реальной отправкой почты.
+
+NEXT:
+Развернуть на одноразовом тестовом domain/mailbox в Cloudflare.
+
+Пройти полный цикл:
+
+agent draft
+→ human edit
+→ send
+→ внешний reply
+→ чтение thread через MCP
+→ follow-up
+→ событие в CRM.
+
+Проверить Email Routing, attachments, audit, permissions и recovery до production.
 
 ---
 
@@ -8645,7 +8925,7 @@ NEXT:
 
 ## BUCKET: Media / Social Monitoring
 
-Cards: 6
+Cards: 8
 
 ### 0xzerolight/topic_watch
 
@@ -8671,6 +8951,148 @@ Media Monitoring / OSINT Signal как novelty и event-state layer поверх
 
 NEXT:
 Проверить модель knowledge state на нашем потоке публикаций и определить, насколько хорошо она разделяет новое событие, развитие события и обычную перепечатку.
+
+---
+
+### getopenpost/openpost
+
+URL: https://github.com/getopenpost/openpost
+VERDICT: KEEP
+SCORE: 45
+STARS: 639
+
+WHAT:
+End-to-end self-hosted система производства и публикации social content.
+
+Заявленный контур:
+
+идея
+→ draft
+→ варианты под каналы
+→ image / carousel / video
+→ schedule
+→ publish
+→ inbox
+→ analytics.
+
+Внутри есть:
+
+- image editor;
+- video timeline;
+- captions;
+- screen/camera/mic recording;
+- workflows от RSS, GitHub и scheduler;
+- AI / HTTP / JavaScript steps;
+- human review;
+- API;
+- TypeScript SDK;
+- CLI;
+- MCP;
+- n8n integration.
+
+Agent CLI уже моделирует lifecycle публикации и придерживается draft-first safety.
+
+FIT:
+Может закрыть большой кусок Media Factory после появления самого контента.
+
+Главное отличие от Postiz — попытка владеть не только distribution, но и production surface:
+
+создать asset
+→ адаптировать
+→ проверить
+→ опубликовать
+→ увидеть реальный state
+→ retry / analytics.
+
+Поэтому это отдельный кандидат, а не дубль Postiz.
+
+PROJECT:
+Media Factory / Social Publishing / Content Production.
+
+Отдельный кандидат рядом с Postiz.
+
+NEXT:
+Поднять тестовый self-hosted instance.
+
+Подключить:
+
+- Telegram;
+- одну массовую соцсеть.
+
+Пройти через UI и CLI/MCP:
+
+1. draft;
+2. создание/редактирование media;
+3. schedule;
+4. lifecycle state;
+5. искусственный failure;
+6. retry;
+7. analytics.
+
+После этого сравнить напрямую с Postiz.
+
+---
+
+### gitroomhq/postiz-app
+
+URL: https://github.com/gitroomhq/postiz-app
+VERDICT: KEEP
+SCORE: 43
+STARS: 36593
+
+WHAT:
+Self-hosted платформа управления и публикации в соцсетях.
+
+Есть:
+
+- multi-network scheduling и cross-posting;
+- calendar workflows;
+- analytics;
+- team collaboration;
+- RSS/automation;
+- public API;
+- Node SDK;
+- n8n и Make integrations;
+- MCP / CLI / agent-facing surfaces;
+- собственное развёртывание с полным исходным кодом.
+
+Open-source edition не урезана искусственно по core-функциям, но инфраструктуру, social-provider credentials и approvals оператор обеспечивает сам.
+
+FIT:
+Кандидат на publishing execution layer для Media Factory.
+
+Полезная граница:
+
+готовый контент
+→ адаптация под каналы
+→ approval
+→ schedule
+→ publish
+→ analytics
+→ feedback в следующий production cycle.
+
+В отличие от маленьких scheduler’ов, это уже зрелая automation platform с несколькими agent/integration входами.
+
+PROJECT:
+Media Factory / Social Publishing.
+
+Также campaign automation и distribution workflows, где нужен нормальный API, а не browser clicking.
+
+NEXT:
+Сделать прямой differential test с OpenPost.
+
+Сравнить:
+
+1. надёжность публикации;
+2. Telegram и приоритетные сети;
+3. API/MCP ergonomics;
+4. approval workflow;
+5. analytics;
+6. automation;
+7. тяжесть инфраструктуры;
+8. burden от developer-app approvals.
+
+Не держать обе системы постоянно, пока не станет ясно, кто что закрывает лучше.
 
 ---
 
@@ -9330,7 +9752,66 @@ NEXT:
 
 ## BUCKET: Music Generation / AI Music
 
-Cards: 5
+Cards: 6
+
+### lorediggia/harmony
+
+URL: https://github.com/lorediggia/harmony
+VERDICT: KEEP
+SCORE: 31
+STARS: 51
+
+WHAT:
+Маленький native Rust harmony explorer для piano и guitar.
+
+Объединяет:
+
+- 23 scales/modes;
+- функциональные ступени;
+- Roman numeral chords;
+- circle of fifths;
+- triads и расширения до 13th;
+- sus/add structures;
+- power chords;
+- quartal harmony;
+- clusters;
+- playable 88-key piano;
+- генерацию guitar voicings.
+
+Для распространённых аккордов есть готовые guitar shapes, для остальных запускается алгоритмический поиск позиций с ограничениями по fret span и играбельности.
+
+FIT:
+Это не AI music generator, а быстрый composition sketchpad.
+
+Рабочий цикл:
+
+tonic / mode
+→ degree
+→ chord structure
+→ услышать на piano
+→ посмотреть guitar voicings
+→ принять музыкальное решение.
+
+Особенно удобен для modal, extended и quartal harmony: теория превращается в кликабельное и сразу слышимое пространство.
+
+PROJECT:
+Bloom / Composition Tools / Music Theory.
+
+Маленькая утилита перед DAW, а не замена DAW.
+
+NEXT:
+Поставить AppImage и использовать в настоящей composition session.
+
+Попробовать:
+
+- modal progressions;
+- quartal structures;
+- add/extended chords;
+- guitar voicing search.
+
+Зафиксировать, где реально начинает не хватать MIDI, progression editing и voice-leading optimization.
+
+---
 
 ### huggingface/diffusers
 
@@ -9941,7 +10422,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 9
+Cards: 10
 
 ### badchars/satellite-mcp
 
@@ -10125,6 +10606,66 @@ NEXT:
 
 Полный fork/deployment не делать до отдельной проверки
 Sustainable Use licence.
+
+---
+
+### kaifcodec/user-scanner
+
+URL: https://github.com/kaifcodec/user-scanner
+VERDICT: KEEP
+SCORE: 44
+STARS: 5090
+
+WHAT:
+OSINT-набор для поиска по email и username с очень широким каталогом площадок.
+
+На момент проверки заявлены:
+
+- 210+ проверок по email;
+- 2510+ площадок для username;
+- извлечение аватаров, bio, UID, счётчиков и других публичных метаданных;
+- cross-scan: найденные username, ссылки и публичные email становятся новыми точками поиска;
+- генерация вариантов и алиасов;
+- проверка Hudson Rock по данным об infostealer-компрометациях;
+- прокси и предварительная проверка прокси;
+- экспорт PDF / JSON / CSV;
+- собственный MCP server.
+
+Через MCP агент может запускать поиск по username/email и узнавать доступные модули, то есть это не только CLI, а готовый исполняющий примитив для OSINT-пайплайна.
+
+FIT:
+Полезен как широкий первый слой identity enrichment.
+
+Нормальная схема использования здесь такая:
+
+исходный идентификатор
+→ регистрационные следы
+→ публичные handles / links / emails
+→ вторичные пивоты
+→ структурированный результат
+→ проверка сильных находок более узкими инструментами.
+
+Главная ценность не в цифре «2500 сайтов», а в сочетании cross-scan и машинного MCP-интерфейса.
+
+PROJECT:
+OSINT / Investigations.
+
+Кандидат на универсальный первичный слой поиска цифрового следа по username и email.
+
+NEXT:
+Прогнать контролируемый benchmark только на собственных/тестовых идентичностях.
+
+Проверить:
+
+1. false positives;
+2. мёртвые и устаревшие модули;
+3. сохраняется ли URL/основание каждого результата;
+4. качество cross-scan;
+5. уровень шума регистрационных проверок;
+6. структуру и права MCP;
+7. поведение rate limits и proxy layer.
+
+После этого отделить высоконадёжные модули от эвристических.
 
 ---
 
@@ -10374,99 +10915,71 @@ Cards: 9
 URL: https://github.com/K-Arthur/varve
 VERDICT: KEEP
 SCORE: 35
-STARS: 9
+STARS: 25
 
 WHAT:
-Local-first desktop design application для:
+Local-first cross-platform design suite, пытающийся объединить несколько классов профессиональных инструментов.
 
-- vector editing;
+В public beta уже заявлены:
+
+- vector paths и node editing;
 - multi-page layout;
-- typography;
-- motion;
-- prototyping;
-- print production.
-
-Поддерживаются:
-
-- Bézier/node editing;
+- typography и OpenType features;
+- variable fonts;
 - reusable components;
-- paragraph/character styles;
-- OpenType и variable fonts;
-- text-on-path;
-- timeline/keyframes/easing;
-- CMYK через ICC;
+- motion timeline;
+- CMYK и ICC profiles;
 - PDF/X;
-- bleed/crop/registration marks;
+- bleed, crop и registration marks;
 - raster-to-vector;
-- background removal;
 - local image processing;
-- SVG и другие export formats.
+- code export в несколько UI frameworks.
 
-Есть native desktop builds для Linux, macOS и Windows.
-
-Архитектура:
-
-`editor / scene`
-→ `engine abstraction`
-→ `shared Rust engine`
-→ `render IR`
-→ `Canvas2D / WebGPU`
-
-Часть engine crates опубликована под MIT OR Apache-2.0.
-
-Основное приложение использует FSL-1.1-MIT:
-код открыт для использования и модификации,
-но лицензия ограничивает коммерчески конкурирующее использование.
-Каждый релиз через два года переходит в MIT.
-
-Статус: public beta.
+Архитектурно это desktop/web UI поверх общих Rust/WASM document и rendering layers.
 
 FIT:
 Интересен сразу в двух ролях.
 
-Первая — практический Linux design tool,
-который пытается закрыть сразу:
+Практический candidate:
 
-- vector graphics;
-- editorial layout;
-- typography;
-- print;
-- motion.
+vector
++ page layout
++ typography
++ print production
++ motion
 
-Вторая — architecture donor.
+в одном local-first приложении с Linux build.
 
-Особенно хороша граница:
+Architecture donor:
 
-`document model → computation engine → render IR → renderer`
+document model
+→ computation / geometry
+→ render IR
+→ renderer
 
-Это позволяет не смешивать состояние документа,
-геометрию и UI canvas в один слой.
+с native и WASM execution paths.
 
 PROJECT:
-- Media Factory
-- Publishing / Layout / PDF
-- Vector Graphics
-- Typography
-- Motion Graphics
-- Print production
+Media Factory / Publishing / Print / Vector Graphics.
+
+Потенциальный creative workstation tool для Bloom и других вещей, где нужны вектор, типографика и print-ready output.
 
 NEXT:
-Провести desktop smoke-test на Linux.
+Сделать Linux smoke-test на копиях файлов.
 
-Проверить отдельно:
+Отдельно проверить:
 
-1. vector drawing и node editing;
+1. vector/node editing;
 2. typography;
 3. multi-page layout;
 4. SVG import/export;
-5. PDF/X export;
+5. PDF/X;
 6. CMYK/ICC;
 7. raster-to-vector;
 8. motion timeline;
-9. стабильность `.varve` documents.
+9. code generation.
 
-Не завязывать production workflow на формат проекта,
-пока upstream сам предупреждает о возможных breaking changes.
+Не хранить работу только в одном beta project file.
 
 ---
 
@@ -11337,7 +11850,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 9
+Cards: 10
 
 ### Duragraph/duragraph
 
@@ -11813,6 +12326,68 @@ Evaluator:
 
 ---
 
+### klipitkas/tunnl.gg
+
+URL: https://github.com/klipitkas/tunnl.gg
+VERDICT: KEEP
+SCORE: 39
+STARS: 625
+
+WHAT:
+Минималистичный reverse-tunneling service поверх обычного SSH remote forwarding.
+
+Клиентский сценарий буквально такой:
+
+`ssh -t -R 80:localhost:8080 proxy.tunnl.gg`
+
+Есть:
+
+- временные человекочитаемые subdomains;
+- стабильный URL, привязанный к SSH key;
+- HTTPS через wildcard certificate;
+- WebSocket support;
+- живой request log в терминале;
+- rate limits и ограничения соединений;
+- временные IP-блокировки за abuse;
+- phishing-warning interstitial;
+- metrics endpoint;
+- Docker Compose deployment.
+
+Сервер — небольшой Go-код, а не тяжёлая туннельная платформа.
+
+FIT:
+Интересен как маленький инфраструктурный примитив для временной публикации наружу:
+
+- локальных agent UI;
+- webhook receivers;
+- dev API;
+- MCP-adjacent HTTP services;
+- preview builds.
+
+Хорошая идея здесь — SSH одновременно является транспортом и клиентским UX, а публичный HTTP-layer занимается routing, TLS и abuse protection.
+
+PROJECT:
+Lancelot / Agent Infrastructure / Dev Tunnels.
+
+Заодно компактный reference implementation reverse-proxy/tunnel сервиса.
+
+NEXT:
+Развернуть только на отдельном тестовом VPS.
+
+Проверить:
+
+1. HTTP и WebSocket;
+2. стабильные URL по SSH key;
+3. wildcard TLS renewal;
+4. abuse/rate controls;
+5. client IP за Cloudflare;
+6. auth boundaries;
+7. последствия того, что сервис владеет 22/80/443.
+
+Сравнить с Cloudflare Tunnel и Tailscale Funnel на наших реальных сценариях.
+
+---
+
 ### Nighty3098/tsession
 
 URL: https://github.com/Nighty3098/tsession
@@ -12181,7 +12756,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 33
+Cards: 35
 
 ### 0xsline/OpenChatCut
 
@@ -13126,6 +13701,57 @@ NEXT:
 
 ---
 
+### remotion-dev/remotion
+
+URL: https://github.com/remotion-dev/remotion
+VERDICT: KEEP
+SCORE: 44
+STARS: 61406
+
+WHAT:
+Фреймворк программируемого видео на React.
+
+Вместо ручной работы в timeline ролик можно описывать кодом:
+
+data / script
+→ React composition
+→ детерминированные frames
+→ render.
+
+Вокруг этого есть preview/studio tooling, rendering infrastructure и набор пакетов для data-driven и generated video systems.
+
+FIT:
+Базовый примитив для agent-driven video production.
+
+Особенно силён там, где результат должен быть:
+
+- воспроизводимым;
+- параметризуемым;
+- data-driven;
+- шаблонизируемым;
+- пригодным для batch generation;
+- редактируемым через код.
+
+Для нас важнее как rendering substrate и architecture donor, чем как ещё один видеоредактор.
+
+PROJECT:
+Media Factory / Clip Machine / Programmatic Video.
+
+Новые video-editor проекты имеет смысл сравнивать в том числе по тому, насколько хорошо они абстрагируют или расширяют этот слой.
+
+NEXT:
+Разобрать актуальный agent/skill workflow Remotion и ещё раз проверить лицензию под наши сценарии.
+
+Затем сравнить на одном повторяемом vertical-video template:
+
+чистый Remotion composition
+vs
+OpenChatCut abstraction.
+
+Измерить authoring effort, determinism, render speed и удобство агентного редактирования.
+
+---
+
 ### Reubencfernandes/Open-Video-Craft
 
 URL: https://github.com/Reubencfernandes/Open-Video-Craft
@@ -13304,6 +13930,69 @@ NEXT:
 Разобрать manifest/timeline/provider contracts и сравнить с Vibe Video, OpenMontage и Clip Machine.
 
 Отдельно проверить, насколько легко заменить placeholder media на наш controlled asset pipeline.
+
+---
+
+### webadderallorg/Recordly
+
+URL: https://github.com/webadderallorg/Recordly
+VERDICT: KEEP
+SCORE: 43
+STARS: 32110
+
+WHAT:
+Кроссплатформенный screen recorder и editor, заточенный под аккуратные product demos и walkthrough.
+
+В одном приложении есть:
+
+- запись экрана или отдельного окна;
+- microphone и system audio;
+- автоматические zoom suggestions по движению курсора;
+- сглаживание и эффекты курсора;
+- фоны, рамки, blur, padding и shadows;
+- webcam bubble;
+- timeline с trim;
+- speed regions;
+- annotations;
+- дополнительные audio regions;
+- crop;
+- сохраняемые `.recordly`-проекты;
+- экспорт MP4 и GIF;
+- extension marketplace.
+
+По типу задачи это скорее открытая альтернатива Screen Studio, чем просто программа записи экрана.
+
+FIT:
+Нужен там, где демонстрацию интерфейса хочется сразу довести до публикабельного состояния, не перегоняя её в большой видеоредактор.
+
+Возможный lane Media Factory:
+
+screen capture
+→ auto motion polish
+→ ручная коррекция timeline
+→ branded frame
+→ MP4/GIF
+→ публикация.
+
+Особенно интересен на Linux, где Screen Studio-подобных инструментов заметно меньше.
+
+PROJECT:
+Media Factory / Screen Recording / Demo Video.
+
+Демо продуктов, tutorials, walkthrough и аккуратные записи интерфейса.
+
+NEXT:
+Поставить Linux build и сделать один настоящий walkthrough.
+
+Сравнить с текущей связкой screen recording + ffmpeg по:
+
+- качеству auto-zoom;
+- cursor smoothing;
+- скорости редактирования;
+- работе со звуком;
+- качеству export;
+- повторному открытию проекта;
+- Linux-specific ограничениям.
 
 ---
 
