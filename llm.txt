@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-01T08:23:04
+Generated: 2026-10-01T20:39:31
 Date: 2026-10-01
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,19 +8,19 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 255
+- Total curated cards: 262
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 23
+- Agent Security / Governance: 24
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 27
+- Design Systems / Visual QA: 28
 - Font Creation / Typography Tools: 15
-- Full-Song AI / Suno Alternatives: 10
+- Full-Song AI / Suno Alternatives: 11
 - Infographics / Visual Storytelling: 22
 - Interactive Reports / Data Apps: 6
-- Lancelot / Agent Infrastructure: 36
+- Lancelot / Agent Infrastructure: 39
 - Media / Social Monitoring: 6
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
@@ -32,7 +32,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Radio / Audio Ops: 13
 - System Architecture / Engineering Patterns: 9
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 32
+- Video Production / Editing: 33
 
 ## Today's run
 
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 23
+Cards: 24
 
 ### affaan-m/agentshield
 
@@ -1364,6 +1364,62 @@ host-side credential brokering
 
 ---
 
+### kurtpayne/skillscan-security
+
+URL: https://github.com/kurtpayne/skillscan-security
+VERDICT: KEEP
+SCORE: 31
+STARS: 8
+
+WHAT:
+Retired AI-skill and MCP static scanner.
+
+Historically it performed deterministic rules, archive/binary checks, IOC matching, dependency checks, prompt-injection detection and optional local semantic/ML scanning.
+
+Its present value is the retirement conclusion, not the scanner itself.
+
+FIT:
+Important negative evidence for our security architecture.
+
+Core rule:
+
+`STATIC_SCANNER = PREFILTER`
+
+not
+
+`STATIC_SCANNER = SECURITY BOUNDARY`
+
+Contracts:
+
+`STATIC_SCANNER_PREFILTER_BOUNDARY_CONTRACT`
+
+`SECURITY_GATE_EVIDENCE_HIERARCHY_CONTRACT`
+
+This supports the architecture we are already converging on:
+
+cheap deterministic scan
+→ deeper semantic review
+→ isolated verification/reproduction
+→ human/admission decision.
+
+PROJECT:
+Lancelot / Security Bakeoff.
+
+Historical fixture and benchmark input only.
+
+NEXT:
+Do not install as a production gate.
+
+Keep the corpus and retirement rationale as evidence in scanner bakeoff.
+
+Radar also needs a future scoring fix:
+
+archived / RETIRED / DEPRECATED
+→ severe adoption penalty
+→ historical/reference routing.
+
+---
+
 ### ljchang/mecha
 
 URL: https://github.com/ljchang/mecha
@@ -2124,7 +2180,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 27
+Cards: 28
 
 ### AnxForever/stylekit
 
@@ -3548,6 +3604,83 @@ NEXT:
 
 ---
 
+### yuvrajangadsingh/brandmd
+
+URL: https://github.com/yuvrajangadsingh/brandmd
+VERDICT: KEEP
+SCORE: 46
+STARS: 65
+
+WHAT:
+Website-to-design-system compiler.
+
+Pipeline:
+
+live page
+→ controlled browser capture
+→ raw visual evidence
+→ block/evidence gate
+→ semantic analysis
+→ canonical DESIGN.md
+→ JSON / CSS / Tailwind / HTML / Agent Skill projections
+→ lint / semantic drift check.
+
+The important distinction is that observed page data is evidence, not automatically trusted design truth.
+
+FIT:
+One of the strongest current Design Agency donors.
+
+Contracts:
+
+`EVIDENCE_SUFFICIENCY_GATE_CONTRACT`
+
+`ARTIFACT_GATE_OUTCOME_CONTRACT`
+
+`REPRODUCIBLE_VISUAL_CAPTURE_CONTRACT`
+
+`MULTI_SOURCE_STYLE_EVIDENCE_WEIGHTING_CONTRACT`
+
+`DESIGN_TOKEN_EVIDENCE_LADDER_CONTRACT`
+
+`CANONICAL_DESIGN_SPEC_CONTRACT`
+
+`DESIGN_SPEC_PROJECTION_CONTRACT`
+
+`SEMANTIC_DESIGN_DRIFT_CONTRACT`
+
+`CONFIDENCE_BOUNDED_QUALITY_GATE_CONTRACT`
+
+`MULTI_ARTIFACT_ATOMIC_COMMIT_CONTRACT`
+
+`PRIVACY_ESCALATING_VISUAL_ANALYSIS_CONTRACT`
+
+Our upgrades:
+
+`VISUAL_REFERENCE_NETWORK_BOUNDARY_CONTRACT`
+
+`DESIGN_SOURCE_AUTHORITY_CONTRACT`.
+
+PROJECT:
+Media Factory / Design Agency.
+
+Inspo finds useful references.
+brandmd extracts what is actually observable in them.
+Our synthesis layer decides what should enter DESIGN_STYLE_PACK.
+
+NEXT:
+Run security admission, especially outbound/redirect/private-network behavior.
+
+Then bakeoff against several real sites with:
+
+- official design source available;
+- simple marketing site;
+- multi-page brand;
+- blocked/login site.
+
+Compare observed DESIGN.md against known canonical tokens.
+
+---
+
 ### adobe/spectrum-design-data
 
 URL: https://github.com/adobe/spectrum-design-data
@@ -4137,7 +4270,7 @@ NEXT:
 
 ## BUCKET: Full-Song AI / Suno Alternatives
 
-Cards: 10
+Cards: 11
 
 ### ace-step/ACE-Step-1.5
 
@@ -4248,6 +4381,64 @@ Full-Song AI / Suno Alternatives · benchmark/reference.
 
 NEXT:
 Не разворачивать первым. Использовать как quality/reference benchmark; отдельно проверить облегчённые YuE runtimes/UI для 24 GB и меньшего VRAM.
+
+---
+
+### RevolutionLA/awesome-YuE
+
+URL: https://github.com/RevolutionLA/awesome-YuE
+VERDICT: KEEP
+SCORE: 32
+STARS: 10
+
+WHAT:
+Curated map of the YuE / YuE2 music-generation ecosystem.
+
+Contains 70+ projects across:
+
+- official models/resources;
+- desktop and web UIs;
+- quantization and acceleration;
+- Mac/MLX and other local ports;
+- ComfyUI;
+- music production tooling;
+- cloud serving;
+- tutorials and best practices.
+
+The list has explicit inclusion/exclusion criteria and quarterly link maintenance.
+
+FIT:
+Its value is discovery.
+
+Contract:
+
+`ECOSYSTEM_FEEDER_CONTRACT`
+
+`CURATED_ECOSYSTEM_SOURCE_CONTRACT`
+
+Instead of treating an awesome list as one adoption candidate:
+
+ecosystem feeder
+→ extract candidate repos
+→ GitRadar review
+→ individual license/security/architecture decision.
+
+PROJECT:
+GitRadar / Music Radar.
+
+Already points to our kept YuE2-Studio and surfaces additional candidates such as:
+
+YuE2-Music-Workbench,
+YuE2-Turbo,
+yue2.cpp,
+Maestro.
+
+NEXT:
+Register conceptually as a feeder.
+
+Do not auto-promote entries.
+
+Periodically diff the curated list and send previously unseen repositories through normal GitRadar scoring/review.
 
 ---
 
@@ -6349,7 +6540,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 36
+Cards: 39
 
 ### alphaXiv/OpenResearch
 
@@ -6941,6 +7132,63 @@ Tags: - sandboxing
 
 ---
 
+### ducks/claux
+
+URL: https://github.com/ducks/claux
+VERDICT: KEEP
+SCORE: 45
+STARS: 19
+
+WHAT:
+Rust terminal agent harness with multi-provider models, tools, permissions, subagents, sessions, background jobs and evaluations.
+
+The useful part is its runtime invariants, not the TUI.
+
+Subagents inherit parent authority.
+Noninteractive operations that would require a user prompt are denied instead of auto-approved.
+Tool cancellation produces explicit interrupted results.
+
+FIT:
+Strong runtime donor.
+
+Contracts:
+
+`SUBAGENT_AUTHORITY_INHERITANCE_CONTRACT`
+
+`NONINTERACTIVE_PERMISSION_DENY_CONTRACT`
+
+`HUMAN_EDIT_PRESERVING_UNDO_CONTRACT`
+
+`INTERRUPT_SAFE_TOOL_TRACE_CONTRACT`
+
+`CREDENTIAL_FREE_SESSION_SNAPSHOT_CONTRACT`
+
+`SESSION_SAVE_RECOVERY_CONTRACT`
+
+`BACKGROUND_JOB_AUTHORITY_CONTINUITY_CONTRACT`
+
+`TASK_PRESERVING_COMPACTION_CONTRACT`
+
+`MACHINE_READABLE_AGENT_OUTCOME_CONTRACT`
+
+`RELEASE_DIGEST_PINNING_CONTRACT`
+
+Its turn undo checks the complete expected post-turn filesystem state before restoring anything and rechecks immediately before each write.
+
+PROJECT:
+Lancelot / Agent Runtime.
+
+Especially relevant to subagent delegation, turn checkpoints, recovery and supervisor-facing outcome schemas.
+
+NEXT:
+Reference, not dependency yet.
+
+Compare its permission/checkpoint semantics directly with our SharpClaw/Lancelot authorization contracts.
+
+Potentially adopt the checkpoint algorithm independently of the rest of the runtime.
+
+---
+
 ### fu351/Doberman-Core
 
 URL: https://github.com/fu351/Doberman-Core
@@ -7446,6 +7694,51 @@ USE FOR LANCELOT:
 
 ---
 
+### mithraeums/hako-code
+
+URL: https://github.com/mithraeums/hako-code
+VERDICT: KEEP
+SCORE: 34
+STARS: 12
+
+WHAT:
+Standalone terminal agent implemented primarily as one C99 file.
+
+Supports local models plus multiple cloud providers, tool calls, skills, sessions, MCP and project context without a large runtime stack.
+
+An untrusted project gets no tool access until an explicit project trust sentinel is created.
+
+FIT:
+Useful reference because the runtime surface is unusually compact and auditable.
+
+Contracts:
+
+`MINIMAL_AGENT_RUNTIME_CONTRACT`
+
+`PROJECT_TRUST_SENTINEL_CONTRACT`
+
+`PER_CALL_TOOL_APPROVAL_CONTRACT`
+
+`ON_DEMAND_SKILL_CONTEXT_CONTRACT`
+
+`PROVIDER_NEUTRAL_AGENT_CORE_CONTRACT`
+
+The interesting question is how little machinery an operational coding agent actually needs.
+
+PROJECT:
+Lancelot / Minimal Runtime Reference.
+
+Useful as a counterweight to heavyweight control planes such as Ax.
+
+NEXT:
+Reference only.
+
+Do not inherit credential storage design.
+
+Compare minimal attack surface, tool gate and skill loading with our larger runtime architecture.
+
+---
+
 ### msitarzewski/agency-agents
 
 URL: https://github.com/msitarzewski/agency-agents
@@ -7804,6 +8097,63 @@ specialized/native connector
 → generic browser/scraping.
 
 Outputs нормализовать отдельным adapter layer.
+
+---
+
+### Parad0x-Labs/vool
+
+URL: https://github.com/Parad0x-Labs/vool
+VERDICT: KEEP
+SCORE: 43
+STARS: 15
+
+WHAT:
+Local-first personal agent runtime with models, tools, workspaces, memory, permissions and signed execution receipts.
+
+Its strongest feature is not the assistant UI but the distinction between:
+
+what the model claims happened
+and
+what the runtime actually recorded as executed.
+
+FIT:
+Strong evidence/audit donor.
+
+Contracts:
+
+`TAMPER_EVIDENT_AGENT_ACTION_RECEIPT_CONTRACT`
+
+`CLAIM_EXECUTION_BINDING_CONTRACT`
+
+`SIGNED_EXECUTION_LEDGER_CONTRACT`
+
+`EVIDENCE_INTEGRITY_TRUTH_BOUNDARY_CONTRACT`
+
+`RECEIPT_CHAIN_COMPLETENESS_BOUNDARY_CONTRACT`
+
+`WORKSPACE_CAPABILITY_BOUNDARY_CONTRACT`
+
+`GOVERNED_MEMORY_ERASURE_CONTRACT`
+
+The implementation explicitly says a valid signature proves record integrity, not correctness of the model answer.
+
+It also correctly admits that deleting receipts from the END of a hash chain cannot be detected without an external expected-head anchor.
+
+PROJECT:
+Lancelot / Audit & Evidence.
+
+Useful for the execution-evidence layer after tool invocation.
+
+NEXT:
+Reference only for now.
+
+Do not adopt global memory architecture.
+
+Our upgrade should be:
+
+`WORKSPACE_SCOPED_MEMORY_CONTRACT`
+
+and an externally anchored receipt head if history completeness must be provable.
 
 ---
 
@@ -11831,7 +12181,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 32
+Cards: 33
 
 ### 0xsline/OpenChatCut
 
@@ -12478,6 +12828,77 @@ Tags: video, browser, subtitles
 
 USE FOR LANCELOT:
 Reference for browser-local video and subtitle processing; не самостоятельная причина расширять tool surface Ланселота.
+
+---
+
+### gongnyang/awesome-ai-motion
+
+URL: https://github.com/gongnyang/awesome-ai-motion
+VERDICT: KEEP
+SCORE: 45
+STARS: 44
+
+WHAT:
+Agent-readable motion design field guide.
+
+Current corpus:
+
+- 637 motion techniques;
+- 128 rendered reference clips;
+- 11 recipes;
+- 7 design routes.
+
+Motion is selected by scene intent and medium rather than by a vague request to make something dynamic.
+
+Each card carries meaning, defaults, cautions, prompts and sources.
+
+FIT:
+Fills the temporal/motion layer missing from our Design Agency.
+
+Contracts:
+
+`MOTION_TECHNIQUE_CATALOG_CONTRACT`
+
+`MOTION_INTENT_SELECTION_CONTRACT`
+
+`MOTION_RECIPE_CONTRACT`
+
+`DETERMINISTIC_MOTION_TIMELINE_CONTRACT`
+
+`MOTION_RENDER_STATUS_CONTRACT`
+
+`MOTION_RENDER_VERIFICATION_CONTRACT`
+
+`MOTION_SOURCE_OF_TRUTH_CONTRACT`
+
+`READABLE_HOLD_CONTRACT`
+
+Rendered examples must be seekable and deterministic; the checker rejects common nondeterministic timing/randomness in completed effects.
+
+PROJECT:
+Media Factory / Motion Design.
+
+Expected pipeline:
+
+shot intent
+→ candidate motion techniques
+→ recipe
+→ adapted scene
+→ deterministic seekable render
+→ visual verification.
+
+Parallel role to diagram-design, but across time rather than static geometry.
+
+NEXT:
+Security/admission review first because rendering uses Node, Playwright, Chromium and ffmpeg.
+
+Then test three actual Media Factory scenes:
+
+1. analytical explainer;
+2. data comparison;
+3. vertical short opener.
+
+Measure whether intent selection improves readability rather than merely adding movement.
 
 ---
 
