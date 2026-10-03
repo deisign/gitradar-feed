@@ -1,6 +1,6 @@
 ---
-title: Creative Radar Shortlist 2026-10-02
-date: 2026-10-02
+title: Creative Radar Shortlist 2026-10-03
+date: 2026-10-03
 status: shortlist
 tags:
   - radar
@@ -8,9 +8,9 @@ tags:
   - shortlist
 ---
 
-# Creative Radar Shortlist — 2026-10-02
+# Creative Radar Shortlist — 2026-10-03
 
-Source: [[../scored/2026-10-02|Scored 2026-10-02]]
+Source: [[../scored/2026-10-03|Scored 2026-10-03]]
 
 ## Навигация
 
@@ -29,7 +29,7 @@ Source: [[../scored/2026-10-02|Scored 2026-10-02]]
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 133
-- Raw: #830
+- Raw: #833
 - URL: https://github.com/db-ux-design-system/core-web
 - Description: DB UX Design System monorepo - Provides Design Tokens and components for Web UIs
 - Why: design QA fit, design system, design tokens, design-system, stars>=100, tokens
@@ -38,8 +38,8 @@ Source: [[../scored/2026-10-02|Scored 2026-10-02]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 6205
-- Raw: #869
+- Stars: 6207
+- Raw: #871
 - URL: https://github.com/chakra-ui/panda
 - Description: 🐼 Universal, Type-Safe, CSS-in-JS Framework for Design Systems ⚡️
 - Why: design QA fit, design system, design-system, stars>=1000, tokens
@@ -51,8 +51,8 @@ Source: [[../scored/2026-10-02|Scored 2026-10-02]]
 
 - Verdict: **WATCH**
 - Score: 33
-- Stars: 463
-- Raw: #11
+- Stars: 464
+- Raw: #12
 - URL: https://github.com/kreativekorp/bitsnpicas
 - Description: Bits'N'Picas - Bitmap & Emoji Font Creation & Conversion Tools
 - Why: font, font creation, font/typography tooling fit, fonts, opentype, stars>=100
@@ -65,7 +65,7 @@ Source: [[../scored/2026-10-02|Scored 2026-10-02]]
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 1
-- Raw: #369
+- Raw: #368
 - URL: https://github.com/nerdpudding/ACE-Step-1.5
 - Description: Docker setup for ACE-Step AI music generation — full songs with vocals and instruments from text prompts, running on your local GPU
 - Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit
@@ -77,8 +77,8 @@ Source: [[../scored/2026-10-02|Scored 2026-10-02]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 17253
-- Raw: #61
+- Stars: 17256
+- Raw: #62
 - URL: https://github.com/lowlighter/metrics
 - Description: 📊 An infographics generator with 30+ plugins and 300+ options to display stats about your GitHub account and render them as SVG, Markdown, PDF or JSON!
 - Why: infographic, infographics, infographics/visual storytelling fit, stars>=1000, svg
@@ -90,7 +90,7 @@ Source: [[../scored/2026-10-02|Scored 2026-10-02]]
 
 - Verdict: **WATCH**
 - Score: 33
-- Stars: 1431
+- Stars: 1430
 - Raw: #310
 - URL: https://github.com/obsei/obsei
 - Description: Obsei is a low code AI powered automation tool. It can be used in various business flows like social listening, AI based alerting, brand image analysis, comparative study and more .
@@ -103,8 +103,8 @@ Source: [[../scored/2026-10-02|Scored 2026-10-02]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 5857
-- Raw: #905
+- Stars: 5859
+- Raw: #902
 - URL: https://github.com/kurrent-io/KurrentDB
 - Description: KurrentDB is a database that's engineered for modern software applications and event-driven architectures. Its event-native design simplifies data modeling and preserves data integrity while the integrated streaming engine solves distributed messaging challenges and ensures data consistency.
 - Why: consistency, cqrs, event-driven architecture, stars>=1000, system architecture / engineering patterns fit
@@ -116,8 +116,8 @@ Source: [[../scored/2026-10-02|Scored 2026-10-02]]
 
 - Verdict: **KEEP**
 - Score: 37
-- Stars: 9194
-- Raw: #338
+- Stars: 9195
+- Raw: #337
 - URL: https://github.com/telegraf/telegraf
 - Description: Modern Telegram Bot Framework for Node.js
 - Why: bot framework, middleware, stars>=1000, telegram bot, telegram bot/agent fit, telegram operational automation fit
