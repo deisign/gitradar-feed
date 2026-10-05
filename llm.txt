@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-05T08:22:39
+Generated: 2026-10-05T15:30:42
 Date: 2026-10-05
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,17 +8,17 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 274
+- Total curated cards: 277
 - Buckets: 20
 
 ## Bucket summary
 
 - Agent Security / Governance: 24
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 28
+- Design Systems / Visual QA: 29
 - Font Creation / Typography Tools: 15
 - Full-Song AI / Suno Alternatives: 11
-- Infographics / Visual Storytelling: 22
+- Infographics / Visual Storytelling: 23
 - Interactive Reports / Data Apps: 7
 - Lancelot / Agent Infrastructure: 43
 - Media / Social Monitoring: 8
@@ -32,7 +32,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Radio / Audio Ops: 13
 - System Architecture / Engineering Patterns: 10
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 35
+- Video Production / Editing: 36
 
 ## Today's run
 
@@ -2180,7 +2180,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 28
+Cards: 29
 
 ### AnxForever/stylekit
 
@@ -2451,6 +2451,92 @@ Design System Methodology
 
 NEXT:
 использовать как reference при формализации палитр и токенов проектов
+
+---
+
+### fatihaydost/brand-identity-skill
+
+URL: https://github.com/fatihaydost/brand-identity-skill
+VERDICT: KEEP
+SCORE: 46
+STARS: 45
+
+WHAT:
+Claude Code skill для разработки brand identity как единой системы, а не как набора независимо выбранных логотипа, шрифтов и цветов.
+
+Из одного brief он строит несколько identity sets, где каждый вариант начинается с одного visual mechanism, из которого совместно выводятся:
+
+- logo;
+- typography;
+- palette.
+
+После этого scripts проверяют измеримые свойства, варианты показываются рядом, пользователь выбирает направление, и только затем собирается полноценный brand kit.
+
+Output включает:
+
+- SVG и PNG logo variants;
+- app icon и favicon;
+- PDF guidelines;
+- colour and type specifications;
+- CSS / SCSS;
+- Tailwind;
+- DTCG JSON design tokens;
+- font embed information.
+
+FIT:
+Главная ценность — архитектура разделения creative judgement и deterministic QA.
+
+Принцип:
+
+agent designs
+→ scripts measure
+→ gates block реально сломанное
+→ warnings отмечают эвристики
+→ judgement остаётся дизайнерским решением
+→ human approves
+→ deterministic build.
+
+Очень полезна модель:
+
+gate = объективно сломано;
+warning = эвристика;
+judgement = творческое решение.
+
+Измеряются contrast, colour-blindness, glyph coverage, font licences, small-size logo renders, file validity и реальные rendering defects.
+
+Skill также хранит состояние не в чате, а в structured artifacts:
+
+brief.json
+→ sets.json
+→ identity.json
+→ palette.json
+→ SVG / fonts / audit
+→ derived outputs.
+
+Derived artifacts привязаны к hashes входов, поэтому изменение palette может перекрасить logo без его перерисовки, а изменение type пересобирает wordmark, сохраняя symbol.
+
+PROJECT:
+Design Systems / Visual QA.
+
+Media Factory.
+
+Lancelot / Agent Infrastructure как donor для архитектуры production skills.
+
+NEXT:
+Не копировать skill целиком вслепую.
+
+Отдельно разобрать и перенести в собственные production workflows:
+
+- mechanism-first design;
+- structured state вместо chat memory;
+- gate / warning / judgement;
+- human approval checkpoint;
+- small-size rendering tests;
+- design tokens как output;
+- input hashes и selective rebuild;
+- keep / refresh / new / none для отдельных компонентов.
+
+После этого прогнать сам skill на одном нашем реальном фирстиле и сравнить его решения с ручной системой.
 
 ---
 
@@ -4789,7 +4875,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 22
+Cards: 23
 
 ### CodingFeng101/CanvasAnvil
 
@@ -5489,6 +5575,84 @@ NEXT:
 6. иллюстрация с градиентами.
 
 Сравнить fidelity, seams, node count и удобство дальнейшего редактирования.
+
+---
+
+### spearb0lt/Indian-Matchbox-Art-Style-Text-to-Image-Generator
+
+URL: https://github.com/spearb0lt/Indian-Matchbox-Art-Style-Text-to-Image-Generator
+VERDICT: KEEP
+SCORE: 42
+STARS: 6
+
+WHAT:
+Две стилевые LoRA, обученные на одном и том же корпусе из 197 винтажных индийских спичечных этикеток.
+
+Первая версия построена на SDXL 1.0, вторая — на Stable Diffusion 3.5 Medium.
+
+Но главное здесь не конкретная эстетика matchbox labels, а полностью показанная кухня обучения:
+
+- очистка exact и near duplicates;
+- perceptual hash и DINO-анализ;
+- review выбросов;
+- train / held-out split;
+- aspect-ratio buckets;
+- caption generation;
+- caption strategy ablation;
+- обучение LoRA;
+- оценка style fidelity;
+- проверка prompt adherence;
+- memorization check;
+- checkpoint selection;
+- strength sweep;
+- export в diffusers и kohya formats;
+- проверка воспроизводимости результата.
+
+Второй notebook отдельно разбирает flow matching и показывает, как уложить SD3.5 Medium training в ограниченный VRAM budget.
+
+FIT:
+Это хороший reference implementation для будущей собственной машины обучения визуальных стилей.
+
+Полезный общий pipeline:
+
+source corpus
+→ provenance
+→ deduplication
+→ outlier analysis
+→ captions
+→ caption ablation
+→ training
+→ held-out style fidelity
+→ semantic adherence
+→ memorization detection
+→ checkpoint selection
+→ reproducible export.
+
+Особенно ценен принцип, что красивый пример генерации сам по себе ничего не доказывает: style fidelity, соответствие prompt и memorization проверяются отдельно.
+
+Это можно использовать как donor при обучении собственных LoRA на архивной полиграфике, дизайн-системах или других визуальных корпусах.
+
+PROJECT:
+Media Factory / Visual Style Training.
+
+Infographics / Visual Storytelling.
+
+Reference architecture для reproducible LoRA training и evaluation.
+
+NEXT:
+Не ставить ради одной эстетики.
+
+При первой реальной задаче обучения собственной style LoRA взять этот repo как baseline и перенести:
+
+- curation pipeline;
+- caption ablation;
+- held-out evaluation;
+- memorization check;
+- checkpoint selection;
+- run cards;
+- reproducible export.
+
+Отдельно перед использованием кода проверить лицензию репозитория и ограничения базовых Stability models.
 
 ---
 
@@ -12756,7 +12920,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 35
+Cards: 36
 
 ### 0xsline/OpenChatCut
 
@@ -13495,6 +13659,92 @@ Shorts / Reels Automation
 
 NEXT:
 проверить self-hosted pipeline и не является ли это демо-обёрткой
+
+---
+
+### jub0t/concat
+
+URL: https://github.com/jub0t/concat
+VERDICT: KEEP
+SCORE: 45
+STARS: 4097
+
+WHAT:
+Кроссплатформенный локальный нелинейный видеоредактор, который позиционируется как открытая альтернатива CapCut.
+
+Уже есть рабочая timeline-модель и набор функций обычного NLE:
+
+- multi-track и multi-timeline editing;
+- split, trim, ripple и merge;
+- keyframes и curve editor;
+- эффекты, filters, transitions и text animations;
+- captions;
+- TTS и voice processing;
+- background removal;
+- GPU compositor;
+- H.264 / HEVC / AV1 export;
+- 4K / HDR workflows.
+
+Есть сборки для Linux, Windows, macOS и мобильных платформ.
+
+Отдельно важен automation surface:
+
+- CLI;
+- JSON-RPC;
+- gRPC;
+- MCP.
+
+То есть редактор задуман не только как GUI, но и как программно управляемый video engine.
+
+FIT:
+Это потенциальный недостающий слой между ffmpeg-скриптами и ручным CapCut.
+
+Текущую цепочку можно превратить из:
+
+source
+→ timestamps
+→ ffmpeg
+→ ручной CapCut
+
+в:
+
+source
+→ agent
+→ editable Concat project
+→ automated cuts / captions / reframing
+→ human correction в GUI
+→ export.
+
+Ключевая ценность — получить не только конечный MP4, но и редактируемый project artifact.
+
+Для Media Factory особенно интересны:
+
+- автоматическая сборка коротких роликов;
+- captions;
+- 16:9 → 9:16;
+- programmatic timeline edits;
+- локальная обработка чувствительного footage;
+- возможность управлять монтажом через MCP/CLI.
+
+PROJECT:
+Media Factory / Video Editing.
+
+Video Production / Editing.
+
+Потенциальный human + agent editing layer между Recordly, ffmpeg и Remotion.
+
+NEXT:
+Поставить Linux build на Circus и прогнать несколько настоящих задач:
+
+1. обычная нарезка интервью;
+2. ролик до трёх минут из заданных таймкодов;
+3. русские и украинские captions;
+4. 16:9 → 9:16;
+5. crop / keyframes / speed;
+6. export 1080p;
+7. повторить часть операций через CLI или MCP.
+
+Если GUI уже пригоден для повседневной работы, а MCP/CLI позволяют надёжно создавать и изменять project state, рассматривать Concat как основной open-source editing layer Media Factory.
 
 ---
 
