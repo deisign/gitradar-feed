@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-06T20:38:36
+Generated: 2026-10-06T20:52:59
 Date: 2026-10-06
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,20 +8,20 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 278
+- Total curated cards: 285
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 24
+- Agent Security / Governance: 26
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 29
-- Font Creation / Typography Tools: 15
+- Design Systems / Visual QA: 30
+- Font Creation / Typography Tools: 16
 - Full-Song AI / Suno Alternatives: 11
-- Infographics / Visual Storytelling: 23
+- Infographics / Visual Storytelling: 24
 - Interactive Reports / Data Apps: 7
 - Lancelot / Agent Infrastructure: 44
-- Media / Social Monitoring: 8
+- Media / Social Monitoring: 9
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
 - Music Generation / AI Music: 6
@@ -32,7 +32,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Radio / Audio Ops: 13
 - System Architecture / Engineering Patterns: 10
 - Telegram Bots / Automation: 1
-- Video Production / Editing: 36
+- Video Production / Editing: 37
 
 ## Today's run
 
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 24
+Cards: 26
 
 ### affaan-m/agentshield
 
@@ -973,6 +973,86 @@ NEXT:
 
 ---
 
+### IkarusAILabs/SafeAI
+
+URL: https://github.com/IkarusAILabs/SafeAI
+VERDICT: KEEP
+SCORE: 46
+STARS: 30
+
+WHAT:
+Static AI Capability & Risk Analyzer для agent systems.
+
+SafeAI не запускает агента и не делает runtime red-team. Он анализирует source/config до деплоя и строит модель:
+
+`Agent → Tool/MCP/Skill → Capability → Access Mode → Resource/Destination → Authority`.
+
+Главная идея — отслеживать не только наличие finding, а изменение эффективных полномочий агента.
+
+Например:
+
+- появился новый tool;
+- `read` стал `write`;
+- появился production destination;
+- исчез human approval gate.
+
+После этого CI получает deterministic decision:
+
+- pass;
+- review-required;
+- block;
+- accepted-exception.
+
+FIT:
+Это очень хороший pre-runtime слой для Lancelot.
+
+Особенно интересны:
+
+- authority manifest;
+- baseline diff;
+- per-tool capability model;
+- access scale `none < read < write < mutate < execute`;
+- policy-as-code;
+- governance rules;
+- SARIF;
+- анализ MCP;
+- Claude Code settings/hooks/subagents;
+- n8n workflow detection;
+- evidence/provenance для каждого вывода.
+
+То есть вместо абстрактного security score можно проверять:
+
+> что конкретно агент теперь умеет делать такого, чего вчера не умел?
+
+Для наших систем это гораздо полезнее.
+
+PROJECT:
+**Agent Security / Governance**
+
+Связать с:
+
+- `nolabs-ai/nono` — runtime enforcement;
+- `cloudflare/cloudflare-os` — capability gating + approvals;
+- agent skill/tool registry Lancelot.
+
+Получается хороший трёхслойный стек:
+
+`SafeAI static authority → nono runtime sandbox → Cloudflare-style staged external effects`.
+
+NEXT:
+Прогнать SafeAI на одном реальном нашем agent project и проверить:
+
+- видит ли tools;
+- MCP;
+- shell/filesystem authority;
+- credentials;
+- approval gaps;
+- изменение authority после намеренного добавления write-tool.
+
+Если diff реально полезен и мало шумит — включить в CI Lancelot как mandatory pre-deploy check.
+
+---
+
 ### ikaruscareer/SafeAI
 
 URL: https://github.com/ikaruscareer/SafeAI
@@ -1637,6 +1717,82 @@ NEXT:
 
 ---
 
+### nolabs-ai/nono
+
+URL: https://github.com/nolabs-ai/nono
+VERDICT: KEEP
+SCORE: 47
+STARS: 4349
+
+WHAT:
+Локальный runtime sandbox для AI-агентов, который запускает Claude Code, Codex, OpenCode и другие агентные CLI без контейнера, VM или отдельного daemon.
+
+По умолчанию агент получает доступ только к текущему каталогу и явно разрешённым ресурсам.
+
+Главная особенность — sandbox распространяется не только на сам agent process, но и на инструменты, которые он вызывает.
+
+Например:
+
+- `git` получает только репозиторий и нужные git-файлы;
+- `gh` получает GitHub token через credential proxy;
+- token может быть ограничен конкретными HTTP methods и API paths;
+- прямой `ssh` может быть запрещён агенту, но разрешён как дочерний вызов `git` по отдельной политике.
+
+Политика хранится в profile и не может быть расширена агентом из prompt.
+
+FIT:
+Это практически готовый execution-security слой для Lancelot.
+
+Сильный паттерн:
+
+`agent sandbox → controlled command → command sandbox → credential proxy → endpoint policy`.
+
+Он хорошо дополняет Cloudflare OS:
+
+- Cloudflare OS решает capability/approval на уровне внешних сервисов;
+- nono решает least privilege на уровне локального процесса, CLI и credentials.
+
+Особенно ценны:
+
+- per-command policy;
+- filesystem isolation;
+- network allowlists;
+- credential injection без выдачи секретов процессу;
+- L7 filtering;
+- composable JSON profiles;
+- auditability;
+- registry готовых agent profiles.
+
+PROJECT:
+Основной контур:
+
+**Agent Security / Governance**
+
+Вторичный:
+
+**Lancelot / Agent Infrastructure**
+
+Связать с:
+
+- `cloudflare/cloudflare-os`;
+- `IkarusAILabs/SafeAI`;
+- будущим Lancelot tool registry;
+- GitHub/Gmail/CRM execution workflows.
+
+NEXT:
+Установить на Circus и проверить реальный workflow:
+
+1. запустить Codex/Claude в sandbox;
+2. разрешить только конкретный project directory;
+3. дать `git` доступ к repo;
+4. дать `gh` token через credential proxy;
+5. ограничить GitHub API только read operations;
+6. убедиться, что agent не видит SSH keys, остальные home-файлы и произвольную сеть.
+
+После этого сравнить модель nono с Cloudflare Gatekeepers и определить границу ответственности между runtime sandbox и application capability layer.
+
+---
+
 ### Nox-HQ/nox
 
 URL: https://github.com/Nox-HQ/nox
@@ -2180,7 +2336,7 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 29
+Cards: 30
 
 ### AnxForever/stylekit
 
@@ -2360,6 +2516,75 @@ NEXT:
 - analytical public diagram;
 - geometry QA;
 - fidelity ledger.
+
+---
+
+### db-ux-design-system/core-web
+
+URL: https://github.com/db-ux-design-system/core-web
+VERDICT: KEEP
+SCORE: 42
+STARS: 133
+
+WHAT:
+Полноценный production design system Deutsche Bahn для Web.
+
+Кроме обычных:
+
+- foundations;
+- tokens;
+- React/Vue/Angular/Web Components;
+- component docs;
+
+в репозитории есть отдельный AI-agent tooling слой:
+
+- MCP server;
+- agent CLI;
+- Copilot/workspace instructions;
+- ESLint plugin;
+- Stylelint plugin.
+
+FIT:
+Ценность не в готовых компонентах DB, а в архитектуре взаимодействия design system с AI coding agents.
+
+Паттерн выглядит так:
+
+`design system → machine-readable docs/tokens → MCP / repo instructions → agent → generated code → lint enforcement`.
+
+Это очень хороший практический counterpoint к `0design/ai-native-design-framework`, который пока описывает похожую концепцию в виде draft spec.
+
+DB UX уже показывает:
+
+- как давать агенту официальную документацию;
+- как выдавать tokens;
+- как помогать migrations;
+- как класть instructions прямо в repository;
+- как затем проверять корректность component usage кодом.
+
+PROJECT:
+**Design Systems / Visual QA**
+
+Связать с:
+
+- `fatihaydost/brand-identity-skill`;
+- `0design/ai-native-design-framework`;
+- будущим brand/design context Lancelot.
+
+NEXT:
+Не устанавливать весь DB UX.
+
+Разобрать отдельно:
+
+1. MCP server;
+2. agent CLI;
+3. формат generated instructions;
+4. ESLint enforcement;
+5. Stylelint enforcement;
+6. token exposure.
+
+На основе этого спроектировать наш минимальный pattern:
+
+`brand/design tokens → agent context → allowed components → generated artifact → deterministic validator`.
 
 ---
 
@@ -3980,7 +4205,7 @@ NEXT:
 
 ## BUCKET: Font Creation / Typography Tools
 
-Cards: 15
+Cards: 16
 
 ### Corne2Plum3/Giphurs
 
@@ -4198,6 +4423,70 @@ NEXT:
 
 После этого решить, нужен ли нам сам Brutalita core или только
 его source/compiler/reproducibility pattern.
+
+---
+
+### kreativekorp/bitsnpicas
+
+URL: https://github.com/kreativekorp/bitsnpicas
+VERDICT: KEEP
+SCORE: 39
+STARS: 468
+
+WHAT:
+Набор GUI и CLI-инструментов для создания, редактирования и конвертации bitmap и emoji fonts.
+
+Поддерживает множество современных и исторических форматов:
+
+- BDF;
+- PSF;
+- GNU Unifont HEX;
+- Mac Classic suit/dfont/nfnt;
+- Amiga;
+- Windows FNT;
+- FONTX2;
+- Playdate;
+- Apple II;
+- Mi Band;
+- Rockbox;
+- GEOS;
+- другие редкие форматы.
+
+Может преобразовывать bitmap strikes в TrueType outlines, сохраняя pixel-grid geometry.
+
+FIT:
+Это типичная radar-находка: не универсальный большой редактор шрифтов, а специализированный инструмент, о котором легко не знать.
+
+Полезен для:
+
+- работы с ретро typography;
+- извлечения старых bitmap fonts;
+- конверсии legacy formats;
+- emoji/color-font assets;
+- bitmap→TTF/OTB;
+- анализа/пересборки необычных font resources.
+
+Есть функции extract/inject для:
+
+- Apple `sbix`;
+- SVG-in-OpenType;
+- CBDT/CBLC.
+
+PROJECT:
+**Font Creation / Typography Tools**
+
+Не конкурент FontForge/Glyphs как основной редактор.
+
+Скорее дополнительная утилита рядом с ними.
+
+NEXT:
+Поставить локально как conversion tool и проверить на трёх кейсах:
+
+1. bitmap font → TTF;
+2. legacy font → современный формат;
+3. extract glyph images из color emoji font.
+
+Если CLI стабилен — оставить в typography toolchain как специализированный converter.
 
 ---
 
@@ -4875,7 +5164,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 23
+Cards: 24
 
 ### CodingFeng101/CanvasAnvil
 
@@ -5764,6 +6053,85 @@ NEXT:
 
 Отдельно адаптировать
 под 9:16 и 16:9.
+
+---
+
+### ythx-101/live-panel-skill
+
+URL: https://github.com/ythx-101/live-panel-skill
+VERDICT: KEEP
+SCORE: 44
+STARS: 597
+
+WHAT:
+Маленький config-driven renderer, превращающий JSON-описание системы в анимированную архитектурную схему или инфографику.
+
+Выход:
+
+- H.264 MP4;
+- self-contained live webpage.
+
+Движение задаётся не timeline editor, а декларативными machines и pure functions of time.
+
+Есть:
+
+- flowing packets;
+- counters;
+- gauges;
+- logs;
+- triggers;
+- state changes;
+- paths/arrows;
+- terminal-dark и light-pastel themes.
+
+FIT:
+Это хороший компактный donor для programmable explainers.
+
+Особенно ценны две вещи.
+
+### Deterministic animation
+
+`window.seek(t)` полностью определяет состояние кадра.
+
+Нет случайного wall-clock поведения или CSS animation, поэтому render воспроизводим.
+
+### Visual QA
+
+`check_frames.py`:
+
+- семплирует временные точки;
+- проверяет text overflow;
+- ловит overlap;
+- сохраняет review PNG;
+- повторно рендерит кадры после seek;
+- проверяет, что они идентичны.
+
+То есть генератор уже содержит элемент автоматического visual QA.
+
+PROJECT:
+**Infographics / Visual Storytelling**
+
+Контур:
+
+**Media Factory**
+
+Подходит для:
+
+- архитектурных explainers;
+- animated process diagrams;
+- соцсетевых tech explainers;
+- коротких operational videos.
+
+NEXT:
+Сделать один наш пример:
+
+- схема media-relations pipeline или Lancelot;
+- 30 секунд;
+- 4:5 и 9:16;
+- русский текст;
+- проверка QA.
+
+После этого вынести pattern `JSON → deterministic visual → automated QA → MP4` в собственный reusable skill.
 
 ---
 
@@ -9219,7 +9587,7 @@ NEXT:
 
 ## BUCKET: Media / Social Monitoring
 
-Cards: 8
+Cards: 9
 
 ### 0xzerolight/topic_watch
 
@@ -9447,6 +9815,92 @@ Media Monitoring и OSINT Signal.
 
 NEXT:
 Разобрать модели Feed, Watch, WatchAction и WatchActionDelivery и сравнить с нашим текущим pipeline.
+
+---
+
+### obsei/obsei
+
+URL: https://github.com/obsei/obsei
+VERDICT: KEEP
+SCORE: 45
+STARS: 1432
+
+WHAT:
+Self-hosted AI-native pipeline для Voice of Customer, feedback analytics и social/media observation.
+
+Источники включают:
+
+- RSS/Atom;
+- YouTube;
+- Hacker News;
+- Bluesky;
+- GitHub issues;
+- App Store / Google Play;
+- SQL;
+- IMAP mail;
+- Zendesk;
+- Freshdesk;
+- Intercom;
+- Gong;
+- REST;
+- webhooks;
+- MCP.
+
+Дальше данные можно:
+
+- redact;
+- pseudonymize;
+- classify;
+- группировать в themes;
+- route;
+- анализировать через LLM/local models;
+- отдавать агентам через read-only MCP.
+
+FIT:
+Это уже не очередной social-listening SaaS clone, а довольно грамотный self-hosted data pipeline.
+
+Для нас особенно интересны:
+
+- source adapters;
+- PII redaction на ingest;
+- local models через Ollama/vLLM/llama.cpp;
+- LiteLLM support;
+- egress controls;
+- cited answers;
+- read-only MCP;
+- theme detection;
+- near-duplicate detection;
+- routing по labels/confidence/scores;
+- sinks в Slack/Jira/Linear/webhooks/SQL.
+
+Часть этого хорошо ложится на наш media-monitoring, где ingest, enrichment, classification и подтверждаемая provenance критичны.
+
+PROJECT:
+**Media / Social Monitoring**
+
+Возможные применения:
+
+- donor для ingest architecture;
+- privacy/filtering layer;
+- topic/theme clustering;
+- read-only research MCP;
+- дополнительный source adapter слой.
+
+NEXT:
+Не заменять текущий media-monitoring целиком.
+
+Развернуть отдельный test instance и проверить:
+
+1. RSS;
+2. YouTube;
+3. email/IMAP;
+4. local model classification;
+5. near-duplicate detection;
+6. cited `ask`;
+7. MCP;
+8. export/routing.
+
+После этого решить, что интегрировать в существующую систему, а что оставить отдельным сервисом.
 
 ---
 
@@ -13050,7 +13504,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 36
+Cards: 37
 
 ### 0xsline/OpenChatCut
 
@@ -13668,6 +14122,82 @@ USE FOR LANCELOT:
 Reference for a bounded future media tool.
 
 Не давать Lancelot произвольный video shell; при необходимости сделать узкую capability вроде transcribe-and-subtitle.
+
+---
+
+### EGSECDA/vocaloid-style-mv-pipeline
+
+URL: https://github.com/EGSECDA/vocaloid-style-mv-pipeline
+VERDICT: KEEP
+SCORE: 46
+STARS: 31
+
+WHAT:
+Полноценный agent-driven pipeline для производства музыкальных видео.
+
+Вход:
+
+- song;
+- lyrics.
+
+Дальше агент проходит последовательность:
+
+`listen → concept → assets → storyboard → build → review → deliver`.
+
+Технически видео рендерится как код:
+
+- Canvas2D;
+- WebGL2;
+- Playwright;
+- ffmpeg;
+- при необходимости Blender.
+
+Каждый frame является pure function от времени `t`, поэтому render детерминирован и легко параллелится.
+
+FIT:
+Ценность здесь не в Vocaloid-стиле, а в архитектуре programmable video factory.
+
+Особенно сильны:
+
+- beat/downbeat/bar analysis;
+- deterministic timeline;
+- parameterized scene library;
+- typography motion;
+- seeded effects;
+- image generation pipeline;
+- Blender toon inserts;
+- automatic stills/contact sheets;
+- review/fix/re-render loop;
+- master 16:9;
+- отдельный настоящий 9:16 re-layout, а не crop.
+
+Это очень близко к тому, что нам нужно для автоматизации роликов, explainers и музыкальных visual assets.
+
+PROJECT:
+**Video Production / Editing**
+
+Контур:
+
+**Media Factory**
+
+Связать с:
+
+- `remotion-dev/remotion`;
+- `jub0t/concat`;
+- нашими ffmpeg/yt-dlp workflows;
+- будущей programmable template library.
+
+NEXT:
+Поставить на Circus и сделать smoke test:
+
+1. взять короткий трек;
+2. автоматически определить beat grid;
+3. собрать 20–30 секунд видео;
+4. проверить 16:9;
+5. проверить отдельный 9:16 layout;
+6. оценить review sheets и скорость итераций.
+
+После этого решить, какие части стоит вынести в универсальный Media Factory skill независимо от Vocaloid aesthetic.
 
 ---
 
