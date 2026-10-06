@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-06T20:52:59
+Generated: 2026-10-06T21:05:26
 Date: 2026-10-06
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,12 +8,12 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 285
+- Total curated cards: 284
 - Buckets: 20
 
 ## Bucket summary
 
-- Agent Security / Governance: 26
+- Agent Security / Governance: 25
 - Broadcast / Playout / Automation: 2
 - Design Systems / Visual QA: 30
 - Font Creation / Typography Tools: 16
@@ -47,7 +47,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 26
+Cards: 25
 
 ### affaan-m/agentshield
 
@@ -981,139 +981,165 @@ SCORE: 46
 STARS: 30
 
 WHAT:
-Static AI Capability & Risk Analyzer для agent systems.
+Offline Static AI Capability & Risk Analyzer для agent systems.
 
-SafeAI не запускает агента и не делает runtime red-team. Он анализирует source/config до деплоя и строит модель:
+SafeAI анализирует source code и configuration **до запуска агента**:
 
-`Agent → Tool/MCP/Skill → Capability → Access Mode → Resource/Destination → Authority`.
+- не исполняет agent workflow;
+- не вызывает LLM;
+- не пытается заменить runtime sandbox;
+- строит evidence-backed модель того, какие полномочия система потенциально выдаёт агенту.
 
-Главная идея — отслеживать не только наличие finding, а изменение эффективных полномочий агента.
+Базовая модель:
+
+`Agent → Tool / MCP / Skill / Workflow → Capability → Access Mode → Resource / Destination → Authority`
+
+Access modes:
+
+`none → read → write → mutate → execute`.
+
+Capability привязывается не к проекту вообще, а к конкретному:
+
+- agent;
+- tool;
+- MCP server;
+- skill;
+- workflow node.
+
+Для выводов сохраняются evidence, confidence и provenance.
+
+FIT:
+Главная идея SafeAI — security eventом считать не только отдельный finding, а **изменение effective authority** агента.
 
 Например:
 
-- появился новый tool;
-- `read` стал `write`;
+- появился новый shell/tool;
+- `read` расширился до `write`;
+- добавился новый MCP server;
 - появился production destination;
-- исчез human approval gate.
+- исчез human approval gate;
+- workflow получил новую mutate/execute capability.
 
-После этого CI получает deterministic decision:
+После сравнения с baseline система может выдать deterministic decision:
 
-- pass;
-- review-required;
-- block;
-- accepted-exception.
+- `pass`;
+- `review-required`;
+- `block`;
+- `accepted-exception`.
 
-FIT:
-Это очень хороший pre-runtime слой для Lancelot.
+Для Lancelot это гораздо полезнее абстрактного security score:
 
-Особенно интересны:
+> что агент сегодня умеет делать такого, чего вчера не умел?
 
-- authority manifest;
-- baseline diff;
-- per-tool capability model;
-- access scale `none < read < write < mutate < execute`;
-- policy-as-code;
-- governance rules;
-- SARIF;
-- анализ MCP;
-- Claude Code settings/hooks/subagents;
-- n8n workflow detection;
-- evidence/provenance для каждого вывода.
+### Capability escalation
 
-То есть вместо абстрактного security score можно проверять:
+SafeAI умеет строить authority diff между состояниями проекта.
 
-> что конкретно агент теперь умеет делать такого, чего вчера не умел?
-
-Для наших систем это гораздо полезнее.
-
-PROJECT:
-**Agent Security / Governance**
-
-Связать с:
-
-- `nolabs-ai/nono` — runtime enforcement;
-- `cloudflare/cloudflare-os` — capability gating + approvals;
-- agent skill/tool registry Lancelot.
-
-Получается хороший трёхслойный стек:
-
-`SafeAI static authority → nono runtime sandbox → Cloudflare-style staged external effects`.
-
-NEXT:
-Прогнать SafeAI на одном реальном нашем agent project и проверить:
-
-- видит ли tools;
-- MCP;
-- shell/filesystem authority;
-- credentials;
-- approval gaps;
-- изменение authority после намеренного добавления write-tool.
-
-Если diff реально полезен и мало шумит — включить в CI Lancelot как mandatory pre-deploy check.
-
----
-
-### ikaruscareer/SafeAI
-
-URL: https://github.com/ikaruscareer/SafeAI
-VERDICT: KEEP
-SCORE: 44
-STARS: 27
-
-WHAT:
-Offline static analyzer
-для AI-agent applications.
-
-Работает по source/config
-без запуска агента
-и без LLM calls.
-
-На момент проверки
-поддерживает:
-
-- 19 agent frameworks;
-- tool/component identity;
-- MCP discovery;
-- prompt analysis;
-- Skills;
-- workflows;
-- Claude Code configs;
-- cross-file analysis;
-- governance controls;
-- SARIF / JSON / HTML outputs.
-
-FIT:
-—
-
-PROJECT:
-Lancelot / Agent Security.
-
-Сравнить с:
-
-- AgentShield;
-- Nox;
-- Cisco scanners;
-- ATR;
-- capability-policy-gate.
-
-NEXT:
-Сделать scanner matrix
-на одном фиксированном corpus.
-
-Отдельно проверить:
-
-1. capability extraction;
-2. access-mode accuracy;
-3. authority widening;
-4. approval detection;
-5. MCP detection;
-6. cross-file taint;
-7. false positives;
-8. deterministic outputs.
-
-Цель:
+Это практически готовая основа для:
 
 `CAPABILITY_SECURITY_REGRESSION_GATE`.
+
+### Data flow
+
+Есть cross-file tracking untrusted input до sensitive sinks:
+
+- prompt;
+- tool call;
+- shell;
+- file write;
+- HTTP;
+- database.
+
+То есть анализ идёт глубже простого поиска опасных ключевых слов.
+
+### Governance controls
+
+Отдельно проверяются operational controls:
+
+- timeout;
+- retry;
+- human approval;
+- audit;
+- rate limit;
+- circuit breaker;
+- backpressure;
+- health check.
+
+### MCP и agent frameworks
+
+SafeAI обнаруживает и анализирует:
+
+- MCP servers и tools;
+- Claude Code settings, permissions, hooks и subagents;
+- skills;
+- workflow definitions;
+- OpenAI Agents SDK;
+- LangGraph;
+- CrewAI;
+- LangChain;
+- Semantic Kernel;
+- n8n;
+- и другие agent frameworks.
+
+Поддержка неоднородна: часть framework integrations пока experimental, поэтому выводы надо проверять на реальном corpus.
+
+### Know Your Agent
+
+Есть append-only historical inventory:
+
+- list;
+- show;
+- history;
+- diff;
+- export;
+- components.
+
+Это потенциально полезный inventory layer для Lancelot: не только сканировать отдельный commit, но и видеть историю изменения agent authority.
+
+PROJECT:
+Основной контур:
+
+**Agent Security / Governance**
+
+Проект:
+
+**Lancelot / Agent Security**
+
+Особенно хорошо стыкуется с:
+
+- `nolabs-ai/nono` — runtime enforcement и command sandbox;
+- `cloudflare/cloudflare-os` — capability gating, approvals и staged external effects;
+- AgentShield / Nox — другие security scanners;
+- будущим Lancelot tool/capability registry.
+
+Получается сильный трёхслойный паттерн:
+
+`SafeAI static authority analysis`
+→ `nono runtime least privilege`
+→ `Cloudflare-style staged side effects + approval`
+
+NEXT:
+Сделать scanner matrix на одном фиксированном нашем agent corpus.
+
+Проверить отдельно:
+
+1. tool/capability extraction;
+2. access-mode accuracy;
+3. MCP detection;
+4. shell/filesystem/network authority;
+5. authority widening между двумя commits;
+6. approval-gate detection;
+7. cross-file taint/data flow;
+8. credentials/destination detection;
+9. false positives;
+10. deterministic output;
+11. SARIF/CI integration.
+
+Для controlled test намеренно добавить write-capability в агент и проверить, насколько ясно SafeAI покажет:
+
+`before → after → reason → evidence → policy decision`.
+
+Если результат стабилен и мало шумит — использовать как mandatory pre-deploy `CAPABILITY_SECURITY_REGRESSION_GATE` для Lancelot.
 
 ---
 
