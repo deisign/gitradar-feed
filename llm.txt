@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-06T21:05:26
+Generated: 2026-10-06T21:52:25
 Date: 2026-10-06
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 284
+- Total curated cards: 292
 - Buckets: 20
 
 ## Bucket summary
@@ -19,18 +19,18 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Font Creation / Typography Tools: 16
 - Full-Song AI / Suno Alternatives: 11
 - Infographics / Visual Storytelling: 24
-- Interactive Reports / Data Apps: 7
-- Lancelot / Agent Infrastructure: 44
+- Interactive Reports / Data Apps: 8
+- Lancelot / Agent Infrastructure: 48
 - Media / Social Monitoring: 9
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
 - Music Generation / AI Music: 6
 - n8n / Workflow Automation: 7
 - Newsroom / Data Journalism: 12
-- OSINT / Investigations: 10
-- Publishing / Layout / PDF: 9
+- OSINT / Investigations: 11
+- Publishing / Layout / PDF: 10
 - Radio / Audio Ops: 13
-- System Architecture / Engineering Patterns: 10
+- System Architecture / Engineering Patterns: 11
 - Telegram Bots / Automation: 1
 - Video Production / Editing: 37
 
@@ -6860,7 +6860,7 @@ NEXT:
 
 ## BUCKET: Interactive Reports / Data Apps
 
-Cards: 7
+Cards: 8
 
 ### bobbycomet/Conky-Studio
 
@@ -6925,6 +6925,42 @@ NEXT:
 - Wayland/X11 на фактическом desktop.
 
 Декоративные возможности трогать только после этого.
+
+---
+
+### Hitheshkaranth/OpenTerminalUI
+
+URL: https://github.com/Hitheshkaranth/OpenTerminalUI
+VERDICT: KEEP
+SCORE: 48
+STARS: 267
+
+WHAT:
+Self-hosted browser-based research terminal для финансового анализа.
+
+Несмотря на название, это не terminal TUI, а полноценный React + FastAPI application с:
+
+- market data;
+- filings research;
+- charting;
+- screening;
+- backtesting;
+- risk;
+- portfolio workflows;
+- AI research agent;
+- MCP server;
+- multi-panel workspaces.
+
+Для GitRadar важнее не finance-функции, а architecture вокруг grounded agent research.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -7103,7 +7139,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 44
+Cards: 48
 
 ### alphaXiv/OpenResearch
 
@@ -8161,6 +8197,63 @@ task identity → workspace → runtime → lifecycle → suspend/resume → evi
 
 ---
 
+### guillaumemeyer/watermarks-remover
+
+URL: https://github.com/guillaumemeyer/watermarks-remover
+VERDICT: KEEP
+SCORE: 48
+STARS: 23457
+
+WHAT:
+Multi-format framework для обнаружения и очистки AI/provenance marks в текстах и файлах.
+
+Проект работает с несколькими классами сигналов:
+
+### Text Layer A
+
+Детерминированные признаки:
+
+- invisible Unicode;
+- exotic spaces;
+- bidi characters;
+- tag characters;
+- другие скрытые textual markers.
+
+### Text Layer B
+
+Statistical text watermarks, где требуется rewrite или иной transform.
+
+### Files
+
+Метаданные и provenance:
+
+- C2PA;
+- EXIF;
+- XMP;
+- document properties;
+- metadata в Office/PDF/media containers.
+
+Поддерживается широкий набор форматов: text, images, PDF, Office, EPUB, HTML, audio и video.
+
+FIT:
+—
+
+PROJECT:
+В Lancelot security stack:
+
+`authority check`
+→ `runtime permissions`
+→ `staged side effects`
+→ `artifact generated`
+→ **deterministic postcondition audit**.
+
+Это недостающий финальный контроль после выполнения agent action.
+
+NEXT:
+—
+
+---
+
 ### guyowen/typegraph-mcp
 
 URL: https://github.com/guyowen/typegraph-mcp
@@ -8707,6 +8800,41 @@ Compare minimal attack surface, tool gate and skill loading with our larger runt
 
 ---
 
+### morluto/rea
+
+URL: https://github.com/morluto/rea
+VERDICT: KEEP
+SCORE: 50
+STARS: 8143
+
+WHAT:
+REA — agent-oriented framework для reverse engineering приложений и software artifacts.
+
+Через единый MCP/CLI слой он связывает агента с несколькими типами анализа:
+
+- static JavaScript / Electron;
+- native binaries;
+- Ghidra;
+- Hopper;
+- IDA;
+- .NET;
+- APK / JADX;
+- firmware / Binwalk / Unblob;
+- runtime/process observations.
+
+Главная ценность не в количестве decompilers, а в единой **investigation model**.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
 ### msitarzewski/agency-agents
 
 URL: https://github.com/msitarzewski/agency-agents
@@ -8791,6 +8919,37 @@ Tags: memory, skills, automation, cross-agent, retrieval
 
 USE FOR LANCELOT:
 Заимствовать controlled session → candidate procedure → reusable skill loop, но добавить более жёсткую дисциплину: synthesis создаёт только candidate, затем SkillSpector/security review и explicit PROMOTE. Think/Durable Object operational state не заменять memU-подобной памятью.
+
+---
+
+### nicepkg/ctxport
+
+URL: https://github.com/nicepkg/ctxport
+VERDICT: KEEP
+SCORE: 43
+STARS: 644
+
+WHAT:
+Browser extension для переноса AI-разговоров между ChatGPT, Claude, Gemini, DeepSeek, Grok, Doubao и другими платформами.
+
+На поверхности продукт делает простой export разговора в чистый Markdown.
+
+Но архитектурно интереснее промежуточный слой: **ContentBundle**.
+
+FIT:
+—
+
+PROJECT:
+**Lancelot Context Interchange Layer**
+
+Базовая идея:
+
+`conversation ≠ browser page`
+
+`conversation = portable structured object with provenance`.
+
+NEXT:
+—
 
 ---
 
@@ -9503,6 +9662,43 @@ NEXT:
 Извлечь:
 
 `LANCELOT_MEMORY_STORE_CONTRACT`.
+
+---
+
+### Unity-Technologies/unity-agent-plugin
+
+URL: https://github.com/Unity-Technologies/unity-agent-plugin
+VERDICT: KEEP
+SCORE: 48
+STARS: 388
+
+WHAT:
+Официальный Unity plugin для сторонних coding agents.
+
+Поддерживаются Claude Code, Codex и Grok. Вместо одного огромного Unity prompt проект поставляет набор узких vendor-authored skills.
+
+Skills покрывают отдельные задачи:
+
+- 2D и physics;
+- UI;
+- localization;
+- audio;
+- monetization;
+- tilemaps;
+- rendering;
+- package management;
+- project setup;
+- Unity CLI;
+- другие специализированные workflows.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -11196,7 +11392,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 10
+Cards: 11
 
 ### badchars/satellite-mcp
 
@@ -11503,6 +11699,149 @@ NEXT:
 
 ---
 
+### prose-intelligence-ltd/Telepathy-Community
+
+URL: https://github.com/prose-intelligence-ltd/Telepathy-Community
+VERDICT: KEEP
+SCORE: 31
+STARS: 1251
+
+WHAT:
+Python CLI для сбора и анализа данных из Telegram, исторически известный как «swiss army knife» для Telegram OSINT.
+
+Telepathy умеет:
+
+- архивировать историю публичных чатов;
+- собирать replies и comments;
+- фиксировать reactions, forwards и views;
+- выгружать member lists;
+- анализировать пользователей;
+- искать top posters;
+- архивировать media;
+- строить edgelists по forwarded messages;
+- экспортировать данные;
+- делать user и location lookups;
+- передавать графы в Gephi.
+
+Проект использует Telegram API через Telethon.
+
+FIT:
+Как готовый deployable инструмент Telepathy сегодня уже малоинтересен.
+
+Но как **feature catalogue для Telegram investigation system** он очень полезен.
+
+Особенно стоит забрать несколько паттернов.
+
+### Forward graph
+
+Telepathy строит edgelist по пересылкам сообщений.
+
+Для нашего `telegram-osint-metasearch` это означает переход от простого поиска:
+
+`найти сообщение`
+
+к анализу распространения:
+
+`source → forwarded into → downstream channels`.
+
+Это даёт возможность строить:
+
+- карты распространения нарратива;
+- центральные каналы;
+- hubs;
+- повторяющиеся цепочки распространения;
+- источники раннего появления материала.
+
+### Reply graph
+
+Replies можно трактовать не просто как текстовые сообщения, а как связи:
+
+`actor → replied to → actor/message`.
+
+Это полезно для:
+
+- community structure;
+- активных участников;
+- конфликтных кластеров;
+- координации;
+- выявления центральных аккаунтов.
+
+### Engagement layer
+
+Telepathy собирает:
+
+- reactions;
+- views;
+- forwards;
+- replies.
+
+Из этого можно строить сравнительные показатели активности и распространения контента между каналами.
+
+### Media archive + enrichment
+
+Отдельный полезный investigative pattern:
+
+`Telegram media → local archive → ExifTool / metadata extraction → attribution clues`.
+
+Особенно для файлов, где Telegram может сохранять часть metadata:
+
+- PDF;
+- DOCX;
+- XLSX;
+- MP4;
+- MOV;
+- другие документы и media containers.
+
+### Actor analysis
+
+Member lists, usernames и top posters дают основу для отдельного entity layer:
+
+`message → actor → aliases → activity → related chats → external enrichment`.
+
+PROJECT:
+Основной bucket:
+
+**OSINT / Investigations**
+
+Практический контур:
+
+**telegram-osint-metasearch**
+
+Полезная эволюция нашего проекта:
+
+`search`
+→ `collect`
+→ `normalize`
+→ `resolve actors`
+→ `map forwards`
+→ `map replies`
+→ `archive media`
+→ `enrich`
+→ `graph`
+→ `evidence package`.
+
+Telepathy показывает, какие функции логично добавлять поверх уже существующего поиска Telegram.
+
+NEXT:
+Не устанавливать Telepathy.
+
+Добавить в backlog `telegram-osint-metasearch` отдельные capabilities:
+
+1. forward-edge extraction;
+2. reply-edge extraction;
+3. Gephi-compatible graph export;
+4. actor/top-poster statistics;
+5. reactions/views/forwards metrics;
+6. controlled media archive;
+7. metadata enrichment через ExifTool;
+8. structured investigation export в JSON/CSV;
+9. entity layer для users/channels/messages;
+10. evidence package с provenance на исходные Telegram URLs.
+
+При реализации использовать современный собственный Telethon pipeline, а Telepathy рассматривать только как reference implementation и источник investigative patterns.
+
+---
+
 ### r3dg0d/vidocq
 
 URL: https://github.com/r3dg0d/vidocq
@@ -11682,7 +12021,7 @@ NEXT:
 
 ## BUCKET: Publishing / Layout / PDF
 
-Cards: 9
+Cards: 10
 
 ### K-Arthur/varve
 
@@ -12023,6 +12362,47 @@ NEXT:
 Если contract окажется хорошим,
 использовать как donor
 для `MEDIA_FACTORY_DOCUMENT_SPEC`.
+
+---
+
+### nyblnet/bento
+
+URL: https://github.com/nyblnet/bento
+VERDICT: KEEP
+SCORE: 49
+STARS: 5380
+
+WHAT:
+AI-native офисный runtime, в котором документ, редактор и viewer упакованы в один self-contained `.bento.html`.
+
+Первое полноценное приложение — Slides. Также развивается `bento/spaces` для заметок и wiki, а data/sheets-направление находится в разработке.
+
+Ключевой принцип: состояние документа хранится прямо внутри файла в plain JSON-блоке `application/bento+json`.
+
+Один и тот же файл одновременно является:
+
+- структурированным source-of-truth;
+- редактируемым документом;
+- GUI-приложением;
+- presentation runtime;
+- переносимым финальным артефактом.
+
+FIT:
+—
+
+PROJECT:
+Основной практический контур:
+
+**Lancelot / Media Factory**
+
+Пилотный сценарий:
+
+`brief → agent-generated Bento deck → render/measure/validate → human visual edit → final portable file`.
+
+Также Bento полезен как архитектурный donor для будущих agent-native artifact formats.
+
+NEXT:
+—
 
 ---
 
@@ -12624,7 +13004,45 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 10
+Cards: 11
+
+### autark-labs/autark-os
+
+URL: https://github.com/autark-labs/autark-os
+VERDICT: KEEP
+SCORE: 44
+STARS: 27
+
+WHAT:
+Локальный control plane для self-hosted приложений.
+
+Autark-OS использует существующие системные компоненты вместо изобретения собственного runtime:
+
+- Docker Compose;
+- systemd;
+- SQLite;
+- Tailscale;
+- local filesystem.
+
+React UI и Spring Boot backend дают пользователю appliance-like workflow:
+
+- discover;
+- install;
+- operate;
+- backup;
+- restore;
+- recover.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
 
 ### Duragraph/duragraph
 
