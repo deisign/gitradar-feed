@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-06T08:22:46
+Generated: 2026-10-06T20:38:36
 Date: 2026-10-06
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 277
+- Total curated cards: 278
 - Buckets: 20
 
 ## Bucket summary
@@ -20,7 +20,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Full-Song AI / Suno Alternatives: 11
 - Infographics / Visual Storytelling: 23
 - Interactive Reports / Data Apps: 7
-- Lancelot / Agent Infrastructure: 43
+- Lancelot / Agent Infrastructure: 44
 - Media / Social Monitoring: 8
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
@@ -6709,7 +6709,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 43
+Cards: 44
 
 ### alphaXiv/OpenResearch
 
@@ -7298,6 +7298,136 @@ LANCELOT:
 Score: 9/10
 Tier: HIGH
 Tags: - sandboxing
+
+---
+
+### cloudflare/cloudflare-os
+
+URL: https://github.com/cloudflare/cloudflare-os
+VERDICT: KEEP
+SCORE: 48
+STARS: 11180
+
+WHAT:
+Cloudflare OS — не обычная операционная система и не ещё один chat UI для LLM.
+
+Это корпоративная среда для работы с агентами и AI-generated приложениями, построенная вокруг трёх основных слоёв:
+
+- general-purpose agent workspace;
+- изолированные пользовательские приложения — Gadgets;
+- security / capability layer — Gatekeepers.
+
+Каждый Gadget представляет собой отдельный изменяемый экземпляр приложения, который агент может создать под конкретного пользователя из Blueprint и затем дорабатывать по запросу.
+
+Архитектура Cloudflare OS построена поверх Workers, Durable Objects, Dynamic Workers и Facets. Workspace живёт как отдельный stateful runtime, а Gadgets и Gatekeepers изолируются друг от друга.
+
+FIT:
+Главная ценность — не готовый продукт, а модель безопасного исполнения агентами реальных действий.
+
+### Capability-based access
+
+Агент или Gadget по умолчанию не получают ambient access ко всем подключённым сервисам.
+
+Доступ выдаётся как конкретное introduction:
+
+`agent + specific resource + specific capability`.
+
+Это гораздо ближе к нужной нам модели Lancelot, чем традиционный подход, где подключённый MCP server часто сразу делает широкую поверхность сервиса доступной каждому агентному контексту.
+
+### Gatekeepers
+
+Внешний сервис не вызывается напрямую:
+
+`agent → Gatekeeper → external system`.
+
+Gatekeeper отвечает за:
+
+- OAuth / credentials;
+- narrow resource scope;
+- authorization;
+- logging;
+- approval policy;
+- применение side effects.
+
+В репозитории уже есть Gatekeepers для GitHub, Google, Slack, Notion, Linear, email, MCP, scheduler и других систем, плюс отдельный `gatekeeper-kit`.
+
+### Speculative side effects
+
+Самый сильный механизм — отложенное применение опасных действий.
+
+Вместо:
+
+`action → STOP → approve → continue`
+
+используется:
+
+`action → stage → simulate result → continue reasoning → review → commit`.
+
+Side effect помещается в pending queue и физически не выполняется. При этом последующие reads могут видеть симулированное состояние, поэтому агент способен завершить длинный workflow и только затем показать пользователю пачку действий для approval.
+
+Это фактически transaction-like модель работы агента с внешним миром.
+
+Она особенно интересна для:
+
+- media outreach;
+- CRM updates;
+- email sending;
+- GitHub commits / pushes;
+- publishing;
+- administrative workflows.
+
+### Agent ≠ user
+
+Ещё один важный принцип: агент рассматривается как отдельный principal, действующий от имени человека, но с собственными ограниченными permissions.
+
+То есть:
+
+`human principal → delegated agent → scoped capability → resource`.
+
+Это полезная базовая модель для будущего Lancelot execution layer.
+
+PROJECT:
+Основной контур:
+
+**Lancelot / Agent Infrastructure**
+
+Вторичный:
+
+**Agent Security / Governance**
+
+Связать с:
+
+- `coreyhaines31/marketingskills` — shared context + narrow skills;
+- `fatihaydost/brand-identity-skill` — structured state, deterministic gates и human checkpoint;
+- `affaan-m/agentshield` — deterministic security audit до запуска;
+- `HQBase/hqbase` — реальный execution layer для agent-driven email;
+- будущим tool / connector registry Lancelot.
+
+Особенно важен как donor для будущего паттерна:
+
+`skill → tool request → capability gate → staged effect → simulation → approval → commit`.
+
+NEXT:
+Не ставить Cloudflare OS целиком как платформу.
+
+Разобрать архитектурно четыре механизма:
+
+1. capability introductions;
+2. Gatekeeper contract и `gatekeeper-kit`;
+3. ApprovalQueue / staged side effects / simulated reads;
+4. Gadget + Blueprint isolation model.
+
+После этого спроектировать минимальный Lancelot prototype для одного реального workflow:
+
+`draft email → stage send → simulate sent → stage CRM update → human review → commit both`.
+
+Отдельно изучить failure cases transactionality:
+
+- dependency между pending actions;
+- reject раннего действия после последующих simulated actions;
+- out-of-order approvals;
+- rollback;
+- reconciliation внешнего состояния.
 
 ---
 
