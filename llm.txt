@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-08T17:13:20
+Generated: 2026-10-08T17:36:03
 Date: 2026-10-08
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 324
+- Total curated cards: 325
 - Buckets: 23
 
 ## Bucket summary
@@ -34,7 +34,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Radio / Audio Ops: 13
 - System Architecture / Engineering Patterns: 12
 - Telegram Bots / Automation: 1
-- Video Production: 1
+- Video Production: 2
 - Video Production / Editing: 37
 
 ## Today's run
@@ -14610,7 +14610,7 @@ NEXT:
 
 ## BUCKET: Video Production
 
-Cards: 1
+Cards: 2
 
 ### getopenscreen/openscreen
 
@@ -14621,6 +14621,39 @@ STARS: 3773
 
 WHAT:
 Open-source recorder/editor для polished demos и walkthroughs с local editing, transcription и automation layer.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### OpenCut-app/OpenCut
+
+URL: https://github.com/OpenCut-app/OpenCut
+VERDICT: KEEP
+SCORE: 49
+STARS: 93203
+
+WHAT:
+OpenCut — open-source video editor и альтернатива CapCut.
+
+Но для GitRadar важнее не текущий browser editor, а новый rewrite, который команда строит с нуля вокруг программируемой архитектуры.
+
+Существующая production-версия пока живёт отдельно как `opencut-classic`.
+
+Новый OpenCut должен стать единым editor runtime для:
+
+- browser;
+- desktop;
+- mobile.
+
+Core переписывается на Rust.
 
 FIT:
 —
