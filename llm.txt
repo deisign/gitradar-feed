@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-08T08:22:41
+Generated: 2026-10-08T17:13:20
 Date: 2026-10-08
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,30 +8,33 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 292
-- Buckets: 20
+- Total curated cards: 324
+- Buckets: 23
 
 ## Bucket summary
 
 - Agent Security / Governance: 25
 - Broadcast / Playout / Automation: 2
-- Design Systems / Visual QA: 30
+- Design Systems / Visual QA: 33
 - Font Creation / Typography Tools: 16
 - Full-Song AI / Suno Alternatives: 11
-- Infographics / Visual Storytelling: 24
-- Interactive Reports / Data Apps: 8
-- Lancelot / Agent Infrastructure: 48
+- Infographics / Visual Storytelling: 27
+- Interactive Reports / Data Apps: 9
+- Lancelot / Agent Infrastructure: 55
 - Media / Social Monitoring: 9
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
 - Music Generation / AI Music: 6
 - n8n / Workflow Automation: 7
-- Newsroom / Data Journalism: 12
+- Newsroom / Data Journalism: 20
+- Newsroom / Source Security: 1
+- OSINT / Investigation: 7
 - OSINT / Investigations: 11
 - Publishing / Layout / PDF: 10
 - Radio / Audio Ops: 13
-- System Architecture / Engineering Patterns: 11
+- System Architecture / Engineering Patterns: 12
 - Telegram Bots / Automation: 1
+- Video Production: 1
 - Video Production / Editing: 37
 
 ## Today's run
@@ -2362,7 +2365,28 @@ NEXT:
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 30
+Cards: 33
+
+### 0design/ai-native-design-framework
+
+URL: https://github.com/0design/ai-native-design-framework
+VERDICT: KEEP
+SCORE: 47
+STARS: 21
+
+WHAT:
+Спецификация AI-native design system, в которой дизайн описывается не только компонентами и токенами, но и правилами, пригодными для автоматического применения агентами.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
 
 ### AnxForever/stylekit
 
@@ -3264,6 +3288,27 @@ Phase 6 проверять только после этого и только н
 
 ---
 
+### nexu-io/open-design
+
+URL: https://github.com/nexu-io/open-design
+VERDICT: KEEP
+SCORE: 49
+STARS: 99989
+
+WHAT:
+Local-first design environment, которое подключает coding agents к production workflows для web, dashboards, slides, images и video.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
 ### Noord-Ventures/vlak
 
 URL: https://github.com/Noord-Ventures/vlak
@@ -3424,6 +3469,27 @@ Bakeoff на трёх brief:
 3. analytical dashboard.
 
 Оценивать качество reference packet, а не буквальное сходство результата с источником.
+
+---
+
+### open-pencil/open-pencil
+
+URL: https://github.com/open-pencil/open-pencil
+VERDICT: KEEP
+SCORE: 50
+STARS: 8807
+
+WHAT:
+AI-native open-source design editor с native Figma files и полноценным programmable/headless layer.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -5190,7 +5256,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 24
+Cards: 27
 
 ### CodingFeng101/CanvasAnvil
 
@@ -5324,6 +5390,27 @@ Infographics / Visual Storytelling
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### heygen-com/hyperframes
+
+URL: https://github.com/heygen-com/hyperframes
+VERDICT: KEEP
+SCORE: 49
+STARS: 58931
+
+WHAT:
+Toolkit для создания motion graphics как HTML compositions с последующим video render.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -5836,6 +5923,27 @@ NEXT:
 
 Если всё чисто — использовать как renderer primitive,
 а не как самостоятельное приложение.
+
+---
+
+### palewire/datawrapper-mcp
+
+URL: https://github.com/palewire/datawrapper-mcp
+VERDICT: KEEP
+SCORE: 47
+STARS: 57
+
+WHAT:
+MCP server и приложение для управления Datawrapper из AI-ассистентов.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -6774,6 +6882,27 @@ full-scroll verification на Linux.
 
 ---
 
+### NUKnightLab/timeline-ng
+
+URL: https://github.com/NUKnightLab/timeline-ng
+VERDICT: WATCH
+SCORE: 39
+STARS: 8
+
+WHAT:
+Современная переработка Knight Lab TimelineJS как Svelte 5 monorepo.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
 ### rdmurphy/scroller
 
 URL: https://github.com/rdmurphy/scroller
@@ -6860,7 +6989,7 @@ NEXT:
 
 ## BUCKET: Interactive Reports / Data Apps
 
-Cards: 8
+Cards: 9
 
 ### bobbycomet/Conky-Studio
 
@@ -7137,9 +7266,30 @@ NEXT:
 
 ---
 
+### OpenBB-finance/OpenBB
+
+URL: https://github.com/OpenBB-finance/OpenBB
+VERDICT: WATCH
+SCORE: 40
+STARS: 73870
+
+WHAT:
+Open data platform для analysts, quants и AI agents с расширяемыми data providers.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 48
+Cards: 55
 
 ### alphaXiv/OpenResearch
 
@@ -7937,6 +8087,27 @@ NEXT:
 - `interview-prep`.
 
 Заимствовать routing, references, разделение tools/knowledge и evals, но заменить SaaS/growth-онтологию нашей.
+
+---
+
+### different-ai/openwork
+
+URL: https://github.com/different-ai/openwork
+VERDICT: KEEP
+SCORE: 48
+STARS: 23952
+
+WHAT:
+Open-source Cowork-like desktop workspace поверх OpenCode, где agents работают с локальными файлами и reusable capabilities.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -9146,6 +9317,48 @@ NEXT:
 
 ---
 
+### OpenHands/OpenHands
+
+URL: https://github.com/OpenHands/OpenHands
+VERDICT: KEEP
+SCORE: 50
+STARS: 90270
+
+WHAT:
+OpenHands превратился в self-hosted control center для запуска и автоматизации OpenHands, Claude Code, Codex, Gemini и других ACP-compatible agents.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### openlit/openlit
+
+URL: https://github.com/openlit/openlit
+VERDICT: KEEP
+SCORE: 48
+STARS: 2833
+
+WHAT:
+Open-source agent harness engineering platform для tracing, evaluation, guardrails и улучшения AI agents поверх OpenTelemetry.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
 ### optave/ops-codegraph-tool
 
 URL: https://github.com/optave/ops-codegraph-tool
@@ -9224,6 +9437,27 @@ specialized/native connector
 → generic browser/scraping.
 
 Outputs нормализовать отдельным adapter layer.
+
+---
+
+### paperclipai/paperclip
+
+URL: https://github.com/paperclipai/paperclip
+VERDICT: KEEP
+SCORE: 50
+STARS: 98703
+
+WHAT:
+Open-source management layer для координации разных AI agents как команды или организации.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -9804,6 +10038,69 @@ NEXT:
 
 Сравнить
 с текущими Lancelot tools.
+
+---
+
+### anomalyco/opencode
+
+URL: https://github.com/anomalyco/opencode
+VERDICT: WATCH
+SCORE: 40
+STARS: 212333
+
+WHAT:
+Очень крупный open-source coding agent, который уже используется как runtime другими продуктами вроде OpenWork.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### openclaw/openclaw
+
+URL: https://github.com/openclaw/openclaw
+VERDICT: WATCH
+SCORE: 38
+STARS: 391635
+
+WHAT:
+Очень крупная open-source assistant platform с local gateway, tools, messaging integrations и companion apps.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### pingdotgg/t3code
+
+URL: https://github.com/pingdotgg/t3code
+VERDICT: WATCH
+SCORE: 41
+STARS: 26304
+
+WHAT:
+Agent harness control surface для управления несколькими development agents с desktop, web и mobile интерфейсов.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -11087,7 +11384,28 @@ USE FOR LANCELOT:
 
 ## BUCKET: Newsroom / Data Journalism
 
-Cards: 12
+Cards: 20
+
+### associatedpress/datakit-core
+
+URL: https://github.com/associatedpress/datakit-core
+VERDICT: KEEP
+SCORE: 44
+STARS: 59
+
+WHAT:
+Core-библиотека CLI framework Associated Press для воспроизводимых data-journalism проектов.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
 
 ### biglocalnews/warn-transformer
 
@@ -11131,6 +11449,69 @@ NEXT:
 
 ---
 
+### huridocs/uwazi
+
+URL: https://github.com/huridocs/uwazi
+VERDICT: KEEP
+SCORE: 47
+STARS: 325
+
+WHAT:
+Web-based open-source система HURIDOCS для документных коллекций, кейсов и связанных сущностей.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### ICIJ/datashare
+
+URL: https://github.com/ICIJ/datashare
+VERDICT: KEEP
+SCORE: 50
+STARS: 765
+
+WHAT:
+Self-hosted поисковая и аналитическая система ICIJ для больших расследовательских коллекций документов.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### lfnovo/open-notebook
+
+URL: https://github.com/lfnovo/open-notebook
+VERDICT: KEEP
+SCORE: 49
+STARS: 39949
+
+WHAT:
+Self-hosted NotebookLM-like research workspace с выбором моделей и собственным storage.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
 ### localangle/backfield
 
 URL: https://github.com/localangle/backfield
@@ -11149,6 +11530,48 @@ Media Monitoring · Newsroom / Data Journalism · OSINT enrichment · knowledge 
 
 NEXT:
 Разобрать отдельно Agate workflow model, Stylebook entity resolution и API. Проверить, какие части можно использовать как паттерны для нашего monitoring/enrichment pipeline.
+
+---
+
+### MuckRock/documentcloud
+
+URL: https://github.com/MuckRock/documentcloud
+VERDICT: KEEP
+SCORE: 46
+STARS: 55
+
+WHAT:
+Backend DocumentCloud — newsroom-oriented platform для загрузки, обработки, аннотации и публикации документов.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### NHagar/claude-plugins-journalism
+
+URL: https://github.com/NHagar/claude-plugins-journalism
+VERDICT: KEEP
+SCORE: 46
+STARS: 19
+
+WHAT:
+Набор специализированных agent skills для журналистской и расследовательской работы.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -11348,6 +11771,27 @@ NEXT:
 
 ---
 
+### ur-grue/autopunk-media-skills
+
+URL: https://github.com/ur-grue/autopunk-media-skills
+VERDICT: KEEP
+SCORE: 47
+STARS: 33
+
+WHAT:
+Большая библиотека специализированных AI skills и agents для журналистики, production, data journalism, PR, audio и documentary work.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
 ### globeandmail/startr
 
 URL: https://github.com/globeandmail/startr
@@ -11387,6 +11831,203 @@ Newsroom / Data Journalism
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### PreethaRaj/atlas-editorial-intelligence
+
+URL: https://github.com/PreethaRaj/atlas-editorial-intelligence
+VERDICT: WATCH
+SCORE: 40
+STARS: 0
+
+WHAT:
+Учебно-экспериментальная journalism intelligence platform для grounded search, fact-checking и editorial workflows.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+## BUCKET: Newsroom / Source Security
+
+Cards: 1
+
+### freedomofpress/securedrop
+
+URL: https://github.com/freedomofpress/securedrop
+VERDICT: KEEP
+SCORE: 50
+STARS: 3887
+
+WHAT:
+Зрелая open-source платформа Freedom of the Press Foundation для безопасной передачи материалов и анонимной коммуникации с источниками.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+## BUCKET: OSINT / Investigation
+
+Cards: 7
+
+### atlosdotorg/atlos
+
+URL: https://github.com/atlosdotorg/atlos
+VERDICT: KEEP
+SCORE: 49
+STARS: 97
+
+WHAT:
+Collaborative workspace для визуальной верификации и расследовательской работы с incident records.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### bellingcat/auto-archiver
+
+URL: https://github.com/bellingcat/auto-archiver
+VERDICT: KEEP
+SCORE: 49
+STARS: 1126
+
+WHAT:
+Инструмент Bellingcat для автоматического архивирования ссылок на видео, изображения и social-media контент.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### dsivov/investigator
+
+URL: https://github.com/dsivov/investigator
+VERDICT: KEEP
+SCORE: 48
+STARS: 4
+
+WHAT:
+OSINT pipeline для анализа нескольких историй и открытых источников через entities, events и scored knowledge graph.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### JordanCoin/openfoia
+
+URL: https://github.com/JordanCoin/openfoia
+VERDICT: KEEP
+SCORE: 48
+STARS: 11
+
+WHAT:
+Local-first investigative toolkit, выросший вокруг FOIA, document analysis и cross-source research.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### openaleph/openaleph
+
+URL: https://github.com/openaleph/openaleph
+VERDICT: KEEP
+SCORE: 50
+STARS: 139
+
+WHAT:
+Современная open-source investigative platform для безопасного хранения, поиска и совместной работы с большими массивами данных.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### opensanctions/followthemoney
+
+URL: https://github.com/opensanctions/followthemoney
+VERDICT: KEEP
+SCORE: 50
+STARS: 101
+
+WHAT:
+Data model и processing toolkit для investigative entity graphs, используемый OpenSanctions, OpenAleph и другими расследовательскими системами.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
+### qrdate/qrdate
+
+URL: https://github.com/qrdate/qrdate
+VERDICT: WATCH
+SCORE: 36
+STARS: 38
+
+WHAT:
+Система подписанных timestamps, которые можно физически включать в фото, видео или livestream через QR-код либо audible data signal.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
@@ -13004,7 +13645,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 11
+Cards: 12
 
 ### autark-labs/autark-os
 
@@ -13915,6 +14556,27 @@ NEXT:
 
 ---
 
+### openobserve/openobserve
+
+URL: https://github.com/openobserve/openobserve
+VERDICT: WATCH
+SCORE: 40
+STARS: 22298
+
+WHAT:
+Self-hosted observability platform для logs, metrics, traces, RUM и AI/LLM telemetry.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
+
+---
+
 ## BUCKET: Telegram Bots / Automation
 
 Cards: 1
@@ -13943,6 +14605,31 @@ Telegram Bots / Automation и будущие agentic workflows.
 
 NEXT:
 Проверить Telegram adapter, approvals и sandbox model. Сравнить стоимость внедрения HeyPi с собственным небольшим MCP/Telegram gateway.
+
+---
+
+## BUCKET: Video Production
+
+Cards: 1
+
+### getopenscreen/openscreen
+
+URL: https://github.com/getopenscreen/openscreen
+VERDICT: KEEP
+SCORE: 47
+STARS: 3773
+
+WHAT:
+Open-source recorder/editor для polished demos и walkthroughs с local editing, transcription и automation layer.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+—
 
 ---
 
