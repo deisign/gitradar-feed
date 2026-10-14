@@ -1,7 +1,7 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-12T08:23:01
-Date: 2026-10-12
+Generated: 2026-10-14T08:22:54
+Date: 2026-10-14
 
 Public scope: this file is generated from curated cards and today's shortlist only.
 Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vault.
@@ -39,12 +39,12 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Today's run
 
-- items=1184
+- items=1181
 - errors=0
-- KEEP: 75
+- KEEP: 78
 - WATCH: 433
-- SKIP: 471
-- NOISE: 205
+- SKIP: 466
+- NOISE: 204
 
 # CURATED CARDS
 
@@ -16546,8 +16546,8 @@ NEXT:
 # TODAY'S SHORTLIST
 
 ---
-title: Creative Radar Shortlist 2026-10-12
-date: 2026-10-12
+title: Creative Radar Shortlist 2026-10-14
+date: 2026-10-14
 status: shortlist
 tags:
   - radar
@@ -16555,19 +16555,20 @@ tags:
   - shortlist
 ---
 
-# Creative Radar Shortlist — 2026-10-12
+# Creative Radar Shortlist — 2026-10-14
 
-Source: [[../scored/2026-10-12|Scored 2026-10-12]]
+Source: [[../scored/2026-10-14|Scored 2026-10-14]]
 
 ## Навигация
 
 - [Agent Security / Governance](#agent-security-governance) — 1
-- [Font Creation / Typography Tools](#font-creation-typography-tools) — 1
+- [Design Systems / Visual QA](#design-systems-visual-qa) — 2
 - [Full-Song AI / Suno Alternatives](#full-song-ai-suno-alternatives) — 1
-- [Infographics / Visual Storytelling](#infographics-visual-storytelling) — 1
-- [Mixing / Mastering / Audio Engineering](#mixing-mastering-audio-engineering) — 3
+- [Infographics / Visual Storytelling](#infographics-visual-storytelling) — 2
+- [Mixing / Mastering / Audio Engineering](#mixing-mastering-audio-engineering) — 1
+- [System Architecture / Engineering Patterns](#system-architecture-engineering-patterns) — 1
 - [Telegram Bots / Automation](#telegram-bots-automation) — 1
-- [Video Production / Editing](#video-production-editing) — 2
+- [Video Production / Editing](#video-production-editing) — 1
 
 ## Agent Security / Governance
 
@@ -16575,24 +16576,34 @@ Source: [[../scored/2026-10-12|Scored 2026-10-12]]
 
 - Verdict: **KEEP**
 - Score: 38
-- Stars: 123
-- Raw: #471
+- Stars: 124
+- Raw: #465
 - URL: https://github.com/sinewaveai/agent-security-scanner-mcp
 - Description: Security scanner MCP server for AI coding agents. Prompt injection firewall, package hallucination detection (4.3M+ packages), 1000+ vulnerability rules with AST & taint analysis, auto-fix.
 - Why: agent control-plane security fit, agent security/governance fit, stars>=100, strong agent-security signal
 
 
-## Font Creation / Typography Tools
+## Design Systems / Visual QA
 
-### fabiocaccamo/python-fontbro
+### marigold-ui/marigold
 
 - Verdict: **WATCH**
-- Score: 30
-- Stars: 75
-- Raw: #20
-- URL: https://github.com/fabiocaccamo/python-fontbro
-- Description: :billed_cap: friendly font operations on top of fontTools.
-- Why: font, font/typography tooling fit, fonttools, opentype, stars>=20, typography
+- Score: 33
+- Stars: 147
+- Raw: #886
+- URL: https://github.com/marigold-ui/marigold
+- Description: Design System based on react-aria and Tailwind CSS
+- Why: a11y, design QA fit, design system, design-system, stars>=100, tokens
+
+### chakra-ui/panda
+
+- Verdict: **WATCH**
+- Score: 31
+- Stars: 6224
+- Raw: #884
+- URL: https://github.com/chakra-ui/panda
+- Description: 🐼 Universal, Type-Safe, CSS-in-JS Framework for Design Systems ⚡️
+- Why: design QA fit, design system, design-system, stars>=1000, tokens
 
 
 ## Full-Song AI / Suno Alternatives
@@ -16602,7 +16613,7 @@ Source: [[../scored/2026-10-12|Scored 2026-10-12]]
 - Verdict: **WATCH**
 - Score: 33
 - Stars: 1
-- Raw: #381
+- Raw: #378
 - URL: https://github.com/nerdpudding/ACE-Step-1.5
 - Description: Docker setup for ACE-Step AI music generation — full songs with vocals and instruments from text prompts, running on your local GPU
 - Why: full-song ecosystem fit, full-song identity fit, lyrics/vocals full-song fit
@@ -16610,11 +16621,21 @@ Source: [[../scored/2026-10-12|Scored 2026-10-12]]
 
 ## Infographics / Visual Storytelling
 
+### VisActor/skills
+
+- Verdict: **KEEP**
+- Score: 36
+- Stars: 471
+- Raw: #63
+- URL: https://github.com/VisActor/skills
+- Description: Agent skills for the VisActor visualization ecosystem.
+- Why: agent-native workflow, chart, infographic, infographics, infographics/visual storytelling fit, stars>=100
+
 ### lowlighter/metrics
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 17275
+- Stars: 17285
 - Raw: #62
 - URL: https://github.com/lowlighter/metrics
 - Description: 📊 An infographics generator with 30+ plugins and 300+ options to display stats about your GitHub account and render them as SVG, Markdown, PDF or JSON!
@@ -16627,31 +16648,24 @@ Source: [[../scored/2026-10-12|Scored 2026-10-12]]
 
 - Verdict: **WATCH**
 - Score: 33
-- Stars: 100
-- Raw: #195
+- Stars: 101
+- Raw: #196
 - URL: https://github.com/brummer10/ToneShiftEQ
 - Description: 12-band equalizer designed for precise spectral shaping, mixing, mastering, and corrective audio processing.
 - Why: lv2, mastering, mixing, mixing/mastering/audio engineering fit, stars>=100, vst
 
-### sergree/matchering
+
+## System Architecture / Engineering Patterns
+
+### kurrent-io/KurrentDB
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 2655
-- Raw: #198
-- URL: https://github.com/sergree/matchering
-- Description: 🎚️ Open Source Audio Matching and Mastering
-- Why: limiter, mastering, mixing/mastering/audio engineering fit, stars>=1000, vst
-
-### ZhiyuAlexZhang/Grisey
-
-- Verdict: **WATCH**
-- Score: 30
-- Stars: 66
-- Raw: #205
-- URL: https://github.com/ZhiyuAlexZhang/Grisey
-- Description: Free, open-source metering plugin for mixing and mastering: LUFS loudness (EBU R 128), true peak, spectrum, spectrogram and goniometer in one window. VST3 / AU / CLAP.
-- Why: loudness, mastering, mixing, mixing/mastering/audio engineering fit, stars>=20, vst
+- Stars: 5869
+- Raw: #916
+- URL: https://github.com/kurrent-io/KurrentDB
+- Description: KurrentDB is a database that's engineered for modern software applications and event-driven architectures. Its event-native design simplifies data modeling and preserves data integrity while the integrated streaming engine solves distributed messaging challenges and ensures data consistency.
+- Why: consistency, cqrs, event-driven architecture, stars>=1000, system architecture / engineering patterns fit
 
 
 ## Telegram Bots / Automation
@@ -16660,8 +16674,8 @@ Source: [[../scored/2026-10-12|Scored 2026-10-12]]
 
 - Verdict: **KEEP**
 - Score: 37
-- Stars: 9199
-- Raw: #351
+- Stars: 9201
+- Raw: #348
 - URL: https://github.com/telegraf/telegraf
 - Description: Modern Telegram Bot Framework for Node.js
 - Why: bot framework, middleware, stars>=1000, telegram bot, telegram bot/agent fit, telegram operational automation fit
@@ -16673,20 +16687,10 @@ Source: [[../scored/2026-10-12|Scored 2026-10-12]]
 
 - Verdict: **WATCH**
 - Score: 31
-- Stars: 10376
-- Raw: #771
+- Stars: 12700
+- Raw: #774
 - URL: https://github.com/storytold/filmcraft
 - Description: FilmCraft: An open-source, nonlinear video editor written by scratch in pure Rust
 - Why: nonlinear, stars>=1000, video, video editor, video production fit
-
-### hclivess/whisperer
-
-- Verdict: **WATCH**
-- Score: 30
-- Stars: 80
-- Raw: #798
-- URL: https://github.com/hclivess/whisperer
-- Description: Batch subtitle generator GUI for video/audio — Whisper via faster-whisper or whisper.cpp (PySide6)
-- Why: ffmpeg, stars>=20, subtitle, subtitles, transcription, video production fit
 
 
