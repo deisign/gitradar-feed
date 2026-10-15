@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-15T08:23:43
+Generated: 2026-10-15T11:31:06
 Date: 2026-10-15
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -9,55 +9,32 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 ## Status
 
 - Total curated cards: 358
-- Buckets: 45
+- Buckets: 22
 
 ## Bucket summary
 
-- Agent Infrastructure / Interop: 1
-- Agent Memory / Learning: 2
 - Agent Security / Governance: 25
-- Broadcast / Graphics Ops: 1
-- Broadcast / Network Planning: 1
-- Broadcast / Playout / Automation: 2
+- Broadcast / Playout / Automation: 4
 - Design / Image Editing: 2
-- Design / Technical Illustration: 1
 - Design Systems / Visual QA: 33
 - Font Creation / Typography Tools: 16
 - Full-Song AI / Suno Alternatives: 11
-- Infographics / Visual Storytelling: 27
+- Infographics / Visual Storytelling: 28
 - Interactive Reports / Data Apps: 9
-- Lancelot / Agent Infrastructure: 55
-- Linux / Creative Workstation: 1
-- Linux / Workstation Ops: 1
-- MCP / Messaging: 1
+- Lancelot / Agent Infrastructure: 58
 - Media / Social Monitoring: 9
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
-- Mobile / Android Automation: 1
-- Motion / Agent Skills: 5
-- Motion / Agent Tools: 1
-- Motion / Design Principles: 1
-- Motion / Explainer: 1
-- Motion / Procedural Animation: 1
-- Motion / Product Video: 1
-- Motion / Runtime: 1
-- Music / Discovery: 1
 - Music Generation / AI Music: 6
 - n8n / Workflow Automation: 7
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
-- OSINT / Investigations: 19
-- OSINT / Tooling: 1
-- P2P / Decentralized Systems: 1
+- OSINT / Investigations: 20
 - Publishing / Layout / PDF: 10
-- Radio / Audio Ops: 15
-- System Architecture / Engineering Patterns: 12
-- Telegram Bots / Automation: 1
-- Video / Agent Editing: 1
-- Video / Agent Skills: 1
-- Video / Localization: 1
-- Video / Remotion: 1
-- Video Production / Editing: 39
+- Radio / Audio Ops: 16
+- System Architecture / Engineering Patterns: 16
+- Telegram Bots / Automation: 2
+- Video Production / Editing: 54
 
 ## Today's run
 
@@ -69,79 +46,6 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - NOISE: 214
 
 # CURATED CARDS
-
-## BUCKET: Agent Infrastructure / Interop
-
-Cards: 1
-
-### timoncool/trail-spec
-
-URL: https://github.com/timoncool/trail-spec
-VERDICT: KEEP
-SCORE: 48
-STARS: 12
-
-WHAT:
-TRAIL — открытый протокол для отслеживания одного и того же контента между изолированными MCP-журналами.
-
-Главная задача — дать разным агентным инструментам общий способ понимать, что объект уже встречался, обрабатывался или был связан с другим логом.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Сопоставить TRAIL identity/provenance model с журналом Lancelot и определить минимальный совместимый contract.
-
----
-
-## BUCKET: Agent Memory / Learning
-
-Cards: 2
-
-### timoncool/dream-skill
-
-URL: https://github.com/timoncool/dream-skill
-VERDICT: KEEP
-SCORE: 47
-STARS: 3
-
-WHAT:
-Набор skills для периодической консолидации агентной памяти: сначала анализ, затем проверяемое предложение изменений, snapshot и возможность отката.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Перенести паттерн snapshot → validate → commit/rollback в дизайн долговременной памяти Lancelot.
-
----
-
-### timoncool/satori
-
-URL: https://github.com/timoncool/satori
-VERDICT: KEEP
-SCORE: 48
-STARS: 4
-
-WHAT:
-Self-learning loop для coding agents: ошибки, поправки пользователя и неудачные действия превращаются в предложения новых skills.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Сопоставить correction capture, candidate generation и approval gate с Lancelot memory lifecycle.
-
----
 
 ## BUCKET: Agent Security / Governance
 
@@ -2393,59 +2297,9 @@ NEXT:
 
 ---
 
-## BUCKET: Broadcast / Graphics Ops
-
-Cards: 1
-
-### djgragra/ticker-feed-builder
-
-URL: https://github.com/djgragra/ticker-feed-builder
-VERDICT: KEEP
-SCORE: 48
-STARS: 0
-
-WHAT:
-Адаптер, превращающий RSS в детерминированные numbered `.txt` и image files для legacy ticker/playout/graphics systems.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Сохранить как integration donor для будущих legacy broadcast connectors.
-
----
-
-## BUCKET: Broadcast / Network Planning
-
-Cards: 1
-
-### djgragra/aoip-bandwidth-planner
-
-URL: https://github.com/djgragra/aoip-bandwidth-planner
-VERDICT: WATCH
-SCORE: 40
-STARS: 0
-
-WHAT:
-Offline-capable PWA для планирования Dante/AES67 audio-over-IP networks: devices, switches, links, flows и redundancy.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-WATCH до появления реальной AoIP-задачи; сохранить архитектурный принцип uncertainty labeling.
-
----
-
 ## BUCKET: Broadcast / Playout / Automation
 
-Cards: 2
+Cards: 4
 
 ### CasparCG/server
 
@@ -2471,6 +2325,27 @@ NEXT:
 Собрать минимальный spike: источник now-playing metadata → небольшой controller → CasparCG → 1080p program output.
 
 Второй этап — MCP adapter с безопасными tools вроде `get_on_air_state`, `take_clip`, `update_now_playing`, `show_lower_third`, `take_next`.
+
+---
+
+### djgragra/ticker-feed-builder
+
+URL: https://github.com/djgragra/ticker-feed-builder
+VERDICT: KEEP
+SCORE: 48
+STARS: 0
+
+WHAT:
+Адаптер, превращающий RSS в детерминированные numbered `.txt` и image files для legacy ticker/playout/graphics systems.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сохранить как integration donor для будущих legacy broadcast connectors.
 
 ---
 
@@ -2505,6 +2380,27 @@ NEXT:
 2. использование отдельных Sofie-библиотек/паттернов.
 
 Полную Sofie разворачивать только если visual-radio перерастёт в студию с live inputs, несколькими устройствами и сложными rundown'ами.
+
+---
+
+### djgragra/aoip-bandwidth-planner
+
+URL: https://github.com/djgragra/aoip-bandwidth-planner
+VERDICT: WATCH
+SCORE: 40
+STARS: 0
+
+WHAT:
+Offline-capable PWA для планирования Dante/AES67 audio-over-IP networks: devices, switches, links, flows и redundancy.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+WATCH до появления реальной AoIP-задачи; сохранить архитектурный принцип uncertainty labeling.
 
 ---
 
@@ -2553,33 +2449,6 @@ PROJECT:
 
 NEXT:
 WATCH и сравнение с более зрелым PhotoCraft по memory model, history и project format.
-
----
-
-## BUCKET: Design / Technical Illustration
-
-Cards: 1
-
-### wheresryan22/anatomy
-
-URL: https://github.com/wheresryan22/anatomy
-VERDICT: KEEP
-SCORE: 49
-STARS: 9099
-
-WHAT:
-Agent skill для детальных интерактивных изометрических иллюстраций машин и сложных систем.
-
-Генерирует SVG и при необходимости добавляет WebGL/3D effects.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Тест на одной реальной системе Circus/Lancelot и на одном физическом объекте с проверкой геометрии и смысловой читаемости.
 
 ---
 
@@ -5476,7 +5345,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 27
+Cards: 28
 
 ### CodingFeng101/CanvasAnvil
 
@@ -6407,6 +6276,29 @@ NEXT:
 
 Отдельно адаптировать
 под 9:16 и 16:9.
+
+---
+
+### wheresryan22/anatomy
+
+URL: https://github.com/wheresryan22/anatomy
+VERDICT: KEEP
+SCORE: 49
+STARS: 9099
+
+WHAT:
+Agent skill для детальных интерактивных изометрических иллюстраций машин и сложных систем.
+
+Генерирует SVG и при необходимости добавляет WebGL/3D effects.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Тест на одной реальной системе Circus/Lancelot и на одном физическом объекте с проверкой геометрии и смысловой читаемости.
 
 ---
 
@@ -7509,7 +7401,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 55
+Cards: 58
 
 ### alphaXiv/OpenResearch
 
@@ -10119,6 +10011,71 @@ NEXT:
 
 ---
 
+### timoncool/dream-skill
+
+URL: https://github.com/timoncool/dream-skill
+VERDICT: KEEP
+SCORE: 47
+STARS: 3
+
+WHAT:
+Набор skills для периодической консолидации агентной памяти: сначала анализ, затем проверяемое предложение изменений, snapshot и возможность отката.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Перенести паттерн snapshot → validate → commit/rollback в дизайн долговременной памяти Lancelot.
+
+---
+
+### timoncool/satori
+
+URL: https://github.com/timoncool/satori
+VERDICT: KEEP
+SCORE: 48
+STARS: 4
+
+WHAT:
+Self-learning loop для coding agents: ошибки, поправки пользователя и неудачные действия превращаются в предложения новых skills.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сопоставить correction capture, candidate generation и approval gate с Lancelot memory lifecycle.
+
+---
+
+### timoncool/trail-spec
+
+URL: https://github.com/timoncool/trail-spec
+VERDICT: KEEP
+SCORE: 48
+STARS: 12
+
+WHAT:
+TRAIL — открытый протокол для отслеживания одного и того же контента между изолированными MCP-журналами.
+
+Главная задача — дать разным агентным инструментам общий способ понимать, что объект уже встречался, обрабатывался или был связан с другим логом.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сопоставить TRAIL identity/provenance model с журналом Lancelot и определить минимальный совместимый contract.
+
+---
+
 ### Unity-Technologies/unity-agent-plugin
 
 URL: https://github.com/Unity-Technologies/unity-agent-plugin
@@ -10321,81 +10278,6 @@ PROJECT:
 
 NEXT:
 —
-
----
-
-## BUCKET: Linux / Creative Workstation
-
-Cards: 1
-
-### stardazed/wine-patches
-
-URL: https://github.com/stardazed/wine-patches
-VERDICT: KEEP
-SCORE: 48
-STARS: 21
-
-WHAT:
-Небольшой patchset для Wine 11.19, закрывающий конкретные API gaps ради запуска Photoshop 2026 27.x на Linux.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Собрать pinned Wine из source в изолированном prefix и протестировать на отдельной Photoshop installation.
-
----
-
-## BUCKET: Linux / Workstation Ops
-
-Cards: 1
-
-### khurrambhutto/scope
-
-URL: https://github.com/khurrambhutto/scope
-VERDICT: KEEP
-SCORE: 49
-STARS: 23
-
-WHAT:
-Native Linux desktop app для общей инвентаризации и обслуживания ПО через APT, Snap, Flatpak, uv, pipx и Cargo.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Поставить на тестовой Linux-машине, сравнить inventory с реальным состоянием и отдельно проверить preview/apply safety.
-
----
-
-## BUCKET: MCP / Messaging
-
-Cards: 1
-
-### timoncool/telegram-api-mcp
-
-URL: https://github.com/timoncool/telegram-api-mcp
-VERDICT: KEEP
-SCORE: 46
-STARS: 32
-
-WHAT:
-MCP-сервер с широким покрытием Telegram Bot API, meta-mode, rate limiting и circuit breaker.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Если внедрять — сначала закрыть remote fetch, pin commit, минимизировать bot permissions и ограничить outbound network.
 
 ---
 
@@ -11312,315 +11194,6 @@ NEXT:
 
 ---
 
-## BUCKET: Mobile / Android Automation
-
-Cards: 1
-
-### vokimon/vokibot
-
-URL: https://github.com/vokimon/vokibot
-VERDICT: WATCH
-SCORE: 40
-STARS: 24
-
-WHAT:
-FOSS Android automation engine: NFC, shortcuts, Bluetooth и time triggers запускают последовательности typed commands.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-WATCH. Проверить сначала на тестовом Android: один NFC workflow и один Bluetooth workflow без WRITE_SECURE_SETTINGS.
-
----
-
-## BUCKET: Motion / Agent Skills
-
-Cards: 5
-
-### charlie947/motion-graphics-skills
-
-URL: https://github.com/charlie947/motion-graphics-skills
-VERDICT: KEEP
-SCORE: 47
-STARS: 274
-
-WHAT:
-Набор из 13 agent skills для production-grade motion graphics, где каждый кадр генерируется кодом.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Сравнить 3–4 skills на одном brief и выделить переносимые правила timing/composition.
-
----
-
-### greensock/gsap-skills
-
-URL: https://github.com/greensock/gsap-skills
-VERDICT: KEEP
-SCORE: 49
-STARS: 16360
-
-WHAT:
-Официальные AI skills для GSAP: best practices, типовые animation patterns и работа с plugins.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Использовать как базовый motion-reference и донор структуры собственных production skills.
-
----
-
-### howseen-ai/claude-motion-design
-
-URL: https://github.com/howseen-ai/claude-motion-design
-VERDICT: KEEP
-SCORE: 47
-STARS: 513
-
-WHAT:
-Motion-design skill, строящий видео через HTML/CSS/JS, browser capture в Playwright и финальный FFmpeg render.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Проверить на реальном 9:16 ролике и сравнить время/качество с Remotion и HyperFrames.
-
----
-
-### whaleyxbt/claude-motion
-
-URL: https://github.com/whaleyxbt/claude-motion
-VERDICT: KEEP
-SCORE: 45
-STARS: 405
-
-WHAT:
-Motion design toolkit, специально оформленный для coding agents.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Извлечь primitive taxonomy и сравнить её с Motion/GSAP/Remotion skill sets.
-
----
-
-### Barty-Bart/motion-graphics
-
-URL: https://github.com/Barty-Bart/motion-graphics
-VERDICT: WATCH
-SCORE: 39
-STARS: 671
-
-WHAT:
-Набор motion-graphics skills для Claude Code и Codex.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Следить за развитием и искать уникальные patterns, которых нет у product-launch-motion, GSAP, Remotion и Lottie skills.
-
----
-
-## BUCKET: Motion / Agent Tools
-
-Cards: 1
-
-### motiondivision/ai-kit
-
-URL: https://github.com/motiondivision/ai-kit
-VERDICT: KEEP
-SCORE: 45
-STARS: 28
-
-WHAT:
-Agent/plugin layer вокруг Motion runtime.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Изучать как companion к Motion, а не самостоятельную платформу.
-
----
-
-## BUCKET: Motion / Design Principles
-
-Cards: 1
-
-### LottieFiles/motion-design-skill
-
-URL: https://github.com/LottieFiles/motion-design-skill
-VERDICT: KEEP
-SCORE: 48
-STARS: 2198
-
-WHAT:
-Skill с универсальными motion-design principles для AI agents: timing, easing, choreography и адаптированные классические принципы анимации.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Сопоставить принципы с нашим будущим media-motion.md и убрать runtime-specific детали.
-
----
-
-## BUCKET: Motion / Explainer
-
-Cards: 1
-
-### ashishjamarkattel/Animator
-
-URL: https://github.com/ashishjamarkattel/Animator
-VERDICT: WATCH
-SCORE: 39
-STARS: 208
-
-WHAT:
-Свежий pipeline для генерации whiteboard/explainer-анимаций из кода.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Следить за развитием и лицензированием; при стабилизации сравнить с остальными motion skills по качеству storyboard и deterministic output.
-
----
-
-## BUCKET: Motion / Procedural Animation
-
-Cards: 1
-
-### cth9191/animate
-
-URL: https://github.com/cth9191/animate
-VERDICT: KEEP
-SCORE: 47
-STARS: 677
-
-WHAT:
-Procedural animation skill для коротких single-file canvas videos с заранее согласуемыми story/look/storyboard checkpoints.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Испытать на одном ролике с собственной музыкой и фирстилем.
-
----
-
-## BUCKET: Motion / Product Video
-
-Cards: 1
-
-### AbubakrChan/product-launch-motion
-
-URL: https://github.com/AbubakrChan/product-launch-motion
-VERDICT: KEEP
-SCORE: 48
-STARS: 263
-
-WHAT:
-Skill для создания launch-grade product videos кодом: непрерывные трансформации, пружинная динамика, курсор как причинный агент изменений, синхронизация с SFX.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Снять тестовый 15–20 секундный launch fragment для одного нашего продукта и оценить переносимость grammar.
-
----
-
-## BUCKET: Motion / Runtime
-
-Cards: 1
-
-### motiondivision/motion
-
-URL: https://github.com/motiondivision/motion
-VERDICT: KEEP
-SCORE: 49
-STARS: 34095
-
-WHAT:
-Зрелая animation library для React и JavaScript.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Рассматривать вместе с `motiondivision/ai-kit` как связку runtime + agent interface.
-
----
-
-## BUCKET: Music / Discovery
-
-Cards: 1
-
-### thomasbottrill/BandKit
-
-URL: https://github.com/thomasbottrill/BandKit
-VERDICT: KEEP
-SCORE: 45
-STARS: 0
-
-WHAT:
-Chrome-based workstation для Bandcamp digging: persistent playback, queue, playlists, cart/wishlist, BPM/key/waveform analysis и activity log.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Использовать как UX/reference donor для собственного music digging workflow.
-
----
-
 ## BUCKET: Music Generation / AI Music
 
 Cards: 6
@@ -12486,7 +12059,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 19
+Cards: 20
 
 ### atlosdotorg/atlos
 
@@ -12940,6 +12513,27 @@ NEXT:
 
 ---
 
+### OSINTVerseHQ/OTinstaller
+
+URL: https://github.com/OSINTVerseHQ/OTinstaller
+VERDICT: KEEP
+SCORE: 49
+STARS: 22
+
+WHAT:
+Единый CLI для установки, маршрутизации и запуска OSINT tools.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Тестировать под отдельным low-privilege пользователем/VM с минимальным environment и без production secrets.
+
+---
+
 ### prose-intelligence-ltd/Telepathy-Community
 
 URL: https://github.com/prose-intelligence-ltd/Telepathy-Community
@@ -13278,56 +12872,6 @@ NEXT:
 Проверить 10 известных компаний в нескольких юрисдикциях: поиск, officers, shareholders, filings и raw documents.
 
 Сравнить completeness с прямыми registry interfaces и OpenCorporates. Отдельно проверить quotas, evidence preservation и лицензии конкретных upstream datasets.
-
----
-
-## BUCKET: OSINT / Tooling
-
-Cards: 1
-
-### OSINTVerseHQ/OTinstaller
-
-URL: https://github.com/OSINTVerseHQ/OTinstaller
-VERDICT: KEEP
-SCORE: 49
-STARS: 22
-
-WHAT:
-Единый CLI для установки, маршрутизации и запуска OSINT tools.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Тестировать под отдельным low-privilege пользователем/VM с минимальным environment и без production secrets.
-
----
-
-## BUCKET: P2P / Decentralized Systems
-
-Cards: 1
-
-### CRTnoise/ember-p2p
-
-URL: https://github.com/CRTnoise/ember-p2p
-VERDICT: KEEP
-SCORE: 48
-STARS: 22
-
-WHAT:
-P2P social network без собственного центрального backend: identities — keypairs, feeds — signed append-only Hypercore logs, а followers реплицируют часть контента.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Только isolated research/reference. Не использовать для чувствительных источников, operational identities или внутреннего evidence.
 
 ---
 
@@ -13825,7 +13369,7 @@ NEXT:
 
 ## BUCKET: Radio / Audio Ops
 
-Cards: 15
+Cards: 16
 
 ### AzuraCast/AzuraCast
 
@@ -14335,6 +13879,27 @@ capture target
 
 ---
 
+### thomasbottrill/BandKit
+
+URL: https://github.com/thomasbottrill/BandKit
+VERDICT: KEEP
+SCORE: 45
+STARS: 0
+
+WHAT:
+Chrome-based workstation для Bandcamp digging: persistent playback, queue, playlists, cart/wishlist, BPM/key/waveform analysis и activity log.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Использовать как UX/reference donor для собственного music digging workflow.
+
+---
+
 ### openbroadcaster/observer
 
 URL: https://github.com/openbroadcaster/observer
@@ -14358,7 +13923,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 12
+Cards: 16
 
 ### autark-labs/autark-os
 
@@ -14395,6 +13960,27 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### CRTnoise/ember-p2p
+
+URL: https://github.com/CRTnoise/ember-p2p
+VERDICT: KEEP
+SCORE: 48
+STARS: 22
+
+WHAT:
+P2P social network без собственного центрального backend: identities — keypairs, feeds — signed append-only Hypercore logs, а followers реплицируют часть контента.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Только isolated research/reference. Не использовать для чувствительных источников, operational identities или внутреннего evidence.
 
 ---
 
@@ -14872,6 +14458,27 @@ Evaluator:
 
 ---
 
+### khurrambhutto/scope
+
+URL: https://github.com/khurrambhutto/scope
+VERDICT: KEEP
+SCORE: 49
+STARS: 23
+
+WHAT:
+Native Linux desktop app для общей инвентаризации и обслуживания ПО через APT, Snap, Flatpak, uv, pipx и Cargo.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Поставить на тестовой Linux-машине, сравнить inventory с реальным состоянием и отдельно проверить preview/apply safety.
+
+---
+
 ### klipitkas/tunnl.gg
 
 URL: https://github.com/klipitkas/tunnl.gg
@@ -14982,6 +14589,27 @@ NEXT:
 Использовать как benign scanner fixture:
 
 /proc environ + env persistence + send-keys + command replay.
+
+---
+
+### stardazed/wine-patches
+
+URL: https://github.com/stardazed/wine-patches
+VERDICT: KEEP
+SCORE: 48
+STARS: 21
+
+WHAT:
+Небольшой patchset для Wine 11.19, закрывающий конкретные API gaps ради запуска Photoshop 2026 27.x на Linux.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Собрать pinned Wine из source в изолированном prefix и протестировать на отдельной Photoshop installation.
 
 ---
 
@@ -15290,9 +14918,30 @@ NEXT:
 
 ---
 
+### vokimon/vokibot
+
+URL: https://github.com/vokimon/vokibot
+VERDICT: WATCH
+SCORE: 40
+STARS: 24
+
+WHAT:
+FOSS Android automation engine: NFC, shortcuts, Bluetooth и time triggers запускают последовательности typed commands.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+WATCH. Проверить сначала на тестовом Android: один NFC workflow и один Bluetooth workflow без WRITE_SECURE_SETTINGS.
+
+---
+
 ## BUCKET: Telegram Bots / Automation
 
-Cards: 1
+Cards: 2
 
 ### hunvreus/heypi
 
@@ -15321,71 +14970,15 @@ NEXT:
 
 ---
 
-## BUCKET: Video / Agent Editing
+### timoncool/telegram-api-mcp
 
-Cards: 1
-
-### nateherkai/hyperframes-student-kit
-
-URL: https://github.com/nateherkai/hyperframes-student-kit
-VERDICT: KEEP
-SCORE: 48
-STARS: 1410
-
-WHAT:
-Набор skills для agent-driven video editing: transcript-driven cuts, storytelling, Shorts/Reels и большая библиотека motion-graphics cards.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Сравнить с нашим текущим transcript-cut workflow на одном интервью и забрать только переносимые contracts.
-
----
-
-## BUCKET: Video / Agent Skills
-
-Cards: 1
-
-### remotion-dev/skills
-
-URL: https://github.com/remotion-dev/skills
-VERDICT: KEEP
-SCORE: 49
-STARS: 5132
-
-WHAT:
-Официальный набор Agent Skills от Remotion для programmatic video production.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-Поставить в controlled test и сравнить с нашим текущим вертикальным video workflow.
-
----
-
-## BUCKET: Video / Localization
-
-Cards: 1
-
-### timoncool/dub-studio
-
-URL: https://github.com/timoncool/dub-studio
+URL: https://github.com/timoncool/telegram-api-mcp
 VERDICT: KEEP
 SCORE: 46
-STARS: 163
+STARS: 32
 
 WHAT:
-Локальная студия видеодубляжа: voice cloning, перевод, субтитры и локализация текста внутри кадра.
-
-Ориентирована на полностью локальный workflow без Python-runtime.
+MCP-сервер с широким покрытием Telegram Bot API, meta-mode, rate limiting и circuit breaker.
 
 FIT:
 —
@@ -15394,38 +14987,13 @@ PROJECT:
 —
 
 NEXT:
-Разбирать как reference-first: pipeline, модели, кэширование, timeline alignment и локализацию экранного текста.
-
----
-
-## BUCKET: Video / Remotion
-
-Cards: 1
-
-### haidrrrry/claude-remotion-skill
-
-URL: https://github.com/haidrrrry/claude-remotion-skill
-VERDICT: WATCH
-SCORE: 39
-STARS: 423
-
-WHAT:
-Agent skill для создания и редактирования motion/video через Remotion, включая B-roll, captions и sound design.
-
-FIT:
-—
-
-PROJECT:
-—
-
-NEXT:
-WATCH: вытащить только уникальные video-editing heuristics, если они действительно не покрыты official skills.
+Если внедрять — сначала закрыть remote fetch, pin commit, минимизировать bot permissions и ограничить outbound network.
 
 ---
 
 ## BUCKET: Video Production / Editing
 
-Cards: 39
+Cards: 54
 
 ### 0xsline/OpenChatCut
 
@@ -15457,6 +15025,27 @@ OpenChatCut: что они добавляют, что способны заме�
 механизмы стоит заимствовать.
 
 Не выводить OpenChatCut как новую находку Radar.
+
+---
+
+### AbubakrChan/product-launch-motion
+
+URL: https://github.com/AbubakrChan/product-launch-motion
+VERDICT: KEEP
+SCORE: 48
+STARS: 263
+
+WHAT:
+Skill для создания launch-grade product videos кодом: непрерывные трансформации, пружинная динамика, курсор как причинный агент изменений, синхронизация с SFX.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Снять тестовый 15–20 секундный launch fragment для одного нашего продукта и оценить переносимость grammar.
 
 ---
 
@@ -15862,6 +15451,48 @@ Upstream 0.4.x сейчас refactor/unstable,
 
 ---
 
+### charlie947/motion-graphics-skills
+
+URL: https://github.com/charlie947/motion-graphics-skills
+VERDICT: KEEP
+SCORE: 47
+STARS: 274
+
+WHAT:
+Набор из 13 agent skills для production-grade motion graphics, где каждый кадр генерируется кодом.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить 3–4 skills на одном brief и выделить переносимые правила timing/composition.
+
+---
+
+### cth9191/animate
+
+URL: https://github.com/cth9191/animate
+VERDICT: KEEP
+SCORE: 47
+STARS: 677
+
+WHAT:
+Procedural animation skill для коротких single-file canvas videos с заранее согласуемыми story/look/storyboard checkpoints.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Испытать на одном ролике с собственной музыкой и фирстилем.
+
+---
+
 ### daniel-p-green/video-chef
 
 URL: https://github.com/daniel-p-green/video-chef
@@ -16243,6 +15874,48 @@ Measure whether intent selection improves readability rather than merely adding 
 
 ---
 
+### greensock/gsap-skills
+
+URL: https://github.com/greensock/gsap-skills
+VERDICT: KEEP
+SCORE: 49
+STARS: 16360
+
+WHAT:
+Официальные AI skills для GSAP: best practices, типовые animation patterns и работа с plugins.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Использовать как базовый motion-reference и донор структуры собственных production skills.
+
+---
+
+### howseen-ai/claude-motion-design
+
+URL: https://github.com/howseen-ai/claude-motion-design
+VERDICT: KEEP
+SCORE: 47
+STARS: 513
+
+WHAT:
+Motion-design skill, строящий видео через HTML/CSS/JS, browser capture в Playwright и финальный FFmpeg render.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Проверить на реальном 9:16 ролике и сравнить время/качество с Remotion и HyperFrames.
+
+---
+
 ### IgorShadurin/app.yumcut.com
 
 URL: https://github.com/IgorShadurin/app.yumcut.com
@@ -16392,6 +16065,27 @@ NEXT:
 
 ---
 
+### LottieFiles/motion-design-skill
+
+URL: https://github.com/LottieFiles/motion-design-skill
+VERDICT: KEEP
+SCORE: 48
+STARS: 2198
+
+WHAT:
+Skill с универсальными motion-design principles для AI agents: timing, easing, choreography и адаптированные классические принципы анимации.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сопоставить принципы с нашим будущим media-motion.md и убрать runtime-specific детали.
+
+---
+
 ### MartinDelophy/ai-video-editor
 
 URL: https://github.com/MartinDelophy/ai-video-editor
@@ -16458,6 +16152,69 @@ headless operations, reversibility, rendering,
 QC, ingest и extensibility.
 
 Текущий core автоматически не менять.
+
+---
+
+### motiondivision/ai-kit
+
+URL: https://github.com/motiondivision/ai-kit
+VERDICT: KEEP
+SCORE: 45
+STARS: 28
+
+WHAT:
+Agent/plugin layer вокруг Motion runtime.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Изучать как companion к Motion, а не самостоятельную платформу.
+
+---
+
+### motiondivision/motion
+
+URL: https://github.com/motiondivision/motion
+VERDICT: KEEP
+SCORE: 49
+STARS: 34095
+
+WHAT:
+Зрелая animation library для React и JavaScript.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Рассматривать вместе с `motiondivision/ai-kit` как связку runtime + agent interface.
+
+---
+
+### nateherkai/hyperframes-student-kit
+
+URL: https://github.com/nateherkai/hyperframes-student-kit
+VERDICT: KEEP
+SCORE: 48
+STARS: 1410
+
+WHAT:
+Набор skills для agent-driven video editing: transcript-driven cuts, storytelling, Shorts/Reels и большая библиотека motion-graphics cards.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с нашим текущим transcript-cut workflow на одном интервью и забрать только переносимые contracts.
 
 ---
 
@@ -16637,6 +16394,27 @@ OpenChatCut abstraction.
 
 ---
 
+### remotion-dev/skills
+
+URL: https://github.com/remotion-dev/skills
+VERDICT: KEEP
+SCORE: 49
+STARS: 5132
+
+WHAT:
+Официальный набор Agent Skills от Remotion для programmatic video production.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Поставить в controlled test и сравнить с нашим текущим вертикальным video workflow.
+
+---
+
 ### Reubencfernandes/Open-Video-Craft
 
 URL: https://github.com/Reubencfernandes/Open-Video-Craft
@@ -16769,6 +16547,29 @@ NEXT:
 Рассматривать
 как renderer backend,
 не как замену timeline core.
+
+---
+
+### timoncool/dub-studio
+
+URL: https://github.com/timoncool/dub-studio
+VERDICT: KEEP
+SCORE: 46
+STARS: 163
+
+WHAT:
+Локальная студия видеодубляжа: voice cloning, перевод, субтитры и локализация текста внутри кадра.
+
+Ориентирована на полностью локальный workflow без Python-runtime.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Разбирать как reference-first: pipeline, модели, кэширование, timeline alignment и локализацию экранного текста.
 
 ---
 
@@ -17025,6 +16826,27 @@ NEXT:
 
 ---
 
+### whaleyxbt/claude-motion
+
+URL: https://github.com/whaleyxbt/claude-motion
+VERDICT: KEEP
+SCORE: 45
+STARS: 405
+
+WHAT:
+Motion design toolkit, специально оформленный для coding agents.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Извлечь primitive taxonomy и сравнить её с Motion/GSAP/Remotion skill sets.
+
+---
+
 ### ZeroPointRepo/youtube-skills
 
 URL: https://github.com/ZeroPointRepo/youtube-skills
@@ -17087,6 +16909,27 @@ NEXT:
 
 ---
 
+### ashishjamarkattel/Animator
+
+URL: https://github.com/ashishjamarkattel/Animator
+VERDICT: WATCH
+SCORE: 39
+STARS: 208
+
+WHAT:
+Свежий pipeline для генерации whiteboard/explainer-анимаций из кода.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Следить за развитием и лицензированием; при стабилизации сравнить с остальными motion skills по качеству storyboard и deterministic output.
+
+---
+
 ### av8d-levelup/local-av-to-text
 
 URL: https://github.com/av8d-levelup/local-av-to-text
@@ -17105,6 +16948,27 @@ Audio/Video Transcription
 
 NEXT:
 проверить privacy/local workflow
+
+---
+
+### Barty-Bart/motion-graphics
+
+URL: https://github.com/Barty-Bart/motion-graphics
+VERDICT: WATCH
+SCORE: 39
+STARS: 671
+
+WHAT:
+Набор motion-graphics skills для Claude Code и Codex.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Следить за развитием и искать уникальные patterns, которых нет у product-launch-motion, GSAP, Remotion и Lottie skills.
 
 ---
 
@@ -17245,6 +17109,27 @@ NEXT:
 10. пригодность результата для автоматической нарезки.
 
 Ничего в текущем pipeline не заменять до сравнения.
+
+---
+
+### haidrrrry/claude-remotion-skill
+
+URL: https://github.com/haidrrrry/claude-remotion-skill
+VERDICT: WATCH
+SCORE: 39
+STARS: 423
+
+WHAT:
+Agent skill для создания и редактирования motion/video через Remotion, включая B-roll, captions и sound design.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+WATCH: вытащить только уникальные video-editing heuristics, если они действительно не покрыты official skills.
 
 ---
 
