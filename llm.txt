@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-15T11:31:06
+Generated: 2026-10-15T13:24:22
 Date: 2026-10-15
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,33 +8,33 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 358
+- Total curated cards: 375
 - Buckets: 22
 
 ## Bucket summary
 
-- Agent Security / Governance: 25
+- Agent Security / Governance: 28
 - Broadcast / Playout / Automation: 4
 - Design / Image Editing: 2
 - Design Systems / Visual QA: 33
 - Font Creation / Typography Tools: 16
 - Full-Song AI / Suno Alternatives: 11
-- Infographics / Visual Storytelling: 28
+- Infographics / Visual Storytelling: 30
 - Interactive Reports / Data Apps: 9
-- Lancelot / Agent Infrastructure: 58
+- Lancelot / Agent Infrastructure: 64
 - Media / Social Monitoring: 9
 - Media Kits / Brand Automation: 2
 - Mixing / Mastering / Audio Engineering: 9
 - Music Generation / AI Music: 6
-- n8n / Workflow Automation: 7
+- n8n / Workflow Automation: 8
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
 - OSINT / Investigations: 20
 - Publishing / Layout / PDF: 10
-- Radio / Audio Ops: 16
-- System Architecture / Engineering Patterns: 16
+- Radio / Audio Ops: 17
+- System Architecture / Engineering Patterns: 17
 - Telegram Bots / Automation: 2
-- Video Production / Editing: 54
+- Video Production / Editing: 57
 
 ## Today's run
 
@@ -49,7 +49,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 25
+Cards: 28
 
 ### affaan-m/agentshield
 
@@ -2294,6 +2294,94 @@ NEXT:
 Сравнить prompt-injection detection
 с Sinewave / Adrian / ai-firewall,
 но отдельно от capability authorization.
+
+---
+
+### saasvista/aibom-scanner
+
+URL: https://github.com/saasvista/aibom-scanner
+VERDICT: WATCH
+SCORE: 27
+STARS: 22
+
+WHAT:
+Zero-dependency static scanner, который строит AI Bill of Materials
+для репозитория: AI SDK/model calls, MCP servers и agent tools.
+
+Затем классифицирует capabilities и показывает risk findings с
+привязкой к NIST AI RMF, ISO 42001, EU AI Act и OWASP LLM/Agentic.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Запустить локально на одном нашем agent/MCP repository и сравнить
+найденный inventory с фактическими integrations. Особенно проверить
+dangerous capability triad и unpinned MCP launchers.
+
+---
+
+### solongate/agent-security
+
+URL: https://github.com/solongate/agent-security
+VERDICT: WATCH
+SCORE: 21
+STARS: 71
+
+WHAT:
+Local-first security gateway для AI coding agents.
+
+До выполнения tool call применяет policy checks, secret/DLP scanning,
+rate limits и audit logging. Поддерживает Claude Code, Codex,
+OpenCode и Antigravity.
+
+Отдельные режимы используют OS mechanisms для защиты paths и
+полноценного Linux workspace sandbox.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Отдельный controlled evaluation на Circus:
+создать disposable workspace и проверить чтение/запись/удаление,
+indirect script execution, compiled helper, secret-bearing upload
+и child-process inheritance.
+
+Сравнить не только UX, но и enforcement boundary с нашим текущим
+MCP/tool permission contour.
+
+---
+
+### ssintaramadaglri/AegisTrace
+
+URL: https://github.com/ssintaramadaglri/AegisTrace
+VERDICT: WATCH
+SCORE: 24
+STARS: 193
+
+WHAT:
+Go-runtime для durable AI workflows с проверяемым execution trail.
+
+YAML workflow сначала компилируется и statically verifies, затем
+превращается в digest-sealed artifact. Runtime пишет hash-chained
+journal, checkpoints и умеет создавать Merkle/Ed25519 proofs.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сопоставить Aegis artifact/journal/effect model с нашим Lancelot
+execution log. Отдельно проверить, можно ли заимствовать versioned
+event/proof formats без заимствования всего runtime.
 
 ---
 
@@ -5345,7 +5433,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 28
+Cards: 30
 
 ### CodingFeng101/CanvasAnvil
 
@@ -6279,6 +6367,35 @@ NEXT:
 
 ---
 
+### VisActor/skills
+
+URL: https://github.com/VisActor/skills
+VERDICT: KEEP
+SCORE: 36
+STARS: 471
+
+WHAT:
+Набор Agent Skills поверх экосистемы VisActor: `vchart-skill`,
+`vtable-skill` и `data-storytelling`.
+
+Skills умеют строить и диагностировать графики и таблицы,
+собирать HTML data stories и browser-based Web-PPT. Для работы
+не нужен отдельный hosted VisActor AI service: модель и tools
+предоставляет сам host-agent.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Установить отдельно `data-storytelling` и прогнать на одном нашем
+реальном CSV/табличном наборе: проверить narrative structure,
+visual quality, editable source и воспроизводимость повторного render.
+
+---
+
 ### wheresryan22/anatomy
 
 URL: https://github.com/wheresryan22/anatomy
@@ -6933,6 +7050,33 @@ NEXT:
 
 ---
 
+### microsoft/AesCode
+
+URL: https://github.com/microsoft/AesCode
+VERDICT: WATCH
+SCORE: 20
+STARS: 42
+
+WHAT:
+Microsoft research project для генерации posters, dashboards и
+infographics как editable HTML/CSS.
+
+Визуальный reference создаётся image generator-ом, но не становится
+источником фактов: prompt остаётся source of truth для content.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Заимствовать design-graph + separated verifier idea для наших
+infographic/card generators: отдельно проверять exact text/data,
+отдельно geometry/layout, отдельно aesthetic similarity.
+
+---
+
 ### nateherkai/scroll-craft
 
 URL: https://github.com/nateherkai/scroll-craft
@@ -7401,7 +7545,35 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 58
+Cards: 64
+
+### Afloat16/jev-mcp
+
+URL: https://github.com/Afloat16/jev-mcp
+VERDICT: KEEP
+SCORE: 35
+STARS: 1
+
+WHAT:
+Неофициальный MCP-server для TypeSafe AI Jev.
+
+Даёт четыре read-only операции: выбор между явными альтернативами,
+routing, advisory risk score и yes/no gate по заданному threshold.
+Проект специально позиционирует Jev как second opinion, а не как
+управляющую модель.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Взять contract authority hierarchy без обязательной зависимости от
+Jev: проверить, где в Lancelot есть bounded decision points, которым
+нужен отдельный advisory слой.
+
+---
 
 ### alphaXiv/OpenResearch
 
@@ -8951,6 +9123,35 @@ USE FOR LANCELOT:
 
 ---
 
+### kajalnsut2500-m/mcp-server
+
+URL: https://github.com/kajalnsut2500-m/mcp-server
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Небольшой Python MCP server, который даёт агенту пять primitives:
+чтение/запись файлов внутри workspace, directory listing,
+restricted command execution и общий key-value memory store.
+
+Transport — stdio, implementation — MCP Python SDK.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить наши локальные MCP execution tools с этим baseline.
+
+Проверить пять обязательных свойств:
+canonical path confinement, traversal rejection, executable pinning,
+`shell=False` и atomic shared state.
+
+---
+
 ### kohen-mahler/personal-mcp
 
 URL: https://github.com/kohen-mahler/personal-mcp
@@ -9006,6 +9207,38 @@ Tags: memory, skills, subagents, telegram, scheduler, automation, security
 
 USE FOR LANCELOT:
 Разобрать self-managed memory + skill learning, async/sync subagents, heartbeat/cron model и permission modes. Особенно сравнить remote environments с будущим ограниченным Bridge Lancelot → Camelot.
+
+---
+
+### lilalittle/opencode-harness-on-celld
+
+URL: https://github.com/lilalittle/opencode-harness-on-celld
+VERDICT: KEEP
+SCORE: 35
+STARS: 1
+
+WHAT:
+Timeboxed compatibility spike: настоящий Cloudflare Agents
+`OpenCodeHarness` и OpenCode v2 запускаются внутри `celld` —
+self-hosted runtime, совместимого с Durable Objects.
+
+Реальными являются Worker→DO path, lifecycle/jobs,
+OpenCode session/inbox/messages, operation wait, SSE parsing и
+SQLite tables. Inference в тесте намеренно заменён deterministic stub.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Не внедрять spike как dependency. Повторить ключевой эксперимент
+с реальным локальным model provider, затем отдельно проверить
+forced mid-run interruption и recovery.
+
+Если оба gate проходят — рассматривать `celld` как runtime candidate
+для self-hosted Lancelot harness.
 
 ---
 
@@ -10239,6 +10472,33 @@ NEXT:
 
 ---
 
+### austingregoryus/smem-agent-memory
+
+URL: https://github.com/austingregoryus/smem-agent-memory
+VERDICT: WATCH
+SCORE: 18
+STARS: 0
+
+WHAT:
+Self-hosted long-term memory service для agents.
+
+Документы и conversations превращаются в atomic facts; retrieval
+работает одновременно по facts и source chunks. Изменение факта
+создаёт новую version, а старая сохраняется как superseded.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Не ставить сразу весь stack. Сначала разобрать schema и temporal
+reconciliation; затем проверить небольшой corpus на Circus с уже
+имеющимся локальным embedding contour и оценить RAM/latency.
+
+---
+
 ### openclaw/openclaw
 
 URL: https://github.com/openclaw/openclaw
@@ -10278,6 +10538,61 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### zafmy/mcp-smoke
+
+URL: https://github.com/zafmy/mcp-smoke
+VERDICT: WATCH
+SCORE: 18
+STARS: 0
+
+WHAT:
+Маленький CI-oriented runner для smoke testing stdio MCP servers.
+
+Он запускает server как subprocess, проходит handshake, делает
+`tools/list`, проверяет базовую корректность input schemas и выполняет
+до 20 заранее описанных example calls.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Добавить как обязательный CI/preflight для одного нашего MCP server.
+Если приживётся — стандартизировать `mcp-smoke.json` рядом с каждым
+локальным MCP.
+
+---
+
+### zeestack/dendra
+
+URL: https://github.com/zeestack/dendra
+VERDICT: WATCH
+SCORE: 18
+STARS: 1
+
+WHAT:
+TypeScript API framework, где одна typed procedure может одновременно
+стать typed client method, REST/OpenAPI endpoint, in-process call,
+LLM tool и MCP tool.
+
+`.ai()` не создаёт отдельный parallel tool implementation — он
+экспортирует уже существующую validated procedure.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Зафиксировать pattern для собственной service architecture:
+business procedure должна иметь единственную implementation/validation
+path, а MCP/REST/CLI — быть adapters вокруг неё.
 
 ---
 
@@ -11364,7 +11679,7 @@ NEXT:
 
 ## BUCKET: n8n / Workflow Automation
 
-Cards: 7
+Cards: 8
 
 ### czlonkowski/n8n-mcp
 
@@ -11556,6 +11871,33 @@ Tags: automation, mcp, skills
 
 USE FOR LANCELOT:
 Может стать безопасным CLI surface для Lancelot → n8n: машиночитаемые команды, validation до записи и backup перед изменением workflow.
+
+---
+
+### miracleweasel/n8n-nodes-katto
+
+URL: https://github.com/miracleweasel/n8n-nodes-katto
+VERDICT: WATCH
+SCORE: 21
+STARS: 0
+
+WHAT:
+n8n community node для Katto: длинные видео, podcast или VOD
+отправляются в job и возвращаются как scored captioned 9:16 clips.
+
+Результат включает MP4, SRT, title и virality score; отдельно можно
+получить timestamped transcript.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Использовать node schema как reference для нашего собственного n8n
+video job contract. Katto отдельно тестировать только если economics
+и data boundary приемлемы.
 
 ---
 
@@ -13369,7 +13711,7 @@ NEXT:
 
 ## BUCKET: Radio / Audio Ops
 
-Cards: 16
+Cards: 17
 
 ### AzuraCast/AzuraCast
 
@@ -13900,6 +14242,38 @@ NEXT:
 
 ---
 
+### kenellorando/cadence
+
+URL: https://github.com/kenellorando/cadence
+VERDICT: WATCH
+SCORE: 30
+STARS: 65
+
+WHAT:
+All-in-one internet radio suite.
+
+В одном deploy contour объединяет Icecast, Liquidsoap и собственный
+Cadence API. Browser UI даёт library search, song requests,
+album artwork и real-time stream information.
+
+Установка контейнеризована через Docker/Compose; имеется API для
+custom clients.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сделать feature diff `Cadence ↔ Coma.fm`.
+
+Не миграционный план, а таблицу:
+что у нас уже лучше, чего нет, и какие Cadence API/UI patterns
+стоит перенять независимо от самого проекта.
+
+---
+
 ### openbroadcaster/observer
 
 URL: https://github.com/openbroadcaster/observer
@@ -13923,7 +14297,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 16
+Cards: 17
 
 ### autark-labs/autark-os
 
@@ -14918,6 +15292,34 @@ NEXT:
 
 ---
 
+### RealZimboGuy/gopherflow
+
+URL: https://github.com/RealZimboGuy/gopherflow
+VERDICT: WATCH
+SCORE: 23
+STARS: 14
+
+WHAT:
+Durable workflow engine для Go, который встраивается библиотекой
+прямо в приложение.
+
+Workflows — обычные Go structs/state methods. Каждый transition
+сохраняется в Postgres/MySQL/SQLite, поэтому execution переживает
+crashes, deploys и restarts.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить его persistence/recovery model с нашими Python workflow
+scripts и Twenty/media pipelines. Зафиксировать минимальный pattern
+`SQL state + lease/heartbeat + retry + operator console`.
+
+---
+
 ### vokimon/vokibot
 
 URL: https://github.com/vokimon/vokibot
@@ -14993,7 +15395,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 54
+Cards: 57
 
 ### 0xsline/OpenChatCut
 
@@ -15750,6 +16152,34 @@ NEXT:
 6. оценить review sheets и скорость итераций.
 
 После этого решить, какие части стоит вынести в универсальный Media Factory skill независимо от Vocaloid aesthetic.
+
+---
+
+### equalang/equalang-skill
+
+URL: https://github.com/equalang/equalang-skill
+VERDICT: KEEP
+SCORE: 36
+STARS: 8
+
+WHAT:
+Agent Skill для Equalang, который локализует целые файлы, а не
+отдельные строки: PDF остаётся PDF, PPTX — редактируемой презентацией,
+XLSX — таблицей, SRT/VTT сохраняют timing.
+
+Также покрывает картинки, транскрипцию аудио/видео и генерацию
+переведённых субтитров.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Controlled test на одном PPTX и одном видео с субтитрами:
+layout round-trip, timing, терминология, стоимость и ручная
+редактируемость результата.
 
 ---
 
@@ -17109,6 +17539,61 @@ NEXT:
 10. пригодность результата для автоматической нарезки.
 
 Ничего в текущем pipeline не заменять до сравнения.
+
+---
+
+### estebanstifli/OpenDub
+
+URL: https://github.com/estebanstifli/OpenDub
+VERDICT: WATCH
+SCORE: 18
+STARS: 8
+
+WHAT:
+Desktop studio для локального AI dubbing.
+
+Pipeline включает подготовку media, source separation, transcription,
+diarization, forced alignment, local translation, speech generation,
+timing и export. Всё остаётся редактируемым на segment timeline.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Пока использовать как архитектурный reference. Отдельно проверить,
+можно ли заменить speech-generation stage на наш подходящий RU/UK
+backend, сохранив timeline/separation/alignment/export pipeline.
+
+---
+
+### FernandoAbishai/ScriptCut
+
+URL: https://github.com/FernandoAbishai/ScriptCut
+VERDICT: WATCH
+SCORE: 28
+STARS: 13
+
+WHAT:
+Local-first AI video editor: spoken video редактируется через текст
+транскрипта. Можно удалять/возвращать слова, собирать clips,
+готовить vertical/square exports и captions.
+
+Desktop stack: Electron + React, local FastAPI backend,
+Parakeet/WhisperX/Whisper и FFmpeg.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Прогнать один наш реальный интервью-ролик: импорт → transcript edit →
+vertical clip → captions → export. Сравнить количество ручных действий
+с текущим yt-dlp/ffmpeg/CapCut pipeline.
 
 ---
 
