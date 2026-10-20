@@ -1,65 +1,86 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-19T08:28:48
-Date: 2026-10-19
+Generated: 2026-10-20T08:28:53
+Date: 2026-10-20
 
 Public scope: this file is generated from curated cards and today's shortlist only.
 Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vault.
 
 ## Status
 
-- Total curated cards: 524
+- Total curated cards: 596
 - Buckets: 32
 
 ## Bucket summary
 
-- Agent Memory / Context: 27
-- Agent Reliability / Evals & Production: 11
-- Agent Security / Governance: 32
-- Automation / Event Workflows: 14
+- Agent Memory / Context: 40
+- Agent Reliability / Evals & Production: 21
+- Agent Security / Governance: 37
+- Automation / Event Workflows: 17
 - Broadcast / Playout / Automation: 4
-- Design / Image Editing: 5
-- Design Systems / Visual QA: 33
+- Design / Image Editing: 8
+- Design Systems / Visual QA: 34
 - Device Control / Capture: 8
 - Document Parsing / Ingestion: 11
-- Font Creation / Typography Tools: 16
-- Full-Song AI / Suno Alternatives: 11
-- Infographics / Visual Storytelling: 29
+- Font Creation / Typography Tools: 17
+- Full-Song AI / Suno Alternatives: 12
+- Infographics / Visual Storytelling: 31
 - Interactive Reports / Data Apps: 9
-- Lancelot / Agent Infrastructure: 64
+- Lancelot / Agent Infrastructure: 73
 - Media / Social Monitoring: 10
-- Media Kits / Brand Automation: 2
-- Mixing / Mastering / Audio Engineering: 10
+- Media Kits / Brand Automation: 3
+- Mixing / Mastering / Audio Engineering: 11
 - Music Generation / AI Music: 6
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
-- OSINT / Investigations: 22
-- Publishing / Layout / PDF: 10
+- OSINT / Investigations: 23
+- Publishing / Layout / PDF: 13
 - Radio / Audio Ops: 22
-- Reverse Engineering / Binary Analysis: 12
-- Search / Retrieval Engineering: 19
+- Reverse Engineering / Binary Analysis: 16
+- Search / Retrieval Engineering: 21
 - Social Media / Content Ops: 2
-- Speech / TTS & Voice: 10
-- System Architecture / Engineering Patterns: 20
+- Speech / TTS & Voice: 16
+- System Architecture / Engineering Patterns: 21
 - Telegram Bots / Automation: 2
-- Video Production / Editing: 65
+- Video Production / Editing: 70
 - Web Data / Crawling & Extraction: 8
 - Web Intelligence / SEO & AI Visibility: 9
 
 ## Today's run
 
-- items=1708
+- items=1711
 - errors=0
-- KEEP: 76
-- WATCH: 732
-- SKIP: 657
-- NOISE: 243
+- KEEP: 73
+- WATCH: 733
+- SKIP: 658
+- NOISE: 247
 
 # CURATED CARDS
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 27
+Cards: 40
+
+### 23skdu/longbow
+
+URL: https://github.com/23skdu/longbow
+VERDICT: KEEP
+SCORE: 18
+STARS: 13
+
+WHAT:
+Apache Arrow Flight clustered vector engine for high throughput Agent memory sharing
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
 
 ### Cloto-dev/CPersona
 
@@ -82,6 +103,27 @@ NEXT:
 
 ---
 
+### contextstream/mcp-server
+
+URL: https://github.com/contextstream/mcp-server
+VERDICT: KEEP
+SCORE: 18
+STARS: 44
+
+WHAT:
+Persistent memory, semantic search, and shared project context for AI agents with traceable sources and scoped access. Carry decisions, lessons, and intent across sessions and tools.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### dat999zx/knowl
 
 URL: https://github.com/dat999zx/knowl
@@ -100,6 +142,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### doobidoo/mcp-memory-service
+
+URL: https://github.com/doobidoo/mcp-memory-service
+VERDICT: KEEP
+SCORE: 18
+STARS: 2021
+
+WHAT:
+Open-source persistent memory for AI agent pipelines (LangGraph, CrewAI, AutoGen) and Claude. REST API + knowledge graph + autonomous consolidation.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -145,6 +208,27 @@ NEXT:
 
 ---
 
+### IndelibleVivi/agent-memory-study
+
+URL: https://github.com/IndelibleVivi/agent-memory-study
+VERDICT: KEEP
+SCORE: 18
+STARS: 32
+
+WHAT:
+Source-linked readings and reproducible studies of agent memory, belief revision, and experience reuse.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### IvenKooLab/loci
 
 URL: https://github.com/IvenKooLab/loci
@@ -163,6 +247,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### jordiboehme/crystalline
+
+URL: https://github.com/jordiboehme/crystalline
+VERDICT: KEEP
+SCORE: 18
+STARS: 17
+
+WHAT:
+Local-first crystalline intelligence for AI agents: the knowledge that endures across sessions, taught as Markdown Domains and captured as Engrams. One Rust binary with MCP server, CLI and hybrid search.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -229,6 +334,48 @@ NEXT:
 
 ---
 
+### letta-ai/letta-agent-sdk
+
+URL: https://github.com/letta-ai/letta-agent-sdk
+VERDICT: KEEP
+SCORE: 18
+STARS: 108
+
+WHAT:
+The Letta Agent SDK is the SDK for stateful agents. Each agent has its own identity and long-term memory, and keeps both across conversations, models, and the computers it runs on.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### liliang-cn/cortexdb
+
+URL: https://github.com/liliang-cn/cortexdb
+VERDICT: KEEP
+SCORE: 18
+STARS: 440
+
+WHAT:
+AI memory and a knowledge graph in one SQLite file. Pure Go: vectors, RAG, agent memory, RDF/SPARQL, Cypher, 80+ MCP tools. Works without an embedding model.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### MakerViking/mimir
 
 URL: https://github.com/MakerViking/mimir
@@ -292,6 +439,48 @@ NEXT:
 
 ---
 
+### mycelium-io/mycelium
+
+URL: https://github.com/mycelium-io/mycelium
+VERDICT: KEEP
+SCORE: 18
+STARS: 121
+
+WHAT:
+Multi-agent coordination + persistent memory, semantic negotiation, async rooms, and a shared knowledge graph
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### nambok/mentedb
+
+URL: https://github.com/nambok/mentedb
+VERDICT: KEEP
+SCORE: 18
+STARS: 119
+
+WHAT:
+A cognition aware database engine for AI agent memory. Purpose built in Rust with WAL, HNSW, knowledge graphs, and speculative context pre assembly. Not a wrapper, a ground up storage engine that thinks.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### NevaMind-AI/memU
 
 URL: https://github.com/NevaMind-AI/memU
@@ -318,6 +507,27 @@ Tags: memory, skills, automation, cross-agent, retrieval
 
 USE FOR LANCELOT:
 Заимствовать controlled session → candidate procedure → reusable skill loop, но добавить более жёсткую дисциплину: synthesis создаёт только candidate, затем SkillSpector/security review и explicit PROMOTE. Think/Durable Object operational state не заменять memU-подобной памятью.
+
+---
+
+### NirDiamant/Agent_Memory_Techniques
+
+URL: https://github.com/NirDiamant/Agent_Memory_Techniques
+VERDICT: KEEP
+SCORE: 18
+STARS: 1107
+
+WHAT:
+Agent memory for LLMs: 30 runnable Jupyter notebooks covering conversation buffers, vector stores, knowledge graphs, episodic and semantic memory, MemGPT, Mem0, Letta, Zep, Graphiti, LoCoMo benchmarks, and production patterns.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -470,6 +680,69 @@ Tags: mcp, memory
 
 USE FOR LANCELOT:
 Взять модель thoughts + documents и composite ranking (semantic relevance + freshness + quality), а также dedup/supersede при записи. Особенно полезна идея taint/provenance: собственная память агента и внешние документы не должны иметь одинаковый trust level.
+
+---
+
+### SamuelMolero26/droids-mem
+
+URL: https://github.com/SamuelMolero26/droids-mem
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Persistent memory and code-graph MCP for agents.  Single GO Binary + FTS5 and zero services
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### skynetcmd/m3-memory
+
+URL: https://github.com/skynetcmd/m3-memory
+VERDICT: KEEP
+SCORE: 18
+STARS: 29
+
+WHAT:
+Local-first memory backend for AI agents · 99.2% LongMemEval-S retrieval @ k=8 · Supports Claude · Antigravity · LangChain · Hermes · Gemini · OpenCode · OpenClaw · MCP-native and plugins · Hybrid search (FTS5 + vector + MMR) · GDPR · FIPS 140-3 ready · 100% local (fully offline) or cloud capable
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### TheColliery/CoalWash
+
+URL: https://github.com/TheColliery/CoalWash
+VERDICT: KEEP
+SCORE: 18
+STARS: 11
+
+WHAT:
+Memory washer/defragmenter for AI agent memory: class-B semantic wash (fidelity-gated, blocks any structured-token drop, snapshot+rollback) and class-A byte-identity session estate (ULTRA archive/restore, RE-TIER) - never semantic-edited. Cleans the FAT, never the MEAT. Slows memory-overhead growth; does not eliminate it. Zero-dependency.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -769,7 +1042,49 @@ reconciliation; затем проверить небольшой corpus на Cir
 
 ## BUCKET: Agent Reliability / Evals & Production
 
-Cards: 11
+Cards: 21
+
+### Adi15Jain/cf_ai_next_doctor
+
+URL: https://github.com/Adi15Jain/cf_ai_next_doctor
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Deploy doctor for Next.js on Cloudflare Workers: evidence-backed static checks, a Workflow per scan, and Llama 3.3 explanations, built on the Agents SDK
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### arm-pz/upstream-check
+
+URL: https://github.com/arm-pz/upstream-check
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Agent skill that finds unpushed local commits and fast-forwards only the safe ones, plus checks published listings against the repos that actually ship a SKILL.md.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
 
 ### ARTPARK-SAHAI-ORG/calibrate
 
@@ -810,6 +1125,69 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Dikaaff/skill-crucible
+
+URL: https://github.com/Dikaaff/skill-crucible
+VERDICT: KEEP
+SCORE: 18
+STARS: 1
+
+WHAT:
+The test suite for agent skills — 0-100 score, security gate, and README badges for any SKILL.md
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### dimitar-radenkov/Pointframe
+
+URL: https://github.com/dimitar-radenkov/Pointframe
+VERDICT: KEEP
+SCORE: 18
+STARS: 14
+
+WHAT:
+Let your coding agent test the real Windows UI: an MCP server and CLI that inspect your app, drive its controls, and run repeatable checks with screenshots and signed evidence. Also a free screenshot, annotation and recording app. Open source, Windows x64.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### glassflow/rius-sdk-typescript
+
+URL: https://github.com/glassflow/rius-sdk-typescript
+VERDICT: KEEP
+SCORE: 18
+STARS: 1
+
+WHAT:
+OpenTelemetry-native agent observability: trace every LLM call, tool call and agent step, with cost per call, alerts, and Claude Code / Codex / Cursor session tracing. TypeScript SDK.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -855,6 +1233,69 @@ NEXT:
 
 ---
 
+### lrm22221-afk/ai-agent-rag-demo
+
+URL: https://github.com/lrm22221-afk/ai-agent-rag-demo
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Bilingual (Hebrew/English) AI support agent with RAG: n8n AI Agent workflow + Python RAG service + evaluation suite (grounding, hallucination, prompt-injection) running in CI without paid keys
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### Mahalanobis-Systems/aot-evals
+
+URL: https://github.com/Mahalanobis-Systems/aot-evals
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+AOT Evals makes agent evals easy. Create golden records, safe testing environments, and repeatable optimization loops to improve cost, quality, and speed of your agent. Get started in 5 minutes.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### mateoosoriodelhonte/agentscope
+
+URL: https://github.com/mateoosoriodelhonte/agentscope
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Local-first platform to debug, evaluate, and compare AI agents: LangGraph runtime, simulated tools, OpenTelemetry traces, deterministic evals, failure & prompt-injection testing.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### NirDiamant/agents-towards-production
 
 URL: https://github.com/NirDiamant/agents-towards-production
@@ -896,6 +1337,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### P90-RushB/AgentArk
+
+URL: https://github.com/P90-RushB/AgentArk
+VERDICT: KEEP
+SCORE: 18
+STARS: 209
+
+WHAT:
+A General-Purpose Environment Framework for Scalable Multimodal Agent Evaluation and RL
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -1004,9 +1466,30 @@ NEXT:
 
 ---
 
+### viswapriyanr/multi-agent-observability
+
+URL: https://github.com/viswapriyanr/multi-agent-observability
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+MA-Trace - causal tracing, coordination SLOs and deterministic replay for multi-agent LLM systems - exported through OpenTelemetry.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ## BUCKET: Agent Security / Governance
 
-Cards: 32
+Cards: 37
 
 ### affaan-m/agentshield
 
@@ -2235,6 +2718,27 @@ privacy/self-host решение.
 
 ---
 
+### jiapengLi11/AgentGuard
+
+URL: https://github.com/jiapengLi11/AgentGuard
+VERDICT: KEEP
+SCORE: 35
+STARS: 1
+
+WHAT:
+Sujie: runtime security gateway for prompt injection and MCP tool abuse defense
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### kajogo777/the-agent-sandbox-taxonomy
 
 URL: https://github.com/kajogo777/the-agent-sandbox-taxonomy
@@ -2634,6 +3138,27 @@ execution surface.
 
 ---
 
+### mcpware/IntentProbe
+
+URL: https://github.com/mcpware/IntentProbe
+VERDICT: KEEP
+SCORE: 30
+STARS: 9
+
+WHAT:
+Activation-probe security scanner for AI agent tooling. Reads a model's internal activations to detect poisoned MCP servers, skills, and packages before install.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### microsoft/agent-governance-toolkit
 
 URL: https://github.com/microsoft/agent-governance-toolkit
@@ -3025,6 +3550,48 @@ Circus / Camelot / Lancelot.
 
 ---
 
+### pezhik/skilltotal
+
+URL: https://github.com/pezhik/skilltotal
+VERDICT: KEEP
+SCORE: 25
+STARS: 13
+
+WHAT:
+Static security scanner for npm/PyPI packages, MCP servers, agent skills and repos. Runs locally, never runs the code, no LLM. CLI, Claude Code plugin, Action.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### pierce-boggan/AegisTrace
+
+URL: https://github.com/pierce-boggan/AegisTrace
+VERDICT: KEEP
+SCORE: 24
+STARS: 188
+
+WHAT:
+Verifiable execution for durable AI agents: policy-bound workflow compiler, hash-chained journal, offline replay, and Merkle + Ed25519 proofs. Go.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### pipelab-org/pipelock
 
 URL: https://github.com/pipelab-org/pipelock
@@ -3245,6 +3812,27 @@ NEXT:
 
 ---
 
+### XAGI-Lab/melra
+
+URL: https://github.com/XAGI-Lab/melra
+VERDICT: KEEP
+SCORE: 22
+STARS: 10
+
+WHAT:
+Open-source local MCP execution runtime for agents: policy-gated tool calls, scoped approvals, verified outcomes, durable receipts, and recovery after interruptions.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### arcjet/arcjet-js
 
 URL: https://github.com/arcjet/arcjet-js
@@ -3428,7 +4016,7 @@ event/proof formats без заимствования всего runtime.
 
 ## BUCKET: Automation / Event Workflows
 
-Cards: 14
+Cards: 17
 
 ### bytechefhq/bytechef
 
@@ -3580,6 +4168,48 @@ NEXT:
 
 ---
 
+### digows/n8n-nodes-nats-jetstream
+
+URL: https://github.com/digows/n8n-nodes-nats-jetstream
+VERDICT: KEEP
+SCORE: 31
+STARS: 0
+
+WHAT:
+NATS JetStream community nodes for n8n: durable pull consumer trigger, confirmed JSON/text/binary publishing, native authentication and verified TLS
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### ejlevin1/n8n-nodes-hermes
+
+URL: https://github.com/ejlevin1/n8n-nodes-hermes
+VERDICT: KEEP
+SCORE: 36
+STARS: 0
+
+WHAT:
+n8n community nodes for Nous Research Hermes Agent: API server actions, outbound-event trigger, signed webhook routes
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### huginn/huginn
 
 URL: https://github.com/huginn/huginn
@@ -3675,6 +4305,27 @@ n8n / Workflow Automation · custom integrations.
 
 NEXT:
 Использовать как canonical scaffold при первом собственном n8n node. Не изобретать структуру package/build/test вручную.
+
+---
+
+### nicholasbergesen/n8n-nodes-vivere
+
+URL: https://github.com/nicholasbergesen/n8n-nodes-vivere
+VERDICT: KEEP
+SCORE: 26
+STARS: 0
+
+WHAT:
+n8n node for Vivere: get alerted when a workflow stops running, does nothing, or fails
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -3885,7 +4536,28 @@ WATCH до появления реальной AoIP-задачи; сохрани
 
 ## BUCKET: Design / Image Editing
 
-Cards: 5
+Cards: 8
+
+### Capture-Moment/CaptureMoment
+
+URL: https://github.com/Capture-Moment/CaptureMoment
+VERDICT: KEEP
+SCORE: 20
+STARS: 15
+
+WHAT:
+Open-source non-destructive photo editor (GPLv3). Cross-platform. RAW processing, cataloging (SQLite/XMP), color science (OCIO), performance (OIIO/Halide). No commercial forks without source disclosure. Maintains original name/credits.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
 
 ### CyberTimon/RapidRAW
 
@@ -3926,6 +4598,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### koneb71/pikado
+
+URL: https://github.com/koneb71/pikado
+VERDICT: KEEP
+SCORE: 20
+STARS: 11
+
+WHAT:
+Free, open-source Photoshop alternative that runs in your browser. Layers, masks, PSD files, filters and adjustments — no install, no account, nothing uploaded.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -3973,6 +4666,27 @@ NEXT:
 
 ---
 
+### vagabond-burro/heeler
+
+URL: https://github.com/vagabond-burro/heeler
+VERDICT: KEEP
+SCORE: 20
+STARS: 6
+
+WHAT:
+A free, open source RAW photo editor built on a node graph, with depth-aware tools: relight, fog and refocus by distance. For macOS, Windows and Linux.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### splaching-boop/Lumitype
 
 URL: https://github.com/splaching-boop/Lumitype
@@ -3996,7 +4710,7 @@ WATCH и сравнение с более зрелым PhotoCraft по memory mo
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 33
+Cards: 34
 
 ### 0design/ai-native-design-framework
 
@@ -4443,6 +5157,27 @@ NEXT:
 - keep / refresh / new / none для отдельных компонентов.
 
 После этого прогнать сам skill на одном нашем реальном фирстиле и сравнить его решения с ручной системой.
+
+---
+
+### hackclub/theme
+
+URL: https://github.com/hackclub/theme
+VERDICT: KEEP
+SCORE: 25
+STARS: 68
+
+WHAT:
+The design system behind Hack Club's website, available as tokens, CSS and web components. Works with any framework, or none at all.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -6349,7 +7084,7 @@ NEXT:
 
 ## BUCKET: Font Creation / Typography Tools
 
-Cards: 16
+Cards: 17
 
 ### Corne2Plum3/Giphurs
 
@@ -6432,6 +7167,27 @@ Font Creation / Typography Tools
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### fontgarden/runebender
+
+URL: https://github.com/fontgarden/runebender
+VERDICT: KEEP
+SCORE: 30
+STARS: 96
+
+WHAT:
+A font editor built on the Linebender ecosystem of Rust crates.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -6789,7 +7545,7 @@ NEXT:
 
 ## BUCKET: Full-Song AI / Suno Alternatives
 
-Cards: 11
+Cards: 12
 
 ### ace-step/ACE-Step-1.5
 
@@ -6879,6 +7635,27 @@ Full-Song AI / Suno Alternatives · music AI experiments.
 
 NEXT:
 Сравнить 3B с ACE-Step на одинаковом lyrics/style prompt. Особенно проверить языковую управляемость, вокал и стабильность длинной структуры.
+
+---
+
+### JackKnifeAI/killa-yue
+
+URL: https://github.com/JackKnifeAI/killa-yue
+VERDICT: KEEP
+SCORE: 20
+STARS: 0
+
+WHAT:
+Free, open-source AI music studio on your Android phone: full songs with vocals, Write with AI, stem splitting, mixer, recording and drum pads. No cloud, no subscription.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -7308,7 +8085,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 29
+Cards: 31
 
 ### CodingFeng101/CanvasAnvil
 
@@ -7442,6 +8219,27 @@ Infographics / Visual Storytelling
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### jimku233/workflow-visualizer
+
+URL: https://github.com/jimku233/workflow-visualizer
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Turn a business process into an interactive, self-contained HTML flowchart — zero dependencies, fully offline, no build step. Also exports Mermaid source plus SVG/PNG. Runs as an agent skill (SKILL.md / AGENTS.md) or as a Node >= 18 CLI.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -8029,6 +8827,27 @@ NEXT:
 6. иллюстрация с градиентами.
 
 Сравнить fidelity, seams, node count и удобство дальнейшего редактирования.
+
+---
+
+### reidjohnson/nn-field-guide
+
+URL: https://github.com/reidjohnson/nn-field-guide
+VERDICT: KEEP
+SCORE: 23
+STARS: 13
+
+WHAT:
+A reference chart of 42 neural network architectures, from the perceptron to diffusion LLMs, drawn from one spec as a poster and an interactive page. Inspired by the Neural Network Zoo.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -9399,7 +10218,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 64
+Cards: 73
 
 ### Afloat16/jev-mcp
 
@@ -9426,6 +10245,27 @@ NEXT:
 Взять contract authority hierarchy без обязательной зависимости от
 Jev: проверить, где в Lancelot есть bounded decision points, которым
 нужен отдельный advisory слой.
+
+---
+
+### AftabIbrahimKazi/ai-dev-kit
+
+URL: https://github.com/AftabIbrahimKazi/ai-dev-kit
+VERDICT: KEEP
+SCORE: 35
+STARS: 7
+
+WHAT:
+Agent skills (SKILL.md), layered coding standards, a project-wide code audit and optional free/local MCP servers for AI-assisted development: Claude Code, OpenCode, Codex and any agent that reads markdown.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -9598,6 +10438,27 @@ Tags: security, mcp, tools, permissions, bridge
 
 USE FOR LANCELOT:
 Reference architecture for a deterministic execution firewall. Возможная цель — собственный узкий policy gate перед опасными capabilities, а не прямое копирование всего продукта.
+
+---
+
+### aunysillyme-dev/grok-mcp-server
+
+URL: https://github.com/aunysillyme-dev/grok-mcp-server
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Remote MCP server for xAI Grok: 9 tools for X search, web search, chat, reasoning, vision, image and video generation. Deploy your own on Cloudflare Workers.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -10270,6 +11131,48 @@ NEXT:
 
 ---
 
+### Deuz-AI/Deuz-SDK
+
+URL: https://github.com/Deuz-AI/Deuz-SDK
+VERDICT: KEEP
+SCORE: 18
+STARS: 570
+
+WHAT:
+TypeScript AI SDK and agent framework with zero dependencies. Build production AI agents and multi-agent swarms: durable execution, long-term memory, hybrid RAG, MCP client/server, A2A, human-in-the-loop approvals, CodeAct sandboxes, realtime voice. One streaming API, 29 providers: Claude, GPT, Gemini, Grok, DeepSeek, Ollama. Node, Bun, Deno, edge.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### Dicklesworthstone/meta_skill
+
+URL: https://github.com/Dicklesworthstone/meta_skill
+VERDICT: KEEP
+SCORE: 18
+STARS: 206
+
+WHAT:
+Local-first skill management platform for AI coding agents: dual SQLite+Git persistence, semantic search, bandit-optimized suggestions, and MCP integration
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### different-ai/openwork
 
 URL: https://github.com/different-ai/openwork
@@ -10413,6 +11316,27 @@ Potentially adopt the checkpoint algorithm independently of the rest of the runt
 
 ---
 
+### felinics/Memoh
+
+URL: https://github.com/felinics/Memoh
+VERDICT: KEEP
+SCORE: 18
+STARS: 2702
+
+WHAT:
+✨ The open-source multi-agent platform. Every agent gets its own computer, desktop, network, and long-term memory.  You can bring your own key, or host your coding agent like Claude Code, Codex and so on.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### fu351/Doberman-Core
 
 URL: https://github.com/fu351/Doberman-Core
@@ -10496,6 +11420,27 @@ NEXT:
 - documentation procedures.
 
 Сравнить с нашей stage/registry архитектурой и не плодить отдельные роли там, где хватит параметризованного skill.
+
+---
+
+### Gentleman-Programming/gentle-ai
+
+URL: https://github.com/Gentleman-Programming/gentle-ai
+VERDICT: KEEP
+SCORE: 18
+STARS: 7818
+
+WHAT:
+Gentle-AI configures the AI coding agents you already use: Claude Code, Cursor, OpenCode, Codex, Pi, and more. Choose persistent memory, Organic-Driven Development, curated skills, MCP servers, personas, and optional bounded review. Open source, no agent lock-in.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -11016,6 +11961,27 @@ Tags: cloudflare, mcp, telegram
 
 USE FOR LANCELOT:
 В первую очередь взять архитектуру dynamic Tool Registry + approval gates и сравнить per-user Durable Object / memory summarization с текущим workspace и памятью Lancelot. Telegram webhook использовать как второй reference для существующего интерфейса.
+
+---
+
+### jabbertones-cloud/wwdc-mcp-server
+
+URL: https://github.com/jabbertones-cloud/wwdc-mcp-server
+VERDICT: KEEP
+SCORE: 18
+STARS: 1
+
+WHAT:
+Apple developer intelligence for coding agents: WWDC20–WWDC26, HIG, Swift, App Review, API history, and source-grounded app audits — 45 read-only MCP tools.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -11745,6 +12711,27 @@ USE FOR LANCELOT:
 
 ---
 
+### priyanshuN/jsonloupe
+
+URL: https://github.com/priyanshuN/jsonloupe
+VERDICT: KEEP
+SCORE: 18
+STARS: 2
+
+WHAT:
+A loupe for large JSON — lossless, local-first viewer, differ, query tool, and MCP server for AI agents
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### r2hu1/openbots
 
 URL: https://github.com/r2hu1/openbots
@@ -12044,6 +13031,27 @@ PROJECT:
 
 NEXT:
 Сопоставить TRAIL identity/provenance model с журналом Lancelot и определить минимальный совместимый contract.
+
+---
+
+### tobocop2/lilbee
+
+URL: https://github.com/tobocop2/lilbee
+VERDICT: KEEP
+SCORE: 18
+STARS: 66
+
+WHAT:
+The whole local AI stack in one executable: it runs and manages local AI models across every GPU, and it's a search engine you can talk to, with cited answers from your files, code, and the web. MCP server for coding agents, web crawler, TUI, CLI, REST API, Python library. No Ollama or LM Studio needed, works with both.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -12896,7 +13904,28 @@ Self-bot/private mode не включать
 
 ## BUCKET: Media Kits / Brand Automation
 
-Cards: 2
+Cards: 3
+
+### EthanY33/atelier
+
+URL: https://github.com/EthanY33/atelier
+VERDICT: KEEP
+SCORE: 35
+STARS: 6
+
+WHAT:
+Claude Code plugin, listed in awesome-claude-code. One brand.json drives tokens, social cards, icons, images, video and two audits across 8 skills. Also a CLI and a GitHub Action.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
 
 ### open-xml-templating/docxtemplater
 
@@ -13014,7 +14043,7 @@ upstream сам считает Word наиболее зрелой реализа
 
 ## BUCKET: Mixing / Mastering / Audio Engineering
 
-Cards: 10
+Cards: 11
 
 ### Bodila51/opus-sound-layer
 
@@ -13055,6 +14084,27 @@ Mixing / Mastering / Audio Engineering
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### helpermedia/beamer
+
+URL: https://github.com/helpermedia/beamer
+VERDICT: KEEP
+SCORE: 20
+STARS: 23
+
+WHAT:
+A Rust framework for building Audio Unit (AU) and VST3 audio plugins with WebView-based GUIs.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -13932,7 +14982,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 22
+Cards: 23
 
 ### atlosdotorg/atlos
 
@@ -14260,6 +15310,27 @@ NEXT:
 7. поведение rate limits и proxy layer.
 
 После этого отделить высоконадёжные модули от эвристических.
+
+---
+
+### KillaMeep/waypoint-osint
+
+URL: https://github.com/KillaMeep/waypoint-osint
+VERDICT: KEEP
+SCORE: 18
+STARS: 9
+
+WHAT:
+Free, open-source desktop app that estimates where a photo was taken. Self-contained, Windows, no paid APIs.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -14796,7 +15867,28 @@ NEXT:
 
 ## BUCKET: Publishing / Layout / PDF
 
-Cards: 10
+Cards: 13
+
+### carpe-diem/typst-fillable
+
+URL: https://github.com/carpe-diem/typst-fillable
+VERDICT: KEEP
+SCORE: 20
+STARS: 44
+
+WHAT:
+Create fillable PDF forms from Typst templates with interactive text fields, checkboxes, and radio buttons.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
 
 ### K-Arthur/varve
 
@@ -15137,6 +16229,48 @@ NEXT:
 Если contract окажется хорошим,
 использовать как donor
 для `MEDIA_FACTORY_DOCUMENT_SPEC`.
+
+---
+
+### muippt/mu-pdf-converter
+
+URL: https://github.com/muippt/mu-pdf-converter
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+PDF文件高保真转换器｜High-fidelity PDF format converter — four-layer PPT conversion, three-engine table extraction, auto-translation. 100% local, open source.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### nfsarch33/pdf-mcp-server
+
+URL: https://github.com/nfsarch33/pdf-mcp-server
+VERDICT: KEEP
+SCORE: 18
+STARS: 7
+
+WHAT:
+Local-first CLI + MCP server for everything PDF: form fill, OCR, redaction, signatures, table extraction, and LLM-backed document understanding.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -15994,7 +17128,7 @@ NEXT:
 
 ## BUCKET: Reverse Engineering / Binary Analysis
 
-Cards: 12
+Cards: 16
 
 ### AgeloVito/jd-mcp-duo
 
@@ -16038,6 +17172,27 @@ NEXT:
 
 ---
 
+### attify/firmware-analysis-toolkit
+
+URL: https://github.com/attify/firmware-analysis-toolkit
+VERDICT: KEEP
+SCORE: 18
+STARS: 1615
+
+WHAT:
+Firmware security research platform combining binary analysis, taint tracing, and emulation across IoT, edge AI, mobile devices, and robotics.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### B2R2-org/B2R2
 
 URL: https://github.com/B2R2-org/B2R2
@@ -16077,6 +17232,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### cpkt9762/ida-cli
+
+URL: https://github.com/cpkt9762/ida-cli
+VERDICT: KEEP
+SCORE: 18
+STARS: 30
+
+WHAT:
+Headless IDA Pro MCP server for AI-assisted binary analysis, powered by idalib
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -16241,6 +17417,27 @@ NEXT:
 
 ---
 
+### valeria-org/bitwright
+
+URL: https://github.com/valeria-org/bitwright
+VERDICT: KEEP
+SCORE: 18
+STARS: 51
+
+WHAT:
+Bit-vector expression simplifier for binary analysis and deobfuscation
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### Zfinix/eleven
 
 URL: https://github.com/Zfinix/eleven
@@ -16262,9 +17459,30 @@ NEXT:
 
 ---
 
+### zhuyansen/awesome-ai-reverse-engineering
+
+URL: https://github.com/zhuyansen/awesome-ai-reverse-engineering
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Open-source AI reverse engineering tools for coding agents: Ghidra MCP, IDA Pro MCP, jadx, Frida, skills and REA. 122 repos, each read and security-graded. EN + 中文.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ## BUCKET: Search / Retrieval Engineering
 
-Cards: 19
+Cards: 21
 
 ### al1-nasir/weigh_swarm
 
@@ -16286,6 +17504,27 @@ PROJECT:
 
 NEXT:
 Использовать как архитектурный reference для DeepResearch, не как готовый production research engine.
+
+---
+
+### aliasunder/vault-cortex
+
+URL: https://github.com/aliasunder/vault-cortex
+VERDICT: KEEP
+SCORE: 18
+STARS: 27
+
+WHAT:
+Standalone MCP server for Obsidian vaults — hybrid search, structured memory, task management, files, OAuth 2.1. Run locally, self-host, or one-click deploy for remote access.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -16458,6 +17697,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### meta-recsys/silvertorch
+
+URL: https://github.com/meta-recsys/silvertorch
+VERDICT: KEEP
+SCORE: 18
+STARS: 36
+
+WHAT:
+Silvertorch is a high-performance open-source GPU retrieval engine designed for large-scale recommender systems, generative retrieval (RAG), and vector search — optimized for latency, throughput, and GPU cost efficiency.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -16725,7 +17985,7 @@ NEXT:
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 10
+Cards: 16
 
 ### Blaizzy/mlx-audio
 
@@ -16769,6 +18029,27 @@ NEXT:
 
 ---
 
+### HoppouAI/Breeze-TTS-2.cpp
+
+URL: https://github.com/HoppouAI/Breeze-TTS-2.cpp
+VERDICT: KEEP
+SCORE: 22
+STARS: 30
+
+WHAT:
+Bilingual English and Mandarin text to speech in C++ and GGUF. Voice design, cloning, direction and experimental voice conversion. Vulkan backend, streaming HTTP and WebSocket server, web UI and a C API.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### izwi-ai/izwi
 
 URL: https://github.com/izwi-ai/izwi
@@ -16790,6 +18071,48 @@ NEXT:
 
 ---
 
+### k2-fsa/sherpa-onnx
+
+URL: https://github.com/k2-fsa/sherpa-onnx
+VERDICT: KEEP
+SCORE: 18
+STARS: 15328
+
+WHAT:
+Speech-to-text, text-to-speech, speaker diarization, speech enhancement, source separation, and VAD using next-gen Kaldi with onnxruntime without Internet connection. Support embedded systems, Android, iOS, HarmonyOS, Raspberry Pi, RISC-V, RK NPU, Axera NPU, Ascend NPU, x86_64 servers, websocket server/client, support 12 programming languages
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### NVIDIA-NeMo/Speech
+
+URL: https://github.com/NVIDIA-NeMo/Speech
+VERDICT: KEEP
+SCORE: 18
+STARS: 18597
+
+WHAT:
+A scalable generative AI framework built for researchers and developers working on Large Language Models, Multimodal, and Speech AI (Automatic Speech Recognition and Text-to-Speech)
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### nyosegawa/speech.cpp
 
 URL: https://github.com/nyosegawa/speech.cpp
@@ -16808,6 +18131,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### OHF-Voice/piper1-gpl
+
+URL: https://github.com/OHF-Voice/piper1-gpl
+VERDICT: KEEP
+SCORE: 18
+STARS: 5906
+
+WHAT:
+Fast and local neural text-to-speech engine
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -16855,6 +18199,27 @@ NEXT:
 
 ---
 
+### ozguradmin/ahenk-turkish-tts
+
+URL: https://github.com/ozguradmin/ahenk-turkish-tts
+VERDICT: KEEP
+SCORE: 18
+STARS: 82
+
+WHAT:
+Ahenk: açık Türkçe metinden sese. Open Turkish text-to-speech: VoxCPM2 LoRA (Ahenk), 8.6M on-device model (Ahenk Cep), trnorm text normaliser, TR-Zor benchmark
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### pegainfer-project/pega-omni
 
 URL: https://github.com/pegainfer-project/pega-omni
@@ -16894,6 +18259,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### qishuilalala/dsh-voice-mode
+
+URL: https://github.com/qishuilalala/dsh-voice-mode
+VERDICT: KEEP
+SCORE: 18
+STARS: 19
+
+WHAT:
+DSH 全双工语音插件：流式语音识别入草稿、语音合成按句朗读 + 实时字幕、开口即打断；本地识别免 API Key，可选唤醒词。 · Full-duplex voice plugin for DeepSeek Harness: streaming speech-to-text into an editable draft, text-to-speech read-aloud with live captions, true barge-in and wake word; on-device ASR, no API key.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -16941,7 +18327,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 20
+Cards: 21
 
 ### autark-labs/autark-os
 
@@ -17696,6 +19082,27 @@ NEXT:
 
 ---
 
+### Yyeger/Continuum
+
+URL: https://github.com/Yyeger/Continuum
+VERDICT: KEEP
+SCORE: 25
+STARS: 87
+
+WHAT:
+Postgres-backed durable workflows for Elixir/OTP — Temporal-style execution without a separate service.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### binhnguyennus/awesome-scalability
 
 URL: https://github.com/binhnguyennus/awesome-scalability
@@ -18104,7 +19511,7 @@ NEXT:
 
 ## BUCKET: Video Production / Editing
 
-Cards: 65
+Cards: 70
 
 ### 0xsline/OpenChatCut
 
@@ -18441,6 +19848,27 @@ NEXT:
 
 ---
 
+### artcraft-android/capcraft-android
+
+URL: https://github.com/artcraft-android/capcraft-android
+VERDICT: KEEP
+SCORE: 20
+STARS: 26
+
+WHAT:
+An open-source mobile video editor in Rust while using Kotlin as the UI framework.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### bradautomates/claude-video
 
 URL: https://github.com/bradautomates/claude-video
@@ -18511,6 +19939,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### buxuku/SmartSub
+
+URL: https://github.com/buxuku/SmartSub
+VERDICT: KEEP
+SCORE: 18
+STARS: 5734
+
+WHAT:
+视频转字幕、字幕翻译、AI 配音与声音克隆、字幕烧录——免费开源的一站式桌面工具。基于 Whisper / FunASR 等本地模型离线语音转文字，批量处理 + 全平台 GPU 加速，跨 Windows / macOS / Linux。Free, open-source desktop app to generate, translate, dub & burn video subtitles — local Whisper speech-to-text, AI dubbing & voice cloning, offline, GPU-accelerated.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -19332,6 +20781,27 @@ NEXT:
 
 ---
 
+### liuzhao1225/YouDub-webui
+
+URL: https://github.com/liuzhao1225/YouDub-webui
+VERDICT: KEEP
+SCORE: 18
+STARS: 5685
+
+WHAT:
+Open-source AI video localization and dubbing for YouTube/Bilibili: speech recognition, subtitle translation, voice cloning, audio mixing and rendering. 开源 AI 视频翻译配音工具。
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
 ### LottieFiles/motion-design-skill
 
 URL: https://github.com/LottieFiles/motion-design-skill
@@ -19350,6 +20820,27 @@ PROJECT:
 
 NEXT:
 Сопоставить принципы с нашим будущим media-motion.md и убрать runtime-specific детали.
+
+---
+
+### lukaszliniewicz/Pandrator
+
+URL: https://github.com/lukaszliniewicz/Pandrator
+VERDICT: KEEP
+SCORE: 18
+STARS: 636
+
+WHAT:
+Turn PDFs and EPUBs into audiobooks; subtitles or videos into dubbed videos (including translation), and more. For free. Pandrator uses local models, including voice-cloning (instant, RVC-enhanced, XTTS fine-tuning) and LLM processing. It aspires to be a user-friendly app with a GUI, an installer and all-in-one packages.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -19742,6 +21233,27 @@ Video production / Shorts / subtitles
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### Samurai33/n3xus-video-factory
+
+URL: https://github.com/Samurai33/n3xus-video-factory
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Self-hosted agentic video factory for Shorts/Reels/TikTok — n8n control plane, Docker Compose, human review gates.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
 
 ---
 
@@ -20985,8 +22497,8 @@ NEXT:
 # TODAY'S SHORTLIST
 
 ---
-title: Creative Radar Shortlist 2026-10-19
-date: 2026-10-19
+title: Creative Radar Shortlist 2026-10-20
+date: 2026-10-20
 status: shortlist
 tags:
   - radar
@@ -20994,421 +22506,443 @@ tags:
   - shortlist
 ---
 
-# Creative Radar Shortlist — 2026-10-19
+# Creative Radar Shortlist — 2026-10-20
 
-Source: [[../scored/2026-10-19|Scored 2026-10-19]]
+Source: [[../scored/2026-10-20|Scored 2026-10-20]]
 
 ## Навигация
 
-- [Agent Memory / Context](#agent-memory-context) — 2
+- [Agent Memory / Context](#agent-memory-context) — 6
 - [Agent Reliability / Evals & Production](#agent-reliability-evals-&-production) — 1
-- [Agent Security / Governance](#agent-security-governance) — 1
-- [Automation / Event Workflows](#automation-event-workflows) — 4
-- [Design / Image Editing](#design-image-editing) — 2
-- [Design Systems / Visual QA](#design-systems-visual-qa) — 1
-- [Infographics / Visual Storytelling](#infographics-visual-storytelling) — 1
+- [Agent Security / Governance](#agent-security-governance) — 2
+- [Automation / Event Workflows](#automation-event-workflows) — 8
+- [Document Parsing / Ingestion](#document-parsing-ingestion) — 3
 - [Lancelot / Agent Infrastructure](#lancelot-agent-infrastructure) — 8
-- [Mixing / Mastering / Audio Engineering](#mixing-mastering-audio-engineering) — 1
 - [OSINT / Investigations](#osint-investigations) — 1
-- [Publishing / Layout / PDF](#publishing-layout-pdf) — 1
-- [Reverse Engineering / Binary Analysis](#reverse-engineering-binary-analysis) — 3
-- [Speech / TTS & Voice](#speech-tts-&-voice) — 5
-- [System Architecture / Engineering Patterns](#system-architecture-engineering-patterns) — 3
+- [Radio / Audio Ops](#radio-audio-ops) — 1
+- [Reverse Engineering / Binary Analysis](#reverse-engineering-binary-analysis) — 1
+- [Search / Retrieval Engineering](#search-retrieval-engineering) — 1
+- [Speech / TTS & Voice](#speech-tts-&-voice) — 4
 - [Video Production / Editing](#video-production-editing) — 1
+- [Web Intelligence / SEO & AI Visibility](#web-intelligence-seo-&-ai-visibility) — 1
 
 ## Agent Memory / Context
 
-### madebywelch/guaca
+### Gentleman-Programming/engram
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 45
-- Raw: #794
-- URL: https://github.com/madebywelch/guaca
-- Description: A desktop workspace (inspired by Grok Bot & Muse) for AI agents that collaborate, write code, and use tools. Run locally or on your own server, with shared conversations, persistent memory, and MCP plugins.
-- Why: compound agent memory/context fit, persistent memory, stars>=20
+- Stars: 7470
+- Raw: #799
+- URL: https://github.com/Gentleman-Programming/engram
+- Description: Persistent memory system for AI coding agents. Agent-agnostic Go binary with SQLite + FTS5, MCP server, HTTP API, CLI, and TUI.
+- Why: compound agent memory/context fit, persistent memory, stars>=1000
 
-### contextstream/mcp-server
+### archimedes-run/omniHarness
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 44
+- Stars: 7
+- Raw: #797
+- URL: https://github.com/archimedes-run/omniHarness
+- Description: OmniHarness is an open-source super agent harness that orchestrates sub-agents, persistent memory, and sandboxed execution to handle tasks that take minutes to hours — powered by extensible skills and MCP tools.
+- Why: compound agent memory/context fit, persistent memory
+
+### tonydzi/second-brain-starter-kit
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 9
+- Raw: #837
+- URL: https://github.com/tonydzi/second-brain-starter-kit
+- Description: Claude Code and Codex as a second brain with persistent memory: 232 battle-tested skills as a plugin marketplace, an opt-in memory MCP server, a working CRM engine, vault templates and the handover map. Method, not data. MIT.
+- Why: compound agent memory/context fit, persistent memory, second brain
+
+### Noelune/unified-agent-memory
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 7
+- Raw: #780
+- URL: https://github.com/Noelune/unified-agent-memory
+- Description: Unified fleet-wide agent memory system for DeepSeek Harness — shared Obsidian Vault for dsh, Codex, Claude Code & Hermes with dependency-free Python FTS5 core.
+- Why: agent memory, compound agent memory/context fit
+
+### lucasaarch/jian
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 6
 - Raw: #795
-- URL: https://github.com/contextstream/mcp-server
-- Description: Persistent memory, semantic search, and shared project context for AI agents with traceable sources and scoped access. Carry decisions, lessons, and intent across sessions and tools.
-- Why: compound agent memory/context fit, persistent memory, stars>=20
+- URL: https://github.com/lucasaarch/jian
+- Description: Self-hosted agent gateway with per-profile identity, persistent memory and shared context across sessions and channels.
+- Why: compound agent memory/context fit, persistent memory
+
+### Dannykkh/skill-olympus
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 7
+- Raw: #801
+- URL: https://github.com/Dannykkh/skill-olympus
+- Description: Twelve Greek gods. One command. A working SaaS. 98 skills + 49 agents + 13 hooks for Claude Code + Codex CLI + Gemini CLI. Cross-CLI persistent memory, zero-interaction full pipeline (design → build → inspect → test → ship).
+- Why: compound agent memory/context fit, persistent memory
 
 
 ## Agent Reliability / Evals & Production
 
-### P90-RushB/AgentArk
+### awslabs/uaef
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 209
-- Raw: #903
-- URL: https://github.com/P90-RushB/AgentArk
-- Description: A General-Purpose Environment Framework for Scalable Multimodal Agent Evaluation and RL
-- Why: agent evaluation, compound agent reliability/evals fit, stars>=100
+- Stars: 6
+- Raw: #906
+- URL: https://github.com/awslabs/uaef
+- Description: Universal Agent Evaluation Framework (UAEF) is a framework-agnostic evaluation system for AI agents. Invoke any agent and score it on multiple metrics spanning tool calling, response quality, safety, performance, and reasoning. Track experiments against baselines, catch regressions automatically, and get LLM-generated insights.
+- Why: agent evaluation, compound agent reliability/evals fit
 
 
 ## Agent Security / Governance
 
-### ajitpratap0/GoSQLX
+### jpzk/koto
 
 - Verdict: **WATCH**
-- Score: 30
-- Stars: 120
-- Raw: #499
-- URL: https://github.com/ajitpratap0/GoSQLX
-- Description: Pure-Go SQL parser, formatter, linter and security scanner for 8 dialects. Zero-copy, race-free, with an LSP and MCP server.
-- Why: agent control-plane security fit, agent security/governance fit, stars>=100, strong agent-security signal
+- Score: 24
+- Stars: 6
+- Raw: #507
+- URL: https://github.com/jpzk/koto
+- Description: koto is a microVM-based agent sandbox harness using Firecracker and  that has the TUI and gRPC interface you always wanted
+- Why: agent control-plane security fit, agent security/governance fit, strong agent-security signal
+
+### trueoriginlabs/vibatchium
+
+- Verdict: **WATCH**
+- Score: 22
+- Stars: 8
+- Raw: #483
+- URL: https://github.com/trueoriginlabs/vibatchium
+- Description: Stealth browser automation for AI agents — unattended, headless, N parallel persistent logged-in Chromes. One MCP server + CLI, credential vault with TOTP/IMAP 2FA, vision clicking, prompt-injection scanning. Self-hosted, real Chrome. 2,027 tests.
+- Why: agent security/governance fit, strong agent-security signal
 
 
 ## Automation / Event Workflows
 
-### WhatsArabHQ/n8n-nodes-whatsarab
+### resend/n8n-nodes-resend
 
 - Verdict: **WATCH**
-- Score: 29
+- Score: 30
+- Stars: 33
+- Raw: #646
+- URL: https://github.com/resend/n8n-nodes-resend
+- Description: Powerful email automation for n8n using Resend 🚀
+- Why: automation ops/tooling fit, n8n, n8n identity fit, n8n node/plugin fit, stars>=20, webhook, workflow/event integration fit
+
+### 0000F8/n8n-nodes-saltapp
+
+- Verdict: **WATCH**
+- Score: 27
 - Stars: 0
 - Raw: #655
-- URL: https://github.com/WhatsArabHQ/n8n-nodes-whatsarab
-- Description: Official n8n community node for WhatsArab: send WhatsApp messages and templates, manage contacts and tags, and trigger workflows from WhatsArab webhooks.
-- Why: n8n, n8n identity fit, n8n node/plugin fit, trigger, webhook, workflow/event integration fit
+- URL: https://github.com/0000F8/n8n-nodes-saltapp
+- Description: n8n community node for Salt (saltapp.ai): trigger on messages, payments, invoices and card taps; send messages, ask a human and wait, request money, invoice, post cards.
+- Why: automation reusable implementation, n8n, n8n identity fit, n8n node/plugin fit, trigger, workflow/event integration fit
 
-### popnow-ai/n8n-nodes-popnow
+### contactship/n8n-nodes-contactship
 
 - Verdict: **WATCH**
-- Score: 22
+- Score: 27
 - Stars: 0
-- Raw: #658
-- URL: https://github.com/popnow-ai/n8n-nodes-popnow
-- Description: n8n community node for PopNow: AI video, image, music and speech generation (Kling, Seedance, Wan, Nano Banana, Flux, Suno) in n8n workflows.
-- Why: automation reusable implementation, n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
+- Raw: #661
+- URL: https://github.com/contactship/n8n-nodes-contactship
+- Description: n8n community nodes for ContactShip: AI phone calls, contacts, boards, tasks, WhatsApp and post-call triggers
+- Why: automation reusable implementation, n8n, n8n identity fit, n8n node/plugin fit, trigger, workflow/event integration fit
 
-### julianehren/refund-review-agent
+### Whapi-Cloud/n8n-nodes-whapi
+
+- Verdict: **WATCH**
+- Score: 23
+- Stars: 3
+- Raw: #692
+- URL: https://github.com/Whapi-Cloud/n8n-nodes-whapi
+- Description: Whapi n8n integration node
+- Why: automation ops/tooling fit, n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
+
+### apimodels/n8n-templates
 
 - Verdict: **WATCH**
 - Score: 19
 - Stars: 0
-- Raw: #691
-- URL: https://github.com/julianehren/refund-review-agent
-- Description: AI agent that reviews e-commerce refund requests – tool use, RAG, human-in-the-loop, evaluation, FastAPI, n8n, MCP, Docker
+- Raw: #684
+- URL: https://github.com/apimodels/n8n-templates
+- Description: Ready-to-import n8n workflows for apimodels.app: GPT Image 2 ads, Seedance video, Claude + ElevenLabs podcast, video-to-posts, model comparison, feedback triage, chat with CSV/Excel data, and an AI agent that draws.
 - Why: automation AI/MCP fit, automation ops/tooling fit, n8n, n8n identity fit, workflow/event integration fit
 
-### Samurai33/n3xus-video-factory
+### Chatway-app/n8n-nodes-chatway
+
+- Verdict: **WATCH**
+- Score: 19
+- Stars: 0
+- Raw: #654
+- URL: https://github.com/Chatway-app/n8n-nodes-chatway
+- Description: Official n8n nodes for Chatway Live Chat, an AI-powered customer support platform. Automate live chat, help desk, support tickets, customer conversations, contacts, inboxes, and agent workflows. Connect Chatway to your favorite apps and build no-code customer service automations for Shopify, WordPress, WhatsApp, Instagram, and more.
+- Why: n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
+
+### somchaialekseev89390/notebooklm-mcp
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 0
-- Raw: #651
-- URL: https://github.com/Samurai33/n3xus-video-factory
-- Description: Self-hosted agentic video factory for Shorts/Reels/TikTok — n8n control plane, Docker Compose, human review gates.
+- Raw: #652
+- URL: https://github.com/somchaialekseev89390/notebooklm-mcp
+- Description: Google NotebookLM over MCP + a local HTTP REST API. Citation-backed Q&A, audio/video/content generation, multi-account rotation. For Claude Code, Codex, Cursor, n8n, Zapier, Make.
+- Why: automation ops/tooling fit, automation reusable implementation, n8n, n8n identity fit, workflow/event integration fit
+
+### SompongPatel89400/notebooklm-mcp
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 0
+- Raw: #647
+- URL: https://github.com/SompongPatel89400/notebooklm-mcp
+- Description: Google NotebookLM over MCP + a local HTTP REST API. Citation-backed Q&A, audio/video/content generation, multi-account rotation. For Claude Code, Codex, Cursor, n8n, Zapier, Make.
 - Why: automation ops/tooling fit, automation reusable implementation, n8n, n8n identity fit, workflow/event integration fit
 
 
-## Design / Image Editing
+## Document Parsing / Ingestion
 
-### koneb71/pikado
-
-- Verdict: **WATCH**
-- Score: 20
-- Stars: 11
-- Raw: #1348
-- URL: https://github.com/koneb71/pikado
-- Description: Free, open-source Photoshop alternative that runs in your browser. Layers, masks, PSD files, filters and adjustments — no install, no account, nothing uploaded.
-- Why: image editing fit, layers, photoshop
-
-### vagabond-burro/heeler
+### SoMarkAI/DocParsingBench
 
 - Verdict: **WATCH**
-- Score: 20
-- Stars: 6
-- Raw: #1341
-- URL: https://github.com/vagabond-burro/heeler
-- Description: A free, open source RAW photo editor built on a node graph, with depth-aware tools: relight, fog and refocus by distance. For macOS, Windows and Linux.
-- Why: image editing fit, photo editor, tauri
+- Score: 18
+- Stars: 15
+- Raw: #1060
+- URL: https://github.com/SoMarkAI/DocParsingBench
+- Description: An benchmark toolkit for intelligent document parsing products
+- Why: compound document parsing/ingestion fit
 
-
-## Design Systems / Visual QA
-
-### hackclub/design
+### openbenchmarks-labs/document-processing
 
 - Verdict: **WATCH**
-- Score: 25
-- Stars: 69
-- Raw: #1408
-- URL: https://github.com/hackclub/design
-- Description: The design system behind Hack Club's website, available as tokens, CSS and web components. Works with any framework, or none at all.
-- Why: design QA fit, design system, design-system, stars>=20, tokens
+- Score: 18
+- Stars: 7
+- Raw: #1100
+- URL: https://github.com/openbenchmarks-labs/document-processing
+- Description: Open, independent benchmark on document parsing APIs and frontier VLMs for AI agents and RAG: does a struck-out clause in a redlined contract PDF survive the parse? Open source code + open data. LlamaParse, Reducto, Datalab, Extend, Pulse, Mistral OCR, GPT-6 Astra, Claude Fable 5.1.
+- Why: compound document parsing/ingestion fit, ocr
 
-
-## Infographics / Visual Storytelling
-
-### reidjohnson/nn-field-guide
+### run-llama/liteparse
 
 - Verdict: **WATCH**
-- Score: 23
-- Stars: 13
-- Raw: #104
-- URL: https://github.com/reidjohnson/nn-field-guide
-- Description: A reference chart of 42 neural network architectures, from the perceptron to diffusion LLMs, drawn from one spec as a poster and an interactive page. Inspired by the Neural Network Zoo.
-- Why: chart, infographic, infographics/visual storytelling fit, svg
+- Score: 18
+- Stars: 12889
+- Raw: #1057
+- URL: https://github.com/run-llama/liteparse
+- Description: A fast, helpful, and open-source document parser
+- Why: document parser, ocr, stars>=1000
 
 
 ## Lancelot / Agent Infrastructure
 
-### aunysillyme-dev/grok-mcp-server
+### Rakshit-gen/casefile
 
 - Verdict: **KEEP**
 - Score: 35
 - Stars: 0
-- Raw: #587
-- URL: https://github.com/aunysillyme-dev/grok-mcp-server
-- Description: Remote MCP server for xAI Grok: 9 tools for X search, web search, chat, reasoning, vision, image and video generation. Deploy your own on Cloudflare Workers.
+- Raw: #552
+- URL: https://github.com/Rakshit-gen/casefile
+- Description: Support agent on Cloudflare Workers: Agents SDK, Durable Object memory, Vectorize recall, gated changes, evals and traces
 - Why: lancelot high fit
 
-### priyanshuN/jsonloupe
+### jPopov1210/mcp-github-project-manager
+
+- Verdict: **KEEP**
+- Score: 35
+- Stars: 0
+- Raw: #585
+- URL: https://github.com/jPopov1210/mcp-github-project-manager
+- Description: MCP server for AI-powered GitHub project management — 20 tools, 169 actions, agent swarm orchestration, GitHub Actions/Releases/Branches, MCP Resources & Prompts, PRD-to-issues pipeline
+- Why: lancelot high fit
+
+### vieira5536/cloakbrowser-mcp
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 2
-- Raw: #589
-- URL: https://github.com/priyanshuN/jsonloupe
-- Description: A loupe for large JSON — lossless, local-first viewer, differ, query tool, and MCP server for AI agents
+- Stars: 0
+- Raw: #588
+- URL: https://github.com/vieira5536/cloakbrowser-mcp
+- Description: ⚡ CloakBrowser MCP server for AI agents: Playwright-powered browsing, clean tool forwarding, Docker support, and multi-session HTTP transport.
 - Why: lancelot keep fit
 
-### jabbertones-cloud/wwdc-mcp-server
+### arjunk5383/Pare
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 1
+- Stars: 0
+- Raw: #590
+- URL: https://github.com/arjunk5383/Pare
+- Description: Dev tools, optimized for agents. Structured, token-efficient MCP servers for git, test runners, npm, Docker, and more.
+- Why: lancelot keep fit
+
+### Hussain0035/sp500-mcp-server
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 0
+- Raw: #587
+- URL: https://github.com/Hussain0035/sp500-mcp-server
+- Description: An MCP server and Next.js web app for querying S&P 500 company data from Supabase, with tools for company info, news, officers, and SEC filings, plus embedded MCP App UI resources, Elicitation, and Sampling support.
+- Why: lancelot keep fit
+- Caution: stock
+
+### miguelf486/mcp-server-atlassian-bitbucket
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 0
+- Raw: #586
+- URL: https://github.com/miguelf486/mcp-server-atlassian-bitbucket
+- Description: Node.js/TypeScript MCP server for Atlassian Bitbucket. Enables AI systems (LLMs) to interact with workspaces, repositories, and pull requests via tools (list, get, comment, search). Connects AI directly to version control workflows through the standard MCP interface.
+- Why: lancelot keep fit
+
+### raziszymanski38859/caldav-mcp
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 0
 - Raw: #591
-- URL: https://github.com/jabbertones-cloud/wwdc-mcp-server
-- Description: Apple developer intelligence for coding agents: WWDC20–WWDC26, HIG, Swift, App Review, API history, and source-grounded app audits — 45 read-only MCP tools.
-- Why: lancelot keep fit
-- Caution: ios, swiftui
-
-### ssrjkk/raven
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 3
-- Raw: #593
-- URL: https://github.com/ssrjkk/raven
-- Description: Self-hosted MCP server: 66 tools over stdio and HTTP. Workspace confinement, keyed auth, MIT licensed.
+- URL: https://github.com/raziszymanski38859/caldav-mcp
+- Description: 🗓️ A CalDAV Model Context Protocol (MCP) server to expose calendar operations as tools for AI assistants.
 - Why: lancelot keep fit
 
-### frankrainrp/Bulter
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 1
-- Raw: #592
-- URL: https://github.com/frankrainrp/Bulter
-- Description: Local AI learning workspace with tasks, calendar, notes, configurable Ollama inference, document processing, and a separate 14-tool MCP server.
-- Why: lancelot keep fit
-- Caution: portfolio
-
-### arm-pz/upstream-check
+### SophiaBaran/sp500-mcp-server
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 0
-- Raw: #571
-- URL: https://github.com/arm-pz/upstream-check
-- Description: Agent skill that finds unpushed local commits and fast-forwards only the safe ones, plus checks published listings against the repos that actually ship a SKILL.md.
+- Raw: #589
+- URL: https://github.com/SophiaBaran/sp500-mcp-server
+- Description: An MCP server and Next.js web app for querying S&P 500 company data from Supabase, with tools for company info, news, officers, and SEC filings, plus embedded MCP App UI resources, Elicitation, and Sampling support.
 - Why: lancelot keep fit
-
-### framerslab/agentos-skills
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 0
-- Raw: #578
-- URL: https://github.com/framerslab/agentos-skills
-- Description: Community registry of skills for AgentOS (SKILL.md prompt modules).
-- Why: lancelot keep fit
-
-### viswapriyanr/multi-agent-observability
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 0
-- Raw: #626
-- URL: https://github.com/viswapriyanr/multi-agent-observability
-- Description: MA-Trace - causal tracing, coordination SLOs and deterministic replay for multi-agent LLM systems - exported through OpenTelemetry.
-- Why: lancelot keep fit
-
-
-## Mixing / Mastering / Audio Engineering
-
-### SparrowClass/FabFilter-Pro-Q2
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 12
-- Raw: #194
-- URL: https://github.com/SparrowClass/FabFilter-Pro-Q2
-- Description: FabFilter Pro-Q 2 — professional equalizer plugin for VST, VST3 and AAX. Natural Phase mode, Spectrum Grab, up to 24 bands. Windows 10/11. Direct download. Ready to use.
-- Why: mastering, mixing/mastering/audio engineering fit, vst
+- Caution: stock
 
 
 ## OSINT / Investigations
 
-### cipher387/osint_stuff_tool_collection
-
-- Verdict: **WATCH**
-- Score: 26
-- Stars: 8960
-- Raw: #1601
-- URL: https://github.com/cipher387/osint_stuff_tool_collection
-- Description: A collection of several hundred online tools for OSINT
-- Why: geoint, osint/investigations fit, socmint, stars>=1000
-
-
-## Publishing / Layout / PDF
-
-### carpe-diem/typst-fillable
-
-- Verdict: **WATCH**
-- Score: 20
-- Stars: 44
-- Raw: #1502
-- URL: https://github.com/carpe-diem/typst-fillable
-- Description: Create fillable PDF forms from Typst templates with interactive text fields, checkboxes, and radio buttons.
-- Why: pdf, publishing/pdf fit, stars>=20, typst
-
-
-## Reverse Engineering / Binary Analysis
-
-### attify/firmware-analysis-toolkit
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 1615
-- Raw: #1147
-- URL: https://github.com/attify/firmware-analysis-toolkit
-- Description: Firmware security research platform combining binary analysis, taint tracing, and emulation across IoT, edge AI, mobile devices, and robotics.
-- Why: binary analysis, compound reverse engineering fit, stars>=1000
-
-### zhameersheraz/esp32sec
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 19
-- Raw: #1165
-- URL: https://github.com/zhameersheraz/esp32sec
-- Description: ESP32/ESP8266 firmware analysis and security toolkit. Flash dump, UART sniff, partition parse, secure boot check. Pure Python, no cloud, no telemetry.
-- Why: compound reverse engineering fit, firmware analysis
-
-### efi4st/efi4st
+### vidithq/vidit
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 6
-- Raw: #1164
-- URL: https://github.com/efi4st/efi4st
-- Description: Automatic Firmware Analysis of Embedded Linux Devices as Preparation for Security Testing / Fuzzing
-- Why: compound reverse engineering fit, firmware analysis
+- Raw: #1609
+- URL: https://github.com/vidithq/vidit
+- Description: OSINT/GEOINT geolocation archive for armed-conflict events — open source under AGPL-3.0
+- Why: geoint, geolocation, osint/investigations fit
+
+
+## Radio / Audio Ops
+
+### astralwaveorg/lyra
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 8
+- Raw: #308
+- URL: https://github.com/astralwaveorg/lyra
+- Description: Self-hosted music library maintenance: lyrics, tags, organizing, duplicate detection. 自托管音乐库歌词、标签与整理工具。
+- Why: music metadata/taxonomy fit, musicbrainz, self-hosted
+
+
+## Reverse Engineering / Binary Analysis
+
+### xjoker/ghidra-mcp
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 4
+- Raw: #1156
+- URL: https://github.com/xjoker/ghidra-mcp
+- Description: Headless Ghidra MCP server powered by PyGhidra, with persistent projects, task-oriented tools, and a verified GHCR image.
+- Why: compound reverse engineering fit, ghidra
+
+
+## Search / Retrieval Engineering
+
+### MikeK184/Recollect
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 20
+- Raw: #849
+- URL: https://github.com/MikeK184/Recollect
+- Description: Self-hosted AI memory and MCP coordination for coding agents. Persistent context across repositories and sessions, with knowledge graphs, hybrid search, and a desktop web UI. Built in Rust for Codex and Claude Code.
+- Why: compound search/retrieval fit, hybrid search, stars>=20
 
 
 ## Speech / TTS & Voice
 
-### qishuilalala/dsh-voice-mode
+### hegedustibor/htgo-tts
+
+- Verdict: **WATCH**
+- Score: 20
+- Stars: 219
+- Raw: #968
+- URL: https://github.com/hegedustibor/htgo-tts
+- Description: Text to speech package for Golang.
+- Why: stars>=100, text to speech, text-to-speech, tts
+
+### Nanboy-Ronan/RVCBench
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 19
-- Raw: #963
-- URL: https://github.com/qishuilalala/dsh-voice-mode
-- Description: DSH 全双工语音插件：流式语音识别入草稿、语音合成按句朗读 + 实时字幕、开口即打断；本地识别免 API Key，可选唤醒词。 · Full-duplex voice plugin for DeepSeek Harness: streaming speech-to-text into an editable draft, text-to-speech read-aloud with live captions, true barge-in and wake word; on-device ASR, no API key.
-- Why: compound deployable speech/TTS fit, text-to-speech, tts
+- Stars: 58
+- Raw: #980
+- URL: https://github.com/Nanboy-Ronan/RVCBench
+- Description: Comprehensive voice cloning evaluation: seven automatic speech metrics and ready-to-use benchmark datasets. Score any model’s audio with Python or CLI.
+- Why: compound deployable speech/TTS fit, stars>=20, text-to-speech, tts, voice cloning
 
-### liuzhao1225/YouDub-webui
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 5685
-- Raw: #972
-- URL: https://github.com/liuzhao1225/YouDub-webui
-- Description: Open-source AI video localization and dubbing for YouTube/Bilibili: speech recognition, subtitle translation, voice cloning, audio mixing and rendering. 开源 AI 视频翻译配音工具。
-- Why: compound deployable speech/TTS fit, stars>=1000, text-to-speech, voice cloning
-
-### drakulavich/kesha-voice-kit
+### ramishi/moss-tts-nano-rust-candle
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 78
-- Raw: #962
-- URL: https://github.com/drakulavich/kesha-voice-kit
-- Description: Kesha listens and talks back: local speech to text and text to speech for agents and scripts, fastest on Apple Silicon.
-- Why: compound deployable speech/TTS fit, stars>=20, text to speech, text-to-speech, tts
+- Stars: 6
+- Raw: #1011
+- URL: https://github.com/ramishi/moss-tts-nano-rust-candle
+- Description: High-performance Rust implementation of MOSS-TTS-Nano — multilingual TTS with voice cloning, 0.1B params, no Python runtime
+- Why: compound deployable speech/TTS fit, multilingual tts, tts, voice cloning
 
-### ozguradmin/ahenk-turkish-tts
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 82
-- Raw: #967
-- URL: https://github.com/ozguradmin/ahenk-turkish-tts
-- Description: Ahenk: açık Türkçe metinden sese. Open Turkish text-to-speech: VoxCPM2 LoRA (Ahenk), 8.6M on-device model (Ahenk Cep), trnorm text normaliser, TR-Zor benchmark
-- Why: compound deployable speech/TTS fit, stars>=20, text-to-speech, tts
-
-### danjuan-77/Awesome-Context-Aware-TTS
+### k2-fsa/OmniVoice
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 11
-- Raw: #995
-- URL: https://github.com/danjuan-77/Awesome-Context-Aware-TTS
-- Description: A curated list of models, datasets, and benchmarks for context-aware text-to-speech (TTS). This list covers conversational speech synthesis and expressive text-to-speech using dialogue history, audio context, or multimodal signals.
-- Why: compound deployable speech/TTS fit, speech synthesis, text-to-speech, tts
-
-
-## System Architecture / Engineering Patterns
-
-### Yyeger/Continuum
-
-- Verdict: **WATCH**
-- Score: 25
-- Stars: 87
-- Raw: #1464
-- URL: https://github.com/Yyeger/Continuum
-- Description: Postgres-backed durable workflows for Elixir/OTP — Temporal-style execution without a separate service.
-- Why: durable workflow, high-value architecture pattern, saga, stars>=20, system architecture / engineering patterns fit
-
-### Alpha-Park/genpark-autonomous-ai-fleet-governance-circuit-breaker-skill
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 7
-- Raw: #1442
-- URL: https://github.com/Alpha-Park/genpark-autonomous-ai-fleet-governance-circuit-breaker-skill
-- Description: Autonomous Multi-Agent Fleet Governance & Blast-Radius Circuit Breaker. Century Milestone Master Controller! Monitors distributed agent token burn velocity, recursive subagent spawning cascades, cyclic deadlocks, and enforces system-wide ki | GenPark: https://www.genpark.ai | LinkedIn: https://www.llinkedin.com/company/92955550
-- Why: circuit breaker, high-value architecture pattern, system architecture / engineering patterns fit
-
-### alphaparkinc/genpark-autonomous-ai-fleet-governance-circuit-breaker-skill
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 7
-- Raw: #1443
-- URL: https://github.com/alphaparkinc/genpark-autonomous-ai-fleet-governance-circuit-breaker-skill
-- Description: Autonomous Multi-Agent Fleet Governance & Blast-Radius Circuit Breaker. Century Milestone Master Controller! Monitors distributed agent token burn velocity, recursive subagent spawning cascades, cyclic deadlocks, and enforces system-wide ki | GenPark: https://www.genpark.ai | LinkedIn: https://www.llinkedin.com/company/92955550
-- Why: circuit breaker, high-value architecture pattern, system architecture / engineering patterns fit
+- Stars: 15082
+- Raw: #978
+- URL: https://github.com/k2-fsa/OmniVoice
+- Description: High-Quality Voice Cloning TTS for 600+ Languages
+- Why: stars>=1000, tts, voice cloning
 
 
 ## Video Production / Editing
 
-### artcraft-android/capcraft-android
+### SKProCH/JellyfinStreamGenerator
 
 - Verdict: **WATCH**
-- Score: 20
-- Stars: 26
-- Raw: #1268
-- URL: https://github.com/artcraft-android/capcraft-android
-- Description: An open-source mobile video editor in Rust while using Kotlin as the UI framework.
-- Why: stars>=20, video, video editor, video production fit
+- Score: 18
+- Stars: 6
+- Raw: #1288
+- URL: https://github.com/SKProCH/JellyfinStreamGenerator
+- Description: Jellyfin plugin, adds a "Generate Stream URL" option to the context menu for choosing the video and audio codecs, streams, and subtitle options, etc.
+- Why: subtitle, video, video production fit
+
+
+## Web Intelligence / SEO & AI Visibility
+
+### danishashko/geo-aeo-tracker
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 299
+- Raw: #1198
+- URL: https://github.com/danishashko/geo-aeo-tracker
+- Description: Open-source AI visibility tracker. Track how ChatGPT, Perplexity, Gemini, Copilot and Google AI Mode mention and cite your brand. Self-hosted, MIT, bring your own keys.
+- Why: ai visibility, compound seo/ai-visibility fit, seo, stars>=100
 
