@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-21T08:28:41
+Generated: 2026-10-21T12:44:25
 Date: 2026-10-21
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,43 +8,43 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 596
+- Total curated cards: 631
 - Buckets: 32
 
 ## Bucket summary
 
-- Agent Memory / Context: 40
-- Agent Reliability / Evals & Production: 21
-- Agent Security / Governance: 37
-- Automation / Event Workflows: 17
-- Broadcast / Playout / Automation: 4
-- Design / Image Editing: 8
+- Agent Memory / Context: 43
+- Agent Reliability / Evals & Production: 22
+- Agent Security / Governance: 40
+- Automation / Event Workflows: 19
+- Broadcast / Playout / Automation: 5
+- Design / Image Editing: 9
 - Design Systems / Visual QA: 34
 - Device Control / Capture: 8
-- Document Parsing / Ingestion: 11
+- Document Parsing / Ingestion: 14
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 12
-- Infographics / Visual Storytelling: 31
+- Infographics / Visual Storytelling: 32
 - Interactive Reports / Data Apps: 9
-- Lancelot / Agent Infrastructure: 73
+- Lancelot / Agent Infrastructure: 83
 - Media / Social Monitoring: 10
 - Media Kits / Brand Automation: 3
 - Mixing / Mastering / Audio Engineering: 11
 - Music Generation / AI Music: 6
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
-- OSINT / Investigations: 23
+- OSINT / Investigations: 24
 - Publishing / Layout / PDF: 13
-- Radio / Audio Ops: 22
-- Reverse Engineering / Binary Analysis: 16
+- Radio / Audio Ops: 24
+- Reverse Engineering / Binary Analysis: 17
 - Search / Retrieval Engineering: 21
 - Social Media / Content Ops: 2
-- Speech / TTS & Voice: 16
-- System Architecture / Engineering Patterns: 21
+- Speech / TTS & Voice: 18
+- System Architecture / Engineering Patterns: 24
 - Telegram Bots / Automation: 2
 - Video Production / Editing: 70
 - Web Data / Crawling & Extraction: 8
-- Web Intelligence / SEO & AI Visibility: 9
+- Web Intelligence / SEO & AI Visibility: 10
 
 ## Today's run
 
@@ -59,7 +59,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 40
+Cards: 43
 
 ### 23skdu/longbow
 
@@ -184,6 +184,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Gentleman-Programming/engram
+
+URL: https://github.com/Gentleman-Programming/engram
+VERDICT: KEEP
+SCORE: 18
+STARS: 7470
+
+WHAT:
+Persistent agent memory system with local SQLite/FTS5 storage, project-aware recall, Git sync and multiple access surfaces.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Evaluate conflict handling, provenance, project scoping and export/recovery on a small Lancelot workspace.
 
 ---
 
@@ -418,6 +439,27 @@ NEXT:
 
 ---
 
+### MikeK184/Recollect
+
+URL: https://github.com/MikeK184/Recollect
+VERDICT: KEEP
+SCORE: 18
+STARS: 20
+
+WHAT:
+Self-hosted agent brain combining captured session evidence, cited memory, scoped tool grants, private execution runners and cross-agent coordination.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Evaluate one project with session capture, cited recall and a private read-only tool runner; inspect permission boundaries and recovery/export.
+
+---
+
 ### mnemoverse/mcp-memory-server
 
 URL: https://github.com/mnemoverse/mcp-memory-server
@@ -528,6 +570,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### Noelune/unified-agent-memory
+
+URL: https://github.com/Noelune/unified-agent-memory
+VERDICT: KEEP
+SCORE: 18
+STARS: 7
+
+WHAT:
+Shared human-readable memory system that treats memory as a lifecycle: ingest, promote, adjudicate, supersede/decay and retrieve across multiple retrieval methods.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Compare its promotion/adjudication model with Engram and Recollect and define the minimal memory contract we actually need.
 
 ---
 
@@ -1042,7 +1105,7 @@ reconciliation; затем проверить небольшой corpus на Cir
 
 ## BUCKET: Agent Reliability / Evals & Production
 
-Cards: 21
+Cards: 22
 
 ### Adi15Jain/cf_ai_next_doctor
 
@@ -1104,6 +1167,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### awslabs/uaef
+
+URL: https://github.com/awslabs/uaef
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Evaluation framework that normalizes agent activity into a common trace representation and runs repeatable quality/safety metrics across frameworks.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Prototype one Lancelot task as a canonical trace and add a CI regression gate for a known behavior.
 
 ---
 
@@ -1489,7 +1573,7 @@ NEXT:
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 37
+Cards: 40
 
 ### affaan-m/agentshield
 
@@ -2739,6 +2823,27 @@ NEXT:
 
 ---
 
+### jpzk/koto
+
+URL: https://github.com/jpzk/koto
+VERDICT: KEEP
+SCORE: 24
+STARS: 6
+
+WHAT:
+Agent execution platform using Firecracker microVM isolation and host-side capability/credential proxying.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Extract the credential-proxy and capability-grant model for Lancelot's execution layer.
+
+---
+
 ### kajogo777/the-agent-sandbox-taxonomy
 
 URL: https://github.com/kajogo777/the-agent-sandbox-taxonomy
@@ -3812,6 +3917,48 @@ NEXT:
 
 ---
 
+### swimmwatch/cloakbrowser-mcp
+
+URL: https://github.com/swimmwatch/cloakbrowser-mcp
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Browser-automation server that keeps the Playwright MCP tool surface while swapping in CloakBrowser Chromium and adding persistent-profile and deployment support.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Compare plain Playwright MCP, CloakBrowser MCP and Vibatchium on one authenticated research workflow.
+
+---
+
+### trueoriginlabs/vibatchium
+
+URL: https://github.com/trueoriginlabs/vibatchium
+VERDICT: KEEP
+SCORE: 22
+STARS: 8
+
+WHAT:
+Browser automation system centered on persistent logged-in identities, leases, credential-safe form filling and guarded session reuse.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Test one disposable browser identity with concurrent lease contention and verify credentials cannot be read back by the agent.
+
+---
+
 ### XAGI-Lab/melra
 
 URL: https://github.com/XAGI-Lab/melra
@@ -4016,7 +4163,49 @@ event/proof formats без заимствования всего runtime.
 
 ## BUCKET: Automation / Event Workflows
 
-Cards: 17
+Cards: 19
+
+### 0000F8/n8n-nodes-saltapp
+
+URL: https://github.com/0000F8/n8n-nodes-saltapp
+VERDICT: KEEP
+SCORE: 27
+STARS: 0
+
+WHAT:
+n8n integration that can pause a workflow until a correlated external human response resumes the exact execution.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Prototype one non-critical approval gate where n8n pauses and the authoritative system records both request and decision.
+
+---
+
+### apimodels/n8n-templates
+
+URL: https://github.com/apimodels/n8n-templates
+VERDICT: KEEP
+SCORE: 19
+STARS: 0
+
+WHAT:
+Collection of end-to-end tested n8n workflow templates for media generation, podcast/video pipelines and multi-model tasks.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Mine only patterns needed by actual n8n workflows and keep critical state in Media Factory/Twenty rather than inside the template.
+
+---
 
 ### bytechefhq/bytechef
 
@@ -4429,7 +4618,7 @@ video job contract. Katto отдельно тестировать только �
 
 ## BUCKET: Broadcast / Playout / Automation
 
-Cards: 4
+Cards: 5
 
 ### CasparCG/server
 
@@ -4476,6 +4665,27 @@ PROJECT:
 
 NEXT:
 Сохранить как integration donor для будущих legacy broadcast connectors.
+
+---
+
+### epell-development/RadioMaster
+
+URL: https://github.com/epell-development/RadioMaster
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Rust-based radio automation system covering playlist scheduling, rotations, crossfades, cart wall, mic ducking, streaming and proof-of-play style reporting.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Run a synthetic station test: hour markers, rotations, crossfades, live interruption, stream output and proof-of-play.
 
 ---
 
@@ -4536,7 +4746,28 @@ WATCH до появления реальной AoIP-задачи; сохрани
 
 ## BUCKET: Design / Image Editing
 
-Cards: 8
+Cards: 9
+
+### bumicodes/draw-beautiful
+
+URL: https://github.com/bumicodes/draw-beautiful
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Geometry-first illustration system that models objects/scenes and then renders them through a consistent engraving-like visual grammar.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Continue testing real WSB objects and scenes; retain structured geometry and rendered-output QA as the contract.
+
+---
 
 ### Capture-Moment/CaptureMoment
 
@@ -6841,7 +7072,7 @@ NEXT:
 
 ## BUCKET: Document Parsing / Ingestion
 
-Cards: 11
+Cards: 14
 
 ### datalab-to/marker
 
@@ -6998,6 +7229,27 @@ NEXT:
 
 ---
 
+### openbenchmarks-labs/document-processing
+
+URL: https://github.com/openbenchmarks-labs/document-processing
+VERDICT: KEEP
+SCORE: 18
+STARS: 7
+
+WHAT:
+Document-processing benchmark that evaluates parsing through downstream question answering, latency and cost rather than Markdown resemblance alone.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Reproduce the methodology on a small local document set with fixed retrieval and reader components.
+
+---
+
 ### opendatalab/MinerU
 
 URL: https://github.com/opendatalab/MinerU
@@ -7040,6 +7292,27 @@ NEXT:
 
 ---
 
+### run-llama/liteparse
+
+URL: https://github.com/run-llama/liteparse
+VERDICT: KEEP
+SCORE: 18
+STARS: 12889
+
+WHAT:
+Lightweight document parser with a fast local path, selective OCR and mechanisms for handling harder documents without stalling the whole queue.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Benchmark LiteParse against Docling on easy, scanned, table-heavy and pathological PDFs and define escalation rules.
+
+---
+
 ### run-llama/ParseBench
 
 URL: https://github.com/run-llama/ParseBench
@@ -7058,6 +7331,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### SoMarkAI/DocParsingBench
+
+URL: https://github.com/SoMarkAI/DocParsingBench
+VERDICT: KEEP
+SCORE: 18
+STARS: 15
+
+WHAT:
+Benchmark for document parsing across text, tables, formulas and layout with reproducible metrics and side-by-side inspection.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Add a representative local corpus and use the same evaluation discipline for candidate ingestion stacks.
 
 ---
 
@@ -8085,7 +8379,28 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 31
+Cards: 32
+
+### bezda-team/rhp
+
+URL: https://github.com/bezda-team/rhp
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+DOM/CSS-oriented charting toolkit suited to editorial visualization and inspectable web-native graphics.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Render one real WSB dataset through RHP with WSB typography/tokens, annotations and responsive QA.
+
+---
 
 ### CodingFeng101/CanvasAnvil
 
@@ -10218,7 +10533,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 73
+Cards: 83
 
 ### Afloat16/jev-mcp
 
@@ -10409,6 +10724,27 @@ NEXT:
 Перенести саму модель метрик
 в Lancelot telemetry
 для его собственных tools/MCP.
+
+---
+
+### archimedes-run/omniHarness
+
+URL: https://github.com/archimedes-run/omniHarness
+VERDICT: KEEP
+SCORE: 18
+STARS: 7
+
+WHAT:
+Agent harness combining subagents, persistent work, dynamically registered capabilities and sandboxed execution.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Extract the capability registration, sandbox and completion-verification contracts as Lancelot design references.
 
 ---
 
@@ -11128,6 +11464,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Dave-London/Pare
+
+URL: https://github.com/Dave-London/Pare
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Family of MCP adapters that turns human-oriented CLI output into schema-validated structuredContent for agents.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Test Pare for git, Docker and test-runner calls and measure both parsing reliability and context reduction.
 
 ---
 
@@ -11985,6 +12342,27 @@ NEXT:
 
 ---
 
+### jPopov1210/mcp-github-project-manager
+
+URL: https://github.com/jPopov1210/mcp-github-project-manager
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+MCP project-management layer that uses GitHub Projects/issues/comments for atomic claims, heartbeats, review, budgets and task recovery.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Extract atomic-claim, heartbeat, reclaim and progressive-tool-disclosure contracts for Lancelot.
+
+---
+
 ### kajalnsut2500-m/mcp-server
 
 URL: https://github.com/kajalnsut2500-m/mcp-server
@@ -12104,6 +12482,27 @@ forced mid-run interruption и recovery.
 
 ---
 
+### lucasaarch/jian
+
+URL: https://github.com/lucasaarch/jian
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Gateway-oriented agent system where a durable agent identity can span channels and sessions while retaining explicit profile, tools and context limits.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Extract identity/session/context-budget semantics and compare with the existing Lancelot model.
+
+---
+
 ### luckyPipewrench/pipelock
 
 URL: https://github.com/luckyPipewrench/pipelock
@@ -12130,6 +12529,27 @@ Tags: security, network, mcp, observability, audit
 
 USE FOR LANCELOT:
 Рассматривать как внешний security/evidence boundary после Lancelot и его tool layer. Главный pattern — решение о сетевом действии фиксируется и подписывается компонентом вне agent runtime. Использовать этот подход для доказуемого журнала outbound actions и eventual Bridge → Camelot.
+
+---
+
+### MadsLorentzen/ai-job-search
+
+URL: https://github.com/MadsLorentzen/ai-job-search
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Agentic workflow project whose reusable value is the separation of persistent facts, task skills, deterministic checks, specialized reviewers and human-approved side effects.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Map these patterns onto journalist research, pitch drafting, follow-up and interview preparation while keeping Twenty as authoritative state.
 
 ---
 
@@ -12753,6 +13173,27 @@ NEXT:
 
 ---
 
+### Rakshit-gen/casefile
+
+URL: https://github.com/Rakshit-gen/casefile
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Support-agent reference implementation with durable per-case state, untrusted-input marking, policy checks, independent reviewer model, human approval and trace/eval coverage.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Model one real Lancelot side effect through proposal → policy → reviewer → human → ephemeral action token.
+
+---
+
 ### rodolfboctor/mcp-scan
 
 URL: https://github.com/rodolfboctor/mcp-scan
@@ -12779,6 +13220,27 @@ Tags: security, mcp, skills, tools, supply-chain
 
 USE FOR LANCELOT:
 Reference for MCP admission scanning before promotion into trusted capabilities. Не считать сам факт успешного scan достаточным разрешением на установку или execution.
+
+---
+
+### roomi-fields/notebooklm-mcp
+
+URL: https://github.com/roomi-fields/notebooklm-mcp
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+REST/MCP integration around NotebookLM capabilities including citation-backed questions, resumable batches and Studio artifact operations.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Test a small batch against known documents and verify citation fidelity, resume behavior and exportability.
 
 ---
 
@@ -12961,6 +13423,27 @@ Benchmark против
 
 ---
 
+### thesysdev/openui
+
+URL: https://github.com/thesysdev/openui
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Generative UI framework in which models emit structured UI instructions that are rendered through a controlled component library rather than arbitrary page code.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Test a small Lancelot review surface driven from structured data with a deliberately narrow component vocabulary.
+
+---
+
 ### thomasgauvin/buzz-cf-agents
 
 URL: https://github.com/thomasgauvin/buzz-cf-agents
@@ -13052,6 +13535,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### tonydzi/second-brain-starter-kit
+
+URL: https://github.com/tonydzi/second-brain-starter-kit
+VERDICT: KEEP
+SCORE: 18
+STARS: 9
+
+WHAT:
+Large second-brain starter kit combining skills, handoffs, precedent checks, rejected-idea registries, retrospectives and optional persistent memory.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Mine only patterns that remain distinct from existing Lancelot skills and memory components.
 
 ---
 
@@ -13194,6 +13698,27 @@ NEXT:
 
 Сравнить
 с текущими Lancelot tools.
+
+---
+
+### zhensherlock/sp500-mcp-server
+
+URL: https://github.com/zhensherlock/sp500-mcp-server
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Modern MCP server/web app demonstrating tool calls, embedded React MCP App resources, elicitation for ambiguous entities and integration testing with a real MCP client.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Use it when designing a first Lancelot MCP App that needs structured tool output plus a human-facing interactive resource.
 
 ---
 
@@ -14982,7 +15507,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 23
+Cards: 24
 
 ### atlosdotorg/atlos
 
@@ -15709,6 +16234,27 @@ NEXT:
 
 ---
 
+### vidithq/vidit
+
+URL: https://github.com/vidithq/vidit
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Open OSINT/GEOINT platform that structures geolocation claims with coordinates, source, media, proof and tags and requires analyst review before publication.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Compare Vidit's submission/review data model with our evidence and entity/event pipelines.
+
+---
+
 ### kodamaChameleon/wmn-docker
 
 URL: https://github.com/kodamaChameleon/wmn-docker
@@ -16422,7 +16968,49 @@ NEXT:
 
 ## BUCKET: Radio / Audio Ops
 
-Cards: 22
+Cards: 24
+
+### acropolis914/Clara
+
+URL: https://github.com/acropolis914/Clara
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Modernized Carla-derived audio host focused on a clearer patchbay/rack operator experience while retaining the mature audio engine.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Track the CLI/IPC work and test whether patchbay state can be read and controlled safely from automation.
+
+---
+
+### astralwaveorg/lyra
+
+URL: https://github.com/astralwaveorg/lyra
+VERDICT: KEEP
+SCORE: 18
+STARS: 8
+
+WHAT:
+Music-library manager centered on MusicBrainz reconciliation, duplicate handling and safe tag/library mutations.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Test a copied sample library: reconcile tags, create a deliberate conflict, mutate metadata and verify audio hashes and rollback.
+
+---
 
 ### AzuraCast/AzuraCast
 
@@ -17128,7 +17716,7 @@ NEXT:
 
 ## BUCKET: Reverse Engineering / Binary Analysis
 
-Cards: 16
+Cards: 17
 
 ### AgeloVito/jd-mcp-duo
 
@@ -17435,6 +18023,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### xjoker/ghidra-mcp
+
+URL: https://github.com/xjoker/ghidra-mcp
+VERDICT: KEEP
+SCORE: 18
+STARS: 4
+
+WHAT:
+Single-process PyGhidra/JVM MCP server managing persistent Ghidra projects through task-oriented tools.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Compare a small headless analysis task against bethington/ghidra-mcp and LaurieWired/GhidraMCP and record the distinct operational trade-offs.
 
 ---
 
@@ -17985,7 +18594,7 @@ NEXT:
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 16
+Cards: 18
 
 ### Blaizzy/mlx-audio
 
@@ -18071,6 +18680,27 @@ NEXT:
 
 ---
 
+### k2-fsa/OmniVoice
+
+URL: https://github.com/k2-fsa/OmniVoice
+VERDICT: KEEP
+SCORE: 18
+STARS: 15082
+
+WHAT:
+Zero-shot TTS system supporting hundreds of languages, voice cloning, voice design and reusable cloned-voice prompts.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Evaluate Ukrainian, Russian and English plus several low-resource languages with RVCBench-style metrics and listening review.
+
+---
+
 ### k2-fsa/sherpa-onnx
 
 URL: https://github.com/k2-fsa/sherpa-onnx
@@ -18089,6 +18719,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### Nanboy-Ronan/RVCBench
+
+URL: https://github.com/Nanboy-Ronan/RVCBench
+VERDICT: KEEP
+SCORE: 18
+STARS: 58
+
+WHAT:
+Voice-cloning evaluation suite covering similarity, content accuracy, quality, intelligibility, emotion and degraded real-world reference conditions.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Run the onboarding suite against two or three current TTS/voice candidates and save repeatable results.
 
 ---
 
@@ -18327,7 +18978,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 21
+Cards: 24
 
 ### autark-labs/autark-os
 
@@ -18367,6 +19018,27 @@ NEXT:
 
 ---
 
+### authelia/authelia
+
+URL: https://github.com/authelia/authelia
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Self-hosted authentication and authorization server designed to sit in front of multiple web applications and enforce shared access policy.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Prototype one non-critical internal service behind Authelia and document identity, group, network and step-up policy before wider rollout.
+
+---
+
 ### CRTnoise/ember-p2p
 
 URL: https://github.com/CRTnoise/ember-p2p
@@ -18385,6 +19057,27 @@ PROJECT:
 
 NEXT:
 Только isolated research/reference. Не использовать для чувствительных источников, operational identities или внутреннего evidence.
+
+---
+
+### cyb3rl00m/safe-disk-cleaner
+
+URL: https://github.com/cyb3rl00m/safe-disk-cleaner
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Disk-cleaner project that separates discovery/explanation from privileged execution and re-validates destructive actions at the privilege boundary.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Reuse the boundary pattern when designing any future privileged maintenance action on Circus.
 
 ---
 
@@ -19079,6 +19772,27 @@ PROJECT:
 
 NEXT:
 Пока оставить в `System Architecture`. Если найдутся ещё несколько сильных проектов этого класса, выделить `Web Infrastructure / Abuse Control`.
+
+---
+
+### twentyhq/twenty
+
+URL: https://github.com/twentyhq/twenty
+VERDICT: KEEP
+SCORE: —
+STARS: —
+
+WHAT:
+Open-source CRM/application platform already used as the operational system of record for the media-relations workflow.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Maintain the card as an active architecture anchor and review upstream workflow/agent capabilities only against the deployed local contract.
 
 ---
 
@@ -22300,7 +23014,7 @@ NEXT:
 
 ## BUCKET: Web Intelligence / SEO & AI Visibility
 
-Cards: 9
+Cards: 10
 
 ### Akxan/google-seo-mcp
 
@@ -22362,6 +23076,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### danishashko/geo-aeo-tracker
+
+URL: https://github.com/danishashko/geo-aeo-tracker
+VERDICT: KEEP
+SCORE: 18
+STARS: 299
+
+WHAT:
+Open-source dashboard that queries multiple AI answer/search systems and tracks mentions, position, citations, sentiment and competitor visibility.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Pilot a small prompt set for one media-relations project and map useful citation-gap findings back to canonical Twenty entities.
 
 ---
 
