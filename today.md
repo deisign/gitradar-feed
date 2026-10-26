@@ -1,6 +1,6 @@
 ---
-title: Creative Radar Shortlist 2026-10-25
-date: 2026-10-25
+title: Creative Radar Shortlist 2026-10-26
+date: 2026-10-26
 status: shortlist
 tags:
   - radar
@@ -8,393 +8,384 @@ tags:
   - shortlist
 ---
 
-# Creative Radar Shortlist — 2026-10-25
+# Creative Radar Shortlist — 2026-10-26
 
-Source: [[../scored/2026-10-25|Scored 2026-10-25]]
+Source: [[../scored/2026-10-26|Scored 2026-10-26]]
 
 ## Навигация
 
-- [Agent Memory / Context](#agent-memory-context) — 5
+- [Agent Memory / Context](#agent-memory-context) — 4
 - [Agent Reliability / Evals & Production](#agent-reliability-evals-&-production) — 1
 - [Automation / Event Workflows](#automation-event-workflows) — 5
-- [Design / Image Editing](#design-image-editing) — 1
-- [Design Systems / Visual QA](#design-systems-visual-qa) — 2
-- [Document Parsing / Ingestion](#document-parsing-ingestion) — 1
-- [Infographics / Visual Storytelling](#infographics-visual-storytelling) — 2
 - [Lancelot / Agent Infrastructure](#lancelot-agent-infrastructure) — 11
-- [Reverse Engineering / Binary Analysis](#reverse-engineering-binary-analysis) — 2
-- [Speech / TTS & Voice](#speech-tts-&-voice) — 3
-- [Telegram Bots / Automation](#telegram-bots-automation) — 1
+- [OSINT / Investigations](#osint-investigations) — 1
+- [Radio / Audio Ops](#radio-audio-ops) — 1
+- [Search / Retrieval Engineering](#search-retrieval-engineering) — 2
+- [Social Media / Content Ops](#social-media-content-ops) — 1
+- [Speech / TTS & Voice](#speech-tts-&-voice) — 2
+- [Video Production / Editing](#video-production-editing) — 4
+- [Web Intelligence / SEO & AI Visibility](#web-intelligence-seo-&-ai-visibility) — 1
 
 ## Agent Memory / Context
 
-### AizenvoltPrime/damocles
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 83
-- Raw: #798
-- URL: https://github.com/AizenvoltPrime/damocles
-- Description: An AI coding agent that runs as a standalone desktop app for Windows, macOS and Linux, and as a VS Code extension. Chat with Claude, GPT and other models, approve diffs, rewind checkpoints, and use persistent memory, subagents, teams and MCP, powered by the Pi agent runtime.
-- Why: compound agent memory/context fit, persistent memory, stars>=20
-
-### NoeticEcho/reminisce-elixir
+### MrPeppersDev/agent-infrastructure-landscape
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 6
-- Raw: #781
-- URL: https://github.com/NoeticEcho/reminisce-elixir
-- Description: Agent memory on TypeDB: an Elixir library with an MCP server. Remembers with time, provenance and scope; recalls deterministically; never deletes a memory.
+- Raw: #778
+- URL: https://github.com/MrPeppersDev/agent-infrastructure-landscape
+- Description: AI agent memory & infrastructure landscape — comparative catalog of 912 systems × 68 columns covering memory layers, agent frameworks, runtimes, vector stores, knowledge graphs, MCP servers, benchmarks. Searchable with typed edges, lineages, citations.
 - Why: agent memory, compound agent memory/context fit
 
-### Pseudogiant-xr/Pseudolife-MCP
+### ruvnet/RuVector
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 6
-- Raw: #785
-- URL: https://github.com/Pseudogiant-xr/Pseudolife-MCP
-- Description: Persistent long-term memory for Agents — an MCP server with an associative memory bank, a canonical-fact cortex, sleep-like dream consolidation, and a web console. Not quite alive.
-- Why: compound agent memory/context fit, long-term memory
+- Stars: 4634
+- Raw: #781
+- URL: https://github.com/ruvnet/RuVector
+- Description: RuVector provides High Performance, Real-Time decisions and agent memory , Self-Learning Ai, Vector GNN DB built in Rust.
+- Why: agent memory, compound agent memory/context fit, stars>=1000
 
-### Rick1330/ibex-harness
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 55
-- Raw: #776
-- URL: https://github.com/Rick1330/ibex-harness
-- Description: Production-grade AI agent memory and context management platform (monorepo)
-- Why: agent memory, compound agent memory/context fit, stars>=20
-
-### goyohan0611-png/graph-mind
+### Knuckles-Team/medulla
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 6
-- Raw: #786
-- URL: https://github.com/goyohan0611-png/graph-mind
-- Description: Local long-term memory for AI agents. Keeps every conversation word for word, costs nothing to save, and is shared by all your agents. Beat Mem0, MemPalace and agentmemory on the same tests.
-- Why: compound agent memory/context fit, long-term memory
+- Stars: 11
+- Raw: #775
+- URL: https://github.com/Knuckles-Team/medulla
+- Description: A multi-modal agent memory, context, inferencing, analytics engine and database.
+- Why: agent memory, compound agent memory/context fit
+
+### RooAGI/Membrick
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 11
+- Raw: #793
+- URL: https://github.com/RooAGI/Membrick
+- Description: Persistent memory layer for AI coding agents — current-state retrieval that knows what is still true. Claude Code, Codex, Gemini CLI.
+- Why: compound agent memory/context fit, persistent memory
 
 
 ## Agent Reliability / Evals & Production
 
-### debozkurt/loop-kit
+### Cognipeer/console
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 25
-- Raw: #930
-- URL: https://github.com/debozkurt/loop-kit
-- Description: Bounded loops for coding agents: test gates, held-out acceptance checks, hard stops, git-backed resume
-- Why: compound agent reliability/evals fit, stars>=20
+- Stars: 26
+- Raw: #926
+- URL: https://github.com/Cognipeer/console
+- Description: Open-source, self-hosted AI gateway and control plane: OpenAI-compatible LLM routing, RAG, an MCP hub, guardrails and agent tracing for multi-tenant teams.
+- Why: agent tracing, compound agent reliability/evals fit, stars>=20
 
 
 ## Automation / Event Workflows
 
-### agencia-datta/n8n-nodes-datta-crm
+### sekera-radim/n8n-nodes-briefgate
 
 - Verdict: **WATCH**
-- Score: 24
+- Score: 26
 - Stars: 0
-- Raw: #652
-- URL: https://github.com/agencia-datta/n8n-nodes-datta-crm
-- Description: n8n community nodes for Datta CRM: leads, sales, forms, email drafts and real-time triggers
-- Why: n8n, n8n identity fit, n8n node/plugin fit, trigger, workflow/event integration fit
+- Raw: #661
+- URL: https://github.com/sekera-radim/n8n-nodes-briefgate
+- Description: n8n community node for BriefGate - collect files, texts and logins from clients
+- Why: automation ops/tooling fit, automation reusable implementation, n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
 
-### casistack/n8n-nodes-engram
-
-- Verdict: **WATCH**
-- Score: 23
-- Stars: 2
-- Raw: #700
-- URL: https://github.com/casistack/n8n-nodes-engram
-- Description: Knowledge graph memory for n8n AI agents. Persistent, per-user memory with entity extraction, temporal fact tracking, community detection, graph traversal, and hybrid search.
-- Why: automation AI/MCP fit, n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
-
-### CALLE-AI/n8n-nodes-calle
+### Privatus-Analytics/n8n-nodes-privatus-analytics
 
 - Verdict: **WATCH**
-- Score: 19
+- Score: 22
 - Stars: 0
-- Raw: #650
-- URL: https://github.com/CALLE-AI/n8n-nodes-calle
-- Description: n8n community node for CALL-E AI-agent phone-call workflows
-- Why: n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
+- Raw: #676
+- URL: https://github.com/Privatus-Analytics/n8n-nodes-privatus-analytics
+- Description: Put your website stats and alerts to work in n8n workflows. Cookieless analytics, bots filtered out.
+- Why: automation reusable implementation, n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
 
-### itsablabla/n8n-nodes-droid
-
-- Verdict: **WATCH**
-- Score: 19
-- Stars: 0
-- Raw: #654
-- URL: https://github.com/itsablabla/n8n-nodes-droid
-- Description: n8n community node for Factory.ai Droid coding agent (droid exec): streaming, sessions, MCP, missions, interactive mode
-- Why: n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
-
-### sunshinehu/n8n-nodes-550w-ai
-
-- Verdict: **WATCH**
-- Score: 19
-- Stars: 0
-- Raw: #653
-- URL: https://github.com/sunshinehu/n8n-nodes-550w-ai
-- Description: 550W AI subtitle and watermark removal for n8n, with web OAuth and credit-aware media workflows
-- Why: n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
-
-
-## Design / Image Editing
-
-### motalim-ai/mosamem
-
-- Verdict: **WATCH**
-- Score: 30
-- Stars: 6
-- Raw: #1349
-- URL: https://github.com/motalim-ai/mosamem
-- Description: مصمم: محرر صور عربي أولًا، مجاني ومفتوح المصدر للماك والويندوز | Mosamem: a free, open-source, Arabic-first image editor for Mac and Windows. Layers, masks, Arabic text, PSD files and on-device AI.
-- Why: image editing fit, image editor, layers, photoshop, tauri
-
-
-## Design Systems / Visual QA
-
-### abhixv/google-m3-expressive-design-skill
-
-- Verdict: **WATCH**
-- Score: 33
-- Stars: 25
-- Raw: #1368
-- URL: https://github.com/abhixv/google-m3-expressive-design-skill
-- Description: Material Design 3 and M3 Expressive packaged as an agent skill. Exact design tokens, per-component dp geometry, motion springs, and 2,587 reference images for Claude Code, Codex, Cursor, and Copilot.
-- Why: agent-native workflow, design QA fit, design tokens, design-system, stars>=20, tokens
-
-### glrodasz/cero-components
-
-- Verdict: **WATCH**
-- Score: 25
-- Stars: 51
-- Raw: #1366
-- URL: https://github.com/glrodasz/cero-components
-- Description: React design system for RETO: design tokens, Atomic Design and Storybook, published to npm as @glrodasz/components.
-- Why: design QA fit, design system, design tokens, stars>=20, tokens
-
-
-## Document Parsing / Ingestion
-
-### kalle07/pdf2txt-parser
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 6
-- Raw: #1086
-- URL: https://github.com/kalle07/pdf2txt-parser
-- Description: PDF Parser (EXE available) is a fast desktop application for extracting text, images, drawings, and metadata from PDF documents. It supports batch processing, table extractions, hyphenation repair, and exports visual content for external AI-based description, with results reintegrated into the extracted text.
-- Why: compound document parsing/ingestion fit, pdf parser, table extraction
-
-
-## Infographics / Visual Storytelling
-
-### kaomei/script-to-card-video
-
-- Verdict: **WATCH**
-- Score: 21
-- Stars: 18
-- Raw: #64
-- URL: https://github.com/kaomei/script-to-card-video
-- Description: Turn narration scripts into editable 9:16 motion-card videos with editorial or neon infographic templates.
-- Why: agent-native workflow, infographic, infographics/visual storytelling fit
-
-### eakbulut/dolly
+### kazprose/qutpay-docs
 
 - Verdict: **WATCH**
 - Score: 20
-- Stars: 27
-- Raw: #86
-- URL: https://github.com/eakbulut/dolly
-- Description: Scroll-driven motion, in CSS. 34 camera moves on one attribute, no JavaScript.
-- Why: infographics/visual storytelling fit, scrollytelling, stars>=20, timeline
+- Stars: 0
+- Raw: #643
+- URL: https://github.com/kazprose/qutpay-docs
+- Description: Qut Pay — Kaspi Pay payments API for Kazakhstan (docs & examples)
+- Why: automation ops/tooling fit, n8n, n8n identity fit, webhook, workflow/event integration fit
+
+### comes-io/n8n-nodes-trawl
+
+- Verdict: **WATCH**
+- Score: 19
+- Stars: 0
+- Raw: #657
+- URL: https://github.com/comes-io/n8n-nodes-trawl
+- Description: n8n community node for Trawl — run web scraps and get their results from your n8n workflows
+- Why: n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
+
+### mrifqidaffaaditya/n8n-nodes-wa-akg
+
+- Verdict: **WATCH**
+- Score: 19
+- Stars: 12
+- Raw: #660
+- URL: https://github.com/mrifqidaffaaditya/n8n-nodes-wa-akg
+- Description: Official n8n community node for WA-AKG WhatsApp Gateway. Automate sending and receiving WhatsApp messages directly from your n8n workflows.
+- Why: n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
 
 
 ## Lancelot / Agent Infrastructure
 
-### dmllpj46-ship-it/xinyu-bot
+### brasspage/agent-builder-worker
 
 - Verdict: **KEEP**
 - Score: 35
 - Stars: 0
-- Raw: #548
-- URL: https://github.com/dmllpj46-ship-it/xinyu-bot
-- Description: 心屿 · 心理陪练 Bot — 循证知识库 + 危机识别转介；Mercury 3 + OpenAI Agents SDK，可部署到 Cloudflare Workers
+- Raw: #552
+- URL: https://github.com/brasspage/agent-builder-worker
+- Description: An Agent Builder style workflow (guardrail, agent with a function tool, end node) on your own Cloudflare Worker, with the OpenAI Agents SDK and a plain chat page. MIT.
 - Why: lancelot high fit
 
-### withkarann/aifoxx
+### subhashhhhhh/fastlytics-mcp
+
+- Verdict: **KEEP**
+- Score: 35
+- Stars: 0
+- Raw: #589
+- URL: https://github.com/subhashhhhhh/fastlytics-mcp
+- Description: MCP server exposing Fastlytics F1 telemetry and historical data as 29 typed tools for Claude, Cursor, and any MCP client.
+- Why: lancelot high fit
+
+### codician-team/diffinery
+
+- Verdict: **KEEP**
+- Score: 35
+- Stars: 24
+- Raw: #563
+- URL: https://github.com/codician-team/diffinery
+- Description: Open-source, agent-first GitHub and GitHub Actions alternative that runs on your own Cloudflare account: git hosting, pull requests, code review and drop-in GitHub Actions YAML on Workers, Durable Objects, R2 and Containers.
+- Why: lancelot high fit, stars>=20
+
+### build-with-ai-hq/mcp-gateway-best-practices
+
+- Verdict: **KEEP**
+- Score: 35
+- Stars: 0
+- Raw: #594
+- URL: https://github.com/build-with-ai-hq/mcp-gateway-best-practices
+- Description: Agent skill: run MCP servers safely and efficiently - tool sprawl, context bloat, per-agent tool permissions, approvals, MCP gateway and Code Mode.
+- Why: lancelot high fit
+
+### theagentforge/skill-scan
+
+- Verdict: **KEEP**
+- Score: 35
+- Stars: 0
+- Raw: #575
+- URL: https://github.com/theagentforge/skill-scan
+- Description: GitHub Action: scan agent skill files (SKILL.md) and MCP tool descriptions for prompt injection and risky install steps in pull requests.
+- Why: lancelot high fit
+
+### da-troll/troll-mcp
 
 - Verdict: **WATCH**
 - Score: 18
+- Stars: 1
+- Raw: #587
+- URL: https://github.com/da-troll/troll-mcp
+- Description: MCP server for the Trollspace API — exposes 47 type-safe tools for snippets, nuggets, todos, ideas, tools, repos, travel, subscriptions & more
+- Why: lancelot keep fit
+
+### keshavkatwe/toolgrain
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 0
+- Raw: #590
+- URL: https://github.com/keshavkatwe/toolgrain
+- Description: Typed, reusable tools and composable MCP servers for TypeScript. Zod validation, stdio and HTTP, JWT and Clerk auth.
+- Why: lancelot keep fit
+
+### websterghoul/arkx-ctf-writeup
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 0
+- Raw: #633
+- URL: https://github.com/websterghoul/arkx-ctf-writeup
+- Description: ARKX CTF writeup — all 27 AI agent & MCP security challenges solved: prompt injection, MCP tool exposure, SSRF, YAML deserialization, AES-ECB forgery, aarch64 ret2stack.
+- Why: lancelot keep fit
+- Caution: ctf
+
+### easy-song/kbqa
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 1
+- Raw: #596
+- URL: https://github.com/easy-song/kbqa
+- Description: Self-hosted knowledge base Q&A with permission-aware RAG, citations, document approval, evaluation, and MCP tools.
+- Why: lancelot keep fit
+
+### afeefSohail/AI-Learning-Roadmap
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 0
+- Raw: #585
+- URL: https://github.com/afeefSohail/AI-Learning-Roadmap
+- Description: 40-day hands-on roadmap to becoming an AI engineer in TypeScript: LLM APIs, tool calling, MCP servers, LangGraph.js agents, RAG and evals, ending in a SwiftUI app powered by my own agent backend. One folder per day.
+- Why: lancelot keep fit
+- Caution: swiftui
+
+### hey-research-lab/hey-agent-skills
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 0
+- Raw: #571
+- URL: https://github.com/hey-research-lab/hey-agent-skills
+- Description: An Agent Skill (SKILL.md) and Claude Code plugin that teach AI agents when and how to use HEY Research Lab for Robinhood Chain projects: who is still building, what shipped and what changed, with evidence.
+- Why: lancelot keep fit
+
+
+## OSINT / Investigations
+
+### extiop/git2mail
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 10
+- Raw: #1583
+- URL: https://github.com/extiop/git2mail
+- Description: Pure Rust OSINT CLI: uncover the email addresses behind GitHub activity: repository, profile and keyword scans, reverse email lookup, and full user/organization investigations. 100% GitHub REST API, no scraping.
+- Why: osint/investigations fit, reverse email, socmint
+
+
+## Radio / Audio Ops
+
+### securitypedant/echoradio
+
+- Verdict: **WATCH**
+- Score: 28
 - Stars: 9
-- Raw: #580
-- URL: https://github.com/withkarann/aifoxx
-- Description: 992 AI tools, 1,979 MCP servers and 1,638 Claude Code skills — with a sourced trust & security report per vendor. If we couldn't verify it, the field stays empty.
-- Why: lancelot keep fit
+- Raw: #281
+- URL: https://github.com/securitypedant/echoradio
+- Description: Wish you could wake up to your favorite New York radio station breakfast show and go to sleeping listening to Australian talk radio? I created this app to help you do just that.
+- Why: icecast, liquidsoap, radio, radio backend fit, stream
 
-### reasance/ai-consultants
 
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 8
-- Raw: #576
-- URL: https://github.com/reasance/ai-consultants
-- Description: Multi-model AI deliberation system querying 12 AI consultants (Gemini, Codex, Claude, Mistral, Ollama, etc.) in parallel. Features unique personas, confidence scoring, multi-agent debate, weighted synthesis, presets, and self-exclusion. Claude Code skill compatible with agentskills.io
-- Why: lancelot keep fit
+## Search / Retrieval Engineering
 
-### techsaurabh-394/mcp-notes-server
+### takeshy/obsidian-llm-hub
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 3
-- Raw: #581
-- URL: https://github.com/techsaurabh-394/mcp-notes-server
-- Description: TypeScript MCP server that gives AI assistants a searchable notes store (6 typed tools)
-- Why: lancelot keep fit
+- Stars: 37
+- Raw: #850
+- URL: https://github.com/takeshy/obsidian-llm-hub
+- Description: Obsidian plugin for AI chat, workflow automation, and semantic search — supports Gemini, OpenAI, OpenRouter, Grok, Ollama, and CLI   backends
+- Why: compound search/retrieval fit, semantic search, stars>=20
 
-### drthyang/materia-platform
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 0
-- Raw: #586
-- URL: https://github.com/drthyang/materia-platform
-- Description: Crystal and magnetic structure refinement in the browser: Rietveld, single-crystal F², magnetic structures and PDF/mPDF on one TypeScript engine, checked against GSAS-II, FullProf, SHELXL and PDFfit2. With an AI Copilot (local or cloud models, 60 tools) and a 41-tool MCP server. Nothing to install.
-- Why: lancelot keep fit
-
-### GDSTechnology/psarelay
+### Srinivas26k/srvdb
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 0
-- Raw: #582
-- URL: https://github.com/GDSTechnology/psarelay
-- Description: PSArelay — your Autotask, relayed to AI and automation. MCP server and platform for Kaseya Autotask PSA: ~300 tools for ChatGPT, Claude and n8n, Postgres mirror, hash-approved change plans, paced bulk jobs, web portal. Free to self-host (AGPL); hosted plans at psarelay.com.
-- Why: lancelot keep fit
+- Stars: 15
+- Raw: #847
+- URL: https://github.com/Srinivas26k/srvdb
+- Description: SrvDB: open-source embedded vector database for Python & Rust. Local semantic search, RAG and AI memory with no server. Crash-safe, offline, Apache-2.0. (Not SurrealDB)
+- Why: compound search/retrieval fit, semantic search
 
-### letom1176-spec/orchard-data-mcp
 
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 0
-- Raw: #630
-- URL: https://github.com/letom1176-spec/orchard-data-mcp
-- Description: x402 pay-per-call tools for AI agents (USDC on Base): $0.001 OpenAI-compatible chat, web page reader, email verification, prompt-injection screen, crypto & market data. MCP server + agent skills.
-- Why: lancelot keep fit
+## Social Media / Content Ops
 
-### xenosaac/OpenBrowse
+### AISA-skills/social-media-skills
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 59
-- Raw: #603
-- URL: https://github.com/xenosaac/OpenBrowse
-- Description: OpenBrowse is a macOS browser agent that gets things done on the web through autonomous task execution, chat-based clarification, and resumable local workflows.
-- Why: lancelot keep fit, stars>=20
-
-### n-kostadinov/etoro-trading-mcp
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 0
-- Raw: #584
-- URL: https://github.com/n-kostadinov/etoro-trading-mcp
-- Description: Local TypeScript MCP server for eToro's complete Swagger UI API: 197 fine-grained tools, configurable toolsets, market data and demo-safe defaults.
-- Why: lancelot keep fit
-- Caution: stock, trading
-
-### Wolfe-Jam/skills-ladder
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 0
-- Raw: #566
-- URL: https://github.com/Wolfe-Jam/skills-ladder
-- Description: Rate Agent Skills (SKILL.md) on a ladder: GOOD (valid), BETTER (an agent can choose it correctly and use it safely), BEST (the facts in a checkable block). Read-only.
-- Why: lancelot keep fit
-
-### ykzeng-yale/skill-md
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 0
-- Raw: #565
-- URL: https://github.com/ykzeng-yale/skill-md
-- Description: Conformance validator for SKILL.md (the Agent Skills format), plus converters that turn Chrome DevTools Recorder and Selenium IDE recordings into agent skills
-- Why: lancelot keep fit
-
-
-## Reverse Engineering / Binary Analysis
-
-### JonathanSalwan/Triton
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 4340
-- Raw: #1149
-- URL: https://github.com/JonathanSalwan/Triton
-- Description: Triton is a dynamic binary analysis library. Build your own program analysis tools, automate your reverse engineering, perform software verification or just emulate code.
-- Why: binary analysis, compound reverse engineering fit, reverse engineering, stars>=1000
-
-### tklengyel/drakvuf
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 1283
-- Raw: #1145
-- URL: https://github.com/tklengyel/drakvuf
-- Description: DRAKVUF Black-box Binary Analysis
-- Why: binary analysis, compound reverse engineering fit, stars>=1000
+- Stars: 6
+- Raw: #1102
+- URL: https://github.com/AISA-skills/social-media-skills
+- Description: AIsa Twitter/X research, monitoring, posting, engagement, and social intelligence agent skills.
+- Why: compound social media content-ops fit
 
 
 ## Speech / TTS & Voice
 
-### nipponjo/tts_arabic
+### alleyxd/awesome-local-voice-ai
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 46
-- Raw: #989
-- URL: https://github.com/nipponjo/tts_arabic
-- Description: 🎙️ Arabic TTS models (FastPitch, Mixer-TTS) in the ONNX format — Python package for offline speech synthesis  🚀📦
-- Why: compound deployable speech/TTS fit, speech synthesis, stars>=20, text-to-speech, tts
-
-### Aratako/Irodori-TTS
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 1471
+- Stars: 13
 - Raw: #965
-- URL: https://github.com/Aratako/Irodori-TTS
-- Description: A Flow Matching-based Text-to-Speech Model with Emoji-driven Style Control
-- Why: compound deployable speech/TTS fit, stars>=1000, text-to-speech, tts
+- URL: https://github.com/alleyxd/awesome-local-voice-ai
+- Description: Curated open-source voice AI you can run locally: speech to text, text to speech, VAD, voice agent frameworks and speech-native models.
+- Why: compound deployable speech/TTS fit, text to speech, text-to-speech
 
-### MachHongHai/HaizFlow
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 208
-- Raw: #973
-- URL: https://github.com/MachHongHai/HaizFlow
-- Description: Free Windows desktop app for AI video translation, subtitles and dubbing, with local CPU/GPU models, voice cloning, batch processing and video downloads.
-- Why: compound deployable speech/TTS fit, stars>=100, text-to-speech, voice cloning
-
-
-## Telegram Bots / Automation
-
-### onrik/micha
+### alexturkey/dubworld
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 35
-- Raw: #383
-- URL: https://github.com/onrik/micha
-- Description: Client lib for Telegram bot api
-- Why: stars>=20, telegram bot, telegram bot api, telegram bot/agent fit
+- Stars: 23
+- Raw: #990
+- URL: https://github.com/alexturkey/dubworld
+- Description: Local-first AI video dubbing pipeline: transcription, translation, speech synthesis and timing alignment.
+- Why: compound deployable speech/TTS fit, speech synthesis, stars>=20, text-to-speech
+
+
+## Video Production / Editing
+
+### faborsky/whisper-cz-en
+
+- Verdict: **KEEP**
+- Score: 36
+- Stars: 13
+- Raw: #1282
+- URL: https://github.com/faborsky/whisper-cz-en
+- Description: Offline Czech and English transcription of audio and video on macOS with whisper.cpp. Text and SRT subtitles, built for Claude Code and the terminal.
+- Why: agent-native workflow, subtitle, subtitles, transcription, video, video production fit
+
+### Eyevinn/auto-subtitles
+
+- Verdict: **WATCH**
+- Score: 30
+- Stars: 56
+- Raw: #1283
+- URL: https://github.com/Eyevinn/auto-subtitles
+- Description: Automatically generate subtitles from an input audio or video file using OpenAI Whisper
+- Why: ffmpeg, stars>=20, subtitle, subtitles, transcription, video production fit
+
+### sorsama/wabcut
+
+- Verdict: **WATCH**
+- Score: 30
+- Stars: 46
+- Raw: #1251
+- URL: https://github.com/sorsama/wabcut
+- Description: Free, open-source video editor for gaming videos, video essays and documentaries. Premiere Pro shortcuts and edit rules, GPU playback, local AI captions and smart search. Windows · C++23 · Qt 6 · FFmpeg
+- Why: ffmpeg, nle, stars>=20, video, video editor, video production fit
+
+### fabox-os/Picasso-Suite
+
+- Verdict: **WATCH**
+- Score: 23
+- Stars: 8
+- Raw: #1244
+- URL: https://github.com/fabox-os/Picasso-Suite
+- Description: Non-linear video editor written in Rust (egui) with a DaVinci Resolve-style interface: Cut, Edit and Deliver pages, all-format support via FFmpeg, H.264/H.265 export and .drp project import. Windows, Linux and macOS.
+- Why: ffmpeg, video, video editor, video production fit
+
+
+## Web Intelligence / SEO & AI Visibility
+
+### yaojingang/GEOInflow
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 71
+- Raw: #1193
+- URL: https://github.com/yaojingang/GEOInflow
+- Description: Self-hosted web and AI crawler analytics for Generative Engine Optimization (GEO). Track visitors, AI search referrals, crawl logs, content coverage, and conversions. Jointly published by 猎看科技 · 北京日报社智源GEO. MIT licensed.
+- Why: compound seo/ai-visibility fit, generative engine optimization, stars>=20
