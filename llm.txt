@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-29T08:29:26
+Generated: 2026-10-29T13:28:34
 Date: 2026-10-29
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,42 +8,42 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 664
+- Total curated cards: 693
 - Buckets: 32
 
 ## Bucket summary
 
-- Agent Memory / Context: 48
-- Agent Reliability / Evals & Production: 24
+- Agent Memory / Context: 50
+- Agent Reliability / Evals & Production: 26
 - Agent Security / Governance: 45
 - Automation / Event Workflows: 20
 - Broadcast / Playout / Automation: 5
-- Design / Image Editing: 9
-- Design Systems / Visual QA: 34
+- Design / Image Editing: 11
+- Design Systems / Visual QA: 35
 - Device Control / Capture: 8
 - Document Parsing / Ingestion: 15
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 12
-- Infographics / Visual Storytelling: 33
-- Interactive Reports / Data Apps: 9
-- Lancelot / Agent Infrastructure: 89
+- Infographics / Visual Storytelling: 35
+- Interactive Reports / Data Apps: 10
+- Lancelot / Agent Infrastructure: 92
 - Media / Social Monitoring: 10
 - Media Kits / Brand Automation: 3
 - Mixing / Mastering / Audio Engineering: 11
-- Music Generation / AI Music: 6
+- Music Generation / AI Music: 7
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
-- OSINT / Investigations: 26
+- OSINT / Investigations: 27
 - Publishing / Layout / PDF: 13
-- Radio / Audio Ops: 24
+- Radio / Audio Ops: 26
 - Reverse Engineering / Binary Analysis: 17
 - Search / Retrieval Engineering: 23
 - Social Media / Content Ops: 3
-- Speech / TTS & Voice: 20
-- System Architecture / Engineering Patterns: 26
-- Telegram Bots / Automation: 2
-- Video Production / Editing: 71
-- Web Data / Crawling & Extraction: 10
+- Speech / TTS & Voice: 22
+- System Architecture / Engineering Patterns: 31
+- Telegram Bots / Automation: 3
+- Video Production / Editing: 73
+- Web Data / Crawling & Extraction: 12
 - Web Intelligence / SEO & AI Visibility: 10
 
 ## Today's run
@@ -59,7 +59,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 48
+Cards: 50
 
 ### 23skdu/longbow
 
@@ -751,6 +751,28 @@ NEXT:
 
 ---
 
+### rehan-remade/universal-modder
+
+URL: https://github.com/rehan-remade/universal-modder
+VERDICT: KEEP
+SCORE: 47
+STARS: 9170
+
+WHAT:
+Game-modding agent toolkit, но для нас главный сигнал — накопление verified field notes: версия, route, что сработало, gotchas, verification, symptom→cause→fix.
+
+FIT:
+Прямая модель для operational memory Twenty/Telegram/MediaCloud/Webz/GitHub Actions/ffmpeg, отдельно от пользовательской памяти и evidence.
+
+PROJECT:
+**Проект:** Operational Memory / Field Notes  
+**Роль:** agent-maintained verified field-note pattern
+
+NEXT:
+Спроектировать простой field-notes/ формат и retrieval-before-action правило для наших машин.
+
+---
+
 ### richarvey/OmniMem
 
 URL: https://github.com/richarvey/OmniMem
@@ -1232,9 +1254,31 @@ reconciliation; затем проверить небольшой corpus на Cir
 
 ---
 
+### OpenBMB/PilotDeck
+
+URL: https://github.com/OpenBMB/PilotDeck
+VERDICT: WATCH
+SCORE: 57
+STARS: 4921
+
+WHAT:
+Task-oriented agent platform с project-isolated files/memory/skills, inspectable memory entries, routing/fallback, MCP, cron/always-on jobs и Computer Use.
+
+FIT:
+Особенно ценна white-box memory: видно, что именно запомнено, откуда это взялось, можно pin/edit/delete/rollback consolidation.
+
+PROJECT:
+**Проект:** Agent Operating Environment  
+**Роль:** workspace isolation and white-box memory
+
+NEXT:
+DEEP STUDY архитектуры; lab только после понимания, что конкретно хотим заменить или перенять.
+
+---
+
 ## BUCKET: Agent Reliability / Evals & Production
 
-Cards: 24
+Cards: 26
 
 ### Adi15Jain/cf_ai_next_doctor
 
@@ -1296,6 +1340,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### assafkip/claudemy
+
+URL: https://github.com/assafkip/claudemy
+VERDICT: KEEP
+SCORE: 52
+STARS: 520
+
+WHAT:
+Claude skill, который исследует тему в вебе и превращает материалы в короткий курс с аудио-уроками и цитированными источниками.
+
+FIT:
+Интересен не как Udemy replacement, а как пример bounded skill: research → structured curriculum → artifact, с ясной конечной формой.
+
+PROJECT:
+**Проект:** Agent Skills / Research-to-Curriculum  
+**Роль:** research-to-microcourse skill with citations
+
+NEXT:
+Разобрать skill contract и eval points; использовать pattern для внутренних training/briefing generators.
 
 ---
 
@@ -1428,6 +1494,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### Jakeschincariol/replica-skill
+
+URL: https://github.com/Jakeschincariol/replica-skill
+VERDICT: KEEP
+SCORE: 49
+STARS: 6350
+
+WHAT:
+Набор specialist skills для reverse engineering и воспроизведения приложений; центральный интерес — replica-diff и closed-loop parity correction.
+
+FIT:
+Сильный общий pattern: observe → model → build → compare → score → correct вместо одноразовой генерации.
+
+PROJECT:
+**Проект:** Agent Skills / Visual Parity  
+**Роль:** closed-loop observe-build-diff-correct workflow
+
+NEXT:
+Перенести diff-driven loop в visual regression и artifact generation workflows.
 
 ---
 
@@ -5079,7 +5167,7 @@ WATCH до появления реальной AoIP-задачи; сохрани
 
 ## BUCKET: Design / Image Editing
 
-Cards: 9
+Cards: 11
 
 ### bumicodes/draw-beautiful
 
@@ -5186,6 +5274,50 @@ NEXT:
 
 ---
 
+### photocraft-desktop/photocraft
+
+URL: https://github.com/photocraft-desktop/photocraft
+VERDICT: KEEP
+SCORE: 44
+STARS: 9
+
+WHAT:
+Rust image editor, где операции оформлены как commands, а GUI/CLI/JSON/MCP должны сидеть поверх одного backend command core.
+
+FIT:
+Очень хороший reference для agent-native desktop software: не автоматизировать GUI, а дать человеку и агенту один набор доменных команд.
+
+PROJECT:
+**Проект:** Agent-native Creative Software  
+**Роль:** single command core behind GUI, CLI, JSON and MCP
+
+NEXT:
+REFERENCE при проектировании собственных desktop/media tools.
+
+---
+
+### shader-effects-inc/shaders
+
+URL: https://github.com/shader-effects-inc/shaders
+VERDICT: KEEP
+SCORE: 53
+STARS: 5666
+
+WHAT:
+Коллекция WebGPU shader components для React/Vue/Svelte/Solid/vanilla с editor/CLI/MCP поверх низкоуровневых эффектов.
+
+FIT:
+Хороший pattern: expressive primitive → declarative component → agent-editable interface. Подходит для очень дозированных noise/dither/halftone/transitions.
+
+PROJECT:
+**Проект:** WSB / OSINT Signal / coma.fm Visuals  
+**Роль:** agent-editable WebGPU visual primitives
+
+NEXT:
+TRY один-два эффекта в изолированной визуальной задаче, не превращать сайты в shader demo.
+
+---
+
 ### storytold/lightcraft
 
 URL: https://github.com/storytold/lightcraft
@@ -5274,7 +5406,7 @@ WATCH и сравнение с более зрелым PhotoCraft по memory mo
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 34
+Cards: 35
 
 ### 0design/ai-native-design-framework
 
@@ -6350,6 +6482,28 @@ NEXT:
 где один component registry
 одновременно обслуживает
 designer, coder и agent.
+
+---
+
+### Nutlope/hallmark
+
+URL: https://github.com/Nutlope/hallmark
+VERDICT: KEEP
+SCORE: 56
+STARS: 41347
+
+WHAT:
+Design skill для coding agents, который формализует признаки шаблонного AI-дизайна и заставляет агента проверять visual decisions.
+
+FIT:
+Сильный reference для наших agent-compatible design systems: правила должны быть не moodboard, а исполнимые ограничения и QA.
+
+PROJECT:
+**Проект:** Design Systems / Agent Visual QA  
+**Роль:** anti-slop design skill and machine-readable design critique
+
+NEXT:
+TRY на одном существующем интерфейсе WSB/Creative Radar и сравнить изменения до/после skill.
 
 ---
 
@@ -8738,7 +8892,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 33
+Cards: 35
 
 ### bezda-team/rhp
 
@@ -9530,6 +9684,28 @@ NEXT:
 
 ---
 
+### pixijs/pixijs
+
+URL: https://github.com/pixijs/pixijs
+VERDICT: KEEP
+SCORE: 45
+STARS: 48589
+
+WHAT:
+Зрелый 2D rendering engine для WebGL/WebGPU, пригодный для сложных интерактивных и анимированных сцен.
+
+FIT:
+Полезен как низкоуровневый visual primitive для data stories и motion, когда SVG/DOM уже не хватает по производительности.
+
+PROJECT:
+**Проект:** WSB / Motion & Interactive Graphics  
+**Роль:** high-performance 2D WebGPU/WebGL rendering primitive
+
+NEXT:
+Держать reference; применять только при реальной необходимости canvas/WebGPU, не заменять им обычный DOM/SVG.
+
+---
+
 ### reidjohnson/nn-field-guide
 
 URL: https://github.com/reidjohnson/nn-field-guide
@@ -9626,6 +9802,28 @@ NEXT:
 - reproducible export.
 
 Отдельно перед использованием кода проверить лицензию репозитория и ограничения базовых Stability models.
+
+---
+
+### stackedlol/ascii-sharks
+
+URL: https://github.com/stackedlol/ascii-sharks
+VERDICT: KEEP
+SCORE: 39
+STARS: 1173
+
+WHAT:
+Набор TypeScript ASCII-shark компонентов; маленький, но хороший пример превращения character art в reusable UI primitives.
+
+FIT:
+Полезен как reference для terminal/editorial accents и программируемой ASCII-графики без тяжёлого canvas.
+
+PROJECT:
+**Проект:** Creative Radar / Visual Components  
+**Роль:** small reusable ASCII visual component pattern
+
+NEXT:
+REFERENCE; забирать паттерн компонентов, а не обязательно сам пакет.
 
 ---
 
@@ -10618,7 +10816,7 @@ NEXT:
 
 ## BUCKET: Interactive Reports / Data Apps
 
-Cards: 9
+Cards: 10
 
 ### bobbycomet/Conky-Studio
 
@@ -10683,6 +10881,28 @@ NEXT:
 - Wayland/X11 на фактическом desktop.
 
 Декоративные возможности трогать только после этого.
+
+---
+
+### CopilotKit/OpenIntelligentUI
+
+URL: https://github.com/CopilotKit/OpenIntelligentUI
+VERDICT: KEEP
+SCORE: 54
+STARS: 4046
+
+WHAT:
+Generative UI framework с тремя уровнями ответа: text, structured native component и sandboxed generated HTML/CSS/JS application.
+
+FIT:
+Очень хороший готовый полигон для post-chat interfaces: известные задачи идут в approved native components, необычные — в изолированный fallback.
+
+PROJECT:
+**Проект:** WSB / Agent-generated Data UI  
+**Роль:** native components first, sandboxed generated UI as fallback
+
+NEXT:
+TRY на одном WSB analytical result и посмотреть, выбирает ли агент table/chart/map адекватно задаче.
 
 ---
 
@@ -10918,7 +11138,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 89
+Cards: 92
 
 ### Afloat16/jev-mcp
 
@@ -10966,6 +11186,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### ag-ui-protocol/ag-ui
+
+URL: https://github.com/ag-ui-protocol/ag-ui
+VERDICT: KEEP
+SCORE: 61
+STARS: 16896
+
+WHAT:
+Event protocol между agent backend и user-facing frontend: messages, tool calls, state snapshots/updates, lifecycle, interrupts и human interaction.
+
+FIT:
+Стандартный слой для progress, approvals, pause/resume, state visibility и corrections вместо самодельного event soup в каждом internal tool.
+
+PROJECT:
+**Проект:** Agent-native UI Architecture  
+**Роль:** agent-to-frontend events/state/interrupt protocol
+
+NEXT:
+Считать foundational reference рядом с MCP: MCP = agent↔tool, AG-UI = agent↔application.
 
 ---
 
@@ -11758,6 +12000,28 @@ NEXT:
 
 ---
 
+### coollabsio/coolify
+
+URL: https://github.com/coollabsio/coolify
+VERDICT: KEEP
+SCORE: 58
+STARS: 65234
+
+WHAT:
+Self-hosted PaaS/control plane для Git deployments, Docker/Compose, databases, previews, rollback, multi-server operations и operator tooling.
+
+FIT:
+Может стать общей control plane между Git и нашим растущим зоопарком сервисов; особенно интересен MCP с scoped permissions.
+
+PROJECT:
+**Проект:** Self-hosted Infrastructure  
+**Роль:** Git-driven application control plane with API/CLI/MCP
+
+NEXT:
+LAB на одном non-production сервисе: deploy, preview, rollback, backup, затем MCP read-only.
+
+---
+
 ### coreyhaines31/marketingskills
 
 URL: https://github.com/coreyhaines31/marketingskills
@@ -12479,6 +12743,28 @@ Tags: mcp, security
 
 USE FOR LANCELOT:
 Взять deny/allow/review policy boundary перед MCP, Skills и Camelot Bridge. Добавить проверку prompt/tool injection и сохранять структурированный receipt каждого разрешённого или заблокированного опасного действия.
+
+---
+
+### HKUDS/CLI-Anything
+
+URL: https://github.com/HKUDS/CLI-Anything
+VERDICT: KEEP
+SCORE: 61
+STARS: 57640
+
+WHAT:
+CLI harness generation for existing applications: agent получает structured CLI поверх реального backend программы, а не vision/click automation или упрощённую копию.
+
+FIT:
+Прямой fit к GIMP/Inkscape/OBS/LibreOffice-style workflows: one command vocabulary, JSON, artifact verification, затем SKILL.md.
+
+PROJECT:
+**Проект:** Agent-native Creative Tooling  
+**Роль:** real application backend exposed through structured CLI + generated SKILL
+
+NEXT:
+TRY готовый harness на Inkscape или GIMP до попытки генерировать собственный.
 
 ---
 
@@ -15383,7 +15669,7 @@ NEXT:
 
 ## BUCKET: Music Generation / AI Music
 
-Cards: 6
+Cards: 7
 
 ### lorediggia/harmony
 
@@ -15441,6 +15727,28 @@ NEXT:
 - guitar voicing search.
 
 Зафиксировать, где реально начинает не хватать MIDI, progression editing и voice-leading optimization.
+
+---
+
+### wsx79/fasegroovearranger
+
+URL: https://github.com/wsx79/fasegroovearranger
+VERDICT: KEEP
+SCORE: 46
+STARS: 15
+
+WHAT:
+Arranger оркестрирует specialist engines для piano/guitar/drums/lead через общий музыкальный контекст, seeds, rules и constraints.
+
+FIT:
+Очень сильный архитектурный reference для coma-music-factory: жанровая грамматика живёт в детерминированных engines, LLM остаётся планировщиком.
+
+PROJECT:
+**Проект:** coma.fm / Music Factory  
+**Роль:** deterministic multi-engine music arranger pattern
+
+NEXT:
+Украсть архитектуру specialist engines + shared context + locks; код использовать только с учётом AGPL.
 
 ---
 
@@ -16049,7 +16357,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 26
+Cards: 27
 
 ### atlosdotorg/atlos
 
@@ -16832,6 +17140,28 @@ NEXT:
 
 ---
 
+### thunderstornX/agentic-osint-agent
+
+URL: https://github.com/thunderstornX/agentic-osint-agent
+VERDICT: KEEP
+SCORE: 50
+STARS: 1
+
+WHAT:
+LangGraph/ReAct OSINT agent, где tools feed deterministic parsers, а те создают typed Evidence с fingerprint/dedup; LLM только выбирает tools и summarises.
+
+FIT:
+Главный pattern: Evidence before narrative. LLM может предложить claim, но не должен сам создавать evidence.
+
+PROJECT:
+**Проект:** OSINT Signal / Evidence Architecture  
+**Роль:** deterministic evidence ledger under probabilistic orchestration
+
+NEXT:
+Использовать как reference для Evidence/Claim split, provenance, authority/purpose и evals.
+
+---
+
 ### vidithq/vidit
 
 URL: https://github.com/vidithq/vidit
@@ -17566,7 +17896,7 @@ NEXT:
 
 ## BUCKET: Radio / Audio Ops
 
-Cards: 24
+Cards: 26
 
 ### acropolis914/Clara
 
@@ -17702,6 +18032,28 @@ NEXT:
 Сравнить paste/session semantics Handy и OpenWhispr.
 
 Отдельно вынести model-registry contract.
+
+---
+
+### cyberdeliaAI/tagcast
+
+URL: https://github.com/cyberdeliaAI/tagcast
+VERDICT: KEEP
+SCORE: 50
+STARS: 13
+
+WHAT:
+Metadata editor для iBroadcast, где MusicBrainz/Deezer/Apple/Discogs/etc. предлагают candidates, человек утверждает draft, после save система делает read-back verification.
+
+FIT:
+Почти готовая философия будущего track passport: external sources propose; canonical library decides; расхождения не уничтожаются до review.
+
+PROJECT:
+**Проект:** coma.fm / track-passport-factory  
+**Роль:** review-first multi-source music metadata reconciliation
+
+NEXT:
+STEAL PATTERNS для track-passport-factory: proposals, confidence, provenance, genre/style/editorial tags, post-save verification.
 
 ---
 
@@ -18220,6 +18572,28 @@ PROJECT:
 
 NEXT:
 Использовать как UX/reference donor для собственного music digging workflow.
+
+---
+
+### Tonejs/Tone.js
+
+URL: https://github.com/Tonejs/Tone.js
+VERDICT: KEEP
+SCORE: 44
+STARS: 14850
+
+WHAT:
+Framework поверх Web Audio для precise scheduling, synthesis, effects и интерактивной музыкальной логики в браузере.
+
+FIT:
+Reference для будущих browser-side музыкальных инструментов, генераторов, визуализаторов и интерактивных элементов coma.fm.
+
+PROJECT:
+**Проект:** coma.fm / Browser Audio  
+**Роль:** Web Audio scheduling and synthesis framework
+
+NEXT:
+Не внедрять без задачи; держать как стандартный browser-audio primitive.
 
 ---
 
@@ -19266,7 +19640,7 @@ reviewable.
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 20
+Cards: 22
 
 ### 5uck1ess/tts-bench
 
@@ -19656,6 +20030,28 @@ NEXT:
 
 ---
 
+### resemble-ai/chatterbox
+
+URL: https://github.com/resemble-ai/chatterbox
+VERDICT: KEEP
+SCORE: 47
+STARS: 27399
+
+WHAT:
+Open-source TTS stack от Resemble AI, позиционируемый как high-quality speech generation.
+
+FIT:
+Кандидат для локальной озвучки роликов и фабрик, где нужен контроль над голосом без облачной привязки.
+
+PROJECT:
+**Проект:** Media Factory / Voice  
+**Роль:** open-source TTS candidate
+
+NEXT:
+Сделать smoke-test на русском/украинском материале и сравнить с уже используемыми TTS по дикции, latency и reproducibility.
+
+---
+
 ### supertone-oss-archive/supertonic
 
 URL: https://github.com/supertone-oss-archive/supertonic
@@ -19674,6 +20070,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### SYSTRAN/faster-whisper
+
+URL: https://github.com/SYSTRAN/faster-whisper
+VERDICT: KEEP
+SCORE: 55
+STARS: 26282
+
+WHAT:
+Whisper inference на CTranslate2 с существенно более эффективным локальным transcription pipeline.
+
+FIT:
+Прямой кандидат для нарезки интервью, субтитров, таймкодов и локальных media workflows.
+
+PROJECT:
+**Проект:** Media Factory / Transcription  
+**Роль:** fast local speech-to-text runtime
+
+NEXT:
+Benchmark на Camelot/Circus против текущего transcription route: скорость, VRAM/RAM, word timestamps, RU/UA quality.
 
 ---
 
@@ -19700,7 +20118,29 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 26
+Cards: 31
+
+### a2ui-project/a2ui
+
+URL: https://github.com/a2ui-project/a2ui
+VERDICT: KEEP
+SCORE: 61
+STARS: 16868
+
+WHAT:
+Протокол/формат, которым агент описывает UI как data из разрешённого component catalog, а host application рендерит свои native components.
+
+FIT:
+Прямое продолжение agent-compatible design system: модель говорит на языке нашей visual vocabulary вместо генерации произвольного HTML/JS.
+
+PROJECT:
+**Проект:** Agent-native UI Architecture  
+**Роль:** declarative agent-to-host UI contract
+
+NEXT:
+CARD as foundational protocol; сопоставить с нашим design-system contract и одним data-app prototype.
+
+---
 
 ### anuzdhk/linux-taskmanager
 
@@ -19726,6 +20166,28 @@ PROJECT:
 NEXT:
 Apply the same boundary to any future local agent helper that needs
 elevated filesystem, process or service operations.
+
+---
+
+### assistant-ui/assistant-ui
+
+URL: https://github.com/assistant-ui/assistant-ui
+VERDICT: KEEP
+SCORE: 53
+STARS: 12810
+
+WHAT:
+React/TypeScript agent UI toolkit; для радара важнее не chat bubbles, а states для loading/progress/result/error/approval/interrupt/human input/artifact.
+
+FIT:
+Сильный UX reference для operator tools: approval после решения превращается в receipt, а видимые объекты имеют stable IDs для последующих ссылок.
+
+PROJECT:
+**Проект:** Operator UX / Agent Applications  
+**Роль:** tool-call states, approvals, artifacts and durable receipts
+
+NEXT:
+Использовать как UX reference при проектировании human-in-the-loop интерфейсов и approval gates.
 
 ---
 
@@ -19785,6 +20247,28 @@ PROJECT:
 
 NEXT:
 Prototype one non-critical internal service behind Authelia and document identity, group, network and step-up policy before wider rollout.
+
+---
+
+### BuilderIO/agent-native
+
+URL: https://github.com/BuilderIO/agent-native
+VERDICT: KEEP
+SCORE: 62
+STARS: 7546
+
+WHAT:
+Framework, где UI и agent вызывают одну typed domain action с общей schema/validation/permissions/implementation вместо computer-use поверх человеческого UI.
+
+FIT:
+Очень сильный reference для будущих внутренних приложений: same domain model, same permissions, shared UI context, machine-readable actions.
+
+PROJECT:
+**Проект:** Agent-native Application Architecture  
+**Роль:** shared typed actions for humans and agents
+
+NEXT:
+DEEP STUDY; использовать как architecture reference при следующем внутреннем CRUD/operations tool.
 
 ---
 
@@ -20485,6 +20969,28 @@ NEXT:
 
 ---
 
+### rohit267/net-merge
+
+URL: https://github.com/rohit267/net-merge
+VERDICT: KEEP
+SCORE: 49
+STARS: 2500
+
+WHAT:
+Serverless endpoint multi-WAN: новые TCP/UDP flows распределяются по Ethernet/Wi-Fi/mobile tether с health и measured-link weighting.
+
+FIT:
+Практически полезно для Circus при основном интернете + Android USB tether и blackout/failover сценариях.
+
+PROJECT:
+**Проект:** Circus / Network Resilience  
+**Роль:** endpoint per-flow multi-WAN load balancer
+
+NEXT:
+TRY на выходных: parallel download, mixed workload, затем физический обрыв основного канала.
+
+---
+
 ### stardazed/wine-patches
 
 URL: https://github.com/stardazed/wine-patches
@@ -20589,6 +21095,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### armendzekjiri/brainitive
+
+URL: https://github.com/armendzekjiri/brainitive
+VERDICT: WATCH
+SCORE: 46
+STARS: 36
+
+WHAT:
+Self-hosted workspace, где issues/docs/plans/whiteboards/tickets связаны общей моделью и backlinks; MCP работает поверх тех же permission rules.
+
+FIT:
+Два сильных pattern: one domain model, many views; one canonical docs/ai knowledge base, many agent entrypoints.
+
+PROJECT:
+**Проект:** Agent-native Workspaces  
+**Роль:** one domain model across human views and agent entrypoints
+
+NEXT:
+WATCH как продукт; паттерны canonical agent knowledge и shared domain entities применять независимо.
 
 ---
 
@@ -20948,7 +21476,7 @@ WATCH. Проверить сначала на тестовом Android: один
 
 ## BUCKET: Telegram Bots / Automation
 
-Cards: 2
+Cards: 3
 
 ### hunvreus/heypi
 
@@ -20998,9 +21526,31 @@ NEXT:
 
 ---
 
+### adityash4rma/flaregram
+
+URL: https://github.com/adityash4rma/flaregram
+VERDICT: WATCH
+SCORE: 47
+STARS: 114
+
+WHAT:
+Tiny zero-dependency Telegram Bot API framework, спроектированный под Cloudflare Workers/webhooks, а не портированный из serverful Node runtime.
+
+FIT:
+Хороший кандидат для маленьких edge-ботов и уведомлялок, которым не нужен Circus как always-on server.
+
+PROJECT:
+**Проект:** Telegram Edge Bots  
+**Роль:** Cloudflare Workers-native Telegram Bot API framework
+
+NEXT:
+TRY WHEN NEEDED: следующий бот на 5–10 команд сначала делать Worker + Flaregram; важные jobs — через Queue.
+
+---
+
 ## BUCKET: Video Production / Editing
 
-Cards: 71
+Cards: 73
 
 ### 0xsline/OpenChatCut
 
@@ -21765,6 +22315,28 @@ USE FOR LANCELOT:
 Reference for a bounded future media tool.
 
 Не давать Lancelot произвольный video shell; при необходимости сделать узкую capability вроде transcribe-and-subtitle.
+
+---
+
+### donmccurdy/glTF-Transform
+
+URL: https://github.com/donmccurdy/glTF-Transform
+VERDICT: KEEP
+SCORE: 44
+STARS: 2047
+
+WHAT:
+SDK и CLI для чтения, преобразования, оптимизации и проверки glTF/GLB assets воспроизводимыми batch-операциями.
+
+FIT:
+Хороший reference для 3D asset factory: не GUI-редактирование, а scriptable transforms, compression, resize, dedup и validation.
+
+PROJECT:
+**Проект:** Media Factory / 3D Assets  
+**Роль:** deterministic glTF asset transform and optimization pipeline
+
+NEXT:
+Использовать, если в WSB/video pipeline появится устойчивый 3D asset layer.
 
 ---
 
@@ -22608,6 +23180,28 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### OpenSenseNova/SenseNova-Skills
+
+URL: https://github.com/OpenSenseNova/SenseNova-Skills
+VERDICT: KEEP
+SCORE: 55
+STARS: 5957
+
+WHAT:
+Модульная библиотека skills; для нас главный сигнал — sn-motion-html: scrollytelling/motion через HTML как управляемый агентом artifact.
+
+FIT:
+Прямой кандидат для коротких объясняющих motion stories и web-to-video workflows без ручного keyframing.
+
+PROJECT:
+**Проект:** Media Factory / Motion Stories  
+**Роль:** agent skill collection; focus sn-motion-html
+
+NEXT:
+TRY именно sn-motion-html на одном сюжете; не оценивать весь огромный набор skills как одно целое.
 
 ---
 
@@ -23631,7 +24225,7 @@ NEXT:
 
 ## BUCKET: Web Data / Crawling & Extraction
 
-Cards: 10
+Cards: 12
 
 ### BrikerMan/skilless.ai
 
@@ -23725,6 +24319,28 @@ PROJECT:
 
 NEXT:
 Оставить как reference; deploy-test только если найдётся реальный источник, который плохо берётся обычным crawler-ом.
+
+---
+
+### goodnight000/api-anything
+
+URL: https://github.com/goodnight000/api-anything
+VERDICT: KEEP
+SCORE: 59
+STARS: 1793
+
+WHAT:
+Инструмент наблюдает network requests сайта на нескольких примерах, выводит параметры операции и после обучения вызывает underlying HTTP напрямую; browser остаётся для learning/fallback.
+
+FIT:
+Очень высокий fit для read-heavy OSINT/media monitoring: меньше DOM fragility, ниже ресурсы, typed operation можно тестировать и экспонировать агенту.
+
+PROJECT:
+**Проект:** OSINT / Media Monitoring Source Adapters  
+**Роль:** learn underlying HTTP operations from website network behavior
+
+NEXT:
+LAB на публичном read-only раздражающем сайте без логина; стартовать с --no-share.
 
 ---
 
@@ -23861,6 +24477,28 @@ PROJECT:
 
 NEXT:
 Поставить в deploy-test shortlist и проверить на реальных источниках media monitoring.
+
+---
+
+### PraveenNimilka/Hermo
+
+URL: https://github.com/PraveenNimilka/Hermo
+VERDICT: WATCH
+SCORE: 54
+STARS: 45
+
+WHAT:
+Record → parameterize → verify → permission review → immutable publish: browser actions превращаются в versioned typed workflow, доступный по REST/OpenAPI/MCP.
+
+FIT:
+Сильный reference для UI-only действий с human approval и uncertain outcomes, когда нормального API действительно нет.
+
+PROJECT:
+**Проект:** Browser Workflow Adapters  
+**Роль:** verified UI workflow compiled into REST/OpenAPI/MCP contract
+
+NEXT:
+WATCH/LAB LATER; использовать архитектурные идеи, не строить критический Linux workflow на текущем product.
 
 ---
 
