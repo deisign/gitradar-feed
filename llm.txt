@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-30T08:29:01
+Generated: 2026-10-30T13:22:39
 Date: 2026-10-30
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,43 +8,43 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 693
+- Total curated cards: 726
 - Buckets: 32
 
 ## Bucket summary
 
-- Agent Memory / Context: 50
-- Agent Reliability / Evals & Production: 26
-- Agent Security / Governance: 45
+- Agent Memory / Context: 54
+- Agent Reliability / Evals & Production: 27
+- Agent Security / Governance: 51
 - Automation / Event Workflows: 20
 - Broadcast / Playout / Automation: 5
 - Design / Image Editing: 11
 - Design Systems / Visual QA: 35
 - Device Control / Capture: 8
-- Document Parsing / Ingestion: 15
+- Document Parsing / Ingestion: 17
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 12
-- Infographics / Visual Storytelling: 35
+- Infographics / Visual Storytelling: 36
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 92
+- Lancelot / Agent Infrastructure: 99
 - Media / Social Monitoring: 10
 - Media Kits / Brand Automation: 3
 - Mixing / Mastering / Audio Engineering: 11
 - Music Generation / AI Music: 7
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
-- OSINT / Investigations: 27
+- OSINT / Investigations: 29
 - Publishing / Layout / PDF: 13
-- Radio / Audio Ops: 26
+- Radio / Audio Ops: 27
 - Reverse Engineering / Binary Analysis: 17
-- Search / Retrieval Engineering: 23
+- Search / Retrieval Engineering: 26
 - Social Media / Content Ops: 3
 - Speech / TTS & Voice: 22
-- System Architecture / Engineering Patterns: 31
+- System Architecture / Engineering Patterns: 33
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 73
+- Video Production / Editing: 76
 - Web Data / Crawling & Extraction: 12
-- Web Intelligence / SEO & AI Visibility: 10
+- Web Intelligence / SEO & AI Visibility: 11
 
 ## Today's run
 
@@ -59,7 +59,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 50
+Cards: 54
 
 ### 23skdu/longbow
 
@@ -272,6 +272,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### inite-ai/inite-brain-service
+
+URL: https://github.com/inite-ai/inite-brain-service
+VERDICT: KEEP
+SCORE: 61
+STARS: 43
+
+WHAT:
+Bitemporal knowledge graph memory: facts имеют valid time и knowledge time, конфликты могут оставаться COMPETING, а synthesis связывается с source episodes и evidence.
+
+FIT:
+Почти прямой architecture donor для evidence-first OSINT и media monitoring: source, claim, belief/current state и provenance остаются разными сущностями.
+
+PROJECT:
+**Проект:** OSINT / Evidence Architecture  
+**Роль:** bitemporal evidence-backed knowledge graph
+
+NEXT:
+DEEP STUDY; вынести bitemporal facts, competing claims, provenance и abstention в отдельный design note для наших evidence-машин.
 
 ---
 
@@ -561,6 +583,28 @@ NEXT:
 
 ---
 
+### mthines/lorekit
+
+URL: https://github.com/mthines/lorekit
+VERDICT: KEEP
+SCORE: 59
+STARS: 20
+
+WHAT:
+Детерминированная operational memory: ошибки и найденные решения превращаются в короткие lessons, которые подмешиваются перед повторной попыткой и могут повышаться до постоянных правил.
+
+FIT:
+Прямой fit для media-monitoring, Creative Radar и других машин с накопившимися gotchas. Особенно ценно разделение delivery/use и архивирование неиспользуемых lessons.
+
+PROJECT:
+**Проект:** Agent Runtime / Operational Memory  
+**Роль:** failure-to-lesson operational memory
+
+NEXT:
+TRY на одном репозитории с реальными повторяющимися сбоями; измерить, сокращает ли система повторное расследование уже известных проблем.
+
+---
+
 ### mycelium-io/mycelium
 
 URL: https://github.com/mycelium-io/mycelium
@@ -671,6 +715,28 @@ PROJECT:
 
 NEXT:
 Compare its promotion/adjudication model with Engram and Recollect and define the minimal memory contract we actually need.
+
+---
+
+### oceanbase/powercontext
+
+URL: https://github.com/oceanbase/powercontext
+VERDICT: KEEP
+SCORE: 63
+STARS: 1419
+
+WHAT:
+Context service с first-class Source, Memory, Handoff, Experience и Skill artifacts: revisions, review inbox, expected_version concurrency, bounded PreparedContext и explicit export after approval.
+
+FIT:
+Очень цельный lifecycle: generation, review и execution разделены; scope выбирает данные, но не является authorization boundary; recalled content — history, а не instruction authority.
+
+PROJECT:
+**Проект:** Agent Runtime / Context Lifecycle  
+**Роль:** revisioned source-memory-handoff-experience-skill service
+
+NEXT:
+DEEP STUDY; сравнить с LoreKit/Membrick и взять handoff/review/revision contracts для Lancelot.
 
 ---
 
@@ -816,6 +882,28 @@ PROJECT:
 
 NEXT:
 Позже сравнить AgentMemory и Cognee на одном coding/research corpus; отдельно мигрировать существующий `smem-agent-memory` в этот lane.
+
+---
+
+### RooAGI/Membrick
+
+URL: https://github.com/RooAGI/Membrick
+VERDICT: KEEP
+SCORE: 57
+STARS: 11
+
+WHAT:
+Persistent memory, где relevance отделена от recency, supersession, temporal intent и evidence; старые факты сохраняются исторически, но не обязаны считаться текущей истиной.
+
+FIT:
+Сильный donor для динамических runbooks и operational facts: username, API version, canonical URL, status и другие значения, которые меняются со временем.
+
+PROJECT:
+**Проект:** Agent Runtime / State Memory  
+**Роль:** recency and supersession-aware current-state memory
+
+NEXT:
+DEEP STUDY; забирать модель explicit supersession и historical recall, а inferred supersession держать только как candidate relation.
 
 ---
 
@@ -1278,7 +1366,7 @@ DEEP STUDY архитектуры; lab только после понимани�
 
 ## BUCKET: Agent Reliability / Evals & Production
 
-Cards: 26
+Cards: 27
 
 ### Adi15Jain/cf_ai_next_doctor
 
@@ -1624,6 +1712,28 @@ NEXT:
 
 ---
 
+### maximem-ai/memory_and_context_eval_harness
+
+URL: https://github.com/maximem-ai/memory_and_context_eval_harness
+VERDICT: KEEP
+SCORE: 60
+STARS: 14
+
+WHAT:
+Общий benchmark pipeline Dataset → Ingest → Search → Answer → Evaluate → Report с provider adapters, checkpoints, сохранёнными search results и явным DEVIATIONS log.
+
+FIT:
+Нужен как независимый противовес memory-маркетингу: фиксирует dataset, judge, prompt, exclusions и retrieval metrics, чтобы сравнение было воспроизводимым.
+
+PROJECT:
+**Проект:** Agent Memory / Evaluation  
+**Роль:** reproducible memory benchmark harness
+
+NEXT:
+TRY как основу собственного memory/retrieval benchmark на небольшом нашем корпусе.
+
+---
+
 ### NirDiamant/agents-towards-production
 
 URL: https://github.com/NirDiamant/agents-towards-production
@@ -1843,7 +1953,7 @@ considering any guardrail or locking features.
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 45
+Cards: 51
 
 ### affaan-m/agentshield
 
@@ -2611,6 +2721,28 @@ before wrapping a real coding agent.
 
 ---
 
+### Err0ric/lure
+
+URL: https://github.com/Err0ric/lure
+VERDICT: KEEP
+SCORE: 62
+STARS: 0
+
+WHAT:
+Red-team harness с mock tools и fake data: prompt injection, tool poisoning, memory attacks и misuse оцениваются прежде всего по tool-call logs, а не по красивому текстовому ответу модели.
+
+FIT:
+Очень сильный pattern для security regression: agent profile → attack suite → human decision → approved baseline → retest after model/prompt/tool changes.
+
+PROJECT:
+**Проект:** Agent Runtime / Red Team  
+**Роль:** behavioral adversarial evaluation harness
+
+NEXT:
+DEEP STUDY; использовать его сценарную модель при создании собственных agent security evals.
+
+---
+
 ### GenAI-Security-Project/agent-control-standard
 
 URL: https://github.com/GenAI-Security-Project/agent-control-standard
@@ -3350,6 +3482,28 @@ PROJECT:
 
 NEXT:
 Reuse attempted/achieved semantics in future Lancelot mutation traces.
+
+---
+
+### kenmwara/securing-ai-agents-ad
+
+URL: https://github.com/kenmwara/securing-ai-agents-ad
+VERDICT: KEEP
+SCORE: 54
+STARS: 0
+
+WHAT:
+Практический lab: AI helpdesk agent в Active Directory ограничен fixed tools, delegated account, human approval и независимым audit на domain controller; проведены заранее определённые attack scenarios.
+
+FIT:
+Хорошо показывает, что model behavior не является security boundary. Особенно ценен найденный gap: много individually allowed actions могут стать опасным bulk operation.
+
+PROJECT:
+**Проект:** Agent Security / Case Studies  
+**Роль:** least-privilege and independent-control agent security case study
+
+NEXT:
+CASE STUDY; перенести principle volume/rate policy поверх least privilege в собственные side-effecting agent tools.
 
 ---
 
@@ -4333,6 +4487,28 @@ Compare plain Playwright MCP, CloakBrowser MCP and Vibatchium on one authenticat
 
 ---
 
+### theagentforge/skill-scan
+
+URL: https://github.com/theagentforge/skill-scan
+VERDICT: KEEP
+SCORE: 51
+STARS: 0
+
+WHAT:
+CI/static scanner для SKILL.md, AGENTS.md, CLAUDE.md, Cursor/Copilot rules и похожих instruction artifacts: prompt injection, hidden Unicode, secret reads, curl|sh, exfiltration patterns.
+
+FIT:
+Лёгкий pre-merge guard перед установкой сторонних skills и agent instructions.
+
+PROJECT:
+**Проект:** Agent Skills / Supply Chain  
+**Роль:** static scanner for imported agent instructions
+
+NEXT:
+TRY в одном репозитории с внешними skills; включить high-risk как CI failure, medium как review signal.
+
+---
+
 ### trueoriginlabs/vibatchium
 
 URL: https://github.com/trueoriginlabs/vibatchium
@@ -4351,6 +4527,50 @@ PROJECT:
 
 NEXT:
 Test one disposable browser identity with concurrent lease contention and verify credentials cannot be read back by the agent.
+
+---
+
+### Vampsecure-Labs/vamp-mcp-audit
+
+URL: https://github.com/Vampsecure-Labs/vamp-mcp-audit
+VERDICT: KEEP
+SCORE: 53
+STARS: 2
+
+WHAT:
+Auditor работающего MCP endpoint: tool schemas, descriptions, auth, transport, excessive capabilities, prompt/tool poisoning, hidden Unicode и exposure issues.
+
+FIT:
+Закрывает runtime-surface слой между static config scanning и behavioral red-team testing.
+
+PROJECT:
+**Проект:** MCP / Security  
+**Роль:** live MCP surface auditor
+
+NEXT:
+REFERENCE; использовать при накоплении собственных и сторонних MCP endpoints.
+
+---
+
+### vasikmansuri/agentconfig-doctor
+
+URL: https://github.com/vasikmansuri/agentconfig-doctor
+VERDICT: KEEP
+SCORE: 58
+STARS: 13
+
+WHAT:
+Local-first static scanner MCP/agent configs: secrets, dangerous shell, broad filesystem access, suspicious servers, hooks, auto-approval и permission widening against baseline.
+
+FIT:
+Очень практичен для наших Claude/Codex/MCP setups: важно видеть не только unsafe config, но и новое расширение authority относительно вчерашнего состояния.
+
+PROJECT:
+**Проект:** Agent Runtime / Security  
+**Роль:** local agent configuration and permission-drift scanner
+
+NEXT:
+TRY на нескольких наших repo и домашнем agent config; сохранить baseline и посмотреть реальные drift findings.
 
 ---
 
@@ -4465,6 +4685,28 @@ NEXT:
 Сравнить prompt-injection detection
 с Sinewave / Adrian / ai-firewall,
 но отдельно от capability authorization.
+
+---
+
+### AxiomatAI/dojo-hub
+
+URL: https://github.com/AxiomatAI/dojo-hub
+VERDICT: WATCH
+SCORE: 59
+STARS: 1
+
+WHAT:
+Self-hosted registry для skills: provenance, immutable versions, scanning, approval workflow, blocking, teams и controlled distribution к agent hosts.
+
+FIT:
+Сильный software-supply-chain pattern: trusted source не означает trusted next version; upstream update становится новым кандидатом и снова проходит review.
+
+PROJECT:
+**Проект:** Agent Skills / Governance  
+**Роль:** versioned governed skill registry
+
+NEXT:
+WATCH и DEEP STUDY; забирать lifecycle/state machine, пока продукт слишком молод для production deployment.
 
 ---
 
@@ -7559,7 +7801,7 @@ NEXT:
 
 ## BUCKET: Document Parsing / Ingestion
 
-Cards: 15
+Cards: 17
 
 ### datalab-to/marker
 
@@ -7868,6 +8110,28 @@ Add a representative local corpus and use the same evaluation discipline for can
 
 ---
 
+### YOLOW92/pagesift
+
+URL: https://github.com/YOLOW92/pagesift
+VERDICT: KEEP
+SCORE: 63
+STARS: 175
+
+WHAT:
+Rust ingestion engine для web, PDF, Office, archives и structured content: cheap HTTP extraction first, browser fallback only when it materially improves content, explicit partial/completeness states.
+
+FIT:
+Сильный кандидат для source-adapter architecture media/OSINT: normalised content плюс provenance/completeness вместо скрапера, который молча отдаёт обрезок как полный результат.
+
+PROJECT:
+**Проект:** Source Acquisition / Ingestion  
+**Роль:** memory-bounded web and document extraction engine
+
+NEXT:
+LAB на одном реальном источнике: сравнить current parser vs PageSift по completeness, metadata, warnings, RAM и ручным ошибкам.
+
+---
+
 ### ZhangHan200005/EcoData_Extraction
 
 URL: https://github.com/ZhangHan200005/EcoData_Extraction
@@ -7886,6 +8150,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### zhihengli-casia/PureDocBench
+
+URL: https://github.com/zhihengli-casia/PureDocBench
+VERDICT: KEEP
+SCORE: 57
+STARS: 49
+
+WHAT:
+Benchmark document parsing на matched tracks одного источника: clean digital render, degraded digital и real-world recapture; отдельно оценивает text, formula, table и reading order.
+
+FIT:
+Полезен не как parser, а как selection/evaluation layer перед PageSift или другим ingestion stack: видно не только overall score, но и robustness degradation.
+
+PROJECT:
+**Проект:** Document Ingestion / Model Selection  
+**Роль:** source-traceable OCR and document-parsing benchmark
+
+NEXT:
+REFERENCE; использовать leaderboard/protocol при выборе OCR/VLM для наших документов и сканов.
 
 ---
 
@@ -8892,7 +9178,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 35
+Cards: 36
 
 ### bezda-team/rhp
 
@@ -9724,6 +10010,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### sirioberati/YouTube-AI-Motion-Graphics
+
+URL: https://github.com/sirioberati/YouTube-AI-Motion-Graphics
+VERDICT: KEEP
+SCORE: 61
+STARS: 95
+
+WHAT:
+74 HTML/GSAP explainer boards с semantic catalog, Whisper word timestamps, persistent checks.md QA и frame-exact Chrome→FFmpeg export на virtual clock.
+
+FIT:
+Сильный fit для explainers/WSB/video: board catalog + semantic selection + voice sync + deterministic render вместо screen recording.
+
+PROJECT:
+**Проект:** WSB / Video Explainers  
+**Роль:** voice-synced deterministic HTML motion-board factory
+
+NEXT:
+TRY на одном коротком voice-over фрагменте; заменить starter theme нашим visual system и проверить frame-exact export.
 
 ---
 
@@ -11138,7 +11446,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 92
+Cards: 99
 
 ### Afloat16/jev-mcp
 
@@ -13402,6 +13710,28 @@ Compare minimal attack surface, tool gate and skill loading with our larger runt
 
 ---
 
+### MrPeppersDev/agent-infrastructure-landscape
+
+URL: https://github.com/MrPeppersDev/agent-infrastructure-landscape
+VERDICT: KEEP
+SCORE: 65
+STARS: 7
+
+WHAT:
+Большой сравнительный каталог agent infrastructure, где каждая attribute cell имеет value, citation, status и tier; встроены freshness, compatibility, history, alternatives и stack checks.
+
+FIT:
+Методологический donor непосредственно для GitRadar: claim-level provenance, NO DATA как нормальный статус, freshness и история изменений по сущности.
+
+PROJECT:
+**Проект:** Creative Radar / Methodology  
+**Роль:** typed cited infrastructure landscape and freshness model
+
+NEXT:
+DEEP STUDY; перенести claim-level evidence/status и entity history в следующую версию карточной модели.
+
+---
+
 ### msitarzewski/agency-agents
 
 URL: https://github.com/msitarzewski/agency-agents
@@ -14048,6 +14378,72 @@ Test a small batch against known documents and verify citation fidelity, resume 
 
 ---
 
+### ruelbelmonte/mcp-notes
+
+URL: https://github.com/ruelbelmonte/mcp-notes
+VERDICT: KEEP
+SCORE: 50
+STARS: 0
+
+WHAT:
+Минимальный MCP server с тремя read-only tools над Markdown vault; path traversal, symlink/hard-link escapes, file types, size caps и bounded search покрыты тестами, а MCP wiring остаётся тонким adapter.
+
+FIT:
+Хорошая reference implementation принципа: tool security boundary должна жить в коде и быть тестируемой, а не в системном prompt.
+
+PROJECT:
+**Проект:** MCP / Safe Local Context  
+**Роль:** minimal read-only sandboxed notes MCP
+
+NEXT:
+REFERENCE; использовать как эталон при создании собственных read-only filesystem MCP tools.
+
+---
+
+### sharonita610/agent-harness
+
+URL: https://github.com/sharonita610/agent-harness
+VERDICT: KEEP
+SCORE: 64
+STARS: 0
+
+WHAT:
+Agent runtime, где core остаётся стабильным, а domain pack определяет tools, data, policy, evals и UI labels; write/destructive capabilities проходят server-side boundaries и human approval.
+
+FIT:
+Сильный pattern для наших машин: failure → fix in code/tool contract → regression test вместо бесконечного разрастания prompt.
+
+PROJECT:
+**Проект:** Agent Runtime / Domain Packs  
+**Роль:** domain-pluggable runtime with approvals, evidence and evals
+
+NEXT:
+DEEP STUDY; сравнить domain-pack contract с media-monitoring project contexts и Lancelot runtime.
+
+---
+
+### sheepk95/The-Cartographer
+
+URL: https://github.com/sheepk95/The-Cartographer
+VERDICT: KEEP
+SCORE: 58
+STARS: 1
+
+WHAT:
+Skill router: один изолированный model call видит весь catalog и выбирает минимальный набор skills; output затем детерминированно валидируется против реальных names/paths, hallucinated picks отбрасываются.
+
+FIT:
+Прямой fit при росте собственного каталога skills: precision-first selection без постоянной инъекции всех descriptions в основной context.
+
+PROJECT:
+**Проект:** Lancelot / Skill Routing  
+**Роль:** precision-first skill selector for large catalogs
+
+NEXT:
+TRY после следующего расширения skill catalog; сравнить с простым keyword/embedding routing по false-positive picks и token cost.
+
+---
+
 ### Shubhamsaboo/awesome-llm-apps
 
 URL: https://github.com/Shubhamsaboo/awesome-llm-apps
@@ -14529,6 +14925,28 @@ NEXT:
 
 ---
 
+### wrg32786/aigent-os
+
+URL: https://github.com/wrg32786/aigent-os
+VERDICT: KEEP
+SCORE: 54
+STARS: 25
+
+WHAT:
+Opinionated agent OS, где при заполнении context создаётся явный capsule с state/decisions/open threads/next action, затем только после acknowledgement выполняется clear и новая сессия resumes from artifact.
+
+FIT:
+Сильный pattern против summary-of-summary degradation: checkpoint становится inspectable/diffable/committable artifact.
+
+PROJECT:
+**Проект:** Agent Sessions / Continuity  
+**Роль:** explicit checkpoint-clear-resume pattern
+
+NEXT:
+REFERENCE; перенести context-capsule contract в собственные долгие operator sessions без внедрения всего framework.
+
+---
+
 ### zhensherlock/sp500-mcp-server
 
 URL: https://github.com/zhensherlock/sp500-mcp-server
@@ -14568,6 +14986,50 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### codician-team/diffinery
+
+URL: https://github.com/codician-team/diffinery
+VERDICT: WATCH
+SCORE: 61
+STARS: 71
+
+WHAT:
+Git hosting/PR/CI control plane, где humans, agents и services имеют отдельные identities, tokens, limits и audit attribution; agent changes идут через branch/PR/approval boundary.
+
+FIT:
+Правильная модель delegated authority: агент не impersonates human token, а действует как отдельный principal поверх той же server-side authorization model.
+
+PROJECT:
+**Проект:** Agent Development / Git Control Plane  
+**Роль:** agents as first-class Git principals
+
+NEXT:
+WATCH; использовать identity/PR/approval architecture как reference, не переносить production Git hosting на настолько молодой проект.
+
+---
+
+### hyperbolictonic/hyperbolic-gateway
+
+URL: https://github.com/hyperbolictonic/hyperbolic-gateway
+VERDICT: WATCH
+SCORE: 52
+STARS: 2
+
+WHAT:
+Experimental browser gateway, сводящий automation API к небольшому набору primitives: observe/act/wait_for/expect/find/extract/page_state/diff с structured failures.
+
+FIT:
+Хороший donor для browser agents: explicit await conditions вместо sleep+hope, stale refs и diff-since-state вместо повторной отправки всей страницы модели.
+
+PROJECT:
+**Проект:** Agent Browser / Tooling  
+**Роль:** orthogonal browser primitives with explicit waits and state diff
+
+NEXT:
+WATCH architecture; забирать API-contract ideas, не принимать широкие bot-evasion claims без независимой проверки.
 
 ---
 
@@ -16357,7 +16819,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 27
+Cards: 29
 
 ### atlosdotorg/atlos
 
@@ -16633,6 +17095,28 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### extiop/git2mail
+
+URL: https://github.com/extiop/git2mail
+VERDICT: KEEP
+SCORE: 52
+STARS: 10
+
+WHAT:
+Rust GitHub REST API OSINT utility для commit emails, user/org investigation и reverse email lookup с confidence grades, generated_at/tool_version и partial coverage state.
+
+FIT:
+Хороший пример узкого OSINT tool, который возвращает не только finding, но provenance и epistemic status результата.
+
+PROJECT:
+**Проект:** OSINT Signal / GitHub OSINT  
+**Роль:** evidence-producing GitHub identity lookup primitive
+
+NEXT:
+TRY на тестовом публичном кейсе и сохранить command/query/tool_version рядом с evidence.
 
 ---
 
@@ -17159,6 +17643,28 @@ PROJECT:
 
 NEXT:
 Использовать как reference для Evidence/Claim split, provenance, authority/purpose и evals.
+
+---
+
+### vichhka-git/OpenTor
+
+URL: https://github.com/vichhka-git/OpenTor
+VERDICT: KEEP
+SCORE: 55
+STARS: 95
+
+WHAT:
+Tor/dark-web collector для agents и CLI: 12 search engines, scored/deduped results, bounded onion crawler, IOC extraction, SQLite и JSON/CSV/STIX/MISP export.
+
+FIT:
+Сильны evidence/reporting rules: Observed/Inferred/Uncertain/AI Analysis, raw→formatted→interpretation, traceability и публичное revision при противоречащих данных.
+
+PROJECT:
+**Проект:** OSINT Signal / Dark Web Collection  
+**Роль:** Tor search/crawl and IOC collection primitive
+
+NEXT:
+LAB только как mechanical collector с human-controlled installation/elevation; отдельно завернуть safe read-only policy и domain allowlist.
 
 ---
 
@@ -17896,7 +18402,7 @@ NEXT:
 
 ## BUCKET: Radio / Audio Ops
 
-Cards: 26
+Cards: 27
 
 ### acropolis914/Clara
 
@@ -18554,6 +19060,28 @@ NEXT:
 
 ---
 
+### securitypedant/echoradio
+
+URL: https://github.com/securitypedant/echoradio
+VERDICT: KEEP
+SCORE: 49
+STARS: 10
+
+WHAT:
+Internet-radio recorder/time-shifter: Liquidsoap → rolling HLS segments → DVR/timezone-shifted playlist → Icecast, плюс fallback и session-level playback diagnostics.
+
+FIT:
+Для coma.fm интересны rolling rewind, dead-air fallback, source health и корреляция browser/server events по playback session ID.
+
+PROJECT:
+**Проект:** coma.fm / Stream Reliability  
+**Роль:** rolling radio DVR, fallback and playback diagnostics
+
+NEXT:
+REFERENCE; при развитии player/архива отдельно прототипировать 24h rewind и диагностический session trace.
+
+---
+
 ### thomasbottrill/BandKit
 
 URL: https://github.com/thomasbottrill/BandKit
@@ -19063,7 +19591,7 @@ NEXT:
 
 ## BUCKET: Search / Retrieval Engineering
 
-Cards: 23
+Cards: 26
 
 ### al1-nasir/weigh_swarm
 
@@ -19134,6 +19662,28 @@ NEXT:
 
 ---
 
+### bhavik-mangla/MDKeyChunker
+
+URL: https://github.com/bhavik-mangla/MDKeyChunker
+VERDICT: KEEP
+SCORE: 60
+STARS: 11
+
+WHAT:
+Zero-dependency header-aware chunking плюс mk.diagnose(), который на собственных документах и labelled questions сравнивает retriever/chunking/reranker/enrichment с bootstrap confidence intervals и умеет честно отвечать inconclusive.
+
+FIT:
+Идеальная пара к RAG_Techniques: сначала диагностировать, где retrieval реально теряет evidence, и только потом выбирать модную технику.
+
+PROJECT:
+**Проект:** Retrieval Engineering / Evaluation  
+**Роль:** header-aware chunker plus retrieval diagnostic harness
+
+NEXT:
+TRY на небольшом media/OSINT corpus с 30–100 размеченными вопросами.
+
+---
+
 ### Blackcat-Informatics/purrdf
 
 URL: https://github.com/Blackcat-Informatics/purrdf
@@ -19173,6 +19723,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Dicklesworthstone/coding_agent_session_search
+
+URL: https://github.com/Dicklesworthstone/coding_agent_session_search
+VERDICT: KEEP
+SCORE: 62
+STARS: 1197
+
+WHAT:
+Локальный индекс истории Codex, Claude Code, Gemini, Cursor, ChatGPT, Aider и других: SQLite как source of truth, lexical mandatory path, optional semantic/hybrid, robot mode и citations к исходным session records.
+
+FIT:
+Полезен как архивная память: когда condensed memory говорит «мы это решали», CASS может найти исходную сессию и доказательство того, что реально происходило.
+
+PROJECT:
+**Проект:** Agent Work History / Local Search  
+**Роль:** unified searchable archive of coding-agent sessions
+
+NEXT:
+TRY на Circus на ограниченном наборе histories; проверить storage growth, search quality и evidence packs.
 
 ---
 
@@ -19327,22 +19899,21 @@ NEXT:
 
 URL: https://github.com/NirDiamant/RAG_Techniques
 VERDICT: KEEP
-SCORE: 49
-STARS: —
+SCORE: 53
+STARS: 30135
 
 WHAT:
-RAG Techniques — runnable collection of retrieval/RAG techniques, experiments and implementation recipes.
-
-Ценность проекта — не единый framework, а возможность сравнивать retrieval strategies, chunking, reranking, query transformations и related approaches на исполняемых examples.
+Teaching repository, not a production library: runnable notebooks/experiments for chunking, query transformations, hybrid/fusion retrieval, reranking, CRAG/Self-RAG/RAPTOR/GraphRAG, attribution and evaluation.
 
 FIT:
-—
+Полезен как каталог экспериментальных retrieval patterns: брать одну технику, сравнивать на нашем corpus и оставлять только доказавшие пользу механизмы.
 
 PROJECT:
-—
+**Проект:** OSINT Station / Retrieval Engineering  
+**Роль:** runnable retrieval-technique laboratory
 
 NEXT:
-Использовать как donor при проектировании retrieval benchmark для media/OSINT corpus.
+Использовать вместе с MDKeyChunker/eval harness: baseline → controlled experiment → measured adoption.
 
 ---
 
@@ -19564,6 +20135,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### yjid/kensaku
+
+URL: https://github.com/yjid/kensaku
+VERDICT: KEEP
+SCORE: 55
+STARS: 253
+
+WHAT:
+Local-first desktop/CLI search по filenames, PDF/Office/code и OCR screenshots с lexical+semantic retrieval и read-only MCP surface.
+
+FIT:
+Практичный общий индекс для Exchange/projects/reports/screenshots без выгрузки диска наружу; полезен человеку и агенту.
+
+PROJECT:
+**Проект:** Circus / Camelot Local Search  
+**Роль:** local file/document/OCR search with read-only MCP
+
+NEXT:
+TRY на одной большой папке, не на всём HOME; проверить Linux stability, OCR, privacy exclusions и MCP results.
 
 ---
 
@@ -20118,7 +20711,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 31
+Cards: 33
 
 ### a2ui-project/a2ui
 
@@ -20311,6 +20904,50 @@ PROJECT:
 
 NEXT:
 Reuse the boundary pattern when designing any future privileged maintenance action on Circus.
+
+---
+
+### devtechedge/handoffkit
+
+URL: https://github.com/devtechedge/handoffkit
+VERDICT: KEEP
+SCORE: 48
+STARS: 0
+
+WHAT:
+n8n workflow export превращается детерминированно в handover pack: systems/credentials inventory, AI register, risks, runbook, change procedure и acceptance checklist.
+
+FIT:
+Хороший self-documenting operations pattern: operational docs должны быть projection от самой системы, а не отдельным файлом, который быстро устаревает.
+
+PROJECT:
+**Проект:** Automation / Operational Documentation  
+**Роль:** deterministic workflow-to-handover documentation
+
+NEXT:
+REFERENCE; использовать структуру handover pack для media-monitoring и других законченных машин.
+
+---
+
+### dockur/windows
+
+URL: https://github.com/dockur/windows
+VERDICT: KEEP
+SCORE: 58
+STARS: 53864
+
+WHAT:
+Docker/Podman packaging для полноценной Windows VM через QEMU/KVM: provisioning, disks, networking, RDP/web access, shared folders и USB passthrough.
+
+FIT:
+Практичный Windows compatibility island внутри Linux без dual boot: Windows-only utilities, testing и воспроизводимые disposable environments на Camelot.
+
+PROJECT:
+**Проект:** Camelot / Compatibility Lab  
+**Роль:** Docker-managed KVM Windows workstation
+
+NEXT:
+TRY как изолированную Windows lab VM; начать без shared folders/USB и добавлять bridges только по необходимости.
 
 ---
 
@@ -21550,7 +22187,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 73
+Cards: 76
 
 ### 0xsline/OpenChatCut
 
@@ -21776,6 +22413,28 @@ NEXT:
 Извлечь минимальный:
 
 `CLIP_MACHINE_PREVIEW_CONTRACT`.
+
+---
+
+### alexturkey/dubworld
+
+URL: https://github.com/alexturkey/dubworld
+VERDICT: KEEP
+SCORE: 60
+STARS: 45
+
+WHAT:
+Локальная staged pipeline: audio extraction → STT/alignment → translation → TTS → timing → subtitles → mux, где каждый stage имеет отдельный CLI/function contract и inspectable artifact.
+
+FIT:
+Сильный donor для наших video factories: no silent fallback, fingerprinted checkpoints, actual synthesized duration as canonical downstream input, раздельные environments для тяжёлых моделей.
+
+PROJECT:
+**Проект:** Media Factory / Dubbing  
+**Роль:** modular reproducible dubbing pipeline
+
+NEXT:
+REFERENCE; перенести stage/artifact/fingerprint patterns в собственные factories, затем при необходимости тестировать Linux path.
 
 ---
 
@@ -23150,6 +23809,28 @@ USE FOR LANCELOT:
 
 ---
 
+### NVlabs/Sana
+
+URL: https://github.com/NVlabs/Sana
+VERDICT: KEEP
+SCORE: 62
+STARS: 9722
+
+WHAT:
+В ветке sol-engine модуль Open-H3-Regenerate-2K открыто заменяет закрытый H3 regenerate API: 768p H3 draft → latent 2× upscale → 2–3 step generative refine → fast VAE → 2K/4K output.
+
+FIT:
+Важный media architecture pattern: дешёвый low-res draft сохраняет structure/motion, затем compute тратится на latent refinement вместо high-res generation с нуля.
+
+PROJECT:
+**Проект:** Media Factory / Generative Video  
+**Роль:** latent video regeneration/refinement and inference acceleration
+
+NEXT:
+REFERENCE; следить за переносимостью SoL-Engine/latent-refine техники на доступное железо и другие video backends.
+
+---
+
 ### OpenCut-app/OpenCut
 
 URL: https://github.com/OpenCut-app/OpenCut
@@ -23337,6 +24018,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### sorsama/wabcut
+
+URL: https://github.com/sorsama/wabcut
+VERDICT: KEEP
+SCORE: 64
+STARS: 54
+
+WHAT:
+Alpha NLE с typed command protocol: schema validation, expectedRevision, idempotencyKey, dry-run, atomic batches, ChangeSet и undo; agent работает с domain actions, а не кликает UI.
+
+FIT:
+Один из лучших donors для agent-native creative software: сложный timeline формализован как транзакционные редактирующие операции.
+
+PROJECT:
+**Проект:** Media Factory / Agent-native Editing  
+**Роль:** typed transactional NLE command architecture
+
+NEXT:
+DEEP STUDY; украсть command contract для будущих media tools, сам editor пока не использовать на deadline work.
 
 ---
 
@@ -24504,7 +25207,7 @@ WATCH/LAB LATER; использовать архитектурные идеи, �
 
 ## BUCKET: Web Intelligence / SEO & AI Visibility
 
-Cards: 10
+Cards: 11
 
 ### Akxan/google-seo-mcp
 
@@ -24715,6 +25418,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### yaojingang/GEOInflow
+
+URL: https://github.com/yaojingang/GEOInflow
+VERDICT: KEEP
+SCORE: 61
+STARS: 753
+
+WHAT:
+Self-hosted crawler/content analytics с раздельными UA/IP/DNS identity signals, source coverage и строгим разделением crawl, indexing, citation, referral и conversion.
+
+FIT:
+Особенно ценна data semantics: no observed requests не равно proven zero; raw collection existence не равно inclusion in qualified statistical population.
+
+PROJECT:
+**Проект:** Media Monitoring / Evidence Analytics  
+**Роль:** evidence-aware crawler and referral analytics semantics
+
+NEXT:
+REFERENCE; перенести coverage/completeness/evidence semantics в media-monitoring и OSINT Signal.
 
 ---
 
