@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-10-30T13:22:39
+Generated: 2026-10-30T13:49:28
 Date: 2026-10-30
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,25 +8,25 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 726
+- Total curated cards: 733
 - Buckets: 32
 
 ## Bucket summary
 
-- Agent Memory / Context: 54
+- Agent Memory / Context: 55
 - Agent Reliability / Evals & Production: 27
 - Agent Security / Governance: 51
 - Automation / Event Workflows: 20
 - Broadcast / Playout / Automation: 5
-- Design / Image Editing: 11
-- Design Systems / Visual QA: 35
+- Design / Image Editing: 12
+- Design Systems / Visual QA: 36
 - Device Control / Capture: 8
-- Document Parsing / Ingestion: 17
+- Document Parsing / Ingestion: 18
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 12
 - Infographics / Visual Storytelling: 36
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 99
+- Lancelot / Agent Infrastructure: 100
 - Media / Social Monitoring: 10
 - Media Kits / Brand Automation: 3
 - Mixing / Mastering / Audio Engineering: 11
@@ -36,13 +36,13 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - OSINT / Investigations: 29
 - Publishing / Layout / PDF: 13
 - Radio / Audio Ops: 27
-- Reverse Engineering / Binary Analysis: 17
+- Reverse Engineering / Binary Analysis: 18
 - Search / Retrieval Engineering: 26
 - Social Media / Content Ops: 3
 - Speech / TTS & Voice: 22
 - System Architecture / Engineering Patterns: 33
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 76
+- Video Production / Editing: 77
 - Web Data / Crawling & Extraction: 12
 - Web Intelligence / SEO & AI Visibility: 11
 
@@ -59,7 +59,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 54
+Cards: 55
 
 ### 23skdu/longbow
 
@@ -357,6 +357,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Knuckles-Team/medulla
+
+URL: https://github.com/Knuckles-Team/medulla
+VERDICT: KEEP
+SCORE: 62
+STARS: 11
+
+WHAT:
+Rust-native durable knowledge engine combining property graph, relational data, RDF/OWL, vectors, time-series, events, documents and media behind one query/planning layer.
+
+FIT:
+Important because claims can carry evidence, provenance, confidence, contradiction state and bitemporal validity. This is closer to an evidence database substrate than another chat-memory wrapper.
+
+PROJECT:
+**Проект:** OSINT / Evidence Architecture  
+**Роль:** durable multi-model evidence and knowledge substrate
+
+NEXT:
+DEEP STUDY the evidence/provenance and bitemporal model; compare its claim semantics with INITE Brain before considering any deployment.
 
 ---
 
@@ -5409,7 +5431,7 @@ WATCH до появления реальной AoIP-задачи; сохрани
 
 ## BUCKET: Design / Image Editing
 
-Cards: 11
+Cards: 12
 
 ### bumicodes/draw-beautiful
 
@@ -5450,6 +5472,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### ClaudiuJitea/compositorLX
+
+URL: https://github.com/ClaudiuJitea/compositorLX
+VERDICT: KEEP
+SCORE: 56
+STARS: 6
+
+WHAT:
+Native Linux raster compositor with layers, masks, non-destructive transforms, RAW/PSD/HDR/CMYK support, local subject removal and Vulkan acceleration with CPU fallback.
+
+FIT:
+Direct fit for the Linux graphics workstation: local compositing without Adobe, crash-safe atomic saves, broad file support and a CPU reference path for accelerated rendering.
+
+PROJECT:
+**Проект:** Design / Linux Graphics  
+**Роль:** native Linux layer-based raster compositor
+
+NEXT:
+TRY the AppImage on Camelot with a PSD/RAW/composite workload; verify NVIDIA Vulkan behavior and export fidelity.
 
 ---
 
@@ -5648,7 +5692,7 @@ WATCH и сравнение с более зрелым PhotoCraft по memory mo
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 35
+Cards: 36
 
 ### 0design/ai-native-design-framework
 
@@ -6387,6 +6431,28 @@ Smoke-test на одном интерфейсе:
 
 Отдельно проверить работу с нашим собственным
 design system вместо встроенных presets.
+
+---
+
+### meta/meta-ray-ban-display-ui-toolkit-web
+
+URL: https://github.com/meta/meta-ray-ban-display-ui-toolkit-web
+VERDICT: KEEP
+SCORE: 55
+STARS: 21
+
+WHAT:
+Official web UI toolkit for Meta Ray-Ban Display, covering semantic tokens, materials, motion, accessibility and directional-focus patterns for a constrained wearable display surface.
+
+FIT:
+Interesting beyond the device itself as a reference for agent-compatible design systems: domain UI rules, constrained interaction, machine-readable guidance and shared actions rather than arbitrary pixel clicking.
+
+PROJECT:
+**Проект:** Design Systems / Agent-Native UI  
+**Роль:** official constrained-display design-system reference
+
+NEXT:
+REFERENCE the token/focus/action patterns and compare them with our existing agent-native UI cards; do not adopt device-specific visuals wholesale.
 
 ---
 
@@ -7801,7 +7867,29 @@ NEXT:
 
 ## BUCKET: Document Parsing / Ingestion
 
-Cards: 17
+Cards: 18
+
+### CHEN010325/paddleocr-local
+
+URL: https://github.com/CHEN010325/paddleocr-local
+VERDICT: KEEP
+SCORE: 61
+STARS: 139
+
+WHAT:
+Local-first PDF/image/Office parsing workbench with multiple OCR/document models, Markdown and structured exports, CLI, batch/watch-folder operation, resumable jobs and explicit hardware compatibility checks.
+
+FIT:
+Practical fit for private OSINT/media documents. Strong operational design: one heavy model resident at a time, model switching, recoverable batches, pinned dependencies and local storage.
+
+PROJECT:
+**Проект:** OSINT Station / Document Ingestion  
+**Роль:** local multi-engine document parsing workbench
+
+NEXT:
+TRY first with PP-OCRv6 on a mixed PDF/image corpus, then compare harder documents against PageSift and the stronger GPU parsers.
+
+---
 
 ### datalab-to/marker
 
@@ -11446,7 +11534,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 99
+Cards: 100
 
 ### Afloat16/jev-mcp
 
@@ -12305,6 +12393,28 @@ NEXT:
 - out-of-order approvals;
 - rollback;
 - reconciliation внешнего состояния.
+
+---
+
+### Cognipeer/console
+
+URL: https://github.com/Cognipeer/console
+VERDICT: KEEP
+SCORE: 59
+STARS: 26
+
+WHAT:
+Self-hosted control plane combining OpenAI-compatible model routing, MCP hub, RAG, browser automation, tracing, evals, guardrails, red-team tooling and multi-tenant operations.
+
+FIT:
+Most interesting as a control-plane reference: one Cedar authorization engine evaluates requests, tool access and project scope, with decision ids and audit trails instead of relying on prompt-level permissions.
+
+PROJECT:
+**Проект:** Agent Runtime / Control Plane  
+**Роль:** self-hosted AI gateway and authorization control plane
+
+NEXT:
+REFERENCE the authorization and audit architecture; compare its MCP/tool governance with DojoHub, AgentConfig Doctor and Lure.
 
 ---
 
@@ -19216,7 +19326,7 @@ NEXT:
 
 ## BUCKET: Reverse Engineering / Binary Analysis
 
-Cards: 17
+Cards: 18
 
 ### AgeloVito/jd-mcp-duo
 
@@ -19320,6 +19430,28 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### boy-offi9-inc/hexforge-gateway
+
+URL: https://github.com/boy-offi9-inc/hexforge-gateway
+VERDICT: KEEP
+SCORE: 59
+STARS: 11
+
+WHAT:
+Self-hosted reverse-engineering workspace orchestrating jadx, apktool, APKiD, adb, Frida and MCP adapters through Workspace → Workflow → Jobs → Tasks → Agents.
+
+FIT:
+The interesting part is not just tool aggregation: findings cite artifacts/entities/locations and can be re-verified against the underlying files without silently changing claim status.
+
+PROJECT:
+**Проект:** OSINT Station / Reverse Engineering  
+**Роль:** evidence-aware APK reverse-engineering workflow gateway
+
+NEXT:
+LAB on a benign APK; inspect workspace isolation, artifact provenance, finding verification and scoped WebSocket behavior before broader use.
 
 ---
 
@@ -22187,7 +22319,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 76
+Cards: 77
 
 ### 0xsline/OpenChatCut
 
@@ -23100,6 +23232,28 @@ NEXT:
 Controlled test на одном PPTX и одном видео с субтитрами:
 layout round-trip, timing, терминология, стоимость и ручная
 редактируемость результата.
+
+---
+
+### fabox-os/Picasso-Suite
+
+URL: https://github.com/fabox-os/Picasso-Suite
+VERDICT: KEEP
+SCORE: 57
+STARS: 17
+
+WHAT:
+Young cross-platform Rust non-linear editor with command-based project core, undo history, FFmpeg decoding/export, color/audio pages and interchange with Resolve, Premiere/FCP XML, AAF, OTIO and EDL.
+
+FIT:
+Useful for our Linux media stack as both a practical editor candidate and a reference for explicit edit commands plus broad interchange rather than a closed project format.
+
+PROJECT:
+**Проект:** Media Factory / Editing  
+**Роль:** cross-platform Rust NLE and interchange lab
+
+NEXT:
+TRY one short real project on Camelot; test timeline stability, H.264 export and OTIO/XML roundtrip before treating it as usable production software.
 
 ---
 
