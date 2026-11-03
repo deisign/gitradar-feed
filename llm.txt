@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-03T12:41:51
+Generated: 2026-11-03T14:02:39
 Date: 2026-11-03
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,43 +8,43 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 736
+- Total curated cards: 776
 - Buckets: 32
 
 ## Bucket summary
 
-- Agent Memory / Context: 55
-- Agent Reliability / Evals & Production: 27
-- Agent Security / Governance: 51
-- Automation / Event Workflows: 21
+- Agent Memory / Context: 56
+- Agent Reliability / Evals & Production: 29
+- Agent Security / Governance: 56
+- Automation / Event Workflows: 23
 - Broadcast / Playout / Automation: 5
-- Design / Image Editing: 12
-- Design Systems / Visual QA: 36
-- Device Control / Capture: 8
-- Document Parsing / Ingestion: 18
+- Design / Image Editing: 13
+- Design Systems / Visual QA: 37
+- Device Control / Capture: 9
+- Document Parsing / Ingestion: 19
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 12
 - Infographics / Visual Storytelling: 36
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 100
+- Lancelot / Agent Infrastructure: 110
 - Media / Social Monitoring: 10
 - Media Kits / Brand Automation: 3
-- Mixing / Mastering / Audio Engineering: 11
+- Mixing / Mastering / Audio Engineering: 13
 - Music Generation / AI Music: 7
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
-- OSINT / Investigations: 30
-- Publishing / Layout / PDF: 13
-- Radio / Audio Ops: 27
-- Reverse Engineering / Binary Analysis: 18
-- Search / Retrieval Engineering: 26
+- OSINT / Investigations: 31
+- Publishing / Layout / PDF: 14
+- Radio / Audio Ops: 28
+- Reverse Engineering / Binary Analysis: 20
+- Search / Retrieval Engineering: 29
 - Social Media / Content Ops: 3
-- Speech / TTS & Voice: 22
-- System Architecture / Engineering Patterns: 33
+- Speech / TTS & Voice: 24
+- System Architecture / Engineering Patterns: 34
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 78
+- Video Production / Editing: 80
 - Web Data / Crawling & Extraction: 12
-- Web Intelligence / SEO & AI Visibility: 11
+- Web Intelligence / SEO & AI Visibility: 12
 
 ## Today's run
 
@@ -59,7 +59,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 55
+Cards: 56
 
 ### 23skdu/longbow
 
@@ -125,6 +125,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### codecoradev/uteke
+
+URL: https://github.com/codecoradev/uteke
+VERDICT: KEEP
+SCORE: 18
+STARS: 281
+
+WHAT:
+Long-term memory for agents in one Rust binary, offline, with local embeddings plus SQLite full-text search and no LLM in retrieval.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -1388,7 +1409,7 @@ DEEP STUDY архитектуры; lab только после понимани�
 
 ## BUCKET: Agent Reliability / Evals & Production
 
-Cards: 27
+Cards: 29
 
 ### Adi15Jain/cf_ai_next_doctor
 
@@ -1842,6 +1863,27 @@ NEXT:
 
 ---
 
+### synaptiai/agent-capability-standard
+
+URL: https://github.com/synaptiai/agent-capability-standard
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Open specification for composable AI-agent capabilities with 36 atomic capabilities, typed workflow DSL and grounded world modeling.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### tessaryai/tessary
 
 URL: https://github.com/tessaryai/tessary
@@ -1947,6 +1989,27 @@ NEXT:
 
 ---
 
+### wankimmy/Bossku-Superpowers
+
+URL: https://github.com/wankimmy/Bossku-Superpowers
+VERDICT: KEEP
+SCORE: 18
+STARS: 22
+
+WHAT:
+Coding-agent harness adding verification gates, risky-command guards and project memory across multiple agent clients.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### WrongStack/WrongTrace
 
 URL: https://github.com/WrongStack/WrongTrace
@@ -1975,7 +2038,28 @@ considering any guardrail or locking features.
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 51
+Cards: 56
+
+### 0xNyk/agent-security
+
+URL: https://github.com/0xNyk/agent-security
+VERDICT: KEEP
+SCORE: 19
+STARS: 7
+
+WHAT:
+Deterministic safety gates for repositories touched by coding agents and automation.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
 
 ### affaan-m/agentshield
 
@@ -3748,6 +3832,27 @@ NEXT:
 
 ---
 
+### ljedrz/nachalnik
+
+URL: https://github.com/ljedrz/nachalnik
+VERDICT: KEEP
+SCORE: 36
+STARS: 6
+
+WHAT:
+Transparent Rust agent runtime with context, tools, permissions and requests as explicit state, plus MCP bridge and terminal agent.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### mathematic-inc/earl
 
 URL: https://github.com/mathematic-inc/earl
@@ -3945,6 +4050,27 @@ NEXT:
 
 ---
 
+### Mocinjay/immunogen
+
+URL: https://github.com/Mocinjay/immunogen
+VERDICT: KEEP
+SCORE: 25
+STARS: 9
+
+WHAT:
+Offline-first static scanner for AI-built apps, including skills, MCP servers and agent prompts; SARIF output, never runs target code.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### nolabs-ai/nono
 
 URL: https://github.com/nolabs-ai/nono
@@ -4085,6 +4211,27 @@ NEXT:
 действительно дополняют
 SafeAI / AgentShield,
 а какие дублируются.
+
+---
+
+### ohad6k/VibeRaven
+
+URL: https://github.com/ohad6k/VibeRaven
+VERDICT: KEEP
+SCORE: 27
+STARS: 61
+
+WHAT:
+Local Vercel+Supabase security scanner for RLS, permissive policies, service-role exposure, security-definer functions and webhook/config gaps.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -4286,6 +4433,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### responsibleai/agent-control-spec
+
+URL: https://github.com/responsibleai/agent-control-spec
+VERDICT: KEEP
+SCORE: 19
+STARS: 6
+
+WHAT:
+Policy decision runtime for agent security built around an explicit control contract.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -4822,7 +4990,7 @@ event/proof formats без заимствования всего runtime.
 
 ## BUCKET: Automation / Event Workflows
 
-Cards: 21
+Cards: 23
 
 ### 0000F8/n8n-nodes-saltapp
 
@@ -4884,6 +5052,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### conn3xorg/circuit-n8n
+
+URL: https://github.com/conn3xorg/circuit-n8n
+VERDICT: KEEP
+SCORE: 20
+STARS: 0
+
+WHAT:
+Self-hosted n8n deployment circuit using Podman/systemd, SQLite or PostgreSQL and a host-generated encryption key.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -5224,6 +5413,27 @@ NEXT:
 
 ---
 
+### Souzix76/n8n-mcp-cli
+
+URL: https://github.com/Souzix76/n8n-mcp-cli
+VERDICT: KEEP
+SCORE: 22
+STARS: 1
+
+WHAT:
+Production-safe QA and workflow-health platform for n8n with read-only credential boundary, trace analysis and regression/failure classification.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### StackStorm/st2
 
 URL: https://github.com/StackStorm/st2
@@ -5452,7 +5662,7 @@ WATCH до появления реальной AoIP-задачи; сохрани
 
 ## BUCKET: Design / Image Editing
 
-Cards: 12
+Cards: 13
 
 ### bumicodes/draw-beautiful
 
@@ -5690,6 +5900,27 @@ NEXT:
 
 ---
 
+### whcater/react-image-studio
+
+URL: https://github.com/whcater/react-image-studio
+VERDICT: KEEP
+SCORE: 20
+STARS: 6
+
+WHAT:
+Feature-rich non-destructive React image editor with crop, text, mosaic redaction, numbered markers, undo and export.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### splaching-boop/Lumitype
 
 URL: https://github.com/splaching-boop/Lumitype
@@ -5713,7 +5944,7 @@ WATCH и сравнение с более зрелым PhotoCraft по memory mo
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 36
+Cards: 37
 
 ### 0design/ai-native-design-framework
 
@@ -7035,6 +7266,27 @@ NEXT:
 
 ---
 
+### seungdori/web-stylebook-mcp
+
+URL: https://github.com/seungdori/web-stylebook-mcp
+VERDICT: KEEP
+SCORE: 37
+STARS: 76
+
+WHAT:
+MCP server with scored design directions, UI-state plans and WCAG-checked design tokens; deterministic, offline, no API key.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### simonlin1212/SDesign
 
 URL: https://github.com/simonlin1212/SDesign
@@ -7710,7 +7962,7 @@ NEXT:
 
 ## BUCKET: Device Control / Capture
 
-Cards: 8
+Cards: 9
 
 ### bk138/droidVNC-NG
 
@@ -7844,6 +8096,27 @@ NEXT:
 
 ---
 
+### srrchysfzy/NowWebAdb
+
+URL: https://github.com/srrchysfzy/NowWebAdb
+VERDICT: KEEP
+SCORE: 18
+STARS: 19
+
+WHAT:
+Browser-based Android workbench for ADB, scrcpy, files, apps, logcat, terminal, performance and diagnostics.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### yeahhe365/WebDroid-Agent
 
 URL: https://github.com/yeahhe365/WebDroid-Agent
@@ -7888,7 +8161,7 @@ NEXT:
 
 ## BUCKET: Document Parsing / Ingestion
 
-Cards: 18
+Cards: 19
 
 ### CHEN010325/paddleocr-local
 
@@ -8132,6 +8405,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### opendatalab/OmniDocBench
+
+URL: https://github.com/opendatalab/OmniDocBench
+VERDICT: KEEP
+SCORE: 18
+STARS: 2136
+
+WHAT:
+Comprehensive benchmark for document parsing and evaluation, published in the CVPR 2025 context.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -11555,7 +11849,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 100
+Cards: 110
 
 ### Afloat16/jev-mcp
 
@@ -11655,6 +11949,27 @@ structured capability or another real boundary.
 
 ---
 
+### albri/mdplane
+
+URL: https://github.com/albri/mdplane
+VERDICT: KEEP
+SCORE: 18
+STARS: 3
+
+WHAT:
+Shared markdown worklog for agents using capability links, task claims and a hashed live history.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### alphaXiv/OpenResearch
 
 URL: https://github.com/alphaXiv/OpenResearch
@@ -11705,6 +12020,27 @@ NEXT:
 `REPRODUCIBLE_EXPERIMENT_BUNDLE`
 
 source commit + input hashes + tool versions + run contract + compute contract + logs + metrics + parent + hypothesis + decision.
+
+---
+
+### anolilab/lunora
+
+URL: https://github.com/anolilab/lunora
+VERDICT: KEEP
+SCORE: 35
+STARS: 293
+
+WHAT:
+Type-safe realtime backend on Cloudflare Workers and Durable Objects with auth, storage, scheduling and MCP.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -12439,6 +12775,27 @@ REFERENCE the authorization and audit architecture; compare its MCP/tool governa
 
 ---
 
+### contentworker/contentworker
+
+URL: https://github.com/contentworker/contentworker
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+API-first agent-native headless CMS on Cloudflare with a hexagonal core, MCP server and transactional outbox.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### coollabsio/coolify
 
 URL: https://github.com/coollabsio/coolify
@@ -12558,6 +12915,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### cuongdinhngo/code-atlas
+
+URL: https://github.com/cuongdinhngo/code-atlas
+VERDICT: KEEP
+SCORE: 18
+STARS: 3
+
+WHAT:
+Local-first MCP indexing a codebase into a SQLite symbol graph for token-efficient callers/impact/navigation queries.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -12752,6 +13130,27 @@ Zotero
 → filtered MCP exposure.
 
 До переноса уникальных материалов отдельно проверить backup/export и устойчивость формата.
+
+---
+
+### droidmaximus/browserlearn
+
+URL: https://github.com/droidmaximus/browserlearn
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Local-first browser-agent training: record a Chrome task, compile a parameterized workflow, run via MCP or export Playwright/Stagehand.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -13156,6 +13555,27 @@ old alias `hronicasync/nodumbmode`
 
 ---
 
+### harrywinter06-code/clustertrace
+
+URL: https://github.com/harrywinter06-code/clustertrace
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Local-first agent observability that clusters traces by execution pattern and surfaces failing clusters.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### hashgraph-online/hol-guard
 
 URL: https://github.com/hashgraph-online/hol-guard
@@ -13556,6 +13976,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### Jaicenberg/hq-ap-inbox-agent
+
+URL: https://github.com/Jaicenberg/hq-ap-inbox-agent
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+AP inbox agent with offline document preprocessing, explicit read-status/quality tables and a tool-first chat layer on Cloudflare.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -14367,6 +14808,27 @@ and an externally anchored receipt head if history completeness must be provable
 
 ---
 
+### prime-radiant-inc/streamlinear
+
+URL: https://github.com/prime-radiant-inc/streamlinear
+VERDICT: KEEP
+SCORE: 18
+STARS: 90
+
+WHAT:
+Lightweight Linear MCP exposing one action-dispatch tool instead of many separate tool schemas.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### PrismorSec/prismor
 
 URL: https://github.com/PrismorSec/prismor
@@ -14456,6 +14918,27 @@ PROJECT:
 
 NEXT:
 Model one real Lancelot side effect through proposal → policy → reviewer → human → ephemeral action token.
+
+---
+
+### RaveenDi/Skilloadout
+
+URL: https://github.com/RaveenDi/Skilloadout
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Large agent-skill catalogue with license checks, safety scanning, weekly sync, plugin marketplace and MCP access.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -14887,6 +15370,27 @@ PROJECT:
 
 NEXT:
 Mine only patterns that remain distinct from existing Lancelot skills and memory components.
+
+---
+
+### tonyweckstrom1987/mcp-doctor
+
+URL: https://github.com/tonyweckstrom1987/mcp-doctor
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Health check for MCP servers covering handshake, tool-schema lint, token budget, auth checks and explicit smoke calls.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -15989,7 +16493,7 @@ upstream сам считает Word наиболее зрелой реализа
 
 ## BUCKET: Mixing / Mastering / Audio Engineering
 
-Cards: 11
+Cards: 13
 
 ### Bodila51/opus-sound-layer
 
@@ -16012,6 +16516,27 @@ NEXT:
 
 ---
 
+### dgl1984/optilab
+
+URL: https://github.com/dgl1984/optilab
+VERDICT: KEEP
+SCORE: 18
+STARS: 13
+
+WHAT:
+Broadcast/mastering processor with Stream polish, Podcast Leveler and Smooth Limiter modes across JSFX/VST3/CLAP formats.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### DropSnorz/OwlPlug
 
 URL: https://github.com/DropSnorz/OwlPlug
@@ -16030,6 +16555,27 @@ Mixing / Mastering / Audio Engineering
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### fcarvajalbrown/Keel
+
+URL: https://github.com/fcarvajalbrown/Keel
+VERDICT: KEEP
+SCORE: 28
+STARS: 6
+
+WHAT:
+Deterministic open-source engine that balances finished stems and masters to an exact LUFS target with true-peak limiting.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -16950,7 +17496,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 30
+Cards: 31
 
 ### atlosdotorg/atlos
 
@@ -17776,6 +18322,27 @@ NEXT:
 
 ---
 
+### thalha-a9/helix
+
+URL: https://github.com/thalha-a9/helix
+VERDICT: KEEP
+SCORE: 20
+STARS: 26
+
+WHAT:
+Username OSINT across 11,988 sites with live re-checks, identity confidence and sealed evidence.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### thunderstornX/agentic-osint-agent
 
 URL: https://github.com/thunderstornX/agentic-osint-agent
@@ -17999,7 +18566,7 @@ NEXT:
 
 ## BUCKET: Publishing / Layout / PDF
 
-Cards: 13
+Cards: 14
 
 ### carpe-diem/typst-fillable
 
@@ -18468,6 +19035,27 @@ NEXT:
 
 ---
 
+### reproducible-reporting/animo
+
+URL: https://github.com/reproducible-reporting/animo
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Builds dynamic HTML and static PDF presentations/handouts from one Typst source.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### rstudio/pagedown
 
 URL: https://github.com/rstudio/pagedown
@@ -18554,7 +19142,7 @@ NEXT:
 
 ## BUCKET: Radio / Audio Ops
 
-Cards: 27
+Cards: 28
 
 ### acropolis914/Clara
 
@@ -19234,6 +19822,27 @@ REFERENCE; при развитии player/архива отдельно прот
 
 ---
 
+### skorotkiewicz/radio-in-a-box
+
+URL: https://github.com/skorotkiewicz/radio-in-a-box
+VERDICT: KEEP
+SCORE: 28
+STARS: 16
+
+WHAT:
+Self-hosted internet radio stack with Icecast, Liquidsoap, Rust CLI, Docker Compose and a lightweight listener page.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### thomasbottrill/BandKit
 
 URL: https://github.com/thomasbottrill/BandKit
@@ -19368,7 +19977,7 @@ NEXT:
 
 ## BUCKET: Reverse Engineering / Binary Analysis
 
-Cards: 18
+Cards: 20
 
 ### AgeloVito/jd-mcp-duo
 
@@ -19679,6 +20288,48 @@ NEXT:
 
 ---
 
+### Sarks0/binary-mcp
+
+URL: https://github.com/Sarks0/binary-mcp
+VERDICT: KEEP
+SCORE: 18
+STARS: 11
+
+WHAT:
+MCP server unifying Ghidra, x64dbg, WinDbg/KD, ILSpyCmd and PE triage for guarded binary analysis.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Sxxxw/BinMetric
+
+URL: https://github.com/Sxxxw/BinMetric
+VERDICT: KEEP
+SCORE: 18
+STARS: 11
+
+WHAT:
+IJCAI 2025 benchmark and evaluation pipeline for LLM binary-code analysis.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### valeria-org/bitwright
 
 URL: https://github.com/valeria-org/bitwright
@@ -19765,7 +20416,7 @@ NEXT:
 
 ## BUCKET: Search / Retrieval Engineering
 
-Cards: 26
+Cards: 29
 
 ### al1-nasir/weigh_swarm
 
@@ -19833,6 +20484,27 @@ PROJECT:
 
 NEXT:
 Оставить в deploy-test shortlist Circus; сравнить с Typesense + собственным ingestion на одном research corpus.
+
+---
+
+### BetaBots-LLC/callimachus
+
+URL: https://github.com/BetaBots-LLC/callimachus
+VERDICT: KEEP
+SCORE: 18
+STARS: 46
+
+WHAT:
+Local searchable index of coding-agent history across many clients with keyword plus semantic search, MCP, CLI and editor integration.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -19961,6 +20633,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### iliaal/codesage
+
+URL: https://github.com/iliaal/codesage
+VERDICT: KEEP
+SCORE: 18
+STARS: 21
+
+WHAT:
+Code intelligence engine for AI coding agents combining structural graph queries and semantic search.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -20176,6 +20869,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### ssrajadh/sentrysearch
+
+URL: https://github.com/ssrajadh/sentrysearch
+VERDICT: KEEP
+SCORE: 18
+STARS: 4577
+
+WHAT:
+Semantic search over video footage using multimodal embeddings, returning matched trimmed clips.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -20407,7 +21121,7 @@ reviewable.
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 22
+Cards: 24
 
 ### 5uck1ess/tts-bench
 
@@ -20474,6 +21188,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Dicklesworthstone/franken_tts
+
+URL: https://github.com/Dicklesworthstone/franken_tts
+VERDICT: KEEP
+SCORE: 18
+STARS: 47
+
+WHAT:
+Pure-Rust CPU-only runtime for Qwen3-TTS zero-shot voice cloning without Python, ML framework or GPU at inference.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -20862,6 +21597,27 @@ Benchmark на Camelot/Circus против текущего transcription route:
 
 ---
 
+### tterrasson/kokopop
+
+URL: https://github.com/tterrasson/kokopop
+VERDICT: KEEP
+SCORE: 18
+STARS: 11
+
+WHAT:
+Standalone C++ toolkit for running neural TTS models in GGUF with streaming and CPU/Metal/CUDA/Vulkan/WebGPU backends.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
 ### wuxuedaifu/vllm-chatterbox-stream
 
 URL: https://github.com/wuxuedaifu/vllm-chatterbox-stream
@@ -20885,7 +21641,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 33
+Cards: 34
 
 ### a2ui-project/a2ui
 
@@ -21122,6 +21878,27 @@ PROJECT:
 
 NEXT:
 TRY как изолированную Windows lab VM; начать без shared folders/USB и добавлять bridges только по необходимости.
+
+---
+
+### durable-workflow/server
+
+URL: https://github.com/durable-workflow/server
+VERDICT: KEEP
+SCORE: 23
+STARS: 6
+
+WHAT:
+Self-hosted language-neutral durable workflow runtime with history, external workers, timers, schedules and namespaces.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -22361,7 +23138,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 78
+Cards: 80
 
 ### 0xsline/OpenChatCut
 
@@ -22738,6 +23515,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### blazejkustra/uncut
+
+URL: https://github.com/blazejkustra/uncut
+VERDICT: KEEP
+SCORE: 31
+STARS: 17
+
+WHAT:
+Open-source AI video editor for macOS where Claude Code or Codex edits on a real timeline.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -23973,6 +24771,27 @@ Shorts / Reels Automation
 
 NEXT:
 проверить face tracking, subtitles, B-roll и локальность
+
+---
+
+### nexmoe/VidBee
+
+URL: https://github.com/nexmoe/VidBee
+VERDICT: KEEP
+SCORE: 36
+STARS: 11028
+
+WHAT:
+Downloads video/audio from many sites, transcribes locally with speaker labels, then summarizes, translates or chats over media.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 
@@ -25424,7 +26243,7 @@ WATCH/LAB LATER; использовать архитектурные идеи, �
 
 ## BUCKET: Web Intelligence / SEO & AI Visibility
 
-Cards: 11
+Cards: 12
 
 ### Akxan/google-seo-mcp
 
@@ -25444,6 +26263,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Anas660/claude-seo-desk
+
+URL: https://github.com/Anas660/claude-seo-desk
+VERDICT: KEEP
+SCORE: 18
+STARS: 4
+
+WHAT:
+Open-source SEO/AEO/GEO audits with AI-crawler access, llms.txt, answer-ready pages, CLI, GitHub Action, Claude plugin and MCP.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
 
 ---
 

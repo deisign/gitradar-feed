@@ -1,13 +1,13 @@
 {
   "schema": "creative-radar-lancelot-feed-v1",
-  "generated_at": "2026-11-03T10:41:50.866063+00:00",
-  "count": 109,
+  "generated_at": "2026-11-03T12:02:39.006988+00:00",
+  "count": 119,
   "tiers": {
     "HIGH": 23,
     "KEEP": 3,
     "WATCH": 1,
-    "UNSET": 82
+    "UNSET": 92
   },
-  "sha256": "e7f455de7ac4ac213002140afa98568f3003219d0ed296377e1ff42d61143fc8",
+  "sha256": "b0e73a7f0d26788652a97ae8054526bef4b36224a76e904491f1de498f03fad5",
   "feed": "lancelot.jsonl"
 }
