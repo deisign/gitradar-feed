@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-03T08:29:01
+Generated: 2026-11-03T12:41:51
 Date: 2026-11-03
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 733
+- Total curated cards: 736
 - Buckets: 32
 
 ## Bucket summary
@@ -16,7 +16,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Agent Memory / Context: 55
 - Agent Reliability / Evals & Production: 27
 - Agent Security / Governance: 51
-- Automation / Event Workflows: 20
+- Automation / Event Workflows: 21
 - Broadcast / Playout / Automation: 5
 - Design / Image Editing: 12
 - Design Systems / Visual QA: 36
@@ -33,7 +33,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Music Generation / AI Music: 7
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
-- OSINT / Investigations: 29
+- OSINT / Investigations: 30
 - Publishing / Layout / PDF: 13
 - Radio / Audio Ops: 27
 - Reverse Engineering / Binary Analysis: 18
@@ -42,7 +42,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Speech / TTS & Voice: 22
 - System Architecture / Engineering Patterns: 33
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 77
+- Video Production / Editing: 78
 - Web Data / Crawling & Extraction: 12
 - Web Intelligence / SEO & AI Visibility: 11
 
@@ -4822,7 +4822,7 @@ event/proof formats без заимствования всего runtime.
 
 ## BUCKET: Automation / Event Workflows
 
-Cards: 20
+Cards: 21
 
 ### 0000F8/n8n-nodes-saltapp
 
@@ -5102,6 +5102,27 @@ PROJECT:
 
 NEXT:
 При taxonomy patch переименовать bucket `n8n` в `Automation / Event Workflows`.
+
+---
+
+### mautic/mautic
+
+URL: https://github.com/mautic/mautic
+VERDICT: KEEP
+SCORE: 61
+STARS: 10919
+
+WHAT:
+Большая open-source marketing automation platform. Для нас ценность не в том, чтобы поставить ещё один CRM/marketing suite, а в зрелой модели исполнения кампаний и накопленной семантике событий.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Вытащить минимальную модель для собственной машины: selection != scheduling != execution; event history append-only; webhook/result становится входом следующего условия; campaign state не смешивается с CRM entity state. Сопоставить это с текущими объектами Twenty и media-monitoring sync.
 
 ---
 
@@ -16929,7 +16950,7 @@ NEXT:
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 29
+Cards: 30
 
 ### atlosdotorg/atlos
 
@@ -17227,6 +17248,27 @@ PROJECT:
 
 NEXT:
 TRY на тестовом публичном кейсе и сохранить command/query/tool_version рядом с evidence.
+
+---
+
+### faraz-riaz/gatekeepr
+
+URL: https://github.com/faraz-riaz/gatekeepr
+VERDICT: KEEP
+SCORE: 61
+STARS: 0
+
+WHAT:
+Local-first приложение для evidence-based full-text screening в literature review: документы проходят по критериям, а AI-оценка должна быть привязана к проверяемым фрагментам исходного текста.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Вынести из GateKeepr контракт evidence review для собственного pipeline: source pointer + quote span + criterion/version hash + model decision + deterministic downgrade + human final decision. Сравнить этот контракт с текущим review публикаций в media-monitoring.
 
 ---
 
@@ -22319,7 +22361,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 77
+Cards: 78
 
 ### 0xsline/OpenChatCut
 
@@ -23715,6 +23757,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### MagoStudio/MagoStudio
+
+URL: https://github.com/MagoStudio/MagoStudio
+VERDICT: KEEP
+SCORE: 67
+STARS: 120
+
+WHAT:
+AI-video workstation с local-first рабочей моделью и интеграцией с ComfyUI. Интересен не только как приложение, но и как пример того, как тяжёлый creative GUI можно сделать достаточно формализованным для операторской и агентной работы.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+На Camelot сначала проверить реальный объём VRAM. Если есть не менее 8 GB, провести ограниченный TRY: установка без миграции текущего workflow, импорт одного источника, versioned render track, ComfyUI preflight и проверка поведения local canonical state / remote execution mirror. Отдельно снять архитектурные seams для Lancelot/Claude-maintained GUI.
 
 ---
 
