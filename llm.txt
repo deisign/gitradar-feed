@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-06T08:29:16
+Generated: 2026-11-06T11:33:54
 Date: 2026-11-06
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,41 +8,57 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 776
-- Buckets: 32
+- Total curated cards: 799
+- Buckets: 48
 
 ## Bucket summary
 
+- Agent Infrastructure / Communications: 1
 - Agent Memory / Context: 56
-- Agent Reliability / Evals & Production: 29
+- Agent Reliability / Evals & Production: 30
 - Agent Security / Governance: 56
+- Audio / Music Tools: 1
 - Automation / Event Workflows: 23
 - Broadcast / Playout / Automation: 5
 - Design / Image Editing: 13
-- Design Systems / Visual QA: 37
+- Design Systems / Visual QA: 39
 - Device Control / Capture: 9
 - Document Parsing / Ingestion: 19
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 12
 - Infographics / Visual Storytelling: 36
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 110
+- Lancelot / Agent Infrastructure: 114
+- LLM Engineering / Reasoning & Evals: 1
+- Local AI / Inference Infrastructure: 1
+- Local AI / Portable Runtime Infrastructure: 1
 - Media / Social Monitoring: 10
 - Media Kits / Brand Automation: 3
+- Media Relations / Outreach Automation: 1
+- Media Tools / Mobile Image Workbench: 1
 - Mixing / Mastering / Audio Engineering: 13
+- Monitoring / Change Intelligence: 1
 - Music Generation / AI Music: 7
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
+- Operational Platforms / Extensible Systems: 1
+- Operational Platforms / Modular Systems: 1
+- OSINT / Collection & Crawling: 1
+- OSINT / GEOINT & Image Forensics: 1
 - OSINT / Investigations: 31
 - Publishing / Layout / PDF: 14
 - Radio / Audio Ops: 28
 - Reverse Engineering / Binary Analysis: 20
 - Search / Retrieval Engineering: 29
+- Security / Learning & Discovery Sources: 1
 - Social Media / Content Ops: 3
+- Software Architecture / Design References: 1
 - Speech / TTS & Voice: 24
 - System Architecture / Engineering Patterns: 34
 - Telegram Bots / Automation: 3
 - Video Production / Editing: 80
+- Visual Systems / Data Storytelling: 1
+- Visual Systems / Media Factory: 1
 - Web Data / Crawling & Extraction: 12
 - Web Intelligence / SEO & AI Visibility: 12
 
@@ -56,6 +72,31 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - NOISE: 242
 
 # CURATED CARDS
+
+## BUCKET: Agent Infrastructure / Communications
+
+Cards: 1
+
+### etherCorps/doota
+
+URL: https://github.com/etherCorps/doota
+VERDICT: KEEP / VERY HIGH
+SCORE: 50
+STARS: 34
+
+WHAT:
+Self-hosted email app на Cloudflare Workers/D1/R2/KV/Queues с chat-style threads, encrypted-at-rest content и отдельными inbound/outbound workers.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Перенести semantics в media-relations machine на SQLite/Postgres/object store/durable jobs, не копируя Cloudflare infrastructure.
+
+---
 
 ## BUCKET: Agent Memory / Context
 
@@ -1409,7 +1450,7 @@ DEEP STUDY архитектуры; lab только после понимани�
 
 ## BUCKET: Agent Reliability / Evals & Production
 
-Cards: 29
+Cards: 30
 
 ### Adi15Jain/cf_ai_next_doctor
 
@@ -2033,6 +2074,27 @@ PROJECT:
 NEXT:
 Pilot read-only observability on one agent-maintained repository before
 considering any guardrail or locking features.
+
+---
+
+### msuiche/weightless
+
+URL: https://github.com/msuiche/weightless
+VERDICT: KEEP / HIGH
+SCORE: 44
+STARS: 137
+
+WHAT:
+Inference-time steering для open-weight LLM через версионируемые GLP overlays без переобучения базовой модели.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Не внедрять; сохранить как reference для fail-closed compatibility и runtime self-check/fallback.
 
 ---
 
@@ -4988,6 +5050,31 @@ event/proof formats без заимствования всего runtime.
 
 ---
 
+## BUCKET: Audio / Music Tools
+
+Cards: 1
+
+### Squarebow/Orfeo
+
+URL: https://github.com/Squarebow/Orfeo
+VERDICT: KEEP / HIGH
+SCORE: 42
+STARS: 621
+
+WHAT:
+Offline desktop MIDI/piano приложение с акцентом на низкую задержку и локальную работу.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Оставить reference; вернуться при разработке MIDI/keyboard operator tooling.
+
+---
+
 ## BUCKET: Automation / Event Workflows
 
 Cards: 23
@@ -5944,7 +6031,7 @@ WATCH и сравнение с более зрелым PhotoCraft по memory mo
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 37
+Cards: 39
 
 ### 0design/ai-native-design-framework
 
@@ -7860,6 +7947,27 @@ NEXT:
 
 ---
 
+### heydamir/unslop
+
+URL: https://github.com/heydamir/unslop
+VERDICT: KEEP / HIGH
+SCORE: 46
+STARS: 10213
+
+WHAT:
+Skill для Claude/Codex, который системно убирает типичный generic AI UI и приводит интерфейс к заданному характеру.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY на одном нашем интерфейсе после design-extract; сравнить до/после и зафиксировать, какие passes реально дают эффект.
+
+---
+
 ### line/abc-def
 
 URL: https://github.com/line/abc-def
@@ -7878,6 +7986,27 @@ Design Systems / Visual QA
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### Manavarya09/design-extract
+
+URL: https://github.com/Manavarya09/design-extract
+VERDICT: KEEP / VERY HIGH
+SCORE: 53
+STARS: 4802
+
+WHAT:
+Инструмент reverse engineering живых сайтов в agent-readable design model: цвета, типографика, spacing, radii, layout, states, motion, anatomy, brand voice, WCAG и stack fingerprint.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY на реальном нашем интерфейсе; сохранить DNA + correction plan и пройти один полный render-regression loop.
 
 ---
 
@@ -11849,7 +11978,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 110
+Cards: 114
 
 ### Afloat16/jev-mcp
 
@@ -15603,6 +15732,27 @@ Use it when designing a first Lancelot MCP App that needs structured tool output
 
 ---
 
+### agent0ai/agent-zero
+
+URL: https://github.com/agent0ai/agent-zero
+VERDICT: KEEP / VERY HIGH
+SCORE: 53
+STARS: 19764
+
+WHAT:
+General-purpose agent runtime с Dockerized XFCE Linux desktop, shell/files, browser DOM annotations, LibreOffice cowork, projects, skills, plugins, MCP/A2A и subagents.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY на Camelot: isolated container, persistent `/a0/usr`, без host access/home mounts/prod secrets; test project → browser/docs/git/read-only MCP/subagent/Time Travel; host connector только потом.
+
+---
+
 ### anomalyco/opencode
 
 URL: https://github.com/anomalyco/opencode
@@ -15646,6 +15796,27 @@ WATCH; использовать identity/PR/approval architecture как referen
 
 ---
 
+### govijr/terminal-mac
+
+URL: https://github.com/govijr/terminal-mac
+VERDICT: KEEP / VERY HIGH
+SCORE: 49
+STARS: 2020
+
+WHAT:
+Минимальная macOS VM, которую агент видит через узкий MCP-контракт: screenshot, click, move, drag, scroll, type, key и status.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сохранить как donor для схемы guest + primitive tools; не переносить desktop automation на рабочий host.
+
+---
+
 ### hyperbolictonic/hyperbolic-gateway
 
 URL: https://github.com/hyperbolictonic/hyperbolic-gateway
@@ -15665,6 +15836,27 @@ PROJECT:
 
 NEXT:
 WATCH architecture; забирать API-contract ideas, не принимать широкие bot-evasion claims без независимой проверки.
+
+---
+
+### l0ng-ai/openidea
+
+URL: https://github.com/l0ng-ai/openidea
+VERDICT: KEEP / VERY HIGH
+SCORE: 53
+STARS: 7117
+
+WHAT:
+Desktop IDE с Rust/Tauri core и WASM plugins через wasmtime/WASI preview2.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY небольшого plugin и отдельно выписать минимальный capability manifest для собственного plugin API.
 
 ---
 
@@ -15707,6 +15899,27 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### storytold/craft-anything
+
+URL: https://github.com/storytold/craft-anything
+VERDICT: KEEP / VERY HIGH
+SCORE: 52
+STARS: 16258
+
+WHAT:
+Clean-room система, которая изучает видимое поведение программы и строит совместимую реализацию без доступа к исходникам.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Сделать небольшой TRY на безопасном локальном приложении и отдельно выписать ToolSpec/effects/consent контракт.
 
 ---
 
@@ -15762,6 +15975,81 @@ NEXT:
 Зафиксировать pattern для собственной service architecture:
 business procedure должна иметь единственную implementation/validation
 path, а MCP/REST/CLI — быть adapters вокруг неё.
+
+---
+
+## BUCKET: LLM Engineering / Reasoning & Evals
+
+Cards: 1
+
+### rasbt/reasoning-from-scratch
+
+URL: https://github.com/rasbt/reasoning-from-scratch
+VERDICT: KEEP / HIGH
+SCORE: 45
+STARS: 5791
+
+WHAT:
+Официальный код Sebastian Raschka к книге о reasoning-моделях: CoT, self-consistency, MATH-500, Best-of-N, self-refinement, GRPO/RLVR, distillation, MMLU и LLM-as-judge.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+На Camelot сравнить baseline / CoT / self-consistency / Best-of-N / self-refinement на маленьком объективно проверяемом наборе.
+
+---
+
+## BUCKET: Local AI / Inference Infrastructure
+
+Cards: 1
+
+### FlashML-org/FreeToken
+
+URL: https://github.com/FlashML-org/FreeToken
+VERDICT: KEEP / VERY HIGH
+SCORE: 50
+STARS: 16731
+
+WHAT:
+Edge-native MoE serving, который рассматривает CPU, RAM, PCIe bandwidth и GPU VRAM как один эластичный inference fabric.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY на Camelot с manageable MoE: `ft bench bw`, затем сравнить offload/cpu/hybrid с Ollama/llama.cpp по load/prefill/decode/RAM/VRAM.
+
+---
+
+## BUCKET: Local AI / Portable Runtime Infrastructure
+
+Cards: 1
+
+### techjarves/Portable-Local-Studio
+
+URL: https://github.com/techjarves/Portable-Local-Studio
+VERDICT: KEEP / HIGH
+SCORE: 45
+STARS: 1931
+
+WHAT:
+Portable GUI, который пакует stable-diffusion.cpp, llama.cpp, whisper.cpp и Kokoro/ONNX вместе с моделями и launcher, не требуя глобального Python/Conda окружения.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY на Camelot: CUDA detection, небольшой SD/LLM, Whisper, переключение Image ↔ LLM и проверка освобождения VRAM.
 
 ---
 
@@ -16491,6 +16779,56 @@ upstream сам считает Word наиболее зрелой реализа
 
 ---
 
+## BUCKET: Media Relations / Outreach Automation
+
+Cards: 1
+
+### warmbly/warmbly
+
+URL: https://github.com/warmbly/warmbly
+VERDICT: KEEP / VERY HIGH
+SCORE: 49
+STARS: 958
+
+WHAT:
+Open-source outreach platform с campaigns, sequences, inbox, CRM, warmup, deliverability и automation playbooks.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Перенести patterns в собственную media-relations architecture: persisted decision → deterministic action → audit/retry/idempotency.
+
+---
+
+## BUCKET: Media Tools / Mobile Image Workbench
+
+Cards: 1
+
+### T8RIN/ImageToolbox
+
+URL: https://github.com/T8RIN/ImageToolbox
+VERDICT: KEEP / HIGH
+SCORE: 44
+STARS: 15444
+
+WHAT:
+Большой Android image workbench на Kotlin/Compose: OCR, EXIF, formats, PDF, batch processing, background removal, markup, vector trace, collage и локальные ONNX-модели.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY FOSS build на Android: Telegram screenshot, EXIF original, scan, HEIC/JXL, OCR RU/UA и PDF sanitize.
+
+---
+
 ## BUCKET: Mixing / Mastering / Audio Engineering
 
 Cards: 13
@@ -16803,6 +17141,31 @@ Mixing / Mastering / Audio Engineering
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+## BUCKET: Monitoring / Change Intelligence
+
+Cards: 1
+
+### dgtlmoon/changedetection.io
+
+URL: https://github.com/dgtlmoon/changedetection.io
+VERDICT: KEEP / VERY HIGH
+SCORE: 52
+STARS: 35578
+
+WHAT:
+Self-hosted website change monitoring с HTTP/Chrome fetchers, selectors, browser steps, notifications, PDF/JSON support, scheduling и history.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Backup datastore → upgrade to 0.70.1+ → проверить old watches → MCP history → один noisy watch с локальным LLM → один OSINT processor test.
 
 ---
 
@@ -17491,6 +17854,106 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+## BUCKET: Operational Platforms / Extensible Systems
+
+Cards: 1
+
+### fleetbase/fleetbase
+
+URL: https://github.com/fleetbase/fleetbase
+VERDICT: KEEP / HIGH
+SCORE: 47
+STARS: 4564
+
+WHAT:
+Большая модульная operational platform с IAM, REST, WebSockets, webhooks/events, workflows, extension registry и несколькими доменными приложениями.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Использовать как architecture reference для workflow state, extension registry и release gates.
+
+---
+
+## BUCKET: Operational Platforms / Modular Systems
+
+Cards: 1
+
+### datadrivenconstruction/OpenConstructionERP
+
+URL: https://github.com/datadrivenconstruction/OpenConstructionERP
+VERDICT: KEEP / VERY HIGH
+SCORE: 53
+STARS: 1273
+
+WHAT:
+Большая modular ERP/operations platform на FastAPI/React/Tauri с сотнями backend modules, manifest-based plugins, shared schemas и realtime collaboration.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Не устанавливать целиком. Перенести manifest/inference schema и module-owned validation в собственный prototype.
+
+---
+
+## BUCKET: OSINT / Collection & Crawling
+
+Cards: 1
+
+### D4Vinci/Scrapling
+
+URL: https://github.com/D4Vinci/Scrapling
+VERDICT: KEEP / VERY HIGH
+SCORE: 52
+STARS: 98458
+
+WHAT:
+Python-стек веб-сбора: быстрый HTTP, stealth browsers, JS, интеракции, background API capture, sessions, selectors, adaptive element tracking, spiders и clean Markdown.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY на 2–3 публичных источниках media-monitoring, где текущие fetchers нестабильны; сравнить устойчивость и стоимость.
+
+---
+
+## BUCKET: OSINT / GEOINT & Image Forensics
+
+Cards: 1
+
+### kluter/TracePoint
+
+URL: https://github.com/kluter/TracePoint
+VERDICT: KEEP / VERY HIGH
+SCORE: 48
+STARS: 16
+
+WHAT:
+Browser tool для photo geolocation: пользователь проводит линии через узнаваемые ориентиры на фото и отмечает те же объекты на карте; пересечения лучей дают оценку позиции.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY на фото с известной скрытой точкой: 3–4 landmarks, затем multi-photo convergence.
 
 ---
 
@@ -21048,6 +21511,31 @@ TRY на одной большой папке, не на всём HOME; пров
 
 ---
 
+## BUCKET: Security / Learning & Discovery Sources
+
+Cards: 1
+
+### CarterPerez-dev/Cybersecurity-Projects
+
+URL: https://github.com/CarterPerez-dev/Cybersecurity-Projects
+VERDICT: KEEP / HIGH
+SCORE: 46
+STARS: 9258
+
+WHAT:
+Корпус примерно из 70 hands-on cybersecurity projects; значительная часть содержит рабочий source/deploy/config и отдельные `learn/` материалы.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Для наших систем принять invariant `acquire → durable raw → processing queue → enrichment`; Monitor patterns попробовать отдельно, но оставить одну родительскую карточку.
+
+---
+
 ## BUCKET: Social Media / Content Ops
 
 Cards: 3
@@ -21116,6 +21604,31 @@ PROJECT:
 NEXT:
 Borrow adapter, queue and quality-gate patterns; keep strategy changes
 reviewable.
+
+---
+
+## BUCKET: Software Architecture / Design References
+
+Cards: 1
+
+### ashishps1/awesome-low-level-design
+
+URL: https://github.com/ashishps1/awesome-low-level-design
+VERDICT: KEEP / MEDIUM-HIGH
+SCORE: 40
+STARS: 27868
+
+WHAT:
+Большой учебный корпус low-level design: OOP/UML, State/Strategy/Observer/Command, concurrency и задачи вроде pub/sub, logger, task manager, booking, vending machine с реализациями на нескольких языках.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Держать reference для State Machine, Producer–Consumer, Pub/Sub, Logging Framework и Task Management; не копировать решения буквально.
 
 ---
 
@@ -25959,6 +26472,56 @@ Shorts / Reels Automation
 
 NEXT:
 проверить живость, зависимости и качество нарезки
+
+---
+
+## BUCKET: Visual Systems / Data Storytelling
+
+Cards: 1
+
+### davidgcorr/excaliall
+
+URL: https://github.com/davidgcorr/excaliall
+VERDICT: KEEP / VERY HIGH
+SCORE: 48
+STARS: 8
+
+WHAT:
+Fork Excalidraw с animated connectors, roughViz charts и editable tables; экспортирует SVG, PNG, GIF и standalone HTML.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY одной WSB-сцены с 5–10 сущностями, links и table/chart; экспортировать SVG + GIF + HTML.
+
+---
+
+## BUCKET: Visual Systems / Media Factory
+
+Cards: 1
+
+### shaongitbd/doory
+
+URL: https://github.com/shaongitbd/doory
+VERDICT: KEEP / VERY HIGH
+SCORE: 50
+STARS: 2401
+
+WHAT:
+Self-hosted Canva-like editor: React/Fabric/Yjs/Zustand, Django/DRF/Channels/Postgres, Docker, optional Redis/S3.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY одного утверждённого шаблона и batch на тестовом CSV; проверить editable output, typography и QR.
 
 ---
 
