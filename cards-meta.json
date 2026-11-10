@@ -1,7 +1,7 @@
 {
   "schema": "creative-radar-cards-feed-v1",
-  "generated_at": "2026-11-10T06:29:35.613406+00:00",
-  "count": 799,
+  "generated_at": "2026-11-10T10:14:18.506227+00:00",
+  "count": 805,
   "buckets": {
     "Agent Infrastructure / Communications": 1,
     "Agent Memory / Context": 56,
@@ -19,7 +19,7 @@
     "Infographics / Visual Storytelling": 36,
     "Interactive Reports / Data Apps": 10,
     "LLM Engineering / Reasoning & Evals": 1,
-    "Lancelot / Agent Infrastructure": 114,
+    "Lancelot / Agent Infrastructure": 115,
     "Local AI / Inference Infrastructure": 1,
     "Local AI / Portable Runtime Infrastructure": 1,
     "Media / Social Monitoring": 10,
@@ -38,7 +38,7 @@
     "Operational Platforms / Modular Systems": 1,
     "Publishing / Layout / PDF": 14,
     "Radio / Audio Ops": 28,
-    "Reverse Engineering / Binary Analysis": 20,
+    "Reverse Engineering / Binary Analysis": 21,
     "Search / Retrieval Engineering": 29,
     "Security / Learning & Discovery Sources": 1,
     "Social Media / Content Ops": 3,
@@ -46,12 +46,12 @@
     "Speech / TTS & Voice": 24,
     "System Architecture / Engineering Patterns": 34,
     "Telegram Bots / Automation": 3,
-    "Video Production / Editing": 80,
+    "Video Production / Editing": 84,
     "Visual Systems / Data Storytelling": 1,
     "Visual Systems / Media Factory": 1,
     "Web Data / Crawling & Extraction": 12,
     "Web Intelligence / SEO & AI Visibility": 12
   },
-  "sha256": "8fd9120dc3a9cab7fedfdfdede68944162f155c722949f2307a4b58fb9b4b718",
+  "sha256": "0ceb2c82101a464d300ab3e77aaaa3fa9a7aa2f636c6bdd9b9bc1015f82448ae",
   "feed": "cards.jsonl"
 }

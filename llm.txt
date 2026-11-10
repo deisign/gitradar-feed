@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-10T08:29:35
+Generated: 2026-11-10T12:14:18
 Date: 2026-11-10
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 799
+- Total curated cards: 805
 - Buckets: 48
 
 ## Bucket summary
@@ -28,7 +28,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Full-Song AI / Suno Alternatives: 12
 - Infographics / Visual Storytelling: 36
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 114
+- Lancelot / Agent Infrastructure: 115
 - LLM Engineering / Reasoning & Evals: 1
 - Local AI / Inference Infrastructure: 1
 - Local AI / Portable Runtime Infrastructure: 1
@@ -48,7 +48,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - OSINT / Investigations: 31
 - Publishing / Layout / PDF: 14
 - Radio / Audio Ops: 28
-- Reverse Engineering / Binary Analysis: 20
+- Reverse Engineering / Binary Analysis: 21
 - Search / Retrieval Engineering: 29
 - Security / Learning & Discovery Sources: 1
 - Social Media / Content Ops: 3
@@ -56,7 +56,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Speech / TTS & Voice: 24
 - System Architecture / Engineering Patterns: 34
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 80
+- Video Production / Editing: 84
 - Visual Systems / Data Storytelling: 1
 - Visual Systems / Media Factory: 1
 - Web Data / Crawling & Extraction: 12
@@ -11978,7 +11978,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 114
+Cards: 115
 
 ### Afloat16/jev-mcp
 
@@ -15729,6 +15729,27 @@ PROJECT:
 
 NEXT:
 Use it when designing a first Lancelot MCP App that needs structured tool output plus a human-facing interactive resource.
+
+---
+
+### zzet/gortex
+
+URL: https://github.com/zzet/gortex
+VERDICT: KEEP
+SCORE: —
+STARS: 2059
+
+WHAT:
+High-performance local code-intelligence engine that parses repositories into a persistent graph and exposes code structure, call chains, routes and cross-service relations through CLI, MCP and API.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on one medium and one multi-repository project. Measure indexing time, query latency, token reduction, cross-repo accuracy and failure modes against direct code search.
 
 ---
 
@@ -20440,7 +20461,7 @@ NEXT:
 
 ## BUCKET: Reverse Engineering / Binary Analysis
 
-Cards: 20
+Cards: 21
 
 ### AgeloVito/jd-mcp-duo
 
@@ -20748,6 +20769,27 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### reacher-z/Awesome-REA
+
+URL: https://github.com/reacher-z/Awesome-REA
+VERDICT: KEEP
+SCORE: —
+STARS: 2392
+
+WHAT:
+Curated and source-reviewed collection of reverse-engineering tools, case studies and papers across websites, games, apps, native binaries, firmware and communication protocols.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Use as a SOURCE in reverse-engineering research. Mine it for distinct high-value tools/cases rather than cloning its whole inventory into GitRadar.
 
 ---
 
@@ -23651,7 +23693,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 80
+Cards: 84
 
 ### 0xsline/OpenChatCut
 
@@ -25456,6 +25498,48 @@ NEXT:
 
 ---
 
+### opentoonz/ai_tools
+
+URL: https://github.com/opentoonz/ai_tools
+VERDICT: KEEP
+SCORE: —
+STARS: 0
+
+WHAT:
+OpenToonz community collection of small AI-generated web applications for anime production. Each app is packaged independently and indexed from metadata.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE the packaging pattern and review individual apps only when they solve a concrete animation-production step.
+
+---
+
+### opentoonz/opentoonz
+
+URL: https://github.com/opentoonz/opentoonz
+VERDICT: KEEP
+SCORE: —
+STARS: 8150
+
+WHAT:
+Full-featured open-source 2D animation application derived from Toonz and the Studio Ghibli production branch, with raster/vector drawing, animation and compositing workflows.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+KEEP. Inspect command-line/headless/export surfaces and identify whether OpenToonz can be used as a deterministic rendering or cleanup stage in scripted production.
+
+---
+
 ### remotion-dev/remotion
 
 URL: https://github.com/remotion-dev/remotion
@@ -25549,6 +25633,27 @@ NEXT:
 
 ---
 
+### rossaai/rosesfield
+
+URL: https://github.com/rossaai/rosesfield
+VERDICT: KEEP
+SCORE: —
+STARS: 5
+
+WHAT:
+Open-source Higgsfield-style creative platform built around Comfy infrastructure, with 25+ focused apps for image, video, audio and 3D workflows.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY the app taxonomy and operator flow. Identify which wrappers are useful enough to reproduce locally or connect to our existing generation stack.
+
+---
+
 ### Samurai33/n3xus-video-factory
 
 URL: https://github.com/Samurai33/n3xus-video-factory
@@ -25567,6 +25672,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### sarpstar/cinecode
+
+URL: https://github.com/sarpstar/cinecode
+VERDICT: KEEP
+SCORE: —
+STARS: 1980
+
+WHAT:
+Code-first filmmaking toolkit for short films, long-form YouTube, ads, explainers and music videos. A coding agent writes the script, builds frames in code, designs sound and renders MP4 output.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY with one 30–60 second WSB-style explainer and one coma.fm visual. Compare editability, render determinism, typography, audio handling and reuse against our current ffmpeg/Remotion-style workflows.
 
 ---
 
