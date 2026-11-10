@@ -1,7 +1,7 @@
 {
   "schema": "creative-radar-cards-feed-v1",
-  "generated_at": "2026-11-10T11:18:03.441213+00:00",
-  "count": 887,
+  "generated_at": "2026-11-10T11:30:50.632574+00:00",
+  "count": 888,
   "buckets": {
     "Agent Infrastructure / Communications": 1,
     "Agent Memory / Context": 65,
@@ -19,7 +19,7 @@
     "Infographics / Visual Storytelling": 42,
     "Interactive Reports / Data Apps": 10,
     "LLM Engineering / Reasoning & Evals": 1,
-    "Lancelot / Agent Infrastructure": 142,
+    "Lancelot / Agent Infrastructure": 143,
     "Local AI / Inference Infrastructure": 1,
     "Local AI / Portable Runtime Infrastructure": 1,
     "Media / Social Monitoring": 10,
@@ -53,6 +53,6 @@
     "Web Data / Crawling & Extraction": 12,
     "Web Intelligence / SEO & AI Visibility": 13
   },
-  "sha256": "8b03301490b464661d25667a79fde8337467556d368cbb56a3ec78117bcd7fe1",
+  "sha256": "f975340157c56d422b49806ffc047b5f0f10254be9579ecc60d8c497d9f465cc",
   "feed": "cards.jsonl"
 }

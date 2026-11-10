@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-10T13:18:03
+Generated: 2026-11-10T13:30:50
 Date: 2026-11-10
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 887
+- Total curated cards: 888
 - Buckets: 49
 
 ## Bucket summary
@@ -28,7 +28,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Full-Song AI / Suno Alternatives: 13
 - Infographics / Visual Storytelling: 42
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 142
+- Lancelot / Agent Infrastructure: 143
 - LLM Engineering / Reasoning & Evals: 1
 - Local AI / Inference Infrastructure: 1
 - Local AI / Portable Runtime Infrastructure: 1
@@ -12714,7 +12714,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 142
+Cards: 143
 
 ### advait/effect-durable-agent
 
@@ -15351,6 +15351,27 @@ PROJECT:
 
 NEXT:
 Map these patterns onto journalist research, pitch drafting, follow-up and interview preparation while keeping Twenty as authoritative state.
+
+---
+
+### merijjeyn/jive
+
+URL: https://github.com/merijjeyn/jive
+VERDICT: KEEP
+SCORE: 35
+STARS: 185
+
+WHAT:
+Terminal coding agent whose main LLM plans work as declarative executable graphs. The runtime executes bash nodes and smaller Jev decisions, including branching, parallel work, bounded loops, recovery and dynamic expansion, before returning to the planner.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY a small controlled benchmark against our ordinary tool loop: repository investigation, failing-test repair and one branching task. Measure success, planner turns, elapsed time, cost, evidence retention and recovery after interruption.
 
 ---
 
