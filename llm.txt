@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-10T12:58:01
+Generated: 2026-11-10T13:18:03
 Date: 2026-11-10
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,15 +8,15 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 872
+- Total curated cards: 887
 - Buckets: 49
 
 ## Bucket summary
 
 - Agent Infrastructure / Communications: 1
-- Agent Memory / Context: 63
+- Agent Memory / Context: 65
 - Agent Reliability / Evals & Production: 31
-- Agent Security / Governance: 62
+- Agent Security / Governance: 64
 - Audio / Music Tools: 1
 - Automation / Event Workflows: 27
 - Broadcast / Playout / Automation: 5
@@ -26,9 +26,9 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Document Parsing / Ingestion: 21
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 13
-- Infographics / Visual Storytelling: 39
+- Infographics / Visual Storytelling: 42
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 137
+- Lancelot / Agent Infrastructure: 142
 - LLM Engineering / Reasoning & Evals: 1
 - Local AI / Inference Infrastructure: 1
 - Local AI / Portable Runtime Infrastructure: 1
@@ -49,13 +49,13 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - OSINT / Investigations: 32
 - Publishing / Layout / PDF: 14
 - Radio / Audio Ops: 28
-- Reverse Engineering / Binary Analysis: 21
+- Reverse Engineering / Binary Analysis: 22
 - Search / Retrieval Engineering: 34
 - Security / Learning & Discovery Sources: 1
 - Social Media / Content Ops: 3
 - Software Architecture / Design References: 1
-- Speech / TTS & Voice: 27
-- System Architecture / Engineering Patterns: 34
+- Speech / TTS & Voice: 28
+- System Architecture / Engineering Patterns: 35
 - Telegram Bots / Automation: 3
 - Video Production / Editing: 89
 - Visual Systems / Data Storytelling: 1
@@ -101,7 +101,7 @@ NEXT:
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 63
+Cards: 65
 
 ### 23skdu/longbow
 
@@ -927,6 +927,48 @@ PROJECT:
 
 NEXT:
 DEEP STUDY; сравнить с LoreKit/Membrick и взять handoff/review/revision contracts для Lancelot.
+
+---
+
+### pnmcguire480/cairntir
+
+URL: https://github.com/pnmcguire480/cairntir
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Local-first memory system for coding agents that stores project-scoped decisions, facts, unfinished work and outcomes in SQLite, with bounded handoff, semantic/file-anchored recall and explicit recovery workflows.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE its handoff, recovery, evidence and trust model with Noosphere Lite, CoMemor and our own memory experiments.
+
+---
+
+### PrasannaSaiS/CoMemor
+
+URL: https://github.com/PrasannaSaiS/CoMemor
+VERDICT: KEEP
+SCORE: 18
+STARS: 40
+
+WHAT:
+Persistent engineering memory for coding agents that records failures and confirmed fixes, retrieves exact/fuzzy matches, tracks fix confidence and staleness, redacts secrets and quarantines suspicious memory records.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on one noisy repository with recurring build/test failures and measure hit quality, false matches and usefulness of confidence/staleness signals.
 
 ---
 
@@ -2269,7 +2311,7 @@ NEXT:
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 62
+Cards: 64
 
 ### 0xNyk/agent-security
 
@@ -2870,6 +2912,27 @@ TRY on one known-vulnerable fixture and one of our small agent projects; compare
 
 ---
 
+### BryanFiFife/CATL
+
+URL: https://github.com/BryanFiFife/CATL
+VERDICT: KEEP
+SCORE: 18
+STARS: 1
+
+WHAT:
+Security gateway for AI agents and MCP tools with default-deny permissions, exact-action human approvals, rootless Linux isolation, separate Unix identities and tamper-evident audit.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE its identity split, peer-credential IPC, exact-action approval and audit-anchor design for our future security architecture.
+
+---
+
 ### cisco-ai-defense/mcp-scanner
 
 URL: https://github.com/cisco-ai-defense/mcp-scanner
@@ -3118,6 +3181,27 @@ PROJECT:
 NEXT:
 Test `ai-bwrap bash` and an overlay workflow in a disposable repository
 before wrapping a real coding agent.
+
+---
+
+### dunkleschitz/agentsec
+
+URL: https://github.com/dunkleschitz/agentsec
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Collection of dozens of zero-dependency Python security tools for agentic systems, including tool poisoning, MCP posture, run diffs, scope checks, RAG injection scans, tool pinning, output/result guards and AI BOMs.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE the highest-value primitives first: toolpin, rundiff, scopefit, resultguard, ragsieve, toolgate, canarytrap and aibom.
 
 ---
 
@@ -10236,7 +10320,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 39
+Cards: 42
 
 ### bezda-team/rhp
 
@@ -11256,6 +11340,48 @@ REFERENCE; забирать паттерн компонентов, а не об�
 
 ---
 
+### threerocks/article2media
+
+URL: https://github.com/threerocks/article2media
+VERDICT: KEEP
+SCORE: 23
+STARS: 54
+
+WHAT:
+Claude Code/Codex skill suite that turns articles, transcripts or videos into rewritten/translated text, long images, social cards, formatted articles, vertical explainer videos, whiteboards and comics.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on one article and one video transcript, then compare its file contracts and QA stages with our existing media pipeline.
+
+---
+
+### viettranx/3dviz-pro-max
+
+URL: https://github.com/viettranx/3dviz-pro-max
+VERDICT: KEEP
+SCORE: 18
+STARS: 1209
+
+WHAT:
+Agent skill for creative 3D visualization with a structured workflow, hundreds of recipes/knowledge records, reusable Three.js/Blender kits, runnable studies and captured render evidence.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY one compact systems visualization and verify whether the render-inspect-refine loop materially improves quality over our current workflow.
+
+---
+
 ### Vincentwei1021/anything2explainer
 
 URL: https://github.com/Vincentwei1021/anything2explainer
@@ -11393,6 +11519,27 @@ NEXT:
 Установить отдельно `data-storytelling` и прогнать на одном нашем
 реальном CSV/табличном наборе: проверить narrative structure,
 visual quality, editable source и воспроизводимость повторного render.
+
+---
+
+### weibo-job/guagua-animation-skills
+
+URL: https://github.com/weibo-job/guagua-animation-skills
+VERDICT: KEEP
+SCORE: 21
+STARS: 6
+
+WHAT:
+Nine-skill animation workflow covering character bible, story, storyboard, keyframes, motion prompts, sound, editing and compilation, with explicit per-shot/per-episode artifacts.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE the workflow contract, shot identifiers and resumable-state model for our own episodic production tooling.
 
 ---
 
@@ -12567,7 +12714,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 137
+Cards: 142
 
 ### advait/effect-durable-agent
 
@@ -13534,6 +13681,27 @@ NEXT:
 
 ---
 
+### cloveric/tarobird
+
+URL: https://github.com/cloveric/tarobird
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Self-hosted workspace that keeps native Codex/Claude/Kimi-style CLIs on their own computers while providing shared desktop/mobile conversations, file delivery, multi-bot workflows and cross-host task handoff.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE its host/session model and phone continuation with Cloudroom and our Tailscale-oriented plans.
+
+---
+
 ### Cognipeer/console
 
 URL: https://github.com/Cognipeer/console
@@ -14013,6 +14181,48 @@ Potentially adopt the checkpoint algorithm independently of the rest of the runt
 
 ---
 
+### eduwxyz/tucano
+
+URL: https://github.com/eduwxyz/tucano
+VERDICT: KEEP
+SCORE: 18
+STARS: 350
+
+WHAT:
+Local desktop multi-agent workspace that orchestrates existing Claude Code, Codex, OpenCode and other CLIs in channels, with per-agent tool permissions, exact-action approvals, budgets, memory review and schedules.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE channel routing, delegation, approval objects, memory review and routine execution with our desired Lancelot UX.
+
+---
+
+### elie222/rakazo
+
+URL: https://github.com/elie222/rakazo
+VERDICT: KEEP
+SCORE: 32
+STARS: 7765
+
+WHAT:
+Self-hosted persistent AI teammate platform with per-bot memory, routines, app integrations, browser/computer sandboxes, delegation, group chats and web/desktop/mobile clients.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE bot lifecycle, sandbox ownership, routine execution, credential handling and mobile continuity with our intended Lancelot model.
+
+---
+
 ### felinics/Memoh
 
 URL: https://github.com/felinics/Memoh
@@ -14159,6 +14369,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### GhostPawJS/grimoire
+
+URL: https://github.com/GhostPawJS/grimoire
+VERDICT: KEEP
+SCORE: 35
+STARS: 2
+
+WHAT:
+Procedural knowledge engine where agent skills live as SKILL.md folders, changes are sealed as Git commits, and notes/evidence/history/health are managed through SQLite, filesystem and MCP interfaces.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY with two of our own skills: make controlled revisions, attach notes/evidence, roll back and inspect what an agent can reliably recover.
 
 ---
 
@@ -15266,6 +15497,27 @@ NEXT:
 Выбрать несколько сильных role specs как reference corpus и отдельно забрать NEXUS handoff/runbook machinery.
 
 Prompt permissions не считать runtime enforcement.
+
+---
+
+### nace-ai/drex-browser-harness-pub
+
+URL: https://github.com/nace-ai/drex-browser-harness-pub
+VERDICT: KEEP
+SCORE: 35
+STARS: 7
+
+WHAT:
+Browser-use harness exposed through MCP/CLI/Chrome side panel where a specialized action model performs clicks/keystrokes and an LLM handles planning, reading and checking.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE against Browser-Agent, browser-agent-bridge and ruin-everything on a fixed controlled task suite.
 
 ---
 
@@ -21579,7 +21831,7 @@ NEXT:
 
 ## BUCKET: Reverse Engineering / Binary Analysis
 
-Cards: 21
+Cards: 22
 
 ### AgeloVito/jd-mcp-duo
 
@@ -21810,6 +22062,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### kano92-dir/binkeep
+
+URL: https://github.com/kano92-dir/binkeep
+VERDICT: KEEP
+SCORE: 18
+STARS: 11
+
+WHAT:
+Static browser application for PE, ELF and Mach-O triage with disassembly, functions, xrefs, CFGs, strings, imports, signatures, packer heuristics and YARA, all processed locally.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY against a few known benign and packed binaries and compare findings with existing command-line triage tools.
 
 ---
 
@@ -22899,7 +23172,7 @@ NEXT:
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 27
+Cards: 28
 
 ### 5uck1ess/tts-bench
 
@@ -23095,6 +23368,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### jorge-menjivar/super-voice
+
+URL: https://github.com/jorge-menjivar/super-voice
+VERDICT: KEEP
+SCORE: 18
+STARS: 78
+
+WHAT:
+Linux-focused speech daemon and desktop tooling for dictation into any application plus TTS, with pluggable local/cloud models and a documented local protocol for third-party clients.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY from source or a reviewed release on a disposable user profile, starting with local Whisper/Qwen paths and focused-app text injection.
 
 ---
 
@@ -23482,7 +23776,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 34
+Cards: 35
 
 ### a2ui-project/a2ui
 
@@ -23552,6 +23846,27 @@ PROJECT:
 
 NEXT:
 Использовать как UX reference при проектировании human-in-the-loop интерфейсов и approval gates.
+
+---
+
+### attisvalentin/supacraft
+
+URL: https://github.com/attisvalentin/supacraft
+VERDICT: KEEP
+SCORE: 18
+STARS: 13
+
+WHAT:
+Single-binary backend where schema, roles, endpoints, files, jobs, webhooks and tests are declared in supacraft.json and can be authored/validated by an agent over MCP.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY a tiny internal API with auth, one scheduled job and request-level tests; inspect the diffability and rollback characteristics of supacraft.json.
 
 ---
 
