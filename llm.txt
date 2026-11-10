@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-10T13:30:50
+Generated: 2026-11-10T14:39:10
 Date: 2026-11-10
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 888
+- Total curated cards: 891
 - Buckets: 49
 
 ## Bucket summary
@@ -26,7 +26,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Document Parsing / Ingestion: 21
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 13
-- Infographics / Visual Storytelling: 42
+- Infographics / Visual Storytelling: 44
 - Interactive Reports / Data Apps: 10
 - Lancelot / Agent Infrastructure: 143
 - LLM Engineering / Reasoning & Evals: 1
@@ -54,7 +54,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Security / Learning & Discovery Sources: 1
 - Social Media / Content Ops: 3
 - Software Architecture / Design References: 1
-- Speech / TTS & Voice: 28
+- Speech / TTS & Voice: 29
 - System Architecture / Engineering Patterns: 35
 - Telegram Bots / Automation: 3
 - Video Production / Editing: 89
@@ -10320,7 +10320,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 42
+Cards: 44
 
 ### bezda-team/rhp
 
@@ -10399,6 +10399,27 @@ NEXT:
 approval gates, editable output и QA.
 
 CAD и весь monolith не переносить.
+
+---
+
+### edenfunf/reelmimic
+
+URL: https://github.com/edenfunf/reelmimic
+VERDICT: KEEP
+SCORE: 35
+STARS: 1903
+
+WHAT:
+Local video-production system that takes a reference video, decomposes its rhythm, shot lengths, transitions, framing, color and camera movement, then builds a new original video in a similar production style using Claude Code or Codex.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY one 20-40 second reference clip on Circus or Camelot. Compare its decomposition, review loop and repair evidence with rea-video/video-kit and our current vertical-production workflow.
 
 ---
 
@@ -11005,6 +11026,27 @@ PROJECT:
 
 NEXT:
 SOURCE the router-skill, design-wiki, brand-pack and render/check/deliver pattern for our own media factory.
+
+---
+
+### mirage-hq/Tesseract
+
+URL: https://github.com/mirage-hq/Tesseract
+VERDICT: KEEP
+SCORE: 35
+STARS: 339
+
+WHAT:
+Agent-native creative suite where skills guide an AI agent and the local tsrct CLI builds editable .tsrct projects combining footage, motion graphics, audio, design and 3D scenes.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on one existing MP4 plus one motion-graphics task. Evaluate editability, render fidelity, review ergonomics and whether the CLI can replace parts of our current FFmpeg/Remotion/manual stack without locking the workflow to proprietary internals.
 
 ---
 
@@ -23193,7 +23235,7 @@ NEXT:
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 28
+Cards: 29
 
 ### 5uck1ess/tts-bench
 
@@ -23389,6 +23431,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### jamesondh/chimera-vocal-synth
+
+URL: https://github.com/jamesondh/chimera-vocal-synth
+VERDICT: KEEP
+SCORE: 35
+STARS: 1424
+
+WHAT:
+Rust physical-modeling voice synthesizer that simulates lungs, vocal folds or syrinx, branched vocal tract, lips and nose. The same engine runs in-browser through WebAssembly/AudioWorklet and natively through a CLI.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY three short outputs: spoken station ID, sung two-bar jingle and intentionally non-human voice. Compare intelligibility, musical control, CPU cost and determinism with neural TTS/singing tools already in the radar.
 
 ---
 
