@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-10T12:25:59
+Generated: 2026-11-10T12:39:14
 Date: 2026-11-10
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,27 +8,27 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 829
+- Total curated cards: 841
 - Buckets: 48
 
 ## Bucket summary
 
 - Agent Infrastructure / Communications: 1
-- Agent Memory / Context: 58
+- Agent Memory / Context: 60
 - Agent Reliability / Evals & Production: 31
 - Agent Security / Governance: 58
 - Audio / Music Tools: 1
 - Automation / Event Workflows: 25
 - Broadcast / Playout / Automation: 5
 - Design / Image Editing: 13
-- Design Systems / Visual QA: 40
+- Design Systems / Visual QA: 43
 - Device Control / Capture: 9
 - Document Parsing / Ingestion: 21
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 13
 - Infographics / Visual Storytelling: 38
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 122
+- Lancelot / Agent Infrastructure: 128
 - LLM Engineering / Reasoning & Evals: 1
 - Local AI / Inference Infrastructure: 1
 - Local AI / Portable Runtime Infrastructure: 1
@@ -49,7 +49,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Publishing / Layout / PDF: 14
 - Radio / Audio Ops: 28
 - Reverse Engineering / Binary Analysis: 21
-- Search / Retrieval Engineering: 29
+- Search / Retrieval Engineering: 30
 - Security / Learning & Discovery Sources: 1
 - Social Media / Content Ops: 3
 - Software Architecture / Design References: 1
@@ -100,7 +100,7 @@ NEXT:
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 58
+Cards: 60
 
 ### 23skdu/longbow
 
@@ -187,6 +187,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### cognicore-dev/cognicore-env
+
+URL: https://github.com/cognicore-dev/cognicore-env
+VERDICT: KEEP
+SCORE: 18
+STARS: 82
+
+WHAT:
+Persistent-memory layer for coding agents that automatically captures session handoffs and resumes work across Claude Code, Codex and MCP clients. Local storage is SQLite, with optional hosted sync.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY a real Claude Code → Codex handoff on one project and measure recall quality, context size, latency and stale-decision handling.
 
 ---
 
@@ -1329,6 +1350,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### tonydzi/sqlite-graph-memory
+
+URL: https://github.com/tonydzi/sqlite-graph-memory
+VERDICT: KEEP
+SCORE: 18
+STARS: 15
+
+WHAT:
+MCP/CLI search layer over Markdown or Obsidian notes. Wikilinks become the graph, SQLite is the only store, and semantic retrieval can expand through note links for associative recall.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY against a copy of an existing vault and test whether graph hops recover useful linked context that plain FTS/vector search misses.
 
 ---
 
@@ -6178,7 +6220,7 @@ WATCH и сравнение с более зрелым PhotoCraft по memory mo
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 40
+Cards: 43
 
 ### 0design/ai-native-design-framework
 
@@ -6330,6 +6372,48 @@ NEXT:
 
 ---
 
+### arnabbagxd/Brand-building-skills
+
+URL: https://github.com/arnabbagxd/Brand-building-skills
+VERDICT: KEEP
+SCORE: 22
+STARS: 858
+
+WHAT:
+Collection of Agent Skills for brand strategy, naming, identity, voice, positioning, messaging, auditing and launch, all anchored to a shared brand-context layer.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE the shared-context pattern and compare it with our media-relations and project-specific skill architecture.
+
+---
+
+### camoa/claude-skills
+
+URL: https://github.com/camoa/claude-skills
+VERDICT: KEEP
+SCORE: 19
+STARS: 32
+
+WHAT:
+Agent-skill/plugin collection whose flagship AIDA workflow forces scope, existing-solution research, design, frozen tests, implementation, review and completion records.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE AIDA's contract/gate design and compare it with our experiment harness before implementing any equivalent mechanism.
+
+---
+
 ### cathrynlavery/diagram-design
 
 URL: https://github.com/cathrynlavery/diagram-design
@@ -6379,6 +6463,27 @@ NEXT:
 - analytical public diagram;
 - geometry QA;
 - fidelity ledger.
+
+---
+
+### cris-achiardi/weave-ds-template
+
+URL: https://github.com/cris-achiardi/weave-ds-template
+VERDICT: KEEP
+SCORE: 31
+STARS: 16
+
+WHAT:
+Experimental design-system monorepo where component intent is expressed once as framework-agnostic contracts and emitted into React, Vue, Angular and Web Components, alongside tokens, ADRs, Figma wiring and CI.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE its contract schema, decision/ADR flow and multi-backend validation pattern for our own design-system tooling.
 
 ---
 
@@ -12251,7 +12356,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 122
+Cards: 128
 
 ### Afloat16/jev-mcp
 
@@ -13655,6 +13760,27 @@ NEXT:
 
 ---
 
+### friday-platform/friday-studio
+
+URL: https://github.com/friday-platform/friday-studio
+VERDICT: KEEP
+SCORE: 35
+STARS: 103
+
+WHAT:
+Self-hosted agent harness platform where interactive authoring produces a readable, versionable workspace.yml containing agents, MCP tools, signals, jobs, memory and credentials.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE with Lancelot on workspace schema, lifecycle, signals, scheduling, observability, secrets and reproducibility.
+
+---
+
 ### fu351/Doberman-Core
 
 URL: https://github.com/fu351/Doberman-Core
@@ -14681,6 +14807,27 @@ USE FOR LANCELOT:
 
 ---
 
+### LumoAuth/mcp-typescript
+
+URL: https://github.com/LumoAuth/mcp-typescript
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+MCP authorization layer supporting caller identity, per-tool scopes/capabilities, DPoP-bound tokens, RFC 9396 step-up approvals, tool filtering and short-lived outbound SaaS tokens.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE the MCP resource-server, caller-identity and JIT-approval patterns; compare with local/self-hosted authorization options.
+
+---
+
 ### MadsLorentzen/ai-job-search
 
 URL: https://github.com/MadsLorentzen/ai-job-search
@@ -15069,6 +15216,27 @@ NEXT:
 - plugin/connector model;
 - capability-policy-gate;
 - future desktop/control-plane ideas.
+
+---
+
+### opencrust-org/opencrust
+
+URL: https://github.com/opencrust-org/opencrust
+VERDICT: KEEP
+SCORE: 18
+STARS: 148
+
+WHAT:
+Single-binary Rust agent runtime with multi-channel messaging, MCP, scheduling, persistent sessions, encrypted credentials, budgets, tool allowlists and optional WASM plugins.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE its runtime footprint, security defaults, session model and MCP/plugin boundaries against Lancelot requirements.
 
 ---
 
@@ -15588,6 +15756,27 @@ NEXT:
 
 ---
 
+### SkillGauntlet/SkillGauntlet
+
+URL: https://github.com/SkillGauntlet/SkillGauntlet
+VERDICT: KEEP
+SCORE: 18
+STARS: 3
+
+WHAT:
+CLI and benchmark framework for testing Agent Skills before installation: static checks, trigger recall/false positives, with-vs-without gain tests, reproducible raw records and resumable runs.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY against 3–5 of our own skills and record trigger recall, false positives, static findings and measurable gain.
+
+---
+
 ### smart-mcp-proxy/mcpproxy-go
 
 URL: https://github.com/smart-mcp-proxy/mcpproxy-go
@@ -15762,6 +15951,27 @@ Benchmark против
 Главное:
 качество + citation fidelity,
 не только скорость.
+
+---
+
+### tashfeenahmed/circlechat
+
+URL: https://github.com/tashfeenahmed/circlechat
+VERDICT: KEEP
+SCORE: 18
+STARS: 94
+
+WHAT:
+Self-hosted team chat where humans and agents are first-class members, sharing channels, tasks and files while agents act through a typed allowlisted action set.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+REFERENCE its context-packet, action-allowlist and approval-response patterns for our own operator surfaces.
 
 ---
 
@@ -16085,6 +16295,27 @@ NEXT:
 
 Сравнить
 с текущими Lancelot tools.
+
+---
+
+### vassiliylakhonin/vizier
+
+URL: https://github.com/vassiliylakhonin/vizier
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Authorization service/SDK for agent tool calls using owner-signed scoped expiring grants, deterministic ALLOW/BLOCK/REVIEW decisions and receipts bound to the exact request.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY the reproducible first-BLOCK demo, then model one Lancelot action with signed delegation, tamper rejection and human REVIEW.
 
 ---
 
@@ -21362,7 +21593,7 @@ NEXT:
 
 ## BUCKET: Search / Retrieval Engineering
 
-Cards: 29
+Cards: 30
 
 ### al1-nasir/weigh_swarm
 
@@ -21663,6 +21894,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### max-ramas/rms-memory-mcp
+
+URL: https://github.com/max-ramas/rms-memory-mcp
+VERDICT: KEEP
+SCORE: 18
+STARS: 66
+
+WHAT:
+Local-first persistent memory MCP with Markdown source of truth, LanceDB semantic search, Tantivy full-text search, multilingual embeddings, graph relationships and optional Tree-sitter code indexing.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE all three memory candidates on the same corpus: handoff behavior, retrieval quality, editability, rebuild cost and failure recovery.
 
 ---
 
