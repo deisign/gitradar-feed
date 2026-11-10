@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-10T12:39:14
+Generated: 2026-11-10T12:48:21
 Date: 2026-11-10
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,15 +8,15 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 841
-- Buckets: 48
+- Total curated cards: 857
+- Buckets: 49
 
 ## Bucket summary
 
 - Agent Infrastructure / Communications: 1
-- Agent Memory / Context: 60
+- Agent Memory / Context: 62
 - Agent Reliability / Evals & Production: 31
-- Agent Security / Governance: 58
+- Agent Security / Governance: 59
 - Audio / Music Tools: 1
 - Automation / Event Workflows: 25
 - Broadcast / Playout / Automation: 5
@@ -26,9 +26,9 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Document Parsing / Ingestion: 21
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 13
-- Infographics / Visual Storytelling: 38
+- Infographics / Visual Storytelling: 39
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 128
+- Lancelot / Agent Infrastructure: 133
 - LLM Engineering / Reasoning & Evals: 1
 - Local AI / Inference Infrastructure: 1
 - Local AI / Portable Runtime Infrastructure: 1
@@ -38,25 +38,26 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Media Tools / Mobile Image Workbench: 1
 - Mixing / Mastering / Audio Engineering: 13
 - Monitoring / Change Intelligence: 1
-- Music Generation / AI Music: 7
+- Music Generation / AI Music: 8
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
 - Operational Platforms / Extensible Systems: 1
 - Operational Platforms / Modular Systems: 1
 - OSINT / Collection & Crawling: 1
+- OSINT / Field Tooling: 1
 - OSINT / GEOINT & Image Forensics: 1
 - OSINT / Investigations: 32
 - Publishing / Layout / PDF: 14
 - Radio / Audio Ops: 28
 - Reverse Engineering / Binary Analysis: 21
-- Search / Retrieval Engineering: 30
+- Search / Retrieval Engineering: 32
 - Security / Learning & Discovery Sources: 1
 - Social Media / Content Ops: 3
 - Software Architecture / Design References: 1
-- Speech / TTS & Voice: 25
+- Speech / TTS & Voice: 26
 - System Architecture / Engineering Patterns: 34
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 86
+- Video Production / Editing: 88
 - Visual Systems / Data Storytelling: 1
 - Visual Systems / Media Factory: 1
 - Web Data / Crawling & Extraction: 12
@@ -100,7 +101,7 @@ NEXT:
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 60
+Cards: 62
 
 ### 23skdu/longbow
 
@@ -292,6 +293,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### eugeniughelbur/obsidian-second-brain
+
+URL: https://github.com/eugeniughelbur/obsidian-second-brain
+VERDICT: KEEP
+SCORE: 18
+STARS: 5253
+
+WHAT:
+Persistent memory system for Claude Code, Codex and other agents using plain Markdown in an Obsidian vault, plus a Crew logbook that lets multiple agents see what the others did.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY Crew on a disposable shared folder with Claude Code and Codex and measure whether cross-agent handoff remains legible, recoverable and non-destructive.
 
 ---
 
@@ -1004,6 +1026,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### rmyndharis/aimhooman
+
+URL: https://github.com/rmyndharis/aimhooman
+VERDICT: KEEP
+SCORE: 18
+STARS: 7
+
+WHAT:
+Vendor-neutral Git hygiene tool that detects and repairs agent session files, temporary artifacts and unwanted attribution before they enter history, with multiple hook and ref-transaction enforcement points.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on a disposable repo with Codex/Claude artifacts, rebases and direct ref operations; verify that repair/block behavior matches policy.
 
 ---
 
@@ -2205,7 +2248,7 @@ NEXT:
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 58
+Cards: 59
 
 ### 0xNyk/agent-security
 
@@ -2919,6 +2962,27 @@ NEXT:
 Сам skill сначала пропустить через наш admission pipeline.
 
 Потом проверить на seeded vulnerable repos и измерить verification survival, false confirmations и cost.
+
+---
+
+### davidondrej/cloudroom
+
+URL: https://github.com/davidondrej/cloudroom
+VERDICT: KEEP
+SCORE: 32
+STARS: 1576
+
+WHAT:
+Cloud agent runtime that runs Claude Code, Codex, Pi, OpenCode and other harnesses inside isolated sandboxes, records native session history and can move a live session between local and cloud.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE Cloudroom's harness adapter, session lifecycle and teleport model with Lancelot's local/cloud execution plans.
 
 ---
 
@@ -10046,7 +10110,7 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 38
+Cards: 39
 
 ### bezda-team/rhp
 
@@ -10710,6 +10774,27 @@ NEXT:
 
 Сравнить с `material-design-3-ui-skill`
 и взять неперекрывающиеся сильные механизмы.
+
+---
+
+### langchain-ai/design-agent
+
+URL: https://github.com/langchain-ai/design-agent
+VERDICT: KEEP
+SCORE: 23
+STARS: 606
+
+WHAT:
+Open-source design agent used by LangChain for on-brand stills, decks, diagrams, charts and motion graphics, with a small router prompt, lazy-loaded skills, design wiki, brand pack and per-thread sandbox.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE the router-skill, design-wiki, brand-pack and render/check/deliver pattern for our own media factory.
 
 ---
 
@@ -12356,7 +12441,28 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 128
+Cards: 133
+
+### advait/effect-durable-agent
+
+URL: https://github.com/advait/effect-durable-agent
+VERDICT: KEEP
+SCORE: 35
+STARS: 4
+
+WHAT:
+Redux-inspired durable agent framework where framework events and product events share one ordered event history, with pure reducers, replayable state, reconnect-safe streams and durable sinks.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE its event-log, projection and durable-sink contracts and compare them with our current experiment/task state model.
+
+---
 
 ### Afloat16/jev-mcp
 
@@ -14849,6 +14955,27 @@ Map these patterns onto journalist research, pitch drafting, follow-up and inter
 
 ---
 
+### metagalaxy-crystal/dsh-local-orchestrator
+
+URL: https://github.com/metagalaxy-crystal/dsh-local-orchestrator
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Local resource scheduler for agent workflows that manages one shared GPU/CPU budget across LLMs, ComfyUI workflows, scripts and MCP tools, with leases, resumable tasks and single-step execution.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY the scheduler on Camelot with two competing local workloads and test lease fairness, unload behavior and crash recovery.
+
+---
+
 ### mithraeums/hako-code
 
 URL: https://github.com/mithraeums/hako-code
@@ -16319,6 +16446,27 @@ TRY the reproducible first-BLOCK demo, then model one Lancelot action with signe
 
 ---
 
+### vedantnimbarte/mcp-gateway
+
+URL: https://github.com/vedantnimbarte/mcp-gateway
+VERDICT: KEEP
+SCORE: 18
+STARS: 1
+
+WHAT:
+Local daemon that owns MCP backend connections once and exposes curated per-client tool profiles with allow/deny policy, renaming, limits, caching, audit logs and tool-description drift detection.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY with two existing MCP clients and one shared backend; verify process reuse, tool filtering, drift blocking and audit completeness.
+
+---
+
 ### vercel-labs/agent-skills
 
 URL: https://github.com/vercel-labs/agent-skills
@@ -16337,6 +16485,27 @@ PROJECT:
 
 NEXT:
 SOURCE the strongest skill patterns: scope boundaries, rule priority, evidence gathering and audit output structure.
+
+---
+
+### vercel-labs/skills
+
+URL: https://github.com/vercel-labs/skills
+VERDICT: KEEP
+SCORE: 18
+STARS: 38807
+
+WHAT:
+CLI for the open Agent Skills ecosystem with discovery, installation, update, removal, one-shot use, templates and support for a large set of coding-agent clients.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+Keep ACTIVE as the baseline CLI for portable skills, with telemetry policy documented for our environments.
 
 ---
 
@@ -16359,6 +16528,27 @@ PROJECT:
 
 NEXT:
 REFERENCE; перенести context-capsule contract в собственные долгие operator sessions без внедрения всего framework.
+
+---
+
+### yuki4266/ruin-everything
+
+URL: https://github.com/yuki4266/ruin-everything
+VERDICT: KEEP
+SCORE: 18
+STARS: 26
+
+WHAT:
+Local Chrome runtime for agents using CDP and MCP that reuses a dedicated browser profile, cookies and open tabs across calls and agent sessions.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY only on our own/test services and compare session continuity, operator visibility and failure recovery with standard Playwright MCP.
 
 ---
 
@@ -17843,7 +18033,7 @@ Backup datastore → upgrade to 0.70.1+ → проверить old watches → M
 
 ## BUCKET: Music Generation / AI Music
 
-Cards: 7
+Cards: 8
 
 ### lorediggia/harmony
 
@@ -17901,6 +18091,27 @@ NEXT:
 - guitar voicing search.
 
 Зафиксировать, где реально начинает не хватать MIDI, progression editing и voice-leading optimization.
+
+---
+
+### strnad/HeartMuse
+
+URL: https://github.com/strnad/HeartMuse
+VERDICT: KEEP
+SCORE: 20
+STARS: 29
+
+WHAT:
+Local web studio for HeartMuLa music generation with local/OpenAI lyric assistance, style references, batch variants, history, playlists, reproducible seeds and GPU/RAM monitoring.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on Camelot using the same prompt/seed evaluation protocol as YuE2 and compare coherence, vocals, duration control and generation cost.
 
 ---
 
@@ -18601,6 +18812,31 @@ PROJECT:
 
 NEXT:
 TRY на 2–3 публичных источниках media-monitoring, где текущие fetchers нестабильны; сравнить устойчивость и стоимость.
+
+---
+
+## BUCKET: OSINT / Field Tooling
+
+Cards: 1
+
+### CIS-C0/RFSentinel
+
+URL: https://github.com/CIS-C0/RFSentinel
+VERDICT: KEEP
+SCORE: 24
+STARS: 178
+
+WHAT:
+Android app that passively inspects nearby Bluetooth LE and Wi-Fi broadcasts to flag known or suspicious device signatures including trackers, Remote ID drones and several surveillance-device classes.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY only in controlled/public environments and document what signals are actually observable, which detections are reproducible and where confidence collapses.
 
 ---
 
@@ -21593,7 +21829,7 @@ NEXT:
 
 ## BUCKET: Search / Retrieval Engineering
 
-Cards: 30
+Cards: 32
 
 ### al1-nasir/weigh_swarm
 
@@ -21855,6 +22091,27 @@ NEXT:
 
 ---
 
+### L-Defraiteur/lucivy
+
+URL: https://github.com/L-Defraiteur/lucivy
+VERDICT: KEEP
+SCORE: 18
+STARS: 49
+
+WHAT:
+Rust lexical search engine with Python, Node, C++ and WASM bindings that supports BM25, exact substrings, relaxed separators, fuzzy queries, regex and exact byte-offset highlights from one index.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY as a lexical backend beside embeddings and compare exact-hit recall, fuzzy behavior, index cost and highlight correctness.
+
+---
+
 ### machinelearningZH/hybrid-search-eval
 
 URL: https://github.com/machinelearningZH/hybrid-search-eval
@@ -22046,6 +22303,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Sega757/Fast-AtomRAG-Core
+
+URL: https://github.com/Sega757/Fast-AtomRAG-Core
+VERDICT: KEEP
+SCORE: 18
+STARS: 85
+
+WHAT:
+Retrieval service combining vector search, Atomic Entity Graph traversal through local Personalized PageRank, Reciprocal Rank Fusion and optional latency-aware routing, with SQLite WAL persistence.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on one real bilingual corpus and compare against plain FTS/vector retrieval on multi-hop recall, latency and failure modes.
 
 ---
 
@@ -22369,7 +22647,7 @@ NEXT:
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 25
+Cards: 26
 
 ### 5uck1ess/tts-bench
 
@@ -22478,6 +22756,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### DrewThomasson/ebook2audiobook
+
+URL: https://github.com/DrewThomasson/ebook2audiobook
+VERDICT: KEEP
+SCORE: 18
+STARS: 20522
+
+WHAT:
+Cross-platform e-book-to-audiobook production system supporting many document formats, dozens of TTS engines, chapter/metadata handling, OCR, multilingual output and optional voice cloning.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+REFERENCE its backend abstraction, chapter/metadata pipeline and offline packaging patterns rather than adopting the whole application.
 
 ---
 
@@ -24407,7 +24706,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 86
+Cards: 88
 
 ### 0xS4N4TG/papercut-explainer
 
@@ -25722,6 +26021,27 @@ NEXT:
 
 ---
 
+### JuneYaooo/rea-video
+
+URL: https://github.com/JuneYaooo/rea-video
+VERDICT: KEEP
+SCORE: 44
+STARS: 5976
+
+WHAT:
+Agent-oriented video analysis toolkit that breaks footage into shots, classifies how each shot was produced, extracts captions/audio/editing structure and generates a remake plan.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on one of our own finished videos and one public reference; compare its shot plan with our manual production breakdown.
+
+---
+
 ### jwj1342/Paper2Manim
 
 URL: https://github.com/jwj1342/Paper2Manim
@@ -26187,6 +26507,27 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### OpenMontageInc/OpenMontage
+
+URL: https://github.com/OpenMontageInc/OpenMontage
+VERDICT: KEEP
+SCORE: 34
+STARS: 79279
+
+WHAT:
+Large agentic video-production system with many production pipelines, tools and skill/knowledge files spanning research, scripting, stock retrieval, generation, editing, motion, audio and final composition.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE pipeline boundaries, asset handling, production knowledge and render QA; only TRY isolated components after license review.
 
 ---
 
