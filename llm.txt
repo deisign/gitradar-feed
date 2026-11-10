@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-10T12:48:21
+Generated: 2026-11-10T12:58:01
 Date: 2026-11-10
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,17 +8,17 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 857
+- Total curated cards: 872
 - Buckets: 49
 
 ## Bucket summary
 
 - Agent Infrastructure / Communications: 1
-- Agent Memory / Context: 62
+- Agent Memory / Context: 63
 - Agent Reliability / Evals & Production: 31
-- Agent Security / Governance: 59
+- Agent Security / Governance: 62
 - Audio / Music Tools: 1
-- Automation / Event Workflows: 25
+- Automation / Event Workflows: 27
 - Broadcast / Playout / Automation: 5
 - Design / Image Editing: 13
 - Design Systems / Visual QA: 43
@@ -28,7 +28,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Full-Song AI / Suno Alternatives: 13
 - Infographics / Visual Storytelling: 39
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 133
+- Lancelot / Agent Infrastructure: 137
 - LLM Engineering / Reasoning & Evals: 1
 - Local AI / Inference Infrastructure: 1
 - Local AI / Portable Runtime Infrastructure: 1
@@ -50,18 +50,18 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Publishing / Layout / PDF: 14
 - Radio / Audio Ops: 28
 - Reverse Engineering / Binary Analysis: 21
-- Search / Retrieval Engineering: 32
+- Search / Retrieval Engineering: 34
 - Security / Learning & Discovery Sources: 1
 - Social Media / Content Ops: 3
 - Software Architecture / Design References: 1
-- Speech / TTS & Voice: 26
+- Speech / TTS & Voice: 27
 - System Architecture / Engineering Patterns: 34
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 88
+- Video Production / Editing: 89
 - Visual Systems / Data Storytelling: 1
 - Visual Systems / Media Factory: 1
 - Web Data / Crawling & Extraction: 12
-- Web Intelligence / SEO & AI Visibility: 12
+- Web Intelligence / SEO & AI Visibility: 13
 
 ## Today's run
 
@@ -101,7 +101,7 @@ NEXT:
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 62
+Cards: 63
 
 ### 23skdu/longbow
 
@@ -314,6 +314,27 @@ PROJECT:
 
 NEXT:
 TRY Crew on a disposable shared folder with Claude Code and Codex and measure whether cross-agent handoff remains legible, recoverable and non-destructive.
+
+---
+
+### Garyu-tt/noosphere-lite-mcp
+
+URL: https://github.com/Garyu-tt/noosphere-lite-mcp
+VERDICT: KEEP
+SCORE: 18
+STARS: 10
+
+WHAT:
+Local-first MCP memory with explicit graph relations, provenance, event history and stale-fact tracking. Derived claims can be marked stale transitively when their source fact changes.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on a small decision ledger with deliberate fact revisions and verify stale propagation, history retention and recovery from the encrypted journal.
 
 ---
 
@@ -2248,7 +2269,7 @@ NEXT:
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 59
+Cards: 62
 
 ### 0xNyk/agent-security
 
@@ -2514,6 +2535,27 @@ PROJECT:
 NEXT:
 Borrow the four-state decision model for Lancelot mutations and keep
 approval evidence distinct from execution evidence.
+
+---
+
+### aiconnai/agentshield
+
+URL: https://github.com/aiconnai/agentshield
+VERDICT: KEEP
+SCORE: 27
+STARS: 21
+
+WHAT:
+Offline Rust security scanner for MCP and multiple agent frameworks with normalized intermediate representation, interprocedural taint analysis, SARIF output and an MCP runtime guard.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on several known MCP/tool repos, including one intentionally unsafe fixture, and compare findings against CodeQL/Semgrep plus manual review.
 
 ---
 
@@ -2804,6 +2846,27 @@ PROJECT:
 NEXT:
 Pilot `watch init/diff` on a small set of approved skills and compare
 balanced vs strict profiles.
+
+---
+
+### avivgerz-hue/vibe-shield
+
+URL: https://github.com/avivgerz-hue/vibe-shield
+VERDICT: KEEP
+SCORE: 27
+STARS: 26
+
+WHAT:
+Offline static scanner for AI-written codebases with rules for auth, secrets, web/database risks and agent/MCP integrity, plus reports suitable for agent remediation workflows.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on one known-vulnerable fixture and one of our small agent projects; compare signal/noise with existing linters and scanners.
 
 ---
 
@@ -3398,6 +3461,27 @@ NEXT:
 5. hostile child-agent output;
 6. benign quoted attack text;
 7. fail-open/fail-closed behavior.
+
+---
+
+### i1see1you/VirbiusAgent
+
+URL: https://github.com/i1see1you/VirbiusAgent
+VERDICT: KEEP
+SCORE: 34
+STARS: 29
+
+WHAT:
+Agent security platform with Edge, Gateway, Kernel and Cloud layers for tool-call policy, DLP, approvals, runtime observability, taint tracking and audit.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE the layer boundaries, decision trace and taint/audit model; compare each layer with our existing WALL-A, Vizier and AgentShield candidates.
 
 ---
 
@@ -5288,7 +5372,7 @@ NEXT:
 
 ## BUCKET: Automation / Event Workflows
 
-Cards: 25
+Cards: 27
 
 ### 0000F8/n8n-nodes-saltapp
 
@@ -5613,6 +5697,27 @@ NEXT:
 
 ---
 
+### Manveen07/n8n-workflow-tests
+
+URL: https://github.com/Manveen07/n8n-workflow-tests
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Small public reference project showing how to test n8n Code-node logic, the committed workflow file, signed webhook replay and deployment scripts with plain Node.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE the four-layer test structure and adapt it to one of our own n8n workflows.
+
+---
+
 ### mautic/mautic
 
 URL: https://github.com/mautic/mautic
@@ -5813,6 +5918,27 @@ n8n / Workflow Automation · Data pipelines · DuckDB.
 
 NEXT:
 Проверить локальный :memory: и persistent file mode на Debian-based n8n. Quack пока считать экспериментальным и не делать его обязательной частью архитектуры.
+
+---
+
+### techaurah/n8n-audit
+
+URL: https://github.com/techaurah/n8n-audit
+VERDICT: KEEP
+SCORE: 23
+STARS: 0
+
+WHAT:
+Offline linter for exported n8n workflow JSON with deterministic rules for secrets, webhook authentication, error handling, deduplication, retries and workflow hygiene.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY against exported workflows from one real automation and record useful findings, false positives and missing production rules.
 
 ---
 
@@ -12441,7 +12567,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 133
+Cards: 137
 
 ### advait/effect-durable-agent
 
@@ -12880,6 +13006,27 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### Capta1n-n9m0/browser-agent-bridge
+
+URL: https://github.com/Capta1n-n9m0/browser-agent-bridge
+VERDICT: KEEP
+SCORE: 35
+STARS: 2
+
+WHAT:
+Chrome MV3 extension plus local daemon/MCP server that lets an agent operate an already logged-in Chrome profile while keeping operator-only controls such as kill switch, blocklist and upload allowlist.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+COMPARE with ruin-everything and governed Browser-Agent on session reuse, operator controls, security boundary and recoverability.
 
 ---
 
@@ -13612,6 +13759,27 @@ PROJECT:
 
 NEXT:
 Test Pare for git, Docker and test-runner calls and measure both parsing reliability and context reduction.
+
+---
+
+### DCode-v05/Browser-Agent
+
+URL: https://github.com/DCode-v05/Browser-Agent
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Browser automation runtime with MCP tools, a live operator viewer, pause/takeover controls, approval gates for high-impact actions, cross-site data guards and programmatically checked evaluation tasks.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE the approval/action taxonomy and eval harness; later compare all three browser-runtime candidates on the same controlled tasks.
 
 ---
 
@@ -15681,6 +15849,27 @@ NEXT:
 
 ---
 
+### rafe-walker/mcp-catalog-snap
+
+URL: https://github.com/rafe-walker/mcp-catalog-snap
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Small MCP operations tool that snapshots a server's exposed tool catalog and can fail CI when tool names, descriptions or schemas drift.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY against one stable MCP server, then deliberately change a tool description/schema and verify actionable CI output.
+
+---
+
 ### Rakshit-gen/casefile
 
 URL: https://github.com/Rakshit-gen/casefile
@@ -15720,6 +15909,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### renatoctti/emporio-da-musica-agent
+
+URL: https://github.com/renatoctti/emporio-da-musica-agent
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Customer-service agent reference implementation with a hand-written tool loop, code-enforced business rules, MCP tools, stored sessions and model/offline evaluation suites.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE its rule/model boundary and scenario-evaluation format for one of our own tool-calling agents.
 
 ---
 
@@ -21829,7 +22039,7 @@ NEXT:
 
 ## BUCKET: Search / Retrieval Engineering
 
-Cards: 32
+Cards: 34
 
 ### al1-nasir/weigh_swarm
 
@@ -22348,6 +22558,27 @@ NEXT:
 
 ---
 
+### singhpratech/ferrovec
+
+URL: https://github.com/singhpratech/ferrovec
+VERDICT: KEEP
+SCORE: 18
+STARS: 18
+
+WHAT:
+Rust-to-WASM HNSW vector store that persists in the browser's Origin Private File System and coordinates one durable store across tabs using leader election.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY with a few thousand embeddings, multiple tabs and deliberate tab crashes; verify recovery and acknowledged-write guarantees.
+
+---
+
 ### ssrajadh/sentrysearch
 
 URL: https://github.com/ssrajadh/sentrysearch
@@ -22502,6 +22733,27 @@ NEXT:
 
 ---
 
+### yanxue06/git-semantic-search
+
+URL: https://github.com/yanxue06/git-semantic-search
+VERDICT: KEEP
+SCORE: 18
+STARS: 33
+
+WHAT:
+Local Rust CLI for finding Git commits by natural-language description using semantic and lexical/hybrid retrieval over repository history.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on one large project with known historical changes and compare recall against grep/git log queries.
+
+---
+
 ### yjid/kensaku
 
 URL: https://github.com/yjid/kensaku
@@ -22647,7 +22899,7 @@ NEXT:
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 26
+Cards: 27
 
 ### 5uck1ess/tts-bench
 
@@ -22885,6 +23137,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### loudreader/loudkit
+
+URL: https://github.com/loudreader/loudkit
+VERDICT: KEEP
+SCORE: 18
+STARS: 27
+
+WHAT:
+Local TTS engine with multiple voices/languages, optional voice cloning and SDKs for Python, Swift, Go, Rust and TypeScript, running offline after model download.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY a small English/Russian/Ukrainian evaluation where supported and measure intelligibility, latency and consistency against current TTS candidates.
 
 ---
 
@@ -24706,7 +24979,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 88
+Cards: 89
 
 ### 0xS4N4TG/papercut-explainer
 
@@ -24801,6 +25074,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### achun1107/video-kit
+
+URL: https://github.com/achun1107/video-kit
+VERDICT: KEEP
+SCORE: 20
+STARS: 83
+
+WHAT:
+Automated pipeline that turns a GitHub repository or source video into a 1080x1920 narrated explainer with generated cards, screenshots, subtitles, music and FFmpeg composition.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+TRY on one GitRadar repo and compare its deterministic/VRT workflow with our existing vertical video production process.
 
 ---
 
@@ -28029,7 +28323,7 @@ WATCH/LAB LATER; использовать архитектурные идеи, �
 
 ## BUCKET: Web Intelligence / SEO & AI Visibility
 
-Cards: 12
+Cards: 13
 
 ### Akxan/google-seo-mcp
 
@@ -28112,6 +28406,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### aws-samples/sample-llm-search-citation-analysis-with-amazon-bedrock
+
+URL: https://github.com/aws-samples/sample-llm-search-citation-analysis-with-amazon-bedrock
+VERDICT: KEEP
+SCORE: 18
+STARS: 23
+
+WHAT:
+AWS sample system that queries several AI answer/search engines, stores responses and citations, tracks brand mentions/share of voice and surfaces citation gaps, competitors and scheduled visibility trends.
+
+FIT:
+—
+
+PROJECT:
+—
+
+NEXT:
+SOURCE its data model, KPI definitions and citation-gap workflow; avoid copying the entire AWS stack unless needed.
 
 ---
 
