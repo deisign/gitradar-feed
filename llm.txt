@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-16T08:30:20
+Generated: 2026-11-16T15:12:04
 Date: 2026-11-16
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,36 +8,36 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 891
+- Total curated cards: 917
 - Buckets: 49
 
 ## Bucket summary
 
-- Agent Infrastructure / Communications: 1
-- Agent Memory / Context: 65
+- Agent Infrastructure / Communications: 3
+- Agent Memory / Context: 67
 - Agent Reliability / Evals & Production: 31
 - Agent Security / Governance: 64
 - Audio / Music Tools: 1
 - Automation / Event Workflows: 27
 - Broadcast / Playout / Automation: 5
-- Design / Image Editing: 13
+- Design / Image Editing: 15
 - Design Systems / Visual QA: 43
 - Device Control / Capture: 9
-- Document Parsing / Ingestion: 21
+- Document Parsing / Ingestion: 22
 - Font Creation / Typography Tools: 17
 - Full-Song AI / Suno Alternatives: 13
 - Infographics / Visual Storytelling: 44
 - Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 143
+- Lancelot / Agent Infrastructure: 146
 - LLM Engineering / Reasoning & Evals: 1
 - Local AI / Inference Infrastructure: 1
-- Local AI / Portable Runtime Infrastructure: 1
+- Local AI / Portable Runtime Infrastructure: 2
 - Media / Social Monitoring: 10
 - Media Kits / Brand Automation: 3
 - Media Relations / Outreach Automation: 1
 - Media Tools / Mobile Image Workbench: 1
 - Mixing / Mastering / Audio Engineering: 13
-- Monitoring / Change Intelligence: 1
+- Monitoring / Change Intelligence: 2
 - Music Generation / AI Music: 8
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
@@ -51,15 +51,15 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Radio / Audio Ops: 28
 - Reverse Engineering / Binary Analysis: 22
 - Search / Retrieval Engineering: 34
-- Security / Learning & Discovery Sources: 1
-- Social Media / Content Ops: 3
+- Security / Learning & Discovery Sources: 2
+- Social Media / Content Ops: 4
 - Software Architecture / Design References: 1
 - Speech / TTS & Voice: 29
-- System Architecture / Engineering Patterns: 35
+- System Architecture / Engineering Patterns: 37
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 89
+- Video Production / Editing: 97
 - Visual Systems / Data Storytelling: 1
-- Visual Systems / Media Factory: 1
+- Visual Systems / Media Factory: 3
 - Web Data / Crawling & Extraction: 12
 - Web Intelligence / SEO & AI Visibility: 13
 
@@ -76,7 +76,49 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## BUCKET: Agent Infrastructure / Communications
 
-Cards: 1
+Cards: 3
+
+### ancsemi/Haven
+
+URL: https://github.com/ancsemi/Haven
+VERDICT: KEEP
+SCORE: 30
+STARS: 1115
+
+WHAT:
+Self-hosted Discord alternative with channels, threads, voice, screen sharing, E2EE DMs, bots/webhooks, OIDC, backups, mobile clients and Discord import/bridge.
+
+FIT:
+Possible future communications layer for Noosphere and a useful reference for migration via a two-way bridge instead of a hard platform cutover.
+
+PROJECT:
+Noosphere community/internal communications.
+
+NEXT:
+COMPARE against our actual communications requirements; do not deploy until identity, backups, bridge and E2EE implementation are reviewed.
+
+---
+
+### fosrl/pangolin
+
+URL: https://github.com/fosrl/pangolin
+VERDICT: KEEP
+SCORE: 35
+STARS: 23790
+
+WHAT:
+WireGuard-based SASE platform combining site connectivity, reverse proxy, private-resource access, RBAC/audit and an identity-aware gateway for cloud and self-hosted AI providers.
+
+FIT:
+Potential unification layer for access to Duke/Circus/services/models: one identity/policy plane can front both infrastructure and agent/model traffic.
+
+PROJECT:
+Noosphere infrastructure; secure remote access; AI gateway.
+
+NEXT:
+COMPARE with current Tailscale + Cloudflare Tunnel on a small isolated service; inspect policy, audit, NAT traversal and AI gateway boundaries.
+
+---
 
 ### etherCorps/doota
 
@@ -101,7 +143,7 @@ NEXT:
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 65
+Cards: 67
 
 ### 23skdu/longbow
 
@@ -1049,6 +1091,27 @@ NEXT:
 
 ---
 
+### ranxianglei/billion-context
+
+URL: https://github.com/ranxianglei/billion-context
+VERDICT: KEEP
+SCORE: 35
+STARS: 7643
+
+WHAT:
+Proxy/plugin that gives coding agents explicit compress, decompress, search_context and status tools, keeping old conversation as layered reversible summaries instead of one irreversible truncation.
+
+FIT:
+Direct comparison target for Lancelot memory/context work: incremental reversible compression can preserve prefix cache while allowing exact older material to be restored on demand.
+
+PROJECT:
+Lancelot; long-running agent sessions.
+
+NEXT:
+Run a controlled Lancelot benchmark against baseline context handling and WikiTrace-style memory; measure success, cost, cache hit rate and regression.
+
+---
+
 ### rehan-remade/universal-modder
 
 URL: https://github.com/rehan-remade/universal-modder
@@ -1565,6 +1628,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### yukyeongleee/wikitrace
+
+URL: https://github.com/yukyeongleee/wikitrace
+VERDICT: KEEP
+SCORE: 35
+STARS: 31
+
+WHAT:
+Agent-memory framework where reusable insights remain linked to the originating run, success/failure status, compilation and full trajectory instead of becoming context-free assertions.
+
+FIT:
+Adds two missing memory contracts: stale-corpus guards tied to configuration fingerprints, and explicit measurement of memory-induced regression against a no-memory baseline.
+
+PROJECT:
+Lancelot memory/evaluation.
+
+NEXT:
+Reproduce no-memory vs injected-memory vs WikiTrace-style memory on one Lancelot benchmark and measure both gain and regression.
 
 ---
 
@@ -6212,7 +6296,7 @@ WATCH до появления реальной AoIP-задачи; сохрани
 
 ## BUCKET: Design / Image Editing
 
-Cards: 13
+Cards: 15
 
 ### bumicodes/draw-beautiful
 
@@ -6232,6 +6316,27 @@ PROJECT:
 
 NEXT:
 Continue testing real WSB objects and scenes; retain structured geometry and rendered-output QA as the contract.
+
+---
+
+### Burgstall-labs/ComfyUI-SpEdE
+
+URL: https://github.com/Burgstall-labs/ComfyUI-SpEdE
+VERDICT: KEEP
+SCORE: 30
+STARS: 38
+
+WHAT:
+Gaussian-splat edit engine: select an object, derive multi-view masks, identify affected splats, remove/replace/extract geometry and reconstruct support surfaces where evidence permits.
+
+FIT:
+Useful source for evidence-aware 3D editing and a fail-closed policy when hidden support geometry cannot be inferred reliably.
+
+PROJECT:
+3D editing research; Visual Factory.
+
+NEXT:
+SOURCE the multi-view selection and fail-closed reconstruction logic; defer practical adoption until a suitable GPU lane is available.
 
 ---
 
@@ -6317,6 +6422,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### jtydhr88/ComfyArt
+
+URL: https://github.com/jtydhr88/ComfyArt
+VERDICT: KEEP
+SCORE: 35
+STARS: 555
+
+WHAT:
+Local open-source creative canvas over ComfyUI: infinite canvas, projects, artboards, layers, comments-as-edits, history, image/video/audio/3D tools, brand assets and exports including editable PPTX.
+
+FIT:
+Strong shared-state pattern for agent + human visual production. External coding agents can attach through a project-specific MCP surface, while jobs can be routed across multiple ComfyUI machines.
+
+PROJECT:
+Visual Factory; cards/graphics; shared agent-human creative workspaces.
+
+NEXT:
+TRY one real visual-production task and inspect project state, MCP control, approval/edit loop and multi-ComfyUI routing.
 
 ---
 
@@ -8837,7 +8963,7 @@ NEXT:
 
 ## BUCKET: Document Parsing / Ingestion
 
-Cards: 21
+Cards: 22
 
 ### Attentionform/astra
 
@@ -9081,6 +9207,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### oomol-lab/pdf-craft
+
+URL: https://github.com/oomol-lab/pdf-craft
+VERDICT: KEEP
+SCORE: 35
+STARS: 6756
+
+WHAT:
+Python document pipeline for scanned books, papers and technical PDFs: OCR plus structure recovery for chapters, TOC, footnotes, tables, formulas and images, with Markdown/EPUB/translated-PDF outputs.
+
+FIT:
+Near-direct fit for OSINT ingestion, including reusable extraction artifacts and the useful rule that LLM-proposed bibliographic metadata must be verified against OCR evidence.
+
+PROJECT:
+OSINT Station; research ingestion; archive conversion.
+
+NEXT:
+TRY on a representative scanned report with tables/formulas and compare structured output against Docling and current ingestion tools.
 
 ---
 
@@ -12756,7 +12903,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 143
+Cards: 146
 
 ### advait/effect-durable-agent
 
@@ -13241,6 +13388,27 @@ PROJECT:
 
 NEXT:
 —
+
+---
+
+### chriswritescode-dev/opencode-manager
+
+URL: https://github.com/chriswritescode-dev/opencode-manager
+VERDICT: KEEP
+SCORE: 35
+STARS: 1085
+
+WHAT:
+Self-hosted OpenCode command center combining sessions, project switching, git/worktrees, terminal, schedules and remote/mobile access in one web application.
+
+FIT:
+Very close reference for the planned project cockpit: one operator view over many repositories and potentially multiple machines, with needs-input/activity and scheduled work.
+
+PROJECT:
+Noosphere command center; project audit/kanban; Lancelot operator UI.
+
+NEXT:
+TRY against a few existing repos and SOURCE the linked-server/session/project model for our cross-project cockpit.
 
 ---
 
@@ -14514,6 +14682,27 @@ task identity → workspace → runtime → lifecycle → suspend/resume → evi
 
 ---
 
+### GoogleChrome/modern-web-guidance
+
+URL: https://github.com/GoogleChrome/modern-web-guidance
+VERDICT: KEEP
+SCORE: 35
+STARS: 19123
+
+WHAT:
+Versioned modern-web guidance for coding agents with narrow retrieval, legacy scans and companion source/eval infrastructure rather than loading a monolithic web handbook into context.
+
+FIT:
+Architecture donor for skills: knowledge corpus → retrieval → narrow guidance → execution → behavioral eval → prune guidance the model already knows.
+
+PROJECT:
+Lancelot skill architecture; all web-facing projects.
+
+NEXT:
+TRY on one existing web project and SOURCE the eval-driven pruning/retrieval pattern for our own skills.
+
+---
+
 ### guillaumemeyer/watermarks-remover
 
 URL: https://github.com/guillaumemeyer/watermarks-remover
@@ -14720,6 +14909,27 @@ PROJECT:
 
 NEXT:
 TRY готовый harness на Inkscape или GIMP до попытки генерировать собственный.
+
+---
+
+### homeassistant-ai/ha-mcp
+
+URL: https://github.com/homeassistant-ai/ha-mcp
+VERDICT: KEEP
+SCORE: 35
+STARS: 7897
+
+WHAT:
+Large Home Assistant MCP integration exposing a broad operational tool surface to AI clients with configurable connectivity and feature/tool management.
+
+FIT:
+Useful as an MCP architecture reference: large tool catalogs need discoverability, scoped enablement, read/write boundaries, approval policy and operational safety rather than dumping every action into context.
+
+PROJECT:
+Lancelot MCP/tool governance.
+
+NEXT:
+SOURCE tool discovery, enable/disable, safety and in-process serving patterns; map them against Lancelot capability grants.
 
 ---
 
@@ -17417,7 +17627,28 @@ TRY на Camelot с manageable MoE: `ft bench bw`, затем сравнить o
 
 ## BUCKET: Local AI / Portable Runtime Infrastructure
 
-Cards: 1
+Cards: 2
+
+### WollyMonjac/Tiny-2.1
+
+URL: https://github.com/WollyMonjac/Tiny-2.1
+VERDICT: KEEP
+SCORE: 30
+STARS: 81
+
+WHAT:
+A real 367k-parameter character-level transformer implemented in Turbo C 2.0 for DOS, with roughly 382 KB of int8 weights and about 540 KB conventional-memory requirement.
+
+FIT:
+Extreme-constraint reference for understandable inference: row-wise int8 weights, quantized KV cache, tied embeddings and no runtime stack beyond C floating-point loops.
+
+PROJECT:
+Edge AI research; retro-media experiments.
+
+NEXT:
+TRY under DOSBox and SOURCE the memory/quantization techniques; keep any code reuse blocked until licensing is clarified.
+
+---
 
 ### techjarves/Portable-Local-Studio
 
@@ -18533,7 +18764,28 @@ NEXT:
 
 ## BUCKET: Monitoring / Change Intelligence
 
-Cards: 1
+Cards: 2
+
+### leiweibau/Pi.Alert
+
+URL: https://github.com/leiweibau/Pi.Alert
+VERDICT: KEEP
+SCORE: 30
+STARS: 1356
+
+WHAT:
+LAN/Wi-Fi discovery and availability monitor with unknown-device alerts, rogue DHCP detection, manual Nmap/Wake-on-LAN and HTTP/latency/SSL monitoring for web services.
+
+FIT:
+Compact operator-facing network radar for Circus and potentially other segments via its Satellite companion.
+
+PROJECT:
+Circus infrastructure monitoring.
+
+NEXT:
+TRY on Circus in observe-only mode and evaluate signal/noise for devices, local services and certificate changes.
+
+---
 
 ### dgtlmoon/changedetection.io
 
@@ -23114,7 +23366,28 @@ TRY на одной большой папке, не на всём HOME; пров
 
 ## BUCKET: Security / Learning & Discovery Sources
 
-Cards: 1
+Cards: 2
+
+### davtur19/tg-widget-rce
+
+URL: https://github.com/davtur19/tg-widget-rce
+VERDICT: KEEP
+SCORE: 35
+STARS: 75
+
+WHAT:
+Post-disclosure research archive around Telegram chat widgets and embedded QuickJS attack surface, including fixed n-day cases, platform/isolation observations and patch references.
+
+FIT:
+Defensive source for treating rich widget messages as active untrusted content and for designing sandbox/process boundaries around embedded scripting.
+
+PROJECT:
+Telegram security; anti-spam; security review.
+
+NEXT:
+WATCH upstream fixes and SOURCE the threat-model/isolation patterns; do not operationalize exploit payloads.
+
+---
 
 ### CarterPerez-dev/Cybersecurity-Projects
 
@@ -23139,7 +23412,7 @@ NEXT:
 
 ## BUCKET: Social Media / Content Ops
 
-Cards: 3
+Cards: 4
 
 ### charlie947/social-media-skills
 
@@ -23161,6 +23434,27 @@ PROJECT:
 
 NEXT:
 Позже сопоставить с `coreyhaines31/marketingskills` и собрать собственную media-relations/social skill taxonomy без копирования author-specific style rules.
+
+---
+
+### crmne/zapfast
+
+URL: https://github.com/crmne/zapfast
+VERDICT: KEEP
+SCORE: 30
+STARS: 4593
+
+WHAT:
+Native Rust/egui WhatsApp companion client with local encrypted archive, multi-account support and no Chromium/browser engine.
+
+FIT:
+Practical Linux client and a useful reference for replacing heavyweight web wrappers with protocol-native desktop applications.
+
+PROJECT:
+Circus desktop tooling; messaging.
+
+NEXT:
+TRY only with a non-critical account/profile first; inspect memory use, history reliability and account-risk behavior before normal use.
 
 ---
 
@@ -23860,7 +24154,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 35
+Cards: 37
 
 ### a2ui-project/a2ui
 
@@ -24246,6 +24540,27 @@ LANCELOT:
 Score: 8/10
 Tier: HIGH
 Tags: durable-workflow, event-sourcing, replay, observability
+
+---
+
+### humanglitch191/ownsync
+
+URL: https://github.com/humanglitch191/ownsync
+VERDICT: KEEP
+SCORE: 35
+STARS: 19
+
+WHAT:
+Offline-first Obsidian sync using client-side Yjs and WebCrypto while a per-vault Cloudflare Durable Object only orders, stores and relays ciphertext over WebSockets.
+
+FIT:
+Strong distributed-state pattern: semantic merge and keys stay on trusted clients; the always-on server is a deliberately dumb ordered mailbox rather than source of truth.
+
+PROJECT:
+Obsidian sync; Noosphere distributed operator state.
+
+NEXT:
+TRY on a non-critical vault with backup, then SOURCE the encrypted-relay/CRDT split for cross-device project state.
 
 ---
 
@@ -24722,6 +25037,27 @@ NEXT:
 7. последствия того, что сервис владеет 22/80/443.
 
 Сравнить с Cloudflare Tunnel и Tailscale Funnel на наших реальных сценариях.
+
+---
+
+### neuregex/freefield
+
+URL: https://github.com/neuregex/freefield
+VERDICT: KEEP
+SCORE: 35
+STARS: 1466
+
+WHAT:
+Open-weight ComfyUI application catalog whose apps are defined by a manifest plus API-format workflow; shared runtime derives UI, model downloads, VRAM information and tests from those manifests.
+
+FIT:
+Strong architecture donor: workflow → manifest → UI/runtime/downloads/VRAM/tests, with minimal per-app code and GPU-lab evidence.
+
+PROJECT:
+Media Factory; future workflow/application factory.
+
+NEXT:
+SOURCE the app manifest and validation pipeline; prototype one of our existing media workflows as a manifest-defined application.
 
 ---
 
@@ -25378,7 +25714,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 89
+Cards: 97
 
 ### 0xS4N4TG/papercut-explainer
 
@@ -25668,6 +26004,27 @@ PROJECT:
 
 NEXT:
 REFERENCE; перенести stage/artifact/fingerprint patterns в собственные factories, затем при необходимости тестировать Linux path.
+
+---
+
+### alisson-anjos/Henge
+
+URL: https://github.com/alisson-anjos/Henge
+VERDICT: KEEP
+SCORE: 35
+STARS: 125
+
+WHAT:
+Open studio for character, motion and head swaps using MiniMax H3 guide latents, with first-frame tools, segmentation guides and local or serverless execution.
+
+FIT:
+Besides motion-transfer capability, it demonstrates a useful deployment split: local UI/control plane with remote GPU workers.
+
+PROJECT:
+Video Factory; remote GPU execution.
+
+NEXT:
+TRY one motion-transfer clip and document the local-control/remote-GPU boundary for reuse in our own media workloads.
 
 ---
 
@@ -26628,6 +26985,27 @@ NEXT:
 
 ---
 
+### itsmetamike/reshoot-4d
+
+URL: https://github.com/itsmetamike/reshoot-4d
+VERDICT: KEEP
+SCORE: 35
+STARS: 92
+
+WHAT:
+Local ComfyUI workflow that captures person motion and source camera, lets the operator keyframe a new virtual camera, then regenerates the shot from the new path and finishes it with post effects.
+
+FIT:
+Adds a distinct production capability: camera decisions become editable after capture instead of being frozen into the source footage.
+
+PROJECT:
+Video Factory; virtual camera; synthetic reshoots.
+
+NEXT:
+TRY on a short controlled shot and inspect camera-path stability, identity consistency, artifact rate and runtime on available GPU/cloud capacity.
+
+---
+
 ### jub0t/concat
 
 URL: https://github.com/jub0t/concat
@@ -26774,6 +27152,27 @@ Video Production / Editing
 
 NEXT:
 проверить текущую установленную версию и пригодность для шаблонного монтажа
+
+---
+
+### koshimazaki/genobi
+
+URL: https://github.com/koshimazaki/genobi
+VERDICT: KEEP
+SCORE: 35
+STARS: 21
+
+WHAT:
+Voice-first, harness-first generative studio combining open-weight media generation, 3D world building, camera control, audio/acoustics, CLI/MCP and agent skills.
+
+FIT:
+Two unusual donors: a license layer that chooses models/libraries against project constraints, and an exportable taste layer for reusable aesthetic memory.
+
+PROJECT:
+Media Factory; coma.fm; Noosphere creative agents.
+
+NEXT:
+SOURCE the license-selection and taste-memory contracts; compare template-as-skill and paid-operation approval boundaries with our agent workflows.
 
 ---
 
@@ -27077,6 +27476,27 @@ NEXT:
 
 ---
 
+### Nebuluss/H3-AudioRetake-studio
+
+URL: https://github.com/Nebuluss/H3-AudioRetake-studio
+VERDICT: KEEP
+SCORE: 35
+STARS: 17
+
+WHAT:
+Local waveform-oriented retake studio for ComfyUI/H3: millisecond/frame selection, speech takes, acting controls, mouth repair, local Whisper ranking, stems, SFX regeneration and overlapping retakes.
+
+FIT:
+Fills a precise post-production gap: repair a bounded dialogue/SFX region without regenerating the whole video.
+
+PROJECT:
+Video Factory; dialogue repair; post-production.
+
+NEXT:
+TRY on one short dialogue defect and one SFX replacement; compare timing, lip-sync and artifact repair against manual workflow.
+
+---
+
 ### nexmoe/VidBee
 
 URL: https://github.com/nexmoe/VidBee
@@ -27309,6 +27729,27 @@ KEEP. Inspect command-line/headless/export surfaces and identify whether OpenToo
 
 ---
 
+### PxTicks/h3-motion
+
+URL: https://github.com/PxTicks/h3-motion
+VERDICT: KEEP
+SCORE: 30
+STARS: 149
+
+WHAT:
+React application driving self-hosted ComfyUI for subject isolation, keyframed movement, masked video regeneration and motion-guided generation using open-weight models.
+
+FIT:
+Useful UI primitive: operator manipulates a subject/path/mask directly and the generative backend follows, instead of prompting the whole shot from scratch.
+
+PROJECT:
+Video production; interactive motion editing.
+
+NEXT:
+TRY one photo-to-motion and one masked-video edit; measure whether direct manipulation materially reduces prompt/retry cycles.
+
+---
+
 ### remotion-dev/remotion
 
 URL: https://github.com/remotion-dev/remotion
@@ -27462,6 +27903,27 @@ PROJECT:
 
 NEXT:
 TRY with one 30–60 second WSB-style explainer and one coma.fm visual. Compare editability, render determinism, typography, audio handling and reuse against our current ffmpeg/Remotion-style workflows.
+
+---
+
+### SonderSaid/ComfyUI-Sonder-Editor
+
+URL: https://github.com/SonderSaid/ComfyUI-Sonder-Editor
+VERDICT: KEEP
+SCORE: 35
+STARS: 51
+
+WHAT:
+Timeline video studio for ComfyUI with projects, assets, scenes, prompt/guide/driver/reference lanes, render queue, A/B takes and timeline export.
+
+FIT:
+Potential foundation for a normal long-form production workspace where generations are takes inside an editable timeline rather than isolated outputs.
+
+PROJECT:
+Video Factory; long-form generative editing.
+
+NEXT:
+TRY a two-scene project with references, alternate takes and partial rerender; inspect whether project/timeline state survives iterative work cleanly.
 
 ---
 
@@ -27642,6 +28104,27 @@ PROJECT:
 
 NEXT:
 TRY one #ТебяЖдут/WSB-safe internal demo and inspect which shot-card, QA and workbench mechanisms are worth porting.
+
+---
+
+### VisualFrisson/ComfyUI-OneShotMV
+
+URL: https://github.com/VisualFrisson/ComfyUI-OneShotMV
+VERDICT: KEEP
+SCORE: 35
+STARS: 25
+
+WHAT:
+Local pipeline from song plus one-line world brief to beat/section analysis, cast/look planning, shot plan, lip-synced clips, automated take checks, cutaways and final beat-aware edit.
+
+FIT:
+It already contains the production loop we need for automatic music video work: cheap review before expensive render, per-shot rerender, QA, versions and timeline export.
+
+PROJECT:
+coma.fm; automatic music-video production.
+
+NEXT:
+TRY one full song excerpt and record failure points by stage: analysis, portraits, lip sync, take QA, edit and export.
 
 ---
 
@@ -27916,6 +28399,27 @@ PROJECT:
 
 NEXT:
 Извлечь primitive taxonomy и сравнить её с Motion/GSAP/Remotion skill sets.
+
+---
+
+### xentome/EDITS-WITH-AI
+
+URL: https://github.com/xentome/EDITS-WITH-AI
+VERDICT: KEEP
+SCORE: 30
+STARS: 14
+
+WHAT:
+Local H3/ComfyUI music-video editor with shot planning, touch-up/extension and multitrack editing; an MCP-connected coding agent can modify the project inside the app.
+
+FIT:
+The useful pattern is human-visible agent provenance: every agent change is marked in the UI so the operator can keep or revise it.
+
+PROJECT:
+Video Factory; agent-assisted editorial UI.
+
+NEXT:
+COMPARE its visible-agent-change model with our approval/evidence patterns and extract the smallest provenance contract.
 
 ---
 
@@ -28418,7 +28922,49 @@ TRY одной WSB-сцены с 5–10 сущностями, links и table/cha
 
 ## BUCKET: Visual Systems / Media Factory
 
-Cards: 1
+Cards: 3
+
+### meshy-dev/ThreeRT
+
+URL: https://github.com/meshy-dev/ThreeRT
+VERDICT: KEEP
+SCORE: 35
+STARS: 471
+
+WHAT:
+Rust/wgpu real-time path tracer behind a three.js-style TypeScript scene/game API, with hardware ray queries, deterministic gameplay runtime and browser fallback through normal three.js.
+
+FIT:
+Combines an open renderer with a strong agent-authoring discipline: references → scene → render → ΔE/PSNR/SSIM compare → repair loop, while keeping authored scenes portable to browser three.js.
+
+PROJECT:
+Visual Factory; 3D/video; agent scene generation.
+
+NEXT:
+TRY source build on Camelot/Vulkan, render a reference scene through the included authoring skill and measure quality/runtime across three review iterations.
+
+---
+
+### rhymeas/Creativefield
+
+URL: https://github.com/rhymeas/Creativefield
+VERDICT: KEEP
+SCORE: 35
+STARS: 33
+
+WHAT:
+Open creative studio on ComfyUI for image, video and 3D work, with timeline/keyframes, camera/blockout workflows, tracked edits and local or online execution.
+
+FIT:
+The useful donor is workflow-as-app: compatible ComfyUI workflows become focused application entries rather than exposing node graphs to the operator.
+
+PROJECT:
+Visual Factory; reusable workflow packaging; operator-facing creative apps.
+
+NEXT:
+COMPARE its workflow-to-app contract with ComfyArt and Freefield; extract the minimum manifest needed to turn a workflow into an operator tool.
+
+---
 
 ### shaongitbd/doory
 
