@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-17T08:28:47
+Generated: 2026-11-17T09:20:03
 Date: 2026-11-17
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,31 +8,31 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 917
+- Total curated cards: 995
 - Buckets: 49
 
 ## Bucket summary
 
 - Agent Infrastructure / Communications: 3
-- Agent Memory / Context: 67
-- Agent Reliability / Evals & Production: 31
-- Agent Security / Governance: 64
+- Agent Memory / Context: 80
+- Agent Reliability / Evals & Production: 36
+- Agent Security / Governance: 68
 - Audio / Music Tools: 1
-- Automation / Event Workflows: 27
-- Broadcast / Playout / Automation: 5
+- Automation / Event Workflows: 30
+- Broadcast / Playout / Automation: 6
 - Design / Image Editing: 15
-- Design Systems / Visual QA: 43
+- Design Systems / Visual QA: 44
 - Device Control / Capture: 9
 - Document Parsing / Ingestion: 22
-- Font Creation / Typography Tools: 17
-- Full-Song AI / Suno Alternatives: 13
-- Infographics / Visual Storytelling: 44
-- Interactive Reports / Data Apps: 10
-- Lancelot / Agent Infrastructure: 146
+- Font Creation / Typography Tools: 18
+- Full-Song AI / Suno Alternatives: 15
+- Infographics / Visual Storytelling: 49
+- Interactive Reports / Data Apps: 11
+- Lancelot / Agent Infrastructure: 165
 - LLM Engineering / Reasoning & Evals: 1
 - Local AI / Inference Infrastructure: 1
 - Local AI / Portable Runtime Infrastructure: 2
-- Media / Social Monitoring: 10
+- Media / Social Monitoring: 11
 - Media Kits / Brand Automation: 3
 - Media Relations / Outreach Automation: 1
 - Media Tools / Mobile Image Workbench: 1
@@ -47,21 +47,21 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - OSINT / Field Tooling: 1
 - OSINT / GEOINT & Image Forensics: 1
 - OSINT / Investigations: 32
-- Publishing / Layout / PDF: 14
+- Publishing / Layout / PDF: 15
 - Radio / Audio Ops: 28
-- Reverse Engineering / Binary Analysis: 22
-- Search / Retrieval Engineering: 34
+- Reverse Engineering / Binary Analysis: 24
+- Search / Retrieval Engineering: 38
 - Security / Learning & Discovery Sources: 2
-- Social Media / Content Ops: 4
+- Social Media / Content Ops: 5
 - Software Architecture / Design References: 1
-- Speech / TTS & Voice: 29
+- Speech / TTS & Voice: 34
 - System Architecture / Engineering Patterns: 37
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 97
+- Video Production / Editing: 104
 - Visual Systems / Data Storytelling: 1
 - Visual Systems / Media Factory: 3
 - Web Data / Crawling & Extraction: 12
-- Web Intelligence / SEO & AI Visibility: 13
+- Web Intelligence / SEO & AI Visibility: 15
 
 ## Today's run
 
@@ -143,7 +143,7 @@ NEXT:
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 67
+Cards: 80
 
 ### 23skdu/longbow
 
@@ -163,6 +163,69 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### 9thLevelSoftware/Daem0n-MCP
+
+URL: https://github.com/9thLevelSoftware/Daem0n-MCP
+VERDICT: KEEP
+SCORE: 35
+STARS: 75
+
+WHAT:
+Governed memory and tool surface with counsel challenges and workspace grants.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: governed memory and tool surface with counsel challenges and workspace grants. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### ai-creed/ai-cortex
+
+URL: https://github.com/ai-creed/ai-cortex
+VERDICT: KEEP
+SCORE: 35
+STARS: 7
+
+WHAT:
+Explicit project memory plus structural code context without hidden LLM calls.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: explicit project memory plus structural code context without hidden LLM calls. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### aixtin/nyral
+
+URL: https://github.com/aixtin/nyral
+VERDICT: KEEP
+SCORE: 30
+STARS: 7
+
+WHAT:
+Android personal-agent node with local memory, browser and SSH.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: Android personal-agent node with local memory, browser and SSH. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -188,6 +251,27 @@ PROJECT:
 NEXT:
 Pilot on one disposable project and verify whether a failed command can
 be retrieved together with exact raw output and surrounding context.
+
+---
+
+### ClickHouse/loom
+
+URL: https://github.com/ClickHouse/loom
+VERDICT: KEEP
+SCORE: 35
+STARS: 21
+
+WHAT:
+Shared memory and code intelligence linked to files and symbols.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: shared memory and code intelligence linked to files and symbols. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -335,6 +419,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### EternalNight996/memory-eternal
+
+URL: https://github.com/EternalNight996/memory-eternal
+VERDICT: KEEP
+SCORE: 35
+STARS: 165
+
+WHAT:
+Review-gated local memory with immutable audit and token ledger.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: review-gated local memory with immutable audit and token ledger. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**COMPARE + TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -972,6 +1077,48 @@ DEEP STUDY; сравнить с LoreKit/Membrick и взять handoff/review/re
 
 ---
 
+### oleksiijko/pmb
+
+URL: https://github.com/oleksiijko/pmb
+VERDICT: KEEP
+SCORE: 35
+STARS: 285
+
+WHAT:
+Local SQLite memory with hooks and measurable usefulness.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: local SQLite memory with hooks and measurable usefulness. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### OpenVulcan/vulcan-code
+
+URL: https://github.com/OpenVulcan/vulcan-code
+VERDICT: KEEP
+SCORE: 35
+STARS: 19
+
+WHAT:
+Rust core service with GUI/TUI, sessions, browser, skills and memory.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: Rust core service with GUI/TUI, sessions, browser, skills and memory. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**COMPARE + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### pnmcguire480/cairntir
 
 URL: https://github.com/pnmcguire480/cairntir
@@ -1011,6 +1158,48 @@ PROJECT:
 
 NEXT:
 TRY on one noisy repository with recurring build/test failures and measure hit quality, false matches and usefulness of confidence/staleness signals.
+
+---
+
+### punt-labs/quarry
+
+URL: https://github.com/punt-labs/quarry
+VERDICT: KEEP
+SCORE: 30
+STARS: 7
+
+WHAT:
+Single local retrieval daemon serving thin CLI/MCP/hooks.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: single local retrieval daemon serving thin CLI/MCP/hooks. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### qingsongcui/ContextCore
+
+URL: https://github.com/qingsongcui/ContextCore
+VERDICT: KEEP
+SCORE: 35
+STARS: 99
+
+WHAT:
+Cross-agent conversation relay with source-linked memory and task state.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: cross-agent conversation relay with source-linked memory and task state. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -1109,6 +1298,27 @@ Lancelot; long-running agent sessions.
 
 NEXT:
 Run a controlled Lancelot benchmark against baseline context handling and WikiTrace-style memory; measure success, cost, cache hit rate and regression.
+
+---
+
+### RapierCraftStudios/ForgeDock
+
+URL: https://github.com/RapierCraftStudios/ForgeDock
+VERDICT: KEEP
+SCORE: 35
+STARS: 119
+
+WHAT:
+Issue-to-PR pipeline with GitHub as external agent memory.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: issue-to-PR pipeline with GitHub as external agent memory. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -1294,6 +1504,27 @@ NEXT:
 
 ---
 
+### slow-stack/mneme
+
+URL: https://github.com/slow-stack/mneme
+VERDICT: KEEP
+SCORE: 35
+STARS: 233
+
+WHAT:
+Local memory with readable mirrors, consolidation, decay and conflict review.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: local memory with readable mirrors, consolidation, decay and conflict review. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### tanlnm512/cairn
 
 URL: https://github.com/tanlnm512/cairn
@@ -1317,6 +1548,27 @@ PROJECT:
 NEXT:
 Test the structural graph on one medium local repository and compare
 precise vs fuzzy blast-radius results.
+
+---
+
+### tazwaryayyyy/Memorie-AI
+
+URL: https://github.com/tazwaryayyyy/Memorie-AI
+VERDICT: KEEP
+SCORE: 30
+STARS: 6
+
+WHAT:
+Local memory whose trust changes with observed success, failure and decay.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: local memory whose trust changes with observed success, failure and decay. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -1631,6 +1883,27 @@ NEXT:
 
 ---
 
+### winstonkoh87/Athena-Public
+
+URL: https://github.com/winstonkoh87/Athena-Public
+VERDICT: KEEP
+SCORE: 35
+STARS: 622
+
+WHAT:
+Sovereign local agent state plus decision and governance screens.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere memory**: sovereign local agent state plus decision and governance screens. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere memory.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### yukyeongleee/wikitrace
 
 URL: https://github.com/yukyeongleee/wikitrace
@@ -1724,7 +1997,7 @@ DEEP STUDY архитектуры; lab только после понимани�
 
 ## BUCKET: Agent Reliability / Evals & Production
 
-Cards: 31
+Cards: 36
 
 ### Adi15Jain/cf_ai_next_doctor
 
@@ -1765,6 +2038,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### ARSI-LAB/ARSI-Evaluator
+
+URL: https://github.com/ARSI-LAB/ARSI-Evaluator
+VERDICT: KEEP
+SCORE: 35
+STARS: 40
+
+WHAT:
+Plugin framework spanning agent, inference and kernel evaluation with resumable runs.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot evaluation and observability**: plugin framework spanning agent, inference and kernel evaluation with resumable runs. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot evaluation and observability.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -1829,6 +2123,27 @@ PROJECT:
 
 NEXT:
 Prototype one Lancelot task as a canonical trace and add a CI regression gate for a known behavior.
+
+---
+
+### chriswu727/argus
+
+URL: https://github.com/chriswu727/argus
+VERDICT: KEEP
+SCORE: 35
+STARS: 6
+
+WHAT:
+Browser QA that turns findings into evidence and regression tests.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot evaluation and observability**: browser QA that turns findings into evidence and regression tests. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot evaluation and observability.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -1943,6 +2258,27 @@ TRY one existing Lancelot cleanroom task as a custom benchmark or plugin and com
 
 ---
 
+### getsentry/tattletale
+
+URL: https://github.com/getsentry/tattletale
+VERDICT: KEEP
+SCORE: 35
+STARS: 10
+
+WHAT:
+Coding-agent sessions converted to Sentry traces.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot evaluation and observability**: coding-agent sessions converted to Sentry traces. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot evaluation and observability.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### glassflow/rius-sdk-typescript
 
 URL: https://github.com/glassflow/rius-sdk-typescript
@@ -2025,6 +2361,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### litefuse/litefuse
+
+URL: https://github.com/litefuse/litefuse
+VERDICT: KEEP
+SCORE: 30
+STARS: 113
+
+WHAT:
+Self-hosted agent observability, prompts, datasets and evals.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot evaluation and observability**: self-hosted agent observability, prompts, datasets and evals. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot evaluation and observability.
+
+NEXT:
+**COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -2175,6 +2532,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### rust-infra/tact
+
+URL: https://github.com/rust-infra/tact
+VERDICT: KEEP
+SCORE: 30
+STARS: 17
+
+WHAT:
+Native Rust coding agent with shared TUI/desktop runtime and eval suite.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot evaluation and observability**: native Rust coding agent with shared TUI/desktop runtime and eval suite. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot evaluation and observability.
+
+NEXT:
+**COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -2395,7 +2773,7 @@ NEXT:
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 64
+Cards: 68
 
 ### 0xNyk/agent-security
 
@@ -3935,6 +4313,27 @@ NEXT:
 
 ---
 
+### joaoariedi/hefesto
+
+URL: https://github.com/joaoariedi/hefesto
+VERDICT: KEEP
+SCORE: 35
+STARS: 6
+
+WHAT:
+Spec-driven workflow with hook-enforced quality gates.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot security and governance**: spec-driven workflow with hook-enforced quality gates. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot security and governance.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### jpzk/koto
 
 URL: https://github.com/jpzk/koto
@@ -4718,6 +5117,27 @@ SafeAI / AgentShield,
 
 ---
 
+### obielin/skillshield
+
+URL: https://github.com/obielin/skillshield
+VERDICT: KEEP
+SCORE: 35
+STARS: 74
+
+WHAT:
+Pre-install scanner for malicious agent skills and MCP schemas.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot security and governance**: pre-install scanner for malicious agent skills and MCP schemas. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot security and governance.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### ohad6k/VibeRaven
 
 URL: https://github.com/ohad6k/VibeRaven
@@ -5160,6 +5580,27 @@ NEXT:
 
 ---
 
+### SpecterOps/Jailbreaker-CE
+
+URL: https://github.com/SpecterOps/Jailbreaker-CE
+VERDICT: KEEP
+SCORE: 35
+STARS: 118
+
+WHAT:
+Repeatable local jailbreak and prompt-injection evaluation harness.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot security and governance**: repeatable local jailbreak and prompt-injection evaluation harness. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot security and governance.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### swimmwatch/cloakbrowser-mcp
 
 URL: https://github.com/swimmwatch/cloakbrowser-mcp
@@ -5286,6 +5727,27 @@ PROJECT:
 
 NEXT:
 TRY на нескольких наших repo и домашнем agent config; сохранить baseline и посмотреть реальные drift findings.
+
+---
+
+### vllm-project/semantic-router
+
+URL: https://github.com/vllm-project/semantic-router
+VERDICT: KEEP
+SCORE: 35
+STARS: 6480
+
+WHAT:
+Programmable decision layer selecting or combining models and compute.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot security and governance**: programmable decision layer selecting or combining models and compute. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot security and governance.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -5540,7 +6002,7 @@ NEXT:
 
 ## BUCKET: Automation / Event Workflows
 
-Cards: 27
+Cards: 30
 
 ### 0000F8/n8n-nodes-saltapp
 
@@ -5560,6 +6022,27 @@ PROJECT:
 
 NEXT:
 Prototype one non-critical approval gate where n8n pauses and the authoritative system records both request and decision.
+
+---
+
+### anatolykoptev/n8n-mcp-agent
+
+URL: https://github.com/anatolykoptev/n8n-mcp-agent
+VERDICT: KEEP
+SCORE: 30
+STARS: 0
+
+WHAT:
+Broad MCP control surface for n8n with retries and workflow discovery.
+
+FIT:
+Отдельный донорский паттерн для **Duke / n8n / automation**: broad MCP control surface for n8n with retries and workflow discovery. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Duke / n8n / automation.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -5865,6 +6348,27 @@ NEXT:
 
 ---
 
+### Iceman2050/n8n-nodes-agent-auth-gateway
+
+URL: https://github.com/Iceman2050/n8n-nodes-agent-auth-gateway
+VERDICT: KEEP
+SCORE: 30
+STARS: 0
+
+WHAT:
+Fail-closed decision-before-execute guard for n8n tool calls.
+
+FIT:
+Отдельный донорский паттерн для **Duke / n8n / automation**: fail-closed decision-before-execute guard for n8n tool calls. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Duke / n8n / automation.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### Manveen07/n8n-workflow-tests
 
 URL: https://github.com/Manveen07/n8n-workflow-tests
@@ -5981,6 +6485,27 @@ n8n / Workflow Automation · custom integrations.
 
 NEXT:
 Использовать как canonical scaffold при первом собственном n8n node. Не изобретать структуру package/build/test вручную.
+
+---
+
+### n8n-io/nod
+
+URL: https://github.com/n8n-io/nod
+VERDICT: KEEP
+SCORE: 35
+STARS: 38
+
+WHAT:
+Personal agent with computer, schedules, memory, approvals and evals.
+
+FIT:
+Отдельный донорский паттерн для **Duke / n8n / automation**: personal agent with computer, schedules, memory, approvals and evals. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Duke / n8n / automation.
+
+NEXT:
+**DEEP STUDY + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -6168,7 +6693,7 @@ video job contract. Katto отдельно тестировать только �
 
 ## BUCKET: Broadcast / Playout / Automation
 
-Cards: 5
+Cards: 6
 
 ### CasparCG/server
 
@@ -6236,6 +6761,27 @@ PROJECT:
 
 NEXT:
 Run a synthetic station test: hour markers, rotations, crossfades, live interruption, stream output and proof-of-play.
+
+---
+
+### KinetraLive/kinetra-app
+
+URL: https://github.com/KinetraLive/kinetra-app
+VERDICT: KEEP
+SCORE: 30
+STARS: 6
+
+WHAT:
+Open broadcast graphics for OBS, vMix and CasparCG.
+
+FIT:
+Отдельный донорский паттерн для **Broadcast / channel automation**: open broadcast graphics for OBS, vMix and CasparCG. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Broadcast / channel automation.
+
+NEXT:
+**TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -6620,7 +7166,7 @@ WATCH и сравнение с более зрелым PhotoCraft по memory mo
 
 ## BUCKET: Design Systems / Visual QA
 
-Cards: 43
+Cards: 44
 
 ### 0design/ai-native-design-framework
 
@@ -8322,6 +8868,27 @@ NEXT:
 
 ---
 
+### TechsOneAi/ComposeLintAI
+
+URL: https://github.com/TechsOneAi/ComposeLintAI
+VERDICT: KEEP
+SCORE: 30
+STARS: 33
+
+WHAT:
+Hard-gated design-token and architecture diagnostics with surgical AST patches.
+
+FIT:
+Отдельный донорский паттерн для **Visual systems / design QA**: hard-gated design-token and architecture diagnostics with surgical AST patches. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Visual systems / design QA.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### uxKero/anydesign
 
 URL: https://github.com/uxKero/anydesign
@@ -9445,7 +10012,7 @@ REFERENCE; использовать leaderboard/protocol при выборе OCR
 
 ## BUCKET: Font Creation / Typography Tools
 
-Cards: 17
+Cards: 18
 
 ### Corne2Plum3/Giphurs
 
@@ -9612,6 +10179,27 @@ Design system / visual QA
 
 NEXT:
 проверить README, лицензию, активность и сделать smoke-test
+
+---
+
+### Hairline-UI/inrond
+
+URL: https://github.com/Hairline-UI/inrond
+VERDICT: KEEP
+SCORE: 30
+STARS: 13
+
+WHAT:
+Inter-compatible variable font with a live roundness axis.
+
+FIT:
+Отдельный донорский паттерн для **Visual identity / typography**: Inter-compatible variable font with a live roundness axis. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Visual identity / typography.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -9906,7 +10494,7 @@ NEXT:
 
 ## BUCKET: Full-Song AI / Suno Alternatives
 
-Cards: 13
+Cards: 15
 
 ### ace-step/ACE-Step-1.5
 
@@ -10038,6 +10626,48 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### MindrLabs/music-generation-ace-step
+
+URL: https://github.com/MindrLabs/music-generation-ace-step
+VERDICT: KEEP
+SCORE: 30
+STARS: 0
+
+WHAT:
+Local full-song generation and cover/repaint service around ACE-Step.
+
+FIT:
+Отдельный донорский паттерн для **coma.fm / music generation**: local full-song generation and cover/repaint service around ACE-Step. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+coma.fm / music generation.
+
+NEXT:
+**TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### MindrLabs/music-generation-minimax-music3
+
+URL: https://github.com/MindrLabs/music-generation-minimax-music3
+VERDICT: KEEP
+SCORE: 30
+STARS: 1
+
+WHAT:
+Measured full-song MiniMax-Music3 service.
+
+FIT:
+Отдельный донорский паттерн для **coma.fm / music generation**: measured full-song MiniMax-Music3 service. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+coma.fm / music generation.
+
+NEXT:
+**COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -10467,7 +11097,28 @@ NEXT:
 
 ## BUCKET: Infographics / Visual Storytelling
 
-Cards: 44
+Cards: 49
+
+### aizzaku/aiz-infographic
+
+URL: https://github.com/aizzaku/aiz-infographic
+VERDICT: KEEP
+SCORE: 35
+STARS: 14
+
+WHAT:
+Agent infographic skill with canvases, snippets, styles and deterministic QA.
+
+FIT:
+Отдельный донорский паттерн для **Visual Factory / data storytelling**: agent infographic skill with canvases, snippets, styles and deterministic QA. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Visual Factory / data storytelling.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
 
 ### bezda-team/rhp
 
@@ -10693,6 +11344,27 @@ TRY on one known project and one unfamiliar project. Check cross-repo edges, sta
 
 ---
 
+### iart-ai/data-animation-skills
+
+URL: https://github.com/iart-ai/data-animation-skills
+VERDICT: KEEP
+SCORE: 35
+STARS: 18
+
+WHAT:
+CSV-to-animated-chart workflow that keeps exact numbers on every frame.
+
+FIT:
+Отдельный донорский паттерн для **Visual Factory / data storytelling**: CSV-to-animated-chart workflow that keeps exact numbers on every frame. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Visual Factory / data storytelling.
+
+NEXT:
+**SOURCE + TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### jimku233/workflow-visualizer
 
 URL: https://github.com/jimku233/workflow-visualizer
@@ -10711,6 +11383,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### kasfulk/effectcraft-motion-skills
+
+URL: https://github.com/kasfulk/effectcraft-motion-skills
+VERDICT: KEEP
+SCORE: 35
+STARS: 22
+
+WHAT:
+JSON-to-vertical motion graphics with review and themed rendering.
+
+FIT:
+Отдельный донорский паттерн для **Visual Factory / data storytelling**: JSON-to-vertical motion graphics with review and themed rendering. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Visual Factory / data storytelling.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -11289,6 +11982,27 @@ NEXT:
 
 ---
 
+### Okohedeki/designai
+
+URL: https://github.com/Okohedeki/designai
+VERDICT: KEEP
+SCORE: 35
+STARS: 51
+
+WHAT:
+YAML-driven scroll experience with film, 3D, maps and data.
+
+FIT:
+Отдельный донорский паттерн для **Visual Factory / data storytelling**: YAML-driven scroll experience with film, 3D, maps and data. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Visual Factory / data storytelling.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### palewire/datawrapper-mcp
 
 URL: https://github.com/palewire/datawrapper-mcp
@@ -11831,6 +12545,27 @@ NEXT:
 - проверка QA.
 
 После этого вынести pattern `JSON → deterministic visual → automated QA → MP4` в собственный reusable skill.
+
+---
+
+### ythx-101/paper-reader
+
+URL: https://github.com/ythx-101/paper-reader
+VERDICT: KEEP
+SCORE: 35
+STARS: 21
+
+WHAT:
+Paper-to-sourced-fact-table-to-reviewed-carousel skill.
+
+FIT:
+Отдельный донорский паттерн для **Visual Factory / data storytelling**: paper-to-sourced-fact-table-to-reviewed-carousel skill. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Visual Factory / data storytelling.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -12581,7 +13316,7 @@ NEXT:
 
 ## BUCKET: Interactive Reports / Data Apps
 
-Cards: 10
+Cards: 11
 
 ### bobbycomet/Conky-Studio
 
@@ -12725,6 +13460,27 @@ Interactive Evidence Reports / OSINT Signal / Horizon
 
 NEXT:
 сделать мини-прототип отчёта из CSV/YAML в интерактивный HTML
+
+---
+
+### WenyuChiou/agent-board
+
+URL: https://github.com/WenyuChiou/agent-board
+VERDICT: KEEP
+SCORE: 35
+STARS: 50
+
+WHAT:
+Harness-neutral board that shows agent status and needs-you state.
+
+FIT:
+Отдельный донорский паттерн для **Noosphere / operator UI**: harness-neutral board that shows agent status and needs-you state. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Noosphere / operator UI.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -12903,7 +13659,28 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 146
+Cards: 165
+
+### 6maple/mcp-for-chatgpt-web-tunnel
+
+URL: https://github.com/6maple/mcp-for-chatgpt-web-tunnel
+VERDICT: KEEP
+SCORE: 30
+STARS: 2
+
+WHAT:
+Controlled local-workspace tool bridge to ChatGPT.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: controlled local-workspace tool bridge to ChatGPT. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
 
 ### advait/effect-durable-agent
 
@@ -12997,6 +13774,27 @@ NEXT:
 
 ---
 
+### agent-passport-system/agent-passport-mcp
+
+URL: https://github.com/agent-passport-system/agent-passport-mcp
+VERDICT: KEEP
+SCORE: 30
+STARS: 4
+
+WHAT:
+Agent identity, delegation, enforcement and signed action receipts over MCP.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: agent identity, delegation, enforcement and signed action receipts over MCP. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### agentgateway/agentgateway
 
 URL: https://github.com/agentgateway/agentgateway
@@ -13063,6 +13861,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### alexshpunt/pi-agent-computer-use
+
+URL: https://github.com/alexshpunt/pi-agent-computer-use
+VERDICT: KEEP
+SCORE: 35
+STARS: 87
+
+WHAT:
+Native Windows UI-tree and browser control with change receipts and safety modes.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: native Windows UI-tree and browser control with change receipts and safety modes. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE + TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -13137,6 +13956,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### anomalyco/browse
+
+URL: https://github.com/anomalyco/browse
+VERDICT: KEEP
+SCORE: 35
+STARS: 510
+
+WHAT:
+Agent use of the user's real authenticated browser.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: agent use of the user's real authenticated browser. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -13248,6 +14088,27 @@ PROJECT:
 
 NEXT:
 Extract the capability registration, sandbox and completion-verification contracts as Lancelot design references.
+
+---
+
+### ash0987/cf_ai_oncall_copilot
+
+URL: https://github.com/ash0987/cf_ai_oncall_copilot
+VERDICT: KEEP
+SCORE: 30
+STARS: 0
+
+WHAT:
+Incident-per-Durable-Object copilot with persistent hypotheses and notes.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: incident-per-Durable-Object copilot with persistent hypotheses and notes. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -13409,6 +14270,27 @@ Noosphere command center; project audit/kanban; Lancelot operator UI.
 
 NEXT:
 TRY against a few existing repos and SOURCE the linked-server/session/project model for our cross-project cockpit.
+
+---
+
+### cjsharp1/anthropic-mcp-lab
+
+URL: https://github.com/cjsharp1/anthropic-mcp-lab
+VERDICT: KEEP
+SCORE: 30
+STARS: 0
+
+WHAT:
+Live inspector for raw MCP request/response envelopes and transports.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: live inspector for raw MCP request/response envelopes and transports. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE + TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -14182,6 +15064,27 @@ NEXT:
 
 ---
 
+### devanshmalik-13/APX-AgniParixa_Execution_Firewall
+
+URL: https://github.com/devanshmalik-13/APX-AgniParixa_Execution_Firewall
+VERDICT: KEEP
+SCORE: 30
+STARS: 0
+
+WHAT:
+Staged agent actions with preview, grants, receipts and compensating recovery.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: staged agent actions with preview, grants, receipts and compensating recovery. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### Dicklesworthstone/meta_skill
 
 URL: https://github.com/Dicklesworthstone/meta_skill
@@ -14433,6 +15336,27 @@ COMPARE bot lifecycle, sandbox ownership, routine execution, credential handling
 
 ---
 
+### epavanello/toolkien
+
+URL: https://github.com/epavanello/toolkien
+VERDICT: KEEP
+SCORE: 35
+STARS: 1
+
+WHAT:
+MCP gateway with search/describe/code execution, sandbox, permissions and approvals.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: MCP gateway with search/describe/code execution, sandbox, permissions and approvals. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### felinics/Memoh
 
 URL: https://github.com/felinics/Memoh
@@ -14561,6 +15485,27 @@ NEXT:
 
 ---
 
+### Gautham-Karuppaiah/formwright
+
+URL: https://github.com/Gautham-Karuppaiah/formwright
+VERDICT: KEEP
+SCORE: 30
+STARS: 0
+
+WHAT:
+One-call typed form filling with read-back verification.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: one-call typed form filling with read-back verification. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE + TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### Gentleman-Programming/gentle-ai
 
 URL: https://github.com/Gentleman-Programming/gentle-ai
@@ -14579,6 +15524,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### getgaal/gaal
+
+URL: https://github.com/getgaal/gaal
+VERDICT: KEEP
+SCORE: 35
+STARS: 66
+
+WHAT:
+One declarative config for repos, skills and MCP across agents and machines.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: one declarative config for repos, skills and MCP across agents and machines. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -15329,6 +16295,27 @@ PROJECT:
 NEXT:
 Borrow the shared mutation path, origin audit and explicit handoff state
 for Lancelot rather than adopting Flow as our task system.
+
+---
+
+### JosssphZhou/poki
+
+URL: https://github.com/JosssphZhou/poki
+VERDICT: KEEP
+SCORE: 35
+STARS: 988
+
+WHAT:
+Real iPhone exposed as an agent tool surface with approval gates.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: real iPhone exposed as an agent tool surface with approval gates. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -16152,6 +17139,27 @@ COMPARE with Paperclip on identity, task lifecycle, permissions, schedules, pers
 
 ---
 
+### pachara-n/skills-lint
+
+URL: https://github.com/pachara-n/skills-lint
+VERDICT: KEEP
+SCORE: 30
+STARS: 2
+
+WHAT:
+Linter for SKILL.md structure, descriptions and duplicate/shadowed skills.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: linter for SKILL.md structure, descriptions and duplicate/shadowed skills. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### Panniantong/Agent-Reach
 
 URL: https://github.com/Panniantong/Agent-Reach
@@ -16434,6 +17442,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### receptron/mulmoterminal
+
+URL: https://github.com/receptron/mulmoterminal
+VERDICT: KEEP
+SCORE: 35
+STARS: 270
+
+WHAT:
+Tmux-backed multi-agent terminal grid with needs-you triage and worktrees.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: tmux-backed multi-agent terminal grid with needs-you triage and worktrees. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -16816,6 +17845,27 @@ Benchmark против
 
 ---
 
+### Tabrej96/AETHER
+
+URL: https://github.com/Tabrej96/AETHER
+VERDICT: KEEP
+SCORE: 30
+STARS: 1
+
+WHAT:
+Crash-resumable multi-agent engineering harness with machine-verifiable gates.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: crash-resumable multi-agent engineering harness with machine-verifiable gates. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### tashfeenahmed/circlechat
 
 URL: https://github.com/tashfeenahmed/circlechat
@@ -16991,6 +18041,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Tthanh2k6/turbo-browser-mcp
+
+URL: https://github.com/Tthanh2k6/turbo-browser-mcp
+VERDICT: KEEP
+SCORE: 35
+STARS: 114
+
+WHAT:
+Playwright MCP optimized for batched actions, delta snapshots and guarded submit.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: Playwright MCP optimized for batched actions, delta snapshots and guarded submit. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -17202,6 +18273,27 @@ TRY with two existing MCP clients and one shared backend; verify process reuse, 
 
 ---
 
+### Velmlabs/unstuck
+
+URL: https://github.com/Velmlabs/unstuck
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Live human takeover for CAPTCHA, login and 2FA in the same browser session.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: live human takeover for CAPTCHA, login and 2FA in the same browser session. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### vercel-labs/agent-skills
 
 URL: https://github.com/vercel-labs/agent-skills
@@ -17241,6 +18333,69 @@ PROJECT:
 
 NEXT:
 Keep ACTIVE as the baseline CLI for portable skills, with telemetry policy documented for our environments.
+
+---
+
+### visveshkhanna/Switchboard
+
+URL: https://github.com/visveshkhanna/Switchboard
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Profile-based MCP router with live switching and shared server processes.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: profile-based MCP router with live switching and shared server processes. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### voantony/nango-agent-approval-gate
+
+URL: https://github.com/voantony/nango-agent-approval-gate
+VERDICT: KEEP
+SCORE: 30
+STARS: 0
+
+WHAT:
+Auto/ask/deny tool permissions with approval tied to exact arguments.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: auto/ask/deny tool permissions with approval tied to exact arguments. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### vstorm-co/agenticos
+
+URL: https://github.com/vstorm-co/agenticos
+VERDICT: KEEP
+SCORE: 35
+STARS: 335
+
+WHAT:
+Self-hosted team agent platform with skills, browser, approvals, budgets and shared projects.
+
+FIT:
+Отдельный донорский паттерн для **Lancelot / Noosphere agent infrastructure**: self-hosted team agent platform with skills, browser, approvals, budgets and shared projects. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Lancelot / Noosphere agent infrastructure.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -17673,7 +18828,7 @@ TRY на Camelot: CUDA detection, небольшой SD/LLM, Whisper, перек
 
 ## BUCKET: Media / Social Monitoring
 
-Cards: 10
+Cards: 11
 
 ### 0xzerolight/topic_watch
 
@@ -17699,6 +18854,27 @@ Media Monitoring / OSINT Signal как novelty и event-state layer поверх
 
 NEXT:
 Проверить модель knowledge state на нашем потоке публикаций и определить, насколько хорошо она разделяет новое событие, развитие события и обычную перепечатку.
+
+---
+
+### alexandephilia/sitrep-osint
+
+URL: https://github.com/alexandephilia/sitrep-osint
+VERDICT: KEEP
+SCORE: 35
+STARS: 24
+
+WHAT:
+Local-first intelligence console combining news, social and geospatial feeds.
+
+FIT:
+Отдельный донорский паттерн для **OSINT / media monitoring**: local-first intelligence console combining news, social and geospatial feeds. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+OSINT / media monitoring.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -20735,7 +21911,7 @@ NEXT:
 
 ## BUCKET: Publishing / Layout / PDF
 
-Cards: 14
+Cards: 15
 
 ### carpe-diem/typst-fillable
 
@@ -20755,6 +21931,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только при сохранении отдельной архитектурной роли.
+
+---
+
+### gushmazuko/basira-vision
+
+URL: https://github.com/gushmazuko/basira-vision
+VERDICT: KEEP
+SCORE: 35
+STARS: 6
+
+WHAT:
+Scanned-book OCR, sliding-context translation and Typst edition pipeline.
+
+FIT:
+Отдельный донорский паттерн для **OSINT / publishing**: scanned-book OCR, sliding-context translation and Typst edition pipeline. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+OSINT / publishing.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -22146,7 +23343,7 @@ NEXT:
 
 ## BUCKET: Reverse Engineering / Binary Analysis
 
-Cards: 22
+Cards: 24
 
 ### AgeloVito/jd-mcp-duo
 
@@ -22443,6 +23640,27 @@ NEXT:
 
 ---
 
+### mohitmishra786/low-level-dev-skills
+
+URL: https://github.com/mohitmishra786/low-level-dev-skills
+VERDICT: KEEP
+SCORE: 30
+STARS: 284
+
+WHAT:
+Large low-level systems and reverse-engineering skill corpus.
+
+FIT:
+Отдельный донорский паттерн для **Reverse engineering / security research**: large low-level systems and reverse-engineering skill corpus. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Reverse engineering / security research.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### morluto/rea
 
 URL: https://github.com/morluto/rea
@@ -22496,6 +23714,27 @@ PROJECT:
 
 NEXT:
 Use as a SOURCE in reverse-engineering research. Mine it for distinct high-value tools/cases rather than cloning its whole inventory into GitRadar.
+
+---
+
+### Ryftenius/RESX
+
+URL: https://github.com/Ryftenius/RESX
+VERDICT: KEEP
+SCORE: 30
+STARS: 11
+
+WHAT:
+Windows binary analysis for hidden APIs, overlapping decode streams and drivers.
+
+FIT:
+Отдельный донорский паттерн для **Reverse engineering / security research**: Windows binary analysis for hidden APIs, overlapping decode streams and drivers. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Reverse engineering / security research.
+
+NEXT:
+**SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -22627,7 +23866,7 @@ NEXT:
 
 ## BUCKET: Search / Retrieval Engineering
 
-Cards: 34
+Cards: 38
 
 ### al1-nasir/weigh_swarm
 
@@ -22783,6 +24022,27 @@ NEXT:
 
 ---
 
+### cwida/DuckIR
+
+URL: https://github.com/cwida/DuckIR
+VERDICT: KEEP
+SCORE: 35
+STARS: 15
+
+WHAT:
+Out-of-core vector search integrated directly into DuckDB.
+
+FIT:
+Отдельный донорский паттерн для **Noosphere / retrieval**: out-of-core vector search integrated directly into DuckDB. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Noosphere / retrieval.
+
+NEXT:
+**SOURCE + TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### Dicklesworthstone/coding_agent_session_search
 
 URL: https://github.com/Dicklesworthstone/coding_agent_session_search
@@ -22865,6 +24125,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### jamie8johnson/cqs
+
+URL: https://github.com/jamie8johnson/cqs
+VERDICT: KEEP
+SCORE: 35
+STARS: 18
+
+WHAT:
+Local code RAG with semantic search, call graphs and smart context assembly.
+
+FIT:
+Отдельный донорский паттерн для **Noosphere / retrieval**: local code RAG with semantic search, call graphs and smart context assembly. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Noosphere / retrieval.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -23230,6 +24511,27 @@ NEXT:
 
 ---
 
+### tradik/mddb
+
+URL: https://github.com/tradik/mddb
+VERDICT: KEEP
+SCORE: 35
+STARS: 6
+
+WHAT:
+Single-binary knowledge base with hybrid search and large MCP surface.
+
+FIT:
+Отдельный донорский паттерн для **Noosphere / retrieval**: single-binary knowledge base with hybrid search and large MCP surface. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Noosphere / retrieval.
+
+NEXT:
+**SOURCE + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### typesense/typesense
 
 URL: https://github.com/typesense/typesense
@@ -23364,6 +24666,27 @@ TRY на одной большой папке, не на всём HOME; пров
 
 ---
 
+### ZengLiangYi/ChatCrystal
+
+URL: https://github.com/ZengLiangYi/ChatCrystal
+VERDICT: KEEP
+SCORE: 35
+STARS: 62
+
+WHAT:
+Local import, distillation and search across many coding-agent histories.
+
+FIT:
+Отдельный донорский паттерн для **Noosphere / retrieval**: local import, distillation and search across many coding-agent histories. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Noosphere / retrieval.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ## BUCKET: Security / Learning & Discovery Sources
 
 Cards: 2
@@ -23412,7 +24735,7 @@ NEXT:
 
 ## BUCKET: Social Media / Content Ops
 
-Cards: 4
+Cards: 5
 
 ### charlie947/social-media-skills
 
@@ -23479,6 +24802,27 @@ NEXT:
 
 ---
 
+### pendpost/pendpost
+
+URL: https://github.com/pendpost/pendpost
+VERDICT: KEEP
+SCORE: 35
+STARS: 21
+
+WHAT:
+Local-first approval-before-publish social operations over MCP.
+
+FIT:
+Отдельный донорский паттерн для **Media relations / content operations**: local-first approval-before-publish social operations over MCP. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Media relations / content operations.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### YusufSizmaz/social-agent-ai
 
 URL: https://github.com/YusufSizmaz/social-agent-ai
@@ -23529,7 +24873,7 @@ NEXT:
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 29
+Cards: 34
 
 ### 5uck1ess/tts-bench
 
@@ -23554,6 +24898,48 @@ PROJECT:
 NEXT:
 Use its samples and hardware-aware results to shortlist 2–3 TTS engines
 before any local install.
+
+---
+
+### adventists-ai/sophon-realtime
+
+URL: https://github.com/adventists-ai/sophon-realtime
+VERDICT: KEEP
+SCORE: 35
+STARS: 275
+
+WHAT:
+Open full-duplex voice with barge-in, tone and voice cloning.
+
+FIT:
+Отдельный донорский паттерн для **Speech / voice / media**: open full-duplex voice with barge-in, tone and voice cloning. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Speech / voice / media.
+
+NEXT:
+**TRY + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### AfriSpeech/africa-tts
+
+URL: https://github.com/AfriSpeech/africa-tts
+VERDICT: KEEP
+SCORE: 30
+STARS: 36
+
+WHAT:
+Deployable TTS covering 92 African languages plus English.
+
+FIT:
+Отдельный донорский паттерн для **Speech / voice / media**: deployable TTS covering 92 African languages plus English. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Speech / voice / media.
+
+NEXT:
+**SOURCE + TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -23659,6 +25045,27 @@ PROJECT:
 
 NEXT:
 REFERENCE its backend abstraction, chapter/metadata pipeline and offline packaging patterns rather than adopting the whole application.
+
+---
+
+### DuongVuIT/video-short-animation
+
+URL: https://github.com/DuongVuIT/video-short-animation
+VERDICT: KEEP
+SCORE: 35
+STARS: 14
+
+WHAT:
+Remotion+three.js cartoon studio with local timed TTS, QA and parallel rendering.
+
+FIT:
+Отдельный донорский паттерн для **Speech / voice / media**: Remotion+three.js cartoon studio with local timed TTS, QA and parallel rendering. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Speech / voice / media.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -24131,6 +25538,27 @@ NEXT:
 
 ---
 
+### VoxRT/LinnetTTS
+
+URL: https://github.com/VoxRT/LinnetTTS
+VERDICT: KEEP
+SCORE: 35
+STARS: 37
+
+WHAT:
+Small Rust TTS runtime targeting real-time phone CPU with shared mobile/Linux bindings.
+
+FIT:
+Отдельный донорский паттерн для **Speech / voice / media**: small Rust TTS runtime targeting real-time phone CPU with shared mobile/Linux bindings. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Speech / voice / media.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### wuxuedaifu/vllm-chatterbox-stream
 
 URL: https://github.com/wuxuedaifu/vllm-chatterbox-stream
@@ -24149,6 +25577,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### Zyphra/ZONOS3-Mini
+
+URL: https://github.com/Zyphra/ZONOS3-Mini
+VERDICT: KEEP
+SCORE: 35
+STARS: 98
+
+WHAT:
+Multibackend local TTS runtime with CUDA, MLX, ggml and WebGPU.
+
+FIT:
+Отдельный донорский паттерн для **Speech / voice / media**: multibackend local TTS runtime with CUDA, MLX, ggml and WebGPU. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Speech / voice / media.
+
+NEXT:
+**TRY + COMPARE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -25714,7 +27163,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 97
+Cards: 104
 
 ### 0xS4N4TG/papercut-explainer
 
@@ -26765,6 +28214,27 @@ Reference for browser-local video and subtitle processing; не самостоя
 
 ---
 
+### frankShan001/CutVoke
+
+URL: https://github.com/frankShan001/CutVoke
+VERDICT: KEEP
+SCORE: 35
+STARS: 32
+
+WHAT:
+Shared declarative timeline editable by both human and agent.
+
+FIT:
+Отдельный донорский паттерн для **Video Factory**: shared declarative timeline editable by both human and agent. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Video Factory.
+
+NEXT:
+**TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### Friedrich-M/UniMate
 
 URL: https://github.com/Friedrich-M/UniMate
@@ -27281,6 +28751,27 @@ NEXT:
 
 ---
 
+### MakeMyClip/editor
+
+URL: https://github.com/MakeMyClip/editor
+VERDICT: KEEP
+SCORE: 35
+STARS: 12
+
+WHAT:
+Local FFmpeg/whisper agent editor with transcript cuts and pro-editor export.
+
+FIT:
+Отдельный донорский паттерн для **Video Factory**: local FFmpeg/whisper agent editor with transcript cuts and pro-editor export. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Video Factory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### ManimCommunity/manim
 
 URL: https://github.com/ManimCommunity/manim
@@ -27299,6 +28790,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### MarioRodrigues10/shorts
+
+URL: https://github.com/MarioRodrigues10/shorts
+VERDICT: KEEP
+SCORE: 35
+STARS: 6
+
+WHAT:
+Local short-form editor with acoustic cut QA and style fingerprinting.
+
+FIT:
+Отдельный донорский паттерн для **Video Factory**: local short-form editor with acoustic cut QA and style fingerprinting. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Video Factory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -27476,6 +28988,27 @@ NEXT:
 
 ---
 
+### navidshad/frameflow
+
+URL: https://github.com/navidshad/frameflow
+VERDICT: KEEP
+SCORE: 35
+STARS: 43
+
+WHAT:
+Agent-assisted NLE with shared timeline, versions, multicam and motion graphics.
+
+FIT:
+Отдельный донорский паттерн для **Video Factory**: agent-assisted NLE with shared timeline, versions, multicam and motion graphics. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Video Factory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### Nebuluss/H3-AudioRetake-studio
 
 URL: https://github.com/Nebuluss/H3-AudioRetake-studio
@@ -27568,6 +29101,27 @@ USE FOR LANCELOT:
 
 ---
 
+### nuzkyapp/nuzky
+
+URL: https://github.com/nuzkyapp/nuzky
+VERDICT: KEEP
+SCORE: 35
+STARS: 25
+
+WHAT:
+Agent NLE that learns editing style into EDIT.md.
+
+FIT:
+Отдельный донорский паттерн для **Video Factory**: agent NLE that learns editing style into EDIT.md. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Video Factory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
 ### NVlabs/Sana
 
 URL: https://github.com/NVlabs/Sana
@@ -27587,6 +29141,27 @@ PROJECT:
 
 NEXT:
 REFERENCE; следить за переносимостью SoL-Engine/latent-refine техники на доступное железо и другие video backends.
+
+---
+
+### OnkelTheorie/schneidi
+
+URL: https://github.com/OnkelTheorie/schneidi
+VERDICT: KEEP
+SCORE: 35
+STARS: 7
+
+WHAT:
+Linux-first agent NLE with MCP/CLI and visible undoable agent changes.
+
+FIT:
+Отдельный донорский паттерн для **Video Factory**: Linux-first agent NLE with MCP/CLI and visible undoable agent changes. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Video Factory.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -27726,6 +29301,27 @@ PROJECT:
 
 NEXT:
 KEEP. Inspect command-line/headless/export surfaces and identify whether OpenToonz can be used as a deterministic rendering or cleanup stage in scripted production.
+
+---
+
+### pluja/anysub
+
+URL: https://github.com/pluja/anysub
+VERDICT: KEEP
+SCORE: 30
+STARS: 3107
+
+WHAT:
+Self-hosted Whisper subtitle studio with waveform editing.
+
+FIT:
+Отдельный донорский паттерн для **Video Factory**: self-hosted Whisper subtitle studio with waveform editing. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Video Factory.
+
+NEXT:
+**TRY** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
@@ -29268,7 +30864,28 @@ WATCH/LAB LATER; использовать архитектурные идеи, �
 
 ## BUCKET: Web Intelligence / SEO & AI Visibility
 
-Cards: 13
+Cards: 15
+
+### aivisibilitycensus/geo-skills
+
+URL: https://github.com/aivisibilitycensus/geo-skills
+VERDICT: KEEP
+SCORE: 35
+STARS: 5
+
+WHAT:
+Evidence-graded GEO/AEO skills with confidence intervals and preregistered experiments.
+
+FIT:
+Отдельный донорский паттерн для **Media relations / AI visibility**: evidence-graded GEO/AEO skills with confidence intervals and preregistered experiments. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Media relations / AI visibility.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
 
 ### Akxan/google-seo-mcp
 
@@ -29500,6 +31117,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### oneglanse/oneglanse
+
+URL: https://github.com/oneglanse/oneglanse
+VERDICT: KEEP
+SCORE: 35
+STARS: 258
+
+WHAT:
+Self-hosted AI visibility tracking through real product UIs.
+
+FIT:
+Отдельный донорский паттерн для **Media relations / AI visibility**: self-hosted AI visibility tracking through real product UIs. Карточка сохранена после ручного разбора daily-улова, а не только по автоматическому score.
+
+PROJECT:
+Media relations / AI visibility.
+
+NEXT:
+**TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
 
 ---
 
