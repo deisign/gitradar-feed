@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-18T08:30:48
+Generated: 2026-11-18T09:01:16
 Date: 2026-11-18
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,7 +8,7 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 995
+- Total curated cards: 1016
 - Buckets: 49
 
 ## Bucket summary
@@ -16,10 +16,10 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Agent Infrastructure / Communications: 3
 - Agent Memory / Context: 80
 - Agent Reliability / Evals & Production: 36
-- Agent Security / Governance: 68
-- Audio / Music Tools: 1
-- Automation / Event Workflows: 30
-- Broadcast / Playout / Automation: 6
+- Agent Security / Governance: 69
+- Audio / Music Tools: 3
+- Automation / Event Workflows: 31
+- Broadcast / Playout / Automation: 7
 - Design / Image Editing: 15
 - Design Systems / Visual QA: 44
 - Device Control / Capture: 9
@@ -28,39 +28,39 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Full-Song AI / Suno Alternatives: 15
 - Infographics / Visual Storytelling: 49
 - Interactive Reports / Data Apps: 11
-- Lancelot / Agent Infrastructure: 165
-- LLM Engineering / Reasoning & Evals: 1
+- Lancelot / Agent Infrastructure: 167
+- LLM Engineering / Reasoning & Evals: 2
 - Local AI / Inference Infrastructure: 1
-- Local AI / Portable Runtime Infrastructure: 2
+- Local AI / Portable Runtime Infrastructure: 3
 - Media / Social Monitoring: 11
 - Media Kits / Brand Automation: 3
-- Media Relations / Outreach Automation: 1
+- Media Relations / Outreach Automation: 2
 - Media Tools / Mobile Image Workbench: 1
 - Mixing / Mastering / Audio Engineering: 13
-- Monitoring / Change Intelligence: 2
+- Monitoring / Change Intelligence: 3
 - Music Generation / AI Music: 8
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
-- Operational Platforms / Extensible Systems: 1
-- Operational Platforms / Modular Systems: 1
+- Operational Platforms / Extensible Systems: 2
+- Operational Platforms / Modular Systems: 2
 - OSINT / Collection & Crawling: 1
 - OSINT / Field Tooling: 1
 - OSINT / GEOINT & Image Forensics: 1
-- OSINT / Investigations: 32
+- OSINT / Investigations: 36
 - Publishing / Layout / PDF: 15
 - Radio / Audio Ops: 28
 - Reverse Engineering / Binary Analysis: 24
 - Search / Retrieval Engineering: 38
 - Security / Learning & Discovery Sources: 2
 - Social Media / Content Ops: 5
-- Software Architecture / Design References: 1
+- Software Architecture / Design References: 2
 - Speech / TTS & Voice: 34
 - System Architecture / Engineering Patterns: 37
 - Telegram Bots / Automation: 3
-- Video Production / Editing: 104
+- Video Production / Editing: 106
 - Visual Systems / Data Storytelling: 1
 - Visual Systems / Media Factory: 3
-- Web Data / Crawling & Extraction: 12
+- Web Data / Crawling & Extraction: 13
 - Web Intelligence / SEO & AI Visibility: 15
 
 ## Today's run
@@ -2773,7 +2773,7 @@ NEXT:
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 68
+Cards: 69
 
 ### 0xNyk/agent-security
 
@@ -4198,6 +4198,27 @@ NEXT:
 `before → after → reason → evidence → policy decision`.
 
 Если результат стабилен и мало шумит — использовать как mandatory pre-deploy `CAPABILITY_SECURITY_REGRESSION_GATE` для Lancelot.
+
+---
+
+### Infisical/infisical
+
+URL: https://github.com/Infisical/infisical
+VERDICT: KEEP
+SCORE: 0
+STARS: 30578
+
+WHAT:
+Open-source platform for secrets, certificates, access and AI-agent security, including secret management, rotation/dynamic credentials and PKI-related capabilities.
+
+FIT:
+Direct answer to .env sprawl across Circus, Camelot and Duke. A central machine/agent identity and secrets layer would make service deployment and agent tooling safer and easier to audit.
+
+PROJECT:
+Infrastructure control plane; n8n/agents/services; Docker deployments; Noosphere; cross-host secret distribution.
+
+NEXT:
+Migrate exactly one low-risk service or agent credential from a local .env into Infisical, then test local development, deployment, rotation and recovery before considering wider adoption.
 
 ---
 
@@ -5977,7 +5998,49 @@ event/proof formats без заимствования всего runtime.
 
 ## BUCKET: Audio / Music Tools
 
-Cards: 1
+Cards: 3
+
+### jotapemj/Fision-Server
+
+URL: https://github.com/jotapemj/Fision-Server
+VERDICT: KEEP
+SCORE: 0
+STARS: 6
+
+WHAT:
+Self-hosted AI music/audio processing server for stem separation, beat/chord analysis and synchronized downstream processing. On Camelot it is already wrapped by fision-transcribe for GPU stem separation plus Whisper transcription.
+
+FIT:
+It gives one local pipeline for separating speech/music/noise and producing text plus timestamps, useful for noisy video/audio analysis and media production without sending source media to a third party.
+
+PROJECT:
+Camelot; local transcription; media-monitoring enrichment; coma.fm; video factory; agent-callable audio preprocessing.
+
+NEXT:
+Keep it as a working component. Benchmark a small corpus of clean speech, speech over music and noisy field audio; record runtime/VRAM and wire the existing fision-transcribe outputs into the workflows that need transcript text or word timestamps.
+
+---
+
+### serptail/gamut
+
+URL: https://github.com/serptail/gamut
+VERDICT: KEEP
+SCORE: 0
+STARS: 34
+
+WHAT:
+Open-source Android music application with streaming/offline playback, recognition and synced lyrics; its acquisition path combines primary extraction with yt-dlp-style fallback behavior.
+
+FIT:
+The product is secondary; the interesting architecture is resilient extraction: candidate scoring/confidence -> primary extractor -> fallback extractor -> prefetch/cache -> recurring upstream smoke tests.
+
+PROJECT:
+Media ingestion; video/audio source adapters; collectors that depend on unstable third-party extraction behavior.
+
+NEXT:
+Study the extractor/update and CI smoke-test path, then reproduce the pattern on one unstable source adapter in our own collection stack.
+
+---
 
 ### Squarebow/Orfeo
 
@@ -6002,7 +6065,7 @@ NEXT:
 
 ## BUCKET: Automation / Event Workflows
 
-Cards: 30
+Cards: 31
 
 ### 0000F8/n8n-nodes-saltapp
 
@@ -6664,6 +6727,27 @@ USE FOR LANCELOT:
 
 ---
 
+### windmill-labs/windmill
+
+URL: https://github.com/windmill-labs/windmill
+VERDICT: KEEP
+SCORE: 0
+STARS: 18624
+
+WHAT:
+Self-hostable code-first platform where scripts in Python/TypeScript/Go/Bash/SQL and other languages become jobs, APIs, schedules, flows and app backends, with workers, Git workflows and AI-assisted authoring/review.
+
+FIT:
+Potential execution plane beneath Noosphere: durable jobs and code-heavy workflows live in Windmill, while n8n remains the integration/glue layer. This could eliminate a lot of bespoke cron/worker plumbing.
+
+PROJECT:
+Noosphere; Duke; OSINT workers; scheduled analysis; service automation; agent-triggerable execution.
+
+NEXT:
+Deploy a sandbox and port two representative workflows: one simple scheduled collector and one code-heavy multi-step job. Test Git sync, secrets boundary, worker isolation, API triggering, logs/retries and review-before-deploy.
+
+---
+
 ### miracleweasel/n8n-nodes-katto
 
 URL: https://github.com/miracleweasel/n8n-nodes-katto
@@ -6693,7 +6777,28 @@ video job contract. Katto отдельно тестировать только �
 
 ## BUCKET: Broadcast / Playout / Automation
 
-Cards: 6
+Cards: 7
+
+### BrixSat/Sintoniza-Radio-automation-software
+
+URL: https://github.com/BrixSat/Sintoniza-Radio-automation-software
+VERDICT: KEEP
+SCORE: 0
+STARS: 6
+
+WHAT:
+Cross-platform radio automation suite covering on-air playout, production/scheduling, recording, studio clock, streaming and import, with playlists, carts, ad breaks, voice tracking, RDS, logs and dead-air handling.
+
+FIT:
+Strong broadcast ontology: schedule -> hour template -> generated daily playlist -> playout -> as-run log -> silence/dead-air recovery -> fallback/watchdog. That maps directly onto the planned never-existed retro channel.
+
+PROJECT:
+Retro television/radio project; channel playout architecture; scheduling and broadcast-operations reference.
+
+NEXT:
+Run a local non-production smoke test with a two-hour library: generated schedule, one timed event, ad break, voice/pause item, stream input, as-run log and forced dead-air/failure recovery.
+
+---
 
 ### CasparCG/server
 
@@ -13659,7 +13764,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 165
+Cards: 167
 
 ### 6maple/mcp-for-chatgpt-web-tunnel
 
@@ -15569,6 +15674,27 @@ TRY with two of our own skills: make controlled revisions, attach notes/evidence
 
 ---
 
+### godot-pty/gpty
+
+URL: https://github.com/godot-pty/gpty
+VERDICT: KEEP
+SCORE: 0
+STARS: 78
+
+WHAT:
+Godot-based Rust multi-PTY desktop environment with agent-addressable panes and a programmable control surface rather than a conventional terminal-only UI.
+
+FIT:
+Useful Rubka pattern: structured pane-read/status/run/wait semantics over CLI/JSON-RPC/MCP, deterministic routing of output into review/problems/artifacts/alerts and no need to scrape a TUI to understand workspace state.
+
+PROJECT:
+Rubka; Lancelot; operator cockpit; presentation/control bridge over durable tmux execution.
+
+NEXT:
+Run beside WaveTerm on Circus with a tmux-backed test workspace and one MCP client. Keep tmux as durable execution; evaluate GPty only as the addressable presentation/control layer and define per-pane capability/trust boundaries.
+
+---
+
 ### google-research/harness2
 
 URL: https://github.com/google-research/harness2
@@ -17023,6 +17149,27 @@ NEXT:
 - plugin/connector model;
 - capability-policy-gate;
 - future desktop/control-plane ideas.
+
+---
+
+### open-webui/open-webui
+
+URL: https://github.com/open-webui/open-webui
+VERDICT: KEEP
+SCORE: 0
+STARS: 158986
+
+WHAT:
+Self-hosted AI interface for local and API models. The current Tether direction adds bring-your-own-computer access to local agent/tool environments, including terminal/MCP-style workflows from a remote Open WebUI surface.
+
+FIT:
+Could put the durable web UI on Duke while Camelot/Circus remain the machines that actually own local files, models and project tooling, giving one browser-accessible operator surface without moving every workload to the VPS.
+
+PROJECT:
+Noosphere operator console; Lancelot; remote access to isolated project workspaces on Circus/Camelot.
+
+NEXT:
+Trial only against an isolated Unix user or disposable VM. Connect one project directory, one local MCP server and one coding agent; verify exactly what file, process and network capabilities cross the Tether boundary.
 
 ---
 
@@ -18732,7 +18879,28 @@ path, а MCP/REST/CLI — быть adapters вокруг неё.
 
 ## BUCKET: LLM Engineering / Reasoning & Evals
 
-Cards: 1
+Cards: 2
+
+### huggingface/pybot
+
+URL: https://github.com/huggingface/pybot
+VERDICT: KEEP
+SCORE: 0
+STARS: 726
+
+WHAT:
+A chatbot written in pure Python by a swarm of agents: no model weights or runtime inference, just the deterministic program produced by the search/evaluation process.
+
+FIT:
+The useful pattern is LLM swarm + benchmark -> deterministic code + regression tests -> model-free runtime. It separates expensive exploratory intelligence from the cheap, inspectable artifact that ultimately ships.
+
+PROJECT:
+Lancelot; agent evals; code synthesis; components where an agent can discover a rule/program once and then leave behind deterministic runtime logic.
+
+NEXT:
+Study the generation/evaluation loop, artifact selection and regression-test strategy. Reproduce the pattern on one small internal component where an agent currently repeats the same reasoning.
+
+---
 
 ### rasbt/reasoning-from-scratch
 
@@ -18782,7 +18950,28 @@ TRY на Camelot с manageable MoE: `ft bench bw`, затем сравнить o
 
 ## BUCKET: Local AI / Portable Runtime Infrastructure
 
-Cards: 2
+Cards: 3
+
+### quickemu-project/quickemu
+
+URL: https://github.com/quickemu-project/quickemu
+VERDICT: KEEP
+SCORE: 0
+STARS: 16749
+
+WHAT:
+QEMU/KVM wrapper that quickly creates and runs optimized Linux, Windows and macOS virtual machines with sensible defaults and companion image/configuration tooling.
+
+FIT:
+Useful isolation primitive for Tether, coding agents and questionable OSINT utilities: create a disposable machine, expose only a project directory, and destroy/rebuild it without contaminating Circus/Camelot.
+
+PROJECT:
+Agent sandboxing; OSINT tool testing; disposable Linux workspaces; Tether/Open WebUI experiments.
+
+NEXT:
+Create one Ubuntu VM, expose only a test project, run a Tether/coding-agent workflow inside it and measure startup time, RAM/disk overhead, clipboard/filesystem boundaries and reset/rebuild ergonomics.
+
+---
 
 ### WollyMonjac/Tiny-2.1
 
@@ -19575,7 +19764,28 @@ upstream сам считает Word наиболее зрелой реализа
 
 ## BUCKET: Media Relations / Outreach Automation
 
-Cards: 1
+Cards: 2
+
+### ethanplusai/sellbird
+
+URL: https://github.com/ethanplusai/sellbird
+VERDICT: KEEP
+SCORE: 0
+STARS: 6387
+
+WHAT:
+Open-source outreach platform that finds companies and decision makers, verifies email, drafts personalized outreach, sends it and handles replies using a user's Claude or ChatGPT plan.
+
+FIT:
+Useful patterns: deterministic heartbeat, database-over-agent state, explainable signals, narrow skills, isolated LLM calls and draft -> gate -> human approval -> action. Those map well to a journalist/media-relations machine.
+
+PROJECT:
+Twenty-based Media Relations CRM; journalist research; pitch drafting; follow-up workflow; approval-gated outbound communication.
+
+NEXT:
+Compare its state machine and approval boundaries with the current media-relations design. Extract reusable patterns for contact research, signal generation, draft queues and human approval without importing sales assumptions wholesale.
+
+---
 
 ### warmbly/warmbly
 
@@ -19940,7 +20150,28 @@ NEXT:
 
 ## BUCKET: Monitoring / Change Intelligence
 
-Cards: 2
+Cards: 3
+
+### GyulyVGC/sniffnet
+
+URL: https://github.com/GyulyVGC/sniffnet
+VERDICT: KEEP
+SCORE: 0
+STARS: 43053
+
+WHAT:
+Cross-platform Rust network monitor with local capture plus IPFIX ingestion, host/domain/ASN/country views, process attribution, protocol/service identification, PCAP, search, alerts and blacklist support.
+
+FIT:
+Can become a visual outbound-traffic cockpit across Circus/Camelot/Duke/router: which process, container or agent is talking to what destination, and what changed unexpectedly.
+
+PROJECT:
+Infrastructure observability; Docker/agents/MCP/n8n/browser/model traffic; workstation and router monitoring.
+
+NEXT:
+Install on Circus. Observe normal tmux + Docker/Twenty/Telegram-OSINT activity, verify process attribution, create two or three unusual-outbound alerts, then test router/agent IPFIX ingestion.
+
+---
 
 ### leiweibau/Pi.Alert
 
@@ -20695,7 +20926,28 @@ NEXT:
 
 ## BUCKET: Operational Platforms / Extensible Systems
 
-Cards: 1
+Cards: 2
+
+### Dokploy/dokploy
+
+URL: https://github.com/Dokploy/dokploy
+VERDICT: KEEP
+SCORE: 0
+STARS: 38584
+
+WHAT:
+Self-hosted deployment platform positioned as an open-source alternative to Vercel, Netlify and Heroku, with Docker/Compose deployment, multi-server management and operational tooling.
+
+FIT:
+Potential compact ops UI for Duke/Noosphere: deployments, multi-server control, backups, logs/metrics and API/CLI instead of accumulating bespoke shell glue for every service.
+
+PROJECT:
+Duke; Noosphere services; self-hosted application deployment; small-server operations.
+
+NEXT:
+Deploy one disposable service and compare the full lifecycle with the current Docker workflow: initial deploy, secrets boundary, logs, backup, update, rollback and multi-server handling.
+
+---
 
 ### fleetbase/fleetbase
 
@@ -20720,7 +20972,28 @@ NEXT:
 
 ## BUCKET: Operational Platforms / Modular Systems
 
-Cards: 1
+Cards: 2
+
+### chrisvel/tududi
+
+URL: https://github.com/chrisvel/tududi
+VERDICT: KEEP
+SCORE: 0
+STARS: 3562
+
+WHAT:
+Self-hosted task/project system with Areas, Projects, Tasks, Notes and tags, plus PWA, REST/API tokens, OIDC/SSO and CalDAV synchronization.
+
+FIT:
+May provide the boring but expensive-to-build lower half of the Noosphere project cockpit. If our project/state collector can drive it through the API, we may get a usable kanban/task surface without writing one first.
+
+PROJECT:
+Noosphere; project inventory; human next-actions and task/project views.
+
+NEXT:
+Deploy a sandbox and map a handful of real repositories/projects into its Areas/Projects/Tasks through the API. Check whether about 70% of the desired human UI works without a fork before considering custom development.
+
+---
 
 ### datadrivenconstruction/OpenConstructionERP
 
@@ -20820,7 +21093,7 @@ TRY на фото с известной скрытой точкой: 3–4 landm
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 32
+Cards: 36
 
 ### AlanBacker/audio-flyover-geolocation
 
@@ -20840,6 +21113,27 @@ PROJECT:
 
 NEXT:
 SOURCE the method and validate on public/consensual test recordings before any operational use.
+
+---
+
+### antoniaci/blackbird
+
+URL: https://github.com/antoniaci/blackbird
+VERDICT: KEEP
+SCORE: 0
+STARS: 10202
+
+WHAT:
+OSINT tool that searches social networks and other services for accounts associated with usernames and email addresses.
+
+FIT:
+Useful as a second engine beside Maigret: username cross-check plus an email pivot that Maigret is not centered on. Independent engines help expose stale site definitions and false positives.
+
+PROJECT:
+Identity evidence/enrichment pipeline; username/email pivots; manual investigations.
+
+NEXT:
+Benchmark against Maigret on twenty known handles and a small consented/test email set. Normalize results into one evidence schema and measure unique hits, false positives, runtime and failure reasons.
 
 ---
 
@@ -21067,6 +21361,48 @@ NEXT:
 
 Полный fork/deployment не делать до отдельной проверки
 Sustainable Use licence.
+
+---
+
+### counterlure/counterlure-cli
+
+URL: https://github.com/counterlure/counterlure-cli
+VERDICT: KEEP
+SCORE: 0
+STARS: 2
+
+WHAT:
+CLI for checking photos against Counterlure reports: face detection/template generation happens locally, requests travel over Tor and OpenPGP, and the service receives a face fingerprint rather than the source photo for checks.
+
+FIT:
+Excellent privacy-preserving lookup pattern: local feature extraction -> encrypted/padded query -> remote match service, with explicit separation between raw media and searchable representation.
+
+PROJECT:
+Secure OSINT/source-protection design patterns; privacy-sensitive lookup services; threat-model reference.
+
+NEXT:
+Architecture study only. Review the threat model, matching/false-positive semantics, padding and key distribution. Do not build an operational dependency on the service until independent validation exists.
+
+---
+
+### cyberdid/social-framework
+
+URL: https://github.com/cyberdid/social-framework
+VERDICT: KEEP
+SCORE: 0
+STARS: 3
+
+WHAT:
+Ukrainian agent-agnostic analyst workspace: cases live as folders under git; Claude Code, Codex, Gemini/Antigravity or opencode use MCP tools for public-data collection, fact checks, judgments, scenarios, forecasts, reports and red-team review.
+
+FIT:
+Very close to the architecture we are independently building. The strongest donors are the case contract, append-only raw evidence, model-swappable state, explicit evidence grades/probabilities, forecast history and read-only red-team review by a different model family.
+
+PROJECT:
+Noosphere OSINT case layer; media-monitoring investigations; System Graph research; universal OSINT machine.
+
+NEXT:
+Install in a sandbox and run one bounded public-information case using data we already possess. Compare its case/evidence/judgment/scenario/red-team contracts with our existing collectors and retain the better interfaces rather than replacing specialized collection systems.
 
 ---
 
@@ -21664,6 +22000,27 @@ OSINT Signal и Media Monitoring прежде всего как архитект
 
 NEXT:
 Разобрать архитектуру и модели данных. Проект pre-alpha, поэтому интересуют прежде всего отдельные решения и паттерны, а не deployment целиком.
+
+---
+
+### soxoj/maigret
+
+URL: https://github.com/soxoj/maigret
+VERDICT: KEEP
+SCORE: 0
+STARS: 40873
+
+WHAT:
+Mature Python OSINT engine for collecting a dossier from a username across thousands of sites, with structured exports and graph-oriented workflows.
+
+FIT:
+Good primary username-enrichment primitive: broad coverage, recursive pivots/IDs, machine-readable output and library/CLI use make it easy to place behind our own evidence schema instead of treating it as a standalone investigator UI.
+
+PROJECT:
+Identity evidence pipeline; OSINT cases; enrichment worker; future universal OSINT machine.
+
+NEXT:
+Run twenty known handles, capture structured output, normalize each finding into source/account/status/evidence fields, then pair with Blackbird as an independent cross-check.
 
 ---
 
@@ -24848,7 +25205,28 @@ reviewable.
 
 ## BUCKET: Software Architecture / Design References
 
-Cards: 1
+Cards: 2
+
+### harvard-edge/cs249r_book
+
+URL: https://github.com/harvard-edge/cs249r_book
+VERDICT: KEEP
+SCORE: 0
+STARS: 30248
+
+WHAT:
+Harvard CS249r Machine Learning Systems book/courseware spanning foundations, scaling, agentic AI and physical AI.
+
+FIT:
+Volume III is directly relevant to stateful multi-step agents: memory/context, tool execution, sandboxes, reliability and recovery from nondeterministic failures. Useful as an external checklist against our own architecture decisions.
+
+PROJECT:
+Lancelot; Noosphere; agent infrastructure; system-design reference library.
+
+NEXT:
+Index the relevant Volume III chapters and extract a short engineering checklist for state, tool boundaries, isolation, failure recovery and evaluation. Link those checks to current Lancelot/Noosphere components.
+
+---
 
 ### ashishps1/awesome-low-level-design
 
@@ -27163,7 +27541,7 @@ TRY WHEN NEEDED: следующий бот на 5–10 команд сначал
 
 ## BUCKET: Video Production / Editing
 
-Cards: 104
+Cards: 106
 
 ### 0xS4N4TG/papercut-explainer
 
@@ -28258,6 +28636,27 @@ NEXT:
 
 ---
 
+### fugaapp/fuga
+
+URL: https://github.com/fugaapp/fuga
+VERDICT: KEEP
+SCORE: 0
+STARS: 0
+
+WHAT:
+Free open-source camera matching from a single image using vanishing-point geometry, with export to Blender, Maya, USD and JSON.
+
+FIT:
+Strong visual-production primitive: reference image -> camera solve -> 3D scene -> render. It complements OpenMotion by recovering camera geometry before building or animating an editable scene.
+
+PROJECT:
+Media factory; VFX; visual reconstruction; 3D scene setup from reference imagery.
+
+NEXT:
+Test three reference types: clean architecture, street scene and difficult oblique image. Export to Blender and measure overlay accuracy, setup time and whether the resulting camera is useful downstream.
+
+---
+
 ### getopenscreen/openscreen
 
 URL: https://github.com/getopenscreen/openscreen
@@ -29048,6 +29447,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### nexu-io/openmotion
+
+URL: https://github.com/nexu-io/openmotion
+VERDICT: KEEP
+SCORE: 0
+STARS: 11296
+
+WHAT:
+Open-source agentic video studio that turns a reference video into editable motion graphics with a brand kit; ships 300+ Motion.md guides and supports multiple coding/agent runtimes.
+
+FIT:
+Strong donor pattern: reference -> specification -> executable source -> evidence -> reusable package. That is directly useful for a repeatable branded media-production machine instead of one-off prompt generation.
+
+PROJECT:
+Noosphere Media; video factory; branded social/video production; reusable motion-design specifications.
+
+NEXT:
+Smoke-test three reference videos of different complexity. Inspect the Motion.md contract, editability of generated source, provenance/evidence trail and how easily a successful reconstruction becomes a reusable branded template.
 
 ---
 
@@ -30585,7 +31005,7 @@ TRY одного утверждённого шаблона и batch на тес�
 
 ## BUCKET: Web Data / Crawling & Extraction
 
-Cards: 12
+Cards: 13
 
 ### BrikerMan/skilless.ai
 
@@ -30747,6 +31167,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### RSS-Bridge/rss-bridge
+
+URL: https://github.com/RSS-Bridge/rss-bridge
+VERDICT: KEEP
+SCORE: 0
+STARS: 9366
+
+WHAT:
+RSS/Atom/JSON-feed bridge collection for websites and services that do not provide useful feeds, including generic selector-based approaches and feed merge/filter capabilities.
+
+FIT:
+Lets brittle source-specific scraping terminate at a common feed boundary: source -> RSS-Bridge -> FreshRSS/media-monitoring, reducing the number of custom collectors we must own.
+
+PROJECT:
+FreshRSS on Circus; media-monitoring ingestion; lightweight source adapters for recurring public pages.
+
+NEXT:
+Deploy locally and add five currently awkward sources. Route them through FreshRSS, measure freshness and breakage for a week, and keep only bridges that remove more maintenance than they create.
 
 ---
 
