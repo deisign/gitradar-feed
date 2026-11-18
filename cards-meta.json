@@ -1,7 +1,7 @@
 {
   "schema": "creative-radar-cards-feed-v1",
-  "generated_at": "2026-11-18T07:01:16.075625+00:00",
-  "count": 1016,
+  "generated_at": "2026-11-18T08:17:12.690870+00:00",
+  "count": 1018,
   "buckets": {
     "Agent Infrastructure / Communications": 3,
     "Agent Memory / Context": 80,
@@ -48,11 +48,12 @@
     "System Architecture / Engineering Patterns": 37,
     "Telegram Bots / Automation": 3,
     "Video Production / Editing": 106,
+    "Video Production / Enhancement": 1,
     "Visual Systems / Data Storytelling": 1,
     "Visual Systems / Media Factory": 3,
-    "Web Data / Crawling & Extraction": 13,
+    "Web Data / Crawling & Extraction": 14,
     "Web Intelligence / SEO & AI Visibility": 15
   },
-  "sha256": "ff41045ce50d257c8750f1ace23c709f57c490f7564573bdef2b7ecb2538a648",
+  "sha256": "7aa870694c6f4509f9a73167d76e0ae3a2cb8f720dfa1c693d00cc1c0a26f783",
   "feed": "cards.jsonl"
 }

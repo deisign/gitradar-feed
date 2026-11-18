@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-18T09:01:16
+Generated: 2026-11-18T10:17:12
 Date: 2026-11-18
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,8 +8,8 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 1016
-- Buckets: 49
+- Total curated cards: 1018
+- Buckets: 50
 
 ## Bucket summary
 
@@ -58,9 +58,10 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - System Architecture / Engineering Patterns: 37
 - Telegram Bots / Automation: 3
 - Video Production / Editing: 106
+- Video Production / Enhancement: 1
 - Visual Systems / Data Storytelling: 1
 - Visual Systems / Media Factory: 3
-- Web Data / Crawling & Extraction: 13
+- Web Data / Crawling & Extraction: 14
 - Web Intelligence / SEO & AI Visibility: 15
 
 ## Today's run
@@ -30911,6 +30912,31 @@ NEXT:
 
 ---
 
+## BUCKET: Video Production / Enhancement
+
+Cards: 1
+
+### kopperx/RelayVSR
+
+URL: https://github.com/kopperx/RelayVSR
+VERDICT: KEEP
+SCORE: 0
+STARS: 355
+
+WHAT:
+Official implementation of RelayVSR, a 4x real-world video super-resolution approach where a large model creates sparse high-quality references and a compact conditional decoder handles the intermediate frames.
+
+FIT:
+The architectural signal is broader than upscaling: use an expensive model sparsely to establish strong reference states, then let a small model propagate them through the stream. That is a useful pattern for efficient media pipelines and potentially other sequential agent/model workloads.
+
+PROJECT:
+Video restoration/enhancement research; media factory; architecture references for large-small model collaboration.
+
+NEXT:
+Keep as a source/reference until suitable GPU capacity is available. Inspect the inference path, window/reference scheduling and memory profile; compare its sparse-reference pattern with cheaper local upscalers before scheduling a remote-GPU benchmark.
+
+---
+
 ## BUCKET: Visual Systems / Data Storytelling
 
 Cards: 1
@@ -31005,7 +31031,7 @@ TRY одного утверждённого шаблона и batch на тес�
 
 ## BUCKET: Web Data / Crawling & Extraction
 
-Cards: 13
+Cards: 14
 
 ### BrikerMan/skilless.ai
 
@@ -31167,6 +31193,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### projectdiscovery/katana
+
+URL: https://github.com/projectdiscovery/katana
+VERDICT: KEEP
+SCORE: 0
+STARS: 17868
+
+WHAT:
+Fast Go crawling/spidering framework with standard and headless modes, JavaScript/XHR discovery, form handling, scope controls, structured JSON output, resume support, similarity deduplication and automation-oriented execution.
+
+FIT:
+Potential standard crawler boundary for our collection stack: URL/domain -> Katana -> discovered pages/endpoints/forms -> extraction/archive/enrichment. It can replace many one-off crawl loops while still escalating JavaScript-heavy cases to headless Chrome.
+
+PROJECT:
+Universal OSINT machine; media-monitoring; source discovery; archival crawls; website mapping before article extraction.
+
+NEXT:
+Benchmark on three targets: a conventional news site, a JavaScript-heavy site and a paginated/archive site that currently needs custom crawling. Compare coverage, runtime, JSONL usability, resume behavior and maintenance cost against our existing collectors.
 
 ---
 
