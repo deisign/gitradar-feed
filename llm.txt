@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-23T08:30:34
+Generated: 2026-11-23T14:52:08
 Date: 2026-11-23
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,28 +8,32 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 1018
-- Buckets: 50
+- Total curated cards: 1028
+- Buckets: 55
 
 ## Bucket summary
 
 - Agent Infrastructure / Communications: 3
-- Agent Memory / Context: 80
+- Agent Memory / Context: 82
 - Agent Reliability / Evals & Production: 36
 - Agent Security / Governance: 69
 - Audio / Music Tools: 3
 - Automation / Event Workflows: 31
 - Broadcast / Playout / Automation: 7
+- CRM / Relationship Intelligence: 1
 - Design / Image Editing: 15
 - Design Systems / Visual QA: 44
 - Device Control / Capture: 9
+- Device Integration / Local-First Systems: 1
 - Document Parsing / Ingestion: 22
 - Font Creation / Typography Tools: 18
 - Full-Song AI / Suno Alternatives: 15
 - Infographics / Visual Storytelling: 49
 - Interactive Reports / Data Apps: 11
-- Lancelot / Agent Infrastructure: 167
+- Lancelot / Agent Infrastructure: 169
+- LLM Engineering / RAG & Retrieval: 1
 - LLM Engineering / Reasoning & Evals: 2
+- Local AI / Edge Inference: 1
 - Local AI / Inference Infrastructure: 1
 - Local AI / Portable Runtime Infrastructure: 3
 - Media / Social Monitoring: 11
@@ -41,7 +45,8 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - Music Generation / AI Music: 8
 - Newsroom / Data Journalism: 20
 - Newsroom / Source Security: 1
-- Operational Platforms / Extensible Systems: 2
+- Offline / Field Computing: 1
+- Operational Platforms / Extensible Systems: 3
 - Operational Platforms / Modular Systems: 2
 - OSINT / Collection & Crawling: 1
 - OSINT / Field Tooling: 1
@@ -144,7 +149,7 @@ NEXT:
 
 ## BUCKET: Agent Memory / Context
 
-Cards: 80
+Cards: 82
 
 ### 23skdu/longbow
 
@@ -462,6 +467,27 @@ PROJECT:
 
 NEXT:
 TRY Crew on a disposable shared folder with Claude Code and Codex and measure whether cross-agent handoff remains legible, recoverable and non-destructive.
+
+---
+
+### garrytan/gbrain
+
+URL: https://github.com/garrytan/gbrain
+VERDICT: KEEP
+SCORE: 0
+STARS: 33457
+
+WHAT:
+Self-hosted shared memory layer for coding and general agents, with explicit facts/decisions/pages, provenance, correction/withdrawal semantics, hybrid keyword+vector retrieval, graph relationships and MCP integration across multiple agent clients.
+
+FIT:
+It matches the explicit half of our memory architecture: durable facts and decisions remain readable, correctable, attributable and portable across agents instead of becoming hidden prompt state. It also separates durable knowledge from transient runtime state.
+
+PROJECT:
+Personal Agent; second hemisphere; Noosphere institutional memory; shared memory for Codex/Claude/ChatGPT-style clients.
+
+NEXT:
+Run a minimal local PGLite/no-embedding/no-auto-capture trial on Circus. Connect two agent clients and test remember -> recall from another client -> correct -> withdraw, with provenance preserved and no silent runtime-state capture.
 
 ---
 
@@ -1523,6 +1549,27 @@ Lancelot / Noosphere memory.
 
 NEXT:
 **TRY + SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### snap-stanford/memorilla
+
+URL: https://github.com/snap-stanford/memorilla
+VERDICT: KEEP
+SCORE: 0
+STARS: 1587
+
+WHAT:
+Research implementation of latent semantic memory for LLMs: a learned memory reader converts a larger document/history collection into a small set of query-dependent latent memory tokens consumed by a frozen language model.
+
+FIT:
+It suggests a complementary memory layer to exact retrieval: latent memory for broad semantic state and orientation, while textual RAG/GBrain retains precise evidence, dates, corrections and provenance.
+
+PROJECT:
+Personal Agent; second-hemisphere architecture; Noosphere memory; context compression research.
+
+NEXT:
+Study the training and inference contract and reproduce only the memory-layer idea on a small benchmark if hardware permits. Compare latent recall with exact GBrain/RAG recall on preferences, relationships and exact facts.
 
 ---
 
@@ -6946,6 +6993,31 @@ WATCH до появления реальной AoIP-задачи; сохрани
 
 ---
 
+## BUCKET: CRM / Relationship Intelligence
+
+Cards: 1
+
+### relaticle/relaticle
+
+URL: https://github.com/relaticle/relaticle
+VERDICT: KEEP
+SCORE: 0
+STARS: 1922
+
+WHAT:
+Open-source AI-native CRM for companies, people, opportunities, tasks and notes, with REST/MCP access, custom fields, activity history, workspace isolation and self-hosting.
+
+FIT:
+The useful donor pattern is mutation provenance: human, agent, import, automation or system changes can be made visible as distinct activity. Proposed-change approval and per-field controls are especially relevant to agent-edited OSINT/case state.
+
+PROJECT:
+Twenty comparison; media-relations CRM; OSINT case records; agent-editable structured state with audit history.
+
+NEXT:
+Compare field model, activity log, MCP/API mutation semantics and approval boundaries against Twenty. Extract provenance and proposed-change patterns without treating Relaticle as a replacement until operational gaps are tested.
+
+---
+
 ## BUCKET: Design / Image Editing
 
 Cards: 15
@@ -9631,6 +9703,31 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+## BUCKET: Device Integration / Local-First Systems
+
+Cards: 1
+
+### thtbee/nectarlink
+
+URL: https://github.com/thtbee/nectarlink
+VERDICT: KEEP
+SCORE: 0
+STARS: 5920
+
+WHAT:
+Local-first Android-to-PC integration for Windows and Linux with encrypted transport and capabilities including notifications, clipboard, files, photos, remote control, screen mirroring and device handoff.
+
+FIT:
+Beyond the product itself, the architecture is useful for Noosphere: device identity -> capability negotiation -> per-device permissions -> encrypted local transport -> command/event protocol. It is a concrete model for making phones and computers peers instead of ad-hoc remote-control targets.
+
+PROJECT:
+Circus/Camelot/Android integration; Noosphere device fabric; local-first remote capabilities; field-node control.
+
+NEXT:
+Trial between one Android device and Circus/Camelot. Test pairing, capability permission boundaries, clipboard/files and one remote-control path; inspect protocol/versioning and how permissions survive reconnects.
 
 ---
 
@@ -13765,7 +13862,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 167
+Cards: 169
 
 ### 6maple/mcp-for-chatgpt-web-tunnel
 
@@ -17237,6 +17334,27 @@ NEXT:
 
 ---
 
+### opensandbox-group/OpenSandbox
+
+URL: https://github.com/opensandbox-group/OpenSandbox
+VERDICT: KEEP
+SCORE: 0
+STARS: 17826
+
+WHAT:
+Open-source sandbox runtime for AI agents with unified lifecycle/command/file APIs, Docker-to-Kubernetes deployment, SDKs/CLI/MCP, network egress policies, credential vault and stronger isolation options including microVM-style runtimes.
+
+FIT:
+It fills a foundational Noosphere gap: agent-generated code, hostile pages and unknown files should execute in disposable environments rather than directly on Circus, Duke or canonical repositories. Credential use without credential disclosure is particularly valuable.
+
+PROJECT:
+Noosphere Sandbox Runtime; Lancelot; coding agents; browser OSINT; agent evals; untrusted-file analysis.
+
+NEXT:
+Phase 1 on Circus: Docker backend, temporary Python sandbox, filesystem+shell, network allowlist to GitHub only, no secrets, destroy after run. Then evaluate browser automation and stronger gVisor/Kata/Firecracker-style isolation before hostile workloads.
+
+---
+
 ### optave/ops-codegraph-tool
 
 URL: https://github.com/optave/ops-codegraph-tool
@@ -18484,6 +18602,27 @@ Keep ACTIVE as the baseline CLI for portable skills, with telemetry policy docum
 
 ---
 
+### virattt/dexter
+
+URL: https://github.com/virattt/dexter
+VERDICT: KEEP
+SCORE: 0
+STARS: 28007
+
+WHAT:
+Autonomous financial-research agent with iterative tool use, task planning, self-validation, append-only JSONL scratchpads, SKILL.md workflows, persistent memory, subagents and evaluation tooling.
+
+FIT:
+The financial domain is incidental; the reusable core is the research harness: plan -> tool calls -> append-only evidence -> domain skill -> validation -> final synthesis, with anti-loop budgets and isolated subagents.
+
+PROJECT:
+Noosphere Research Desk; WSB; structural-risk memos; OSINT research; Lancelot agent runtime references.
+
+NEXT:
+Run one controlled research question through Dexter and our current workflow. Compare coverage, provenance, missed evidence, contradictions, auditability, tool-call count and cost; transplant harness patterns rather than adopting finance-specific assumptions.
+
+---
+
 ### visveshkhanna/Switchboard
 
 URL: https://github.com/visveshkhanna/Switchboard
@@ -18878,6 +19017,31 @@ path, а MCP/REST/CLI — быть adapters вокруг неё.
 
 ---
 
+## BUCKET: LLM Engineering / RAG & Retrieval
+
+Cards: 1
+
+### langchain-ai/rag-from-scratch
+
+URL: https://github.com/langchain-ai/rag-from-scratch
+VERDICT: KEEP
+SCORE: 0
+STARS: 10143
+
+WHAT:
+Educational notebooks and accompanying material that build retrieval-augmented generation from indexing and retrieval through generation and related retrieval patterns.
+
+FIT:
+Useful as a decomposition checklist when auditing our own retrieval and memory systems: it makes the moving parts explicit instead of hiding them behind a framework abstraction.
+
+PROJECT:
+Noosphere retrieval design; Personal Agent; GBrain/Memorilla comparisons; RAG evaluation references.
+
+NEXT:
+Use as a reference syllabus when writing retrieval evals and architecture notes; map each concept to our actual implementation and note where provenance, graph, reranking or memory semantics go beyond basic RAG.
+
+---
+
 ## BUCKET: LLM Engineering / Reasoning & Evals
 
 Cards: 2
@@ -18921,6 +19085,31 @@ PROJECT:
 
 NEXT:
 На Camelot сравнить baseline / CoT / self-consistency / Best-of-N / self-refinement на маленьком объективно проверяемом наборе.
+
+---
+
+## BUCKET: Local AI / Edge Inference
+
+Cards: 1
+
+### huggingface/transformers.js
+
+URL: https://github.com/huggingface/transformers.js
+VERDICT: KEEP
+SCORE: 0
+STARS: 16447
+
+WHAT:
+Hugging Face Transformers runtime for JavaScript/TypeScript that executes supported transformer models directly in browser, Node, Bun or Deno using ONNX Runtime, WASM and WebGPU.
+
+FIT:
+It adds a fourth execution tier to the Small Model Fabric: inference can happen in the user's browser near the data, reducing server cost and avoiding uploads for embeddings, classification, speech/vision triage and private local search.
+
+PROJECT:
+GitRadar semantic search; Noosphere PWA/client; privacy-first document intake; local embeddings; browser vision/ASR; Field Node interfaces.
+
+NEXT:
+Build a minimal GitRadar proof: load a multilingual embedding model in-browser, index about 100 cards locally and provide semantic search with no server inference. Measure model download, warm/cold latency and browser memory.
 
 ---
 
@@ -20925,9 +21114,34 @@ NEXT:
 
 ---
 
+## BUCKET: Offline / Field Computing
+
+Cards: 1
+
+### AntoS376/outpost
+
+URL: https://github.com/AntoS376/outpost
+VERDICT: KEEP
+SCORE: 0
+STARS: 11
+
+WHAT:
+Self-hosted offline knowledge server for macOS combining Kiwix, local AI, offline maps/routing, notes/tools, emergency features and an RTL-SDR radio receiver layer.
+
+FIT:
+The full macOS product is not our target, but it is a strong systems reference for a Noosphere Field Node: offline knowledge + maps + local AI + incident log + RF sensing in one coherent appliance.
+
+PROJECT:
+Noosphere Physical Layer; field computing; offline OSINT; RF Observatory; resilient local knowledge node.
+
+NEXT:
+Do not trial the whole product on Linux. Extract the RF module architecture and design our Linux RF Sensor: RTL-SDR -> dump1090/rtl_433/direwolf/scan -> normalized event feed -> Noosphere.
+
+---
+
 ## BUCKET: Operational Platforms / Extensible Systems
 
-Cards: 2
+Cards: 3
 
 ### Dokploy/dokploy
 
@@ -20947,6 +21161,27 @@ Duke; Noosphere services; self-hosted application deployment; small-server opera
 
 NEXT:
 Deploy one disposable service and compare the full lifecycle with the current Docker workflow: initial deploy, secrets boundary, logs, backup, update, rollback and multi-server handling.
+
+---
+
+### hackclub/orchard
+
+URL: https://github.com/hackclub/orchard
+VERDICT: KEEP
+SCORE: 0
+STARS: 131
+
+WHAT:
+Open-source self-hosted PaaS that turns a Linux server or Kubernetes cluster into a Git-to-HTTPS deployment platform with managed Postgres, logs, metrics, rollbacks, CLI/dashboard and MCP access.
+
+FIT:
+It is a strong reference for agent-operated infrastructure: capability-scoped MCP, idempotent actions, audit trails, post-deploy health/verdict checks and rollback instead of giving an agent unrestricted SSH.
+
+PROJECT:
+Future Noosphere control plane; Duke II or larger cluster; comparison with Dokploy for agent-native operations.
+
+NEXT:
+Do not install on current Duke. Trial on a disposable 8–16 GB VM: deploy app+Postgres, restrict an agent to deployment/log scopes, induce a bad release, verify detection, rollback and audit trail.
 
 ---
 
