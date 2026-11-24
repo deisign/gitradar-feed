@@ -1,6 +1,6 @@
 ---
-title: Creative Radar Shortlist 2026-11-23
-date: 2026-11-23
+title: Creative Radar Shortlist 2026-11-24
+date: 2026-11-24
 status: shortlist
 tags:
   - radar
@@ -8,465 +8,288 @@ tags:
   - shortlist
 ---
 
-# Creative Radar Shortlist — 2026-11-23
+# Creative Radar Shortlist — 2026-11-24
 
-Source: [[../scored/2026-11-23|Scored 2026-11-23]]
+Source: [[../scored/2026-11-24|Scored 2026-11-24]]
 
 ## Навигация
 
 - [Agent Memory / Context](#agent-memory-context) — 2
-- [Agent Security / Governance](#agent-security-governance) — 5
-- [Automation / Event Workflows](#automation-event-workflows) — 8
-- [Design Systems / Visual QA](#design-systems-visual-qa) — 3
-- [Document Parsing / Ingestion](#document-parsing-ingestion) — 1
-- [Infographics / Visual Storytelling](#infographics-visual-storytelling) — 1
-- [Lancelot / Agent Infrastructure](#lancelot-agent-infrastructure) — 11
-- [Newsroom / Data Journalism](#newsroom-data-journalism) — 1
-- [Publishing / Layout / PDF](#publishing-layout-pdf) — 1
+- [Agent Reliability / Evals & Production](#agent-reliability-evals-&-production) — 1
+- [Agent Security / Governance](#agent-security-governance) — 1
+- [Automation / Event Workflows](#automation-event-workflows) — 7
+- [Interactive Reports / Data Apps](#interactive-reports-data-apps) — 1
+- [Lancelot / Agent Infrastructure](#lancelot-agent-infrastructure) — 7
 - [Search / Retrieval Engineering](#search-retrieval-engineering) — 1
-- [Social Media / Content Ops](#social-media-content-ops) — 1
-- [Speech / TTS & Voice](#speech-tts-&-voice) — 3
+- [Speech / TTS & Voice](#speech-tts-&-voice) — 2
 - [System Architecture / Engineering Patterns](#system-architecture-engineering-patterns) — 1
 - [Video Production / Editing](#video-production-editing) — 1
 
 ## Agent Memory / Context
 
-### khaterdev/kirie
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 7
-- Raw: #822
-- URL: https://github.com/khaterdev/kirie
-- Description: Your personal AI assistant on Telegram, Discord, Slack & more. Built on the official Claude Agent SDK. Proactive, persistent memory, background tasks.
-- Why: compound agent memory/context fit, persistent memory
-
-### davo20019/aidaemon
+### digital-lake-ai/lognexus
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 6
-- Raw: #827
-- URL: https://github.com/davo20019/aidaemon
-- Description: Personal AI daemon — Telegram interface, agentic tool use, MCP integration, email triggers, persistent memory
+- Raw: #834
+- URL: https://github.com/digital-lake-ai/lognexus
+- Description: Universal Git-powered persistent memory, context rules & native MCP server for AI coding agents. Prevents context amnesia with stateful workflows, Git Notes, and cross-model review gates across Claude, OpenAI, Gemini & DeepSeek in Cursor, Claude Code & VS Code.
 - Why: compound agent memory/context fit, persistent memory
+
+### FoxMoreland/Persona-Centric-Agent-Runtime
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 7
+- Raw: #830
+- URL: https://github.com/FoxMoreland/Persona-Centric-Agent-Runtime
+- Description: Persona-centric AI companion runtime for Windows: persistent memory, versioned identity, desktop and owner-only QQ chat.
+- Why: compound agent memory/context fit, persistent memory
+
+
+## Agent Reliability / Evals & Production
+
+### rudycelekli/rudycelekli
+
+- Verdict: **WATCH**
+- Score: 18
+- Stars: 6
+- Raw: #952
+- URL: https://github.com/rudycelekli/rudycelekli
+- Description: Profile: proof-driven AI systems, evaluation, and agent reliability
+- Why: agent reliability, compound agent reliability/evals fit
 
 
 ## Agent Security / Governance
 
-### strands-agents/box
-
-- Verdict: **WATCH**
-- Score: 29
-- Stars: 565
-- Raw: #1827
-- URL: https://github.com/strands-agents/box
-- Description: Run AI agents in a sandbox that restricts what they can execute, read, write, and reach on the network. Box combines OS isolation with default-deny Dogwood policies and credential injection that keeps secrets outside the agent. Written in Rust. Supports macOS on Apple silicon and Linux.
-- Why: agent control-plane security fit, agent security/governance fit, stars>=100, strong agent-security signal
-
-### bitwarden/android
+### stevendamianakis/autopi
 
 - Verdict: **WATCH**
 - Score: 22
-- Stars: 9679
-- Raw: #1784
-- URL: https://github.com/bitwarden/android
-- Description: Bitwarden mobile apps (Password Manager and Authenticator) for Android.
-- Why: agent security/governance fit, stars>=1000, strong agent-security signal
-
-### MISP/MISP
-
-- Verdict: **WATCH**
-- Score: 22
-- Stars: 6698
-- Raw: #1793
-- URL: https://github.com/MISP/MISP
-- Description: MISP (core software) - Open Source Threat Intelligence and Sharing Platform
-- Why: agent security/governance fit, stars>=1000, strong agent-security signal
-
-### zhuyansen/agent-skills-hub
-
-- Verdict: **WATCH**
-- Score: 19
-- Stars: 503
-- Raw: #1831
-- URL: https://github.com/zhuyansen/agent-skills-hub
-- Description: AgentSkillsHub (agentskillshub.top) — security-graded directory of open-source Claude skills, MCP servers & AI agent tools, refreshed every 8 hours
-- Why: agent security/governance fit, stars>=100, strong agent-security signal
-
-### sebaandrada-cell/PcapAnalyzer
-
-- Verdict: **WATCH**
-- Score: 19
-- Stars: 213
-- Raw: #1860
-- URL: https://github.com/sebaandrada-cell/PcapAnalyzer
-- Description: Free, self-hosted pcap analyzer with 27 problem detectors and AI investigation
-- Why: agent security/governance fit, stars>=100, strong agent-security signal
+- Stars: 6
+- Raw: #511
+- URL: https://github.com/stevendamianakis/autopi
+- Description: AutoPI: taxonomy-guided adaptive red teaming for prompt injection in LLM agents
+- Why: agent security/governance fit, strong agent-security signal
 
 
 ## Automation / Event Workflows
 
-### WorkPodsAgents/n8n-nodes-agent-ready
-
-- Verdict: **WATCH**
-- Score: 30
-- Stars: 0
-- Raw: #682
-- URL: https://github.com/WorkPodsAgents/n8n-nodes-agent-ready
-- Description: n8n SEO audit node: run SEO and AI search audits of any web page from n8n workflows and the AI Agent. Checks AI crawler access, robots.txt, sitemaps and llms.txt, compares competitors and crawls sites. No account or API key.
-- Why: automation AI/MCP fit, automation ops/tooling fit, automation reusable implementation, n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
-
-### shyftai/n8n-nodes-crispy
-
-- Verdict: **WATCH**
-- Score: 27
-- Stars: 0
-- Raw: #692
-- URL: https://github.com/shyftai/n8n-nodes-crispy
-- Description: n8n community node for Crispy, the LinkedIn API for AI agents and automations.
-- Why: automation AI/MCP fit, automation ops/tooling fit, n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
-
-### Chariow/n8n-nodes
-
-- Verdict: **WATCH**
-- Score: 26
-- Stars: 0
-- Raw: #716
-- URL: https://github.com/Chariow/n8n-nodes
-- Description: Official n8n integration for Chariow - Automate your digital products sales, licences, and customer management.
-- Why: automation ops/tooling fit, automation reusable implementation, n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
-
-### penfieldlabs/n8n-nodes-penfield
+### veycallai/n8n-nodes-veycall
 
 - Verdict: **WATCH**
 - Score: 23
 - Stars: 0
-- Raw: #685
-- URL: https://github.com/penfieldlabs/n8n-nodes-penfield
-- Description: n8n community node for Penfield: long-term memory and a knowledge graph for n8n workflows and AI agents
+- Raw: #687
+- URL: https://github.com/veycallai/n8n-nodes-veycall
+- Description: VeyCall for n8n: your AI agent answers on Gmail, Messenger, Slack, Mattermost, WhatsApp Business and more, in text and voice notes. Leads, conversations and knowledge in one node.
 - Why: automation AI/MCP fit, n8n, n8n identity fit, n8n node/plugin fit, workflow/event integration fit
 
-### oleksandr-kushnir/polygraphrag
+### 2848823170/n8n-aiogram-lead-kit
 
 - Verdict: **WATCH**
-- Score: 22
-- Stars: 2
-- Raw: #733
-- URL: https://github.com/oleksandr-kushnir/polygraphrag
-- Description: Multimodal, multi-project knowledge-graph RAG as a service. Ingest PDFs, Office docs, images & audio into a queryable graph (Postgres + pgvector + Apache AGE). Provider-agnostic, pure REST API for n8n & AI agents. Dockerized, MIT.
-- Why: automation AI/MCP fit, automation ops/tooling fit, automation reusable implementation, n8n, n8n identity fit, workflow/event integration fit
+- Score: 23
+- Stars: 0
+- Raw: #708
+- URL: https://github.com/2848823170/n8n-aiogram-lead-kit
+- Description: Turnkey Telegram Lead-Intake Bot (aiogram 3 FSM) + FastAPI Tilda/HMAC Scoring Bridge + Importable n8n Workflow for amoCRM & Google Sheets
+- Why: automation ops/tooling fit, automation reusable implementation, n8n, n8n identity fit, webhook, workflow/event integration fit
 
-### arxrock/meta-ad-library-monitor-examples
+### dev-shiki/apify-mcp-suite
 
 - Verdict: **WATCH**
 - Score: 22
 - Stars: 0
-- Raw: #726
-- URL: https://github.com/arxrock/meta-ad-library-monitor-examples
-- Description: Examples for the Facebook & Instagram Ads Library Scraper & Monitor on Apify: API, Slack, Make, Zapier, n8n, MCP for AI agents
+- Raw: #718
+- URL: https://github.com/dev-shiki/apify-mcp-suite
+- Description: Public MCP config and free n8n workflow templates for 6 Apify Actors (Outbound Domain Preflight, AI Agent Guardrail, ArXiv/HF Radar, Docs Gleaner, Package Risk Radar, Archive Unpacker)
 - Why: automation AI/MCP fit, automation ops/tooling fit, automation reusable implementation, n8n, n8n identity fit, workflow/event integration fit
 
-### ampost-io/n8n-nodes-ampost
+### oversight-group/n8n-nodes-smartsend
 
 - Verdict: **WATCH**
 - Score: 20
 - Stars: 0
-- Raw: #691
-- URL: https://github.com/ampost-io/n8n-nodes-ampost
-- Description: n8n community node for Ampost: publish and schedule posts on Instagram, Facebook, LinkedIn, TikTok, Threads, X, YouTube, Pinterest, Bluesky, Telegram and Discord.
+- Raw: #697
+- URL: https://github.com/oversight-group/n8n-nodes-smartsend
+- Description: n8n community node for SmartSend V2, Oversight's venture for WhatsApp sales, service and marketing: templates, conversations, tags, lists and bot flows.
 - Why: automation ops/tooling fit, automation reusable implementation, n8n, n8n identity fit, n8n node/plugin fit
 
-### hanseventeen/n8n-health-check
+### P-77cloud/AI-Chatbot-Assistant
 
 - Verdict: **WATCH**
 - Score: 20
 - Stars: 0
 - Raw: #706
-- URL: https://github.com/hanseventeen/n8n-health-check
-- Description: An n8n workflow that checks other n8n workflows and writes a one-page health report: error alerts, failures, exposed keys, open webhooks, backups and a kill switch.
-- Why: automation ops/tooling fit, n8n, n8n identity fit, webhook, workflow/event integration fit
+- URL: https://github.com/P-77cloud/AI-Chatbot-Assistant
+- Description: An AI-powered chatbot assistant built using n8n workflow automation and OpenAI API, providing automated conversational responses through a user-friendly chat interface.
+- Why: automation ops/tooling fit, n8n, n8n identity fit, workflow automation, workflow/event integration fit
 
-
-## Design Systems / Visual QA
-
-### italia/design-tokens-italia
+### wyroapi/wyro
 
 - Verdict: **WATCH**
-- Score: 30
-- Stars: 25
-- Raw: #1465
-- URL: https://github.com/italia/design-tokens-italia
-- Description: Repository ufficiale dei design token del Design System Italia
-- Why: design QA fit, design system, design-system, figma, stars>=20, tokens
+- Score: 19
+- Stars: 0
+- Raw: #677
+- URL: https://github.com/wyroapi/wyro
+- Description: Let AI agents post and schedule on Instagram, TikTok, LinkedIn, X and 4 more networks.
+- Why: automation AI/MCP fit, automation ops/tooling fit, n8n, n8n identity fit, workflow/event integration fit
 
-### sebyx07/cybercore-css
-
-- Verdict: **WATCH**
-- Score: 25
-- Stars: 84
-- Raw: #1413
-- URL: https://github.com/sebyx07/cybercore-css
-- Description: Pure CSS cyberpunk design framework: neon components, design tokens, themes and cascade layers, no JavaScript required. Companion to cybercore-charts. AI-maintained by developerz.ai.
-- Why: design QA fit, design tokens, design-system, stars>=20, tokens
-
-### albertsikkema/figma-make-extractor
+### mkol5222/lab-ai-guardrails-n8n
 
 - Verdict: **WATCH**
-- Score: 25
-- Stars: 48
-- Raw: #1461
-- URL: https://github.com/albertsikkema/figma-make-extractor
-- Description: Extract source code, design tokens, and assets from Figma Make (.make) files
-- Why: design QA fit, design tokens, figma, stars>=20, tokens
+- Score: 19
+- Stars: 0
+- Raw: #742
+- URL: https://github.com/mkol5222/lab-ai-guardrails-n8n
+- Description: Hands-on lab: n8n AI agent protected by Check Point Lakera Guard (AI Guardrails) via a private LiteLLM gateway. kind/devcontainer/Codespaces, Docker Desktop or Azure VM. Community training lab.
+- Why: automation AI/MCP fit, automation ops/tooling fit, n8n, n8n identity fit, workflow/event integration fit
 
 
-## Document Parsing / Ingestion
+## Interactive Reports / Data Apps
 
-### jensen-zheng-cmd/Recto-plugin
+### xrisbarney/Wazuh-alert-manager
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 8
-- Raw: #1109
-- URL: https://github.com/jensen-zheng-cmd/Recto-plugin
-- Description: RectoPaper: bring Zotero papers into Obsidian, convert PDFs to Markdown with OCR, read bilingual translations side by side, and copy citations.
-- Why: compound document parsing/ingestion fit, ocr
-
-
-## Infographics / Visual Storytelling
-
-### smixs/visual-story
-
-- Verdict: **WATCH**
-- Score: 31
-- Stars: 11
-- Raw: #70
-- URL: https://github.com/smixs/visual-story
-- Description: Visual storytelling skill for AI agents: scene films with a camera, interactive system maps, pitch decks with transitions and a PDF — checked frame by frame, shipped to a link
-- Why: agent-native workflow, infographics/visual storytelling fit, map, svg, visual storytelling
+- Raw: #1631
+- URL: https://github.com/xrisbarney/Wazuh-alert-manager
+- Description: SOC workbench plugin for the Wazuh dashboard: alert triage, cases with evidence and attack graphs, automation rules, reporting
+- Why: dashboard, interactive/reporting implementation fit, report
 
 
 ## Lancelot / Agent Infrastructure
 
-### Rinava/MarkSight
+### JavierFrancoLeal/governed-browser
 
 - Verdict: **KEEP**
 - Score: 35
-- Stars: 19
-- Raw: #598
-- URL: https://github.com/Rinava/MarkSight
-- Description: Browser-only Markdown editor that packages any document into a Claude Agent Skill (SKILL.md / .skill bundle) in one click — and exposes an MCP server for Claude Code. Live preview, GFM tables, Mermaid, Prism, HTML/PDF export. No account, 100% local. Next.js + React.
+- Stars: 0
+- Raw: #635
+- URL: https://github.com/JavierFrancoLeal/governed-browser
+- Description: Constitutional Commit-Click Brake & SHA-256 Audit Gate for AI Browser Agents (CLI + MCP Server + Antigravity / Claude Code / Gemini CLI / DSH Plugin)
 - Why: lancelot high fit
 
-### wonderwhy-er/DesktopCommanderMCP
+### sakurachris0-max/open-browser-agent
+
+- Verdict: **KEEP**
+- Score: 35
+- Stars: 0
+- Raw: #631
+- URL: https://github.com/sakurachris0-max/open-browser-agent
+- Description: Independent open-source browser automation agent: Playwright, MCP server, autonomous web workflows, session management, structured extraction and real-time progress. Built as a free, self-hostable alternative to proprietary browser automation services.
+- Why: lancelot high fit
+
+### XinaTian/MROffice
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 10400
-- Raw: #1783
-- URL: https://github.com/wonderwhy-er/DesktopCommanderMCP
-- Description: This is MCP server for Claude that gives it terminal control, file system search and diff file editing capabilities
+- Stars: 3102
+- Raw: #1755
+- URL: https://github.com/XinaTian/MROffice
+- Description: MR Office — the open-source editors of the AI office suite closest to Microsoft Office: documents, spreadsheets, presentations, PDF and code in the browser. Copilot in every editor edits real Word, Excel and PowerPoint files with you; an MCP server lets Claude, ChatGPT, Cursor and Codex create and edit them; embed it in your app with one line.
 - Why: lancelot keep fit, stars>=1000
 
-### DcodeNischal/mcp-check
+### JAPofc/openapi-mcp-runtime
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 0
-- Raw: #611
-- URL: https://github.com/DcodeNischal/mcp-check
-- Description: Free checker and graded directory for MCP servers. Grades protocol, tools, OAuth, security and speed against the spec, with a fix for every problem. Web, MCP server, CLI and GitHub Action.
+- Raw: #619
+- URL: https://github.com/JAPofc/openapi-mcp-runtime
+- Description: OpenAPI 3.0 / 3.1 / Swagger 2.0 → live MCP server. stdio & HTTP, auth, caching, typed tools.
 - Why: lancelot keep fit
 
-### eshabitid/Central-MCP-Skills
+### m-shahmeer-kz/agent-mcp-security-auditor
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 0
-- Raw: #596
-- URL: https://github.com/eshabitid/Central-MCP-Skills
-- Description: Self-hosted MCP server and Web UI to sync, organize, and switch Agent Skills (SKILL.md) from multiple GitHub repositories via Docker.
+- Raw: #668
+- URL: https://github.com/m-shahmeer-kz/agent-mcp-security-auditor
+- Description: Paid AI-agent skill: audits AI agent apps and MCP servers for prompt injection, poisoned tools, leaked secrets and unsafe tool calls. Blind-tested: 21/24 real MCP advisories caught. Get it on Agensi.
 - Why: lancelot keep fit
 
-### KurvCygnus/github-fetcher
+### navtesh48/mcp-toolkit
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 0
-- Raw: #613
-- URL: https://github.com/KurvCygnus/github-fetcher
-- Description: Read-only GitHub MCP server for unreliable networks, especially mainland China: 34 tools, token reuse, proxy fallback, ETag cache, one-command setup.
+- Raw: #623
+- URL: https://github.com/navtesh48/mcp-toolkit
+- Description: Permission-scoped, audited MCP servers: sandboxed file search, tasks with human approval, algae sensor data
 - Why: lancelot keep fit
 
-### MrBekoX/Causoryn
+### TnTIndie/edgedata-apis-mcp
 
 - Verdict: **WATCH**
 - Score: 18
 - Stars: 0
-- Raw: #616
-- URL: https://github.com/MrBekoX/Causoryn
-- Description: Local, deterministic, zero-LLM code intelligence MCP server (29 tools, 5 languages) with living wiki, preflight change guard & offline visual architecture portals (v0.2.2)
+- Raw: #615
+- URL: https://github.com/TnTIndie/edgedata-apis-mcp
+- Description: Official MCP Server for EdgeData APIs — 23 real-time AI-agent tools across 11 Cloudflare-edge data APIs (SEC EDGAR, FDA, Crypto Funding, LLM Pricing, OSS Security, FX/Macro, Prediction Markets, Shopify, Tech Stack, Remote Jobs, Aviation/Earthquakes/Space).
 - Why: lancelot keep fit
-
-### w01fb0ss/PiBot
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 436
-- Raw: #1840
-- URL: https://github.com/w01fb0ss/PiBot
-- Description: Open-source, local-first AI agent team for your desktop: multi-agent group chats, computer use, browser, MCP, routines and approvals. macOS, Windows, Linux + Android. Built on pi.
-- Why: lancelot keep fit, stars>=100
-
-### staryone/motlab
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 404
-- Raw: #1878
-- URL: https://github.com/staryone/motlab
-- Description: Video as code: canvas scenes rendered with WebCodecs in headless Chrome, a review viewer, and agent skills that build the video from your references.
-- Why: lancelot keep fit, stars>=100
-
-### gulivan/worker755
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 153
-- Raw: #1842
-- URL: https://github.com/gulivan/worker755
-- Description: A browser game where an AI manager thinks you are its subagent. Play at worker755.com
-- Why: lancelot keep fit, stars>=100
-- Caution: game
-
-### Eyalm321/datetime-mcp
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 1
-- Raw: #618
-- URL: https://github.com/Eyalm321/datetime-mcp
-- Description: MCP server providing datetime awareness via tools and resources
-- Why: lancelot keep fit
-
-### toolstile/toolstile
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 1
-- Raw: #621
-- URL: https://github.com/toolstile/toolstile
-- Description: Open-source MCP gateway with per-agent tool permissions. Give Claude Code, Codex and Cursor one endpoint each that exposes only the tools you allow, require your approval for chosen tool calls, and review changed tool definitions before agents see them. Run locally with npx toolstile server start or use toolstile.com.
-- Why: lancelot keep fit
-
-
-## Newsroom / Data Journalism
-
-### Ghongha007/india-osint
-
-- Verdict: **WATCH**
-- Score: 22
-- Stars: 23
-- Raw: #1704
-- URL: https://github.com/Ghongha007/india-osint
-- Description: Public records, open data and tools for investigating stories in India. Every link checked and dated.
-- Why: journalism, newsroom fit, public records, stars>=20
-
-
-## Publishing / Layout / PDF
-
-### 1solomonwakhungu/typst-dev-container
-
-- Verdict: **WATCH**
-- Score: 23
-- Stars: 6
-- Raw: #1550
-- URL: https://github.com/1solomonwakhungu/typst-dev-container
-- Description: Prebuilt multi-arch Typst + Pandoc Dev Container image & OCI template with Tinymist for VS Code, Codespaces, and Docker
-- Why: pandoc, pdf, publishing/pdf fit, typst
 
 
 ## Search / Retrieval Engineering
 
-### neuml/txtai
+### ai3inc/opentoolsearch
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 13717
-- Raw: #881
-- URL: https://github.com/neuml/txtai
-- Description: 💡 All-in-one AI framework for semantic search, LLM orchestration and language model workflows
-- Why: compound search/retrieval fit, semantic search, stars>=1000
-
-
-## Social Media / Content Ops
-
-### flavio-cesar/social-media-skills-pack-inz
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 7
-- Raw: #1132
-- URL: https://github.com/flavio-cesar/social-media-skills-pack-inz
-- Description: 25 skills profissionais de Social Media para agentes de IA. Transforma qualquer IDE em uma agência de social media completa. Por INZ (@inzbrasil)
-- Why: compound social media content-ops fit
+- Stars: 8
+- Raw: #924
+- URL: https://github.com/ai3inc/opentoolsearch
+- Description: Open-source tool retrieval for function-calling agents: a small reranker, a drop-in tool_search, and a reproducible ToolRet evaluation. By AI3 Inc.
+- Why: compound search/retrieval fit, reranker
 
 
 ## Speech / TTS & Voice
 
-### interviewflowai/talking-avatar
+### sipeter/CloneTTS
+
+- Verdict: **WATCH**
+- Score: 20
+- Stars: 906
+- Raw: #1011
+- URL: https://github.com/sipeter/CloneTTS
+- Description: A lightweight, offline Android Text-to-Speech (TTS) engine enabling seamless system-wide voice cloning and high-fidelity text reading. / 运行在安卓本地的轻量级文字转语音 (TTS) 引擎，支持离线发音人提取、零门槛音色克隆与双擎系统级全局听书。
+- Why: compound deployable speech/TTS fit, stars>=100, text-to-speech, tts, voice cloning
+
+### super-libre/super-voice
 
 - Verdict: **WATCH**
 - Score: 18
-- Stars: 16
-- Raw: #1006
-- URL: https://github.com/interviewflowai/talking-avatar
-- Description: Give your voice agent a face. Talking Avatar turns any voice, from any text-to-speech engine or voice agent, into a lifelike talking avatar on your page, in real time.
-- Why: compound deployable speech/TTS fit, text-to-speech
-
-### liuzhao1225/YouDub-Desktop
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 5882
-- Raw: #1010
-- URL: https://github.com/liuzhao1225/YouDub-Desktop
-- Description: Open-source AI video localization and dubbing for YouTube/Bilibili: speech recognition, subtitle translation, voice cloning, audio mixing and rendering. 开源 AI 视频翻译配音工具。
-- Why: compound deployable speech/TTS fit, stars>=1000, text-to-speech, voice cloning
-
-### svayatta/pratidhvani
-
-- Verdict: **WATCH**
-- Score: 18
-- Stars: 26
-- Raw: #1013
-- URL: https://github.com/svayatta/pratidhvani
-- Description: Open, self-hosted voice cloning for Indian languages that keeps a speaker's accent and dialect. Built for archival recordings, with consent and an inaudible watermark. प्रतिध्वनि: Sanskrit for "echo".
-- Why: compound deployable speech/TTS fit, stars>=20, text-to-speech, tts, voice cloning
+- Stars: 78
+- Raw: #1012
+- URL: https://github.com/super-libre/super-voice
+- Description: Speech-to-text and text-to-speech for Linux, with any model you want. Dictate into any app, hear text read aloud, and swap models anytime, local or cloud, on CPU or GPU.
+- Why: compound deployable speech/TTS fit, stars>=20, text-to-speech, tts
 
 
 ## System Architecture / Engineering Patterns
 
-### DenBeke/collie
+### davidnussio/effect-cqrs
 
 - Verdict: **WATCH**
-- Score: 28
+- Score: 23
 - Stars: 8
-- Raw: #1900
-- URL: https://github.com/DenBeke/collie
-- Description: Dynamic Consistency Boundaries (DCB) event sourcing for Go, with PostgreSQL event store.
-- Why: consistency, cqrs, event sourcing, high-value architecture pattern, system architecture / engineering patterns fit
+- Raw: #1514
+- URL: https://github.com/davidnussio/effect-cqrs
+- Description: Effect v4: CQRS and event sourcing
+- Why: cqrs, event sourcing, high-value architecture pattern, system architecture / engineering patterns fit
 
 
 ## Video Production / Editing
 
-### Mehal45/Cutline
+### ElectronBladesmith/WhisperDesk-OfflineTranscriber
 
 - Verdict: **WATCH**
-- Score: 23
-- Stars: 16
-- Raw: #1301
-- URL: https://github.com/Mehal45/Cutline
-- Description: Free, open-source CapCut-style video editor for Windows and Mac: timeline, text animations, transitions, auto-captions, MP4 export.
-- Why: timeline, video, video editor, video production fit
+- Score: 30
+- Stars: 32
+- Raw: #1338
+- URL: https://github.com/ElectronBladesmith/WhisperDesk-OfflineTranscriber
+- Description: Offline audio and video transcriber for Windows: turn MP4, MKV, MP3, and WAV recordings into accurate TXT transcripts and SRT subtitles locally.
+- Why: stars>=20, subtitle, subtitles, transcription, video, video production fit
