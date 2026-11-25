@@ -1,6 +1,6 @@
 # Creative Radar — LLM Snapshot
 
-Generated: 2026-11-25T08:30:44
+Generated: 2026-11-25T11:28:17
 Date: 2026-11-25
 
 Public scope: this file is generated from curated cards and today's shortlist only.
@@ -8,34 +8,49 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 
 ## Status
 
-- Total curated cards: 1028
-- Buckets: 55
+- Total curated cards: 1077
+- Buckets: 77
 
 ## Bucket summary
 
+- Agent Infrastructure / Architecture: 1
+- Agent Infrastructure / Browser Automation: 1
 - Agent Infrastructure / Communications: 3
-- Agent Memory / Context: 82
-- Agent Reliability / Evals & Production: 36
-- Agent Security / Governance: 69
+- Agent Infrastructure / Credentials: 1
+- Agent Infrastructure / Personal AI: 1
+- Agent Memory / Context: 87
+- Agent Reliability / Evals & Production: 37
+- Agent Security / Governance: 73
+- AI Infrastructure / Identity & Access: 1
+- AI Infrastructure / Local Inference: 1
+- Audio / Music Intelligence: 1
 - Audio / Music Tools: 3
-- Automation / Event Workflows: 31
+- Audio / Speech Processing: 1
+- Automation / Event Workflows: 32
 - Broadcast / Playout / Automation: 7
 - CRM / Relationship Intelligence: 1
+- Design / Agent QA: 1
 - Design / Image Editing: 15
 - Design Systems / Visual QA: 44
+- Development / Performance Engineering: 1
 - Device Control / Capture: 9
 - Device Integration / Local-First Systems: 1
-- Document Parsing / Ingestion: 22
+- Document Parsing / Ingestion: 23
+- Editorial / Writing QA: 1
 - Font Creation / Typography Tools: 18
 - Full-Song AI / Suno Alternatives: 15
 - Infographics / Visual Storytelling: 49
+- Infrastructure / Remote Workstation: 1
+- Infrastructure / Server Management: 1
 - Interactive Reports / Data Apps: 11
-- Lancelot / Agent Infrastructure: 169
+- Lancelot / Agent Infrastructure: 176
+- Learning / Agent Harness: 1
 - LLM Engineering / RAG & Retrieval: 1
 - LLM Engineering / Reasoning & Evals: 2
 - Local AI / Edge Inference: 1
 - Local AI / Inference Infrastructure: 1
 - Local AI / Portable Runtime Infrastructure: 3
+- Media / Linear Streaming: 1
 - Media / Social Monitoring: 11
 - Media Kits / Brand Automation: 3
 - Media Relations / Outreach Automation: 2
@@ -51,22 +66,29 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - OSINT / Collection & Crawling: 1
 - OSINT / Field Tooling: 1
 - OSINT / GEOINT & Image Forensics: 1
-- OSINT / Investigations: 36
+- OSINT / Investigations: 37
+- Personal Knowledge / Capture: 1
+- Personal Knowledge / Reading: 1
 - Publishing / Layout / PDF: 15
 - Radio / Audio Ops: 28
+- Research / Agent Context / Reading: 1
+- Research / Evidence Synthesis: 1
+- Research Infrastructure / Search: 1
 - Reverse Engineering / Binary Analysis: 24
-- Search / Retrieval Engineering: 38
+- Search / Retrieval Engineering: 40
 - Security / Learning & Discovery Sources: 2
 - Social Media / Content Ops: 5
 - Software Architecture / Design References: 2
-- Speech / TTS & Voice: 34
-- System Architecture / Engineering Patterns: 37
+- Speech / TTS & Voice: 37
+- System Architecture / Engineering Patterns: 39
 - Telegram Bots / Automation: 3
 - Video Production / Editing: 106
 - Video Production / Enhancement: 1
+- Video Production / Rendering: 1
 - Visual Systems / Data Storytelling: 1
 - Visual Systems / Media Factory: 3
 - Web Data / Crawling & Extraction: 14
+- Web Data / Platform Discovery: 1
 - Web Intelligence / SEO & AI Visibility: 15
 
 ## Today's run
@@ -79,6 +101,56 @@ Do not assume access to raw/, scored/, review/, logs/, or the full Obsidian vaul
 - NOISE: 230
 
 # CURATED CARDS
+
+## BUCKET: Agent Infrastructure / Architecture
+
+Cards: 1
+
+### humanlayer/12-factor-agents
+
+URL: https://github.com/humanlayer/12-factor-agents
+VERDICT: KEEP
+SCORE: 0
+STARS: 27413
+
+WHAT:
+Guide and examples for reliable LLM systems: typed tool calls, owned prompts/context, serializable state, pause/resume, human handoff and bounded control flow.
+
+FIT:
+Provides an architectural checklist for moving responsibility from an unbounded model loop into deterministic execution and durable state.
+
+PROJECT:
+Lancelot; Noosphere; editorial queues; workflow design.
+
+NEXT:
+Audit one existing Lancelot workflow against the twelve factors; record concrete gaps and prioritize small measured changes.
+
+---
+
+## BUCKET: Agent Infrastructure / Browser Automation
+
+Cards: 1
+
+### citrolabs/ego-lite
+
+URL: https://github.com/citrolabs/ego-lite
+VERDICT: KEEP
+SCORE: 0
+STARS: 24443
+
+WHAT:
+Open MIT agent-facing browser harness and site learnings around a separate closed-source Ego Lite browser runtime.
+
+FIT:
+Task ownership, explicit human takeover, batched browser programs and reusable site capabilities are strong architecture donors.
+
+PROJECT:
+Lancelot; browser execution plane; Noosphere; OSINT workflow design.
+
+NEXT:
+Study TaskSpace and Page API; watch for supported Linux build or authenticated remote bridge. Prototype handoff and typed browser programs independently.
+
+---
 
 ## BUCKET: Agent Infrastructure / Communications
 
@@ -147,9 +219,59 @@ NEXT:
 
 ---
 
+## BUCKET: Agent Infrastructure / Credentials
+
+Cards: 1
+
+### bitwarden/agent-access
+
+URL: https://github.com/bitwarden/agent-access
+VERDICT: KEEP
+SCORE: 0
+STARS: 741
+
+WHAT:
+Open protocol, CLI and SDK for providing agents credentials without exposing the full vault.
+
+FIT:
+Credential delivery can be a separate capability boundary rather than an unrestricted secret store inside prompts.
+
+PROJECT:
+OpenSandbox; Lancelot; Noosphere credential plane.
+
+NEXT:
+Use disposable credentials and a narrow test service; verify scope, expiry, revocation, logging and isolation from model context.
+
+---
+
+## BUCKET: Agent Infrastructure / Personal AI
+
+Cards: 1
+
+### open-jarvis/OpenJarvis
+
+URL: https://github.com/open-jarvis/OpenJarvis
+VERDICT: KEEP
+SCORE: 0
+STARS: 18606
+
+WHAT:
+Local-first personal AI research platform with agents, engines, tools, memory and execution traces.
+
+FIT:
+Study the feedback loop from trace to measured improvement: instrument executions, propose changes and admit them through evaluation.
+
+PROJECT:
+Lancelot; Small Model Fabric; agent runtime comparison; evaluation harness.
+
+NEXT:
+Compare one existing Lancelot task against the trace schema and local engine abstraction; test in isolation rather than migrate.
+
+---
+
 ## BUCKET: Agent Memory / Context
 
-Cards: 82
+Cards: 87
 
 ### 23skdu/longbow
 
@@ -386,6 +508,27 @@ NEXT:
 
 ---
 
+### digital-lake-ai/lognexus
+
+URL: https://github.com/digital-lake-ai/lognexus
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Git-native context framework using refs/notes/lognexus, session metadata, task contracts and review gates.
+
+FIT:
+Preserve reasoning, rejected alternatives and review provenance alongside commits without changing commit SHA.
+
+PROJECT:
+Codex/Claude Code; disposable project clone; cross-agent handoff.
+
+NEXT:
+Try in a disposable repo with two agents; check note push/fetch, recovery and scope enforcement.
+
+---
+
 ### doobidoo/mcp-memory-service
 
 URL: https://github.com/doobidoo/mcp-memory-service
@@ -467,6 +610,27 @@ PROJECT:
 
 NEXT:
 TRY Crew on a disposable shared folder with Claude Code and Codex and measure whether cross-agent handoff remains legible, recoverable and non-destructive.
+
+---
+
+### FoxMoreland/Persona-Centric-Agent-Runtime
+
+URL: https://github.com/FoxMoreland/Persona-Centric-Agent-Runtime
+VERDICT: KEEP
+SCORE: 18
+STARS: 7
+
+WHAT:
+Windows/Android companion runtime with versioned personas, imported history and local memory storage.
+
+FIT:
+Study separation of agent identity, remembered experiences and current conversation.
+
+PROJECT:
+Personal Agent identity design.
+
+NEXT:
+Review identity version history and memory acceptance docs; compare with Lancelot design.
 
 ---
 
@@ -593,6 +757,27 @@ PROJECT:
 
 NEXT:
 Use as a SOURCE index. Pull only memory systems with a distinct architectural role into separate cards and benchmarks.
+
+---
+
+### hyperb1iss/sibyl
+
+URL: https://github.com/hyperb1iss/sibyl
+VERDICT: KEEP
+SCORE: 18
+STARS: 70
+
+WHAT:
+Self-hostable shared knowledge graph with CLI/MCP, FastAPI, SurrealDB, scoped ingestion and memory lifecycle.
+
+FIT:
+Compare context-act-remember-reflect and cross-client memory with GBrain and Evermatter.
+
+PROJECT:
+Personal Agent shared knowledge layer.
+
+NEXT:
+Review memory data model and correction/retraction workflow against existing requirements.
 
 ---
 
@@ -1510,6 +1695,27 @@ NEXT:
 
 ---
 
+### scoutme/milk
+
+URL: https://github.com/scoutme/milk
+VERDICT: KEEP
+SCORE: 18
+STARS: 8
+
+WHAT:
+Go terminal agent host with cheap primary/deep escalation routing, shared conversation, checkpoints, MCP and evals.
+
+FIT:
+Concrete reference for model escalation without discarding context.
+
+PROJECT:
+Circus isolated session; Camelot local inference.
+
+NEXT:
+Compare a small local primary and approved stronger backend with existing single-model workflow using public fixtures.
+
+---
+
 ### skynetcmd/m3-memory
 
 URL: https://github.com/skynetcmd/m3-memory
@@ -1570,6 +1776,27 @@ Personal Agent; second-hemisphere architecture; Noosphere memory; context compre
 
 NEXT:
 Study the training and inference contract and reproduce only the memory-layer idea on a small benchmark if hardware permits. Compare latent recall with exact GBrain/RAG recall on preferences, relationships and exact facts.
+
+---
+
+### substrate-systems/evermatter
+
+URL: https://github.com/substrate-systems/evermatter
+VERDICT: KEEP
+SCORE: 18
+STARS: 9
+
+WHAT:
+Evermatter/Exomem exposes an owned Markdown vault through MCP, with evidence, review and history; bundled local demo.
+
+FIT:
+Portable user-owned memory and provenance without mandatory migration to opaque storage.
+
+PROJECT:
+Circus isolated demo vault; compare GBrain.
+
+NEXT:
+Run bundled demo on a separate vault; test correction, withdrawal and source trace; inspect license.
 
 ---
 
@@ -2045,7 +2272,7 @@ DEEP STUDY архитектуры; lab только после понимани�
 
 ## BUCKET: Agent Reliability / Evals & Production
 
-Cards: 36
+Cards: 37
 
 ### Adi15Jain/cf_ai_next_doctor
 
@@ -2772,6 +2999,27 @@ NEXT:
 
 ---
 
+### WinSoftLabs30/test-fix-skill
+
+URL: https://github.com/WinSoftLabs30/test-fix-skill
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Manual skill for reproducing test failures, distinguishing flaky runs from consistent failures and proposing minimal patches without weakening tests.
+
+FIT:
+Reinforces existing engineering rule: fix source defects, not test expectations to hide failures.
+
+PROJECT:
+Codex/Claude Code repair workflow.
+
+NEXT:
+Adapt checklist and add deterministic diff/test gates to a disposable repair task.
+
+---
+
 ### WrongStack/WrongTrace
 
 URL: https://github.com/WrongStack/WrongTrace
@@ -2821,7 +3069,7 @@ NEXT:
 
 ## BUCKET: Agent Security / Governance
 
-Cards: 69
+Cards: 73
 
 ### 0xNyk/agent-security
 
@@ -3294,6 +3542,27 @@ NEXT:
 
 ---
 
+### AnvitDevadiga/Ghost-Scan
+
+URL: https://github.com/AnvitDevadiga/Ghost-Scan
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Offline static scanner for hidden Unicode text, suspicious agent instructions and MCP configuration patterns.
+
+FIT:
+Preflight third-party skills and configs before allowing them into agent environments.
+
+PROJECT:
+Circus isolated checkout; skill intake pipeline.
+
+NEXT:
+Run against benign synthetic fixtures and known-safe local skills; check findings and CI integration.
+
+---
+
 ### aporthq/aport-agent-guardrails
 
 URL: https://github.com/aporthq/aport-agent-guardrails
@@ -3734,6 +4003,27 @@ PROJECT:
 
 NEXT:
 DEEP STUDY; использовать его сценарную модель при создании собственных agent security evals.
+
+---
+
+### fmariv/osm-agent-guardrails
+
+URL: https://github.com/fmariv/osm-agent-guardrails
+VERDICT: KEEP
+SCORE: 24
+STARS: 6
+
+WHAT:
+Community skills and reference checks for responsible OSM/Overpass application development.
+
+FIT:
+Avoid repeated expensive public queries; prefer local data, cached bounded APIs and compliant tiles.
+
+PROJECT:
+UZ simulator map layer; WSB geographic visuals.
+
+NEXT:
+Review rules and current official service policies; add request budgets and cache tests to map prototype.
 
 ---
 
@@ -4358,6 +4648,27 @@ NEXT:
 не запускать,
 пока не принято отдельное
 privacy/self-host решение.
+
+---
+
+### JavierFrancoLeal/governed-browser
+
+URL: https://github.com/JavierFrancoLeal/governed-browser
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Node CLI and MCP pre-click policy checker, redaction and hash-chained audit ledger.
+
+FIT:
+Separate proposed browser action from policy check and accountable execution.
+
+PROJECT:
+Browser execution plane; compare with Ego Lite.
+
+NEXT:
+Review policy logic and test synthetic allowed/denied actions; design enforcement at the actual executor.
 
 ---
 
@@ -5670,6 +5981,27 @@ NEXT:
 
 ---
 
+### stevendamianakis/autopi
+
+URL: https://github.com/stevendamianakis/autopi
+VERDICT: KEEP
+SCORE: 22
+STARS: 6
+
+WHAT:
+Research framework accompanying arXiv:2611.24313 for taxonomy-guided evaluation of prompt-injection robustness.
+
+FIT:
+Measure agent security coverage by failure category, rather than one aggregate success metric.
+
+PROJECT:
+Isolated synthetic agent security tests.
+
+NEXT:
+Study paper and evaluation taxonomy; compare defensive controls on benign synthetic fixtures.
+
+---
+
 ### swimmwatch/cloakbrowser-mcp
 
 URL: https://github.com/swimmwatch/cloakbrowser-mcp
@@ -6044,6 +6376,81 @@ event/proof formats без заимствования всего runtime.
 
 ---
 
+## BUCKET: AI Infrastructure / Identity & Access
+
+Cards: 1
+
+### openai/sign-in-with-chatgpt-devkit
+
+URL: https://github.com/openai/sign-in-with-chatgpt-devkit
+VERDICT: KEEP
+SCORE: 0
+STARS: 423
+
+WHAT:
+DevKit with SDK, React components and desktop example for sign-in with ChatGPT.
+
+FIT:
+Study identity, consent and account-backed inference patterns as an alternative to storing shared API secrets.
+
+PROJECT:
+Lancelot; inference gateway experiments; authentication and permission boundaries.
+
+NEXT:
+Inspect the license and current supported usage first; run only an authorized isolated example without exporting credentials.
+
+---
+
+## BUCKET: AI Infrastructure / Local Inference
+
+Cards: 1
+
+### DA3M0/Cheetah
+
+URL: https://github.com/DA3M0/Cheetah
+VERDICT: KEEP
+SCORE: 0
+STARS: 61
+
+WHAT:
+Single-binary Rust/C inference server for Safetensors models, CPU/Vulkan and an OpenAI-compatible gateway.
+
+FIT:
+A candidate for the always-on CPU tier and a source for memory-aware inference/runtime design.
+
+PROJECT:
+Duke CPU workers; Camelot Vulkan experiment; Noosphere model routing.
+
+NEXT:
+Benchmark a small supported model against llama.cpp with identical tasks; record memory, startup, throughput and structured-output validity.
+
+---
+
+## BUCKET: Audio / Music Intelligence
+
+Cards: 1
+
+### kobimusic/dettato
+
+URL: https://github.com/kobimusic/dettato
+VERDICT: KEEP
+SCORE: 0
+STARS: 311
+
+WHAT:
+Multi-instrument audio-to-MIDI transcription pipeline with small specialized models.
+
+FIT:
+Adds structured musical representation to the Fision audio workflow: stems and transcription can support musical analysis and editing.
+
+PROJECT:
+Camelot; coma.fm music research; Music IR; Media Factory.
+
+NEXT:
+Test a few known recordings, compare mixed and separated stems, inspect MIDI timing and instrument/note accuracy.
+
+---
+
 ## BUCKET: Audio / Music Tools
 
 Cards: 3
@@ -6111,9 +6518,34 @@ NEXT:
 
 ---
 
+## BUCKET: Audio / Speech Processing
+
+Cards: 1
+
+### inworld-ai/voice-isolator
+
+URL: https://github.com/inworld-ai/voice-isolator
+VERDICT: KEEP
+SCORE: 0
+STARS: 435
+
+WHAT:
+Apache-2.0 voice isolation model and implementation for separating speech from mixed audio and background noise, with offline and real-time modes.
+
+FIT:
+Complement Fision with a specialized denoising path; cleaner speech may improve transcription without requiring full music stem separation.
+
+PROJECT:
+Camelot; Fision; Whisper transcription; Media Factory.
+
+NEXT:
+Compare original -> Whisper, Voice Isolator -> Whisper and Fision -> Whisper on the same noisy recordings. Measure word accuracy, timestamps, runtime and VRAM.
+
+---
+
 ## BUCKET: Automation / Event Workflows
 
-Cards: 31
+Cards: 32
 
 ### 0000F8/n8n-nodes-saltapp
 
@@ -6477,6 +6909,27 @@ Duke / n8n / automation.
 
 NEXT:
 **SOURCE** — сравнить с ближайшими существующими карточками и брать в работу только при явном выигрыше по нашему сценарию.
+
+---
+
+### kaypee90/n8n-tui
+
+URL: https://github.com/kaypee90/n8n-tui
+VERDICT: KEEP
+SCORE: 25
+STARS: 1
+
+WHAT:
+Keyboard-driven terminal client for workflows, execution history, health and official REST API access.
+
+FIT:
+Inspect Duke workflow failures from existing terminal sessions without browser switching.
+
+PROJECT:
+Circus terminal connected to test n8n instance.
+
+NEXT:
+Start with a staging instance and restricted token; inspect executions and health.
 
 ---
 
@@ -7015,6 +7468,31 @@ Twenty comparison; media-relations CRM; OSINT case records; agent-editable struc
 
 NEXT:
 Compare field model, activity log, MCP/API mutation semantics and approval boundaries against Twenty. Extract provenance and proposed-change patterns without treating Relaticle as a replacement until operational gaps are tested.
+
+---
+
+## BUCKET: Design / Agent QA
+
+Cards: 1
+
+### felipebasurto/unslop-ui
+
+URL: https://github.com/felipebasurto/unslop-ui
+VERDICT: KEEP
+SCORE: 0
+STARS: 841
+
+WHAT:
+Agent skill for identifying generic AI UI patterns in text, charts and dashboards.
+
+FIT:
+Useful editorial/design lint before delivery; explicit taste exceptions can preserve intentional project identity.
+
+PROJECT:
+WSB; GitRadar; internal dashboards; Media Factory.
+
+NEXT:
+Run read-only critique against existing screens; compare proposed edits to our design requirements and check functionality.
 
 ---
 
@@ -9507,6 +9985,31 @@ NEXT:
 
 ---
 
+## BUCKET: Development / Performance Engineering
+
+Cards: 1
+
+### EL4CTEO/fast-anything
+
+URL: https://github.com/EL4CTEO/fast-anything
+VERDICT: KEEP
+SCORE: 0
+STARS: 3722
+
+WHAT:
+Agent-oriented workflow for finding hot functions, porting them to Rust and checking behavior against the original.
+
+FIT:
+Optimize a measured bottleneck rather than rewrite an entire working application; replay and compare correctness before admitting a faster implementation.
+
+PROJECT:
+Python/Node workers; extraction and normalization; OpenSandbox execution experiments.
+
+NEXT:
+Select one deterministic CPU-heavy function, capture representative inputs, run original and replacement tests, compare speed and retain rollback.
+
+---
+
 ## BUCKET: Device Control / Capture
 
 Cards: 9
@@ -9733,7 +10236,7 @@ Trial between one Android device and Circus/Camelot. Test pairing, capability pe
 
 ## BUCKET: Document Parsing / Ingestion
 
-Cards: 22
+Cards: 23
 
 ### Attentionform/astra
 
@@ -10085,6 +10588,27 @@ NEXT:
 
 ---
 
+### reductoai/parsejudge
+
+URL: https://github.com/reductoai/parsejudge
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Document parsing benchmark comparing providers on identical rendered pages with blinded vision-model judging and per-page error reports.
+
+FIT:
+Build a meaningful evaluation of parsers on our actual document types, not vendor-selected benchmarks.
+
+PROJECT:
+Public reports; compare TextFold extraction and local parsing alternatives.
+
+NEXT:
+Build a small public PDF fixture set and manually verified text/table checks; compare parsers and cost.
+
+---
+
 ### run-llama/liteparse
 
 URL: https://github.com/run-llama/liteparse
@@ -10210,6 +10734,31 @@ PROJECT:
 
 NEXT:
 REFERENCE; использовать leaderboard/protocol при выборе OCR/VLM для наших документов и сканов.
+
+---
+
+## BUCKET: Editorial / Writing QA
+
+Cards: 1
+
+### conorbronsdon/avoid-ai-writing
+
+URL: https://github.com/conorbronsdon/avoid-ai-writing
+VERDICT: KEEP
+SCORE: 0
+STARS: 6279
+
+WHAT:
+Skill and tooling for auditing and rewriting common AI-style writing patterns.
+
+FIT:
+Useful as a repeatable editorial QA pass, with deterministic indicators separated from human style decisions.
+
+PROJECT:
+WSB; media-relations; GitRadar; Media Factory; Lancelot output evaluation.
+
+NEXT:
+Test on a labeled sample of our English, Russian and Ukrainian texts; compare false positives and factual preservation.
 
 ---
 
@@ -13517,6 +14066,56 @@ NEXT:
 
 ---
 
+## BUCKET: Infrastructure / Remote Workstation
+
+Cards: 1
+
+### USBridge-Technologies/USBridge-Remote
+
+URL: https://github.com/USBridge-Technologies/USBridge-Remote
+VERDICT: KEEP
+SCORE: 0
+STARS: 684
+
+WHAT:
+Low-latency remote desktop and KVM ecosystem using Sunshine/Moonlight, USB peripheral support and Tailscale connectivity.
+
+FIT:
+Potential way to use graphical tools and media applications remotely without relocating compute.
+
+PROJECT:
+Circus and Camelot graphical access; remote media workstation; hardware KVM comparison.
+
+NEXT:
+Test on a separate trusted network/profile; measure latency, video quality, reconnect, peripheral behavior and host resource use.
+
+---
+
+## BUCKET: Infrastructure / Server Management
+
+Cards: 1
+
+### 2hjaito/davish
+
+URL: https://github.com/2hjaito/davish
+VERDICT: KEEP
+SCORE: 0
+STARS: 308
+
+WHAT:
+Agentless SSH/SFTP server desktop with graphical operations for services, files and containers.
+
+FIT:
+Useful donor for visible commands, confirmation of destructive actions and exportable operation history.
+
+PROJECT:
+Circus to Duke; server operations; infrastructure control-plane design.
+
+NEXT:
+Test against a disposable host, verify host-key handling, sudo behavior, exact commands and audit export.
+
+---
+
 ## BUCKET: Interactive Reports / Data Apps
 
 Cards: 11
@@ -13862,7 +14461,7 @@ NEXT:
 
 ## BUCKET: Lancelot / Agent Infrastructure
 
-Cards: 169
+Cards: 176
 
 ### 6maple/mcp-for-chatgpt-web-tunnel
 
@@ -16496,6 +17095,48 @@ NEXT:
 
 ---
 
+### JAPofc/openapi-mcp-runtime
+
+URL: https://github.com/JAPofc/openapi-mcp-runtime
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Runtime translating OpenAPI 3.x and Swagger 2.0 operations into MCP tools with typed arguments and auth.
+
+FIT:
+Avoid writing repetitive wrappers for existing service APIs.
+
+PROJECT:
+Telegram OSINT Metasearch, research services, isolated API fixture.
+
+NEXT:
+Expose a curated read-only fixture spec; verify schemas, auth, error handling and call restrictions.
+
+---
+
+### JMBargueno/skanvil
+
+URL: https://github.com/JMBargueno/skanvil
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+CLI and Node library for skill scaffolding, spec validation, duplicate triggers, token budgets, routing evals and multi-client distribution.
+
+FIT:
+Directly useful for skill governance and T5 discoverability tests.
+
+PROJECT:
+Separate copy of skill library on Circus.
+
+NEXT:
+Validate a copied skill set; compare trigger collisions and token counts with current tests.
+
+---
+
 ### joelborch/flow
 
 URL: https://github.com/joelborch/flow
@@ -17023,6 +17664,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### navtesh48/mcp-toolkit
+
+URL: https://github.com/navtesh48/mcp-toolkit
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Three Python MCP examples with scoped file search, task mutations and staged human approval, plus read-only sensors.
+
+FIT:
+Compact example of permissions, audit and out-of-band approval independent of model instructions.
+
+PROJECT:
+MCP capability contract; local knowledge search.
+
+NEXT:
+Review guarded decorator and approval path; port only proven patterns into an isolated fixture.
 
 ---
 
@@ -17556,6 +18218,27 @@ and an externally anchored receipt head if history completeness must be provable
 
 ---
 
+### Particle-Academy/prism-mcp-server-ts
+
+URL: https://github.com/Particle-Academy/prism-mcp-server-ts
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+TypeScript MCP registration and dispatch library with authenticated loopback HTTP and per-request tool visibility predicates.
+
+FIT:
+Hide unauthorized tools from discovery and deny invocation consistently.
+
+PROJECT:
+Capability registry and MCP gateway design.
+
+NEXT:
+Review visibility predicate, invocation gate and result guard with synthetic callers.
+
+---
+
 ### prime-radiant-inc/streamlinear
 
 URL: https://github.com/prime-radiant-inc/streamlinear
@@ -17846,6 +18529,27 @@ COMPARE its run ledger and human-gate model with our teacher/worker experiment s
 
 ---
 
+### sakurachris0-max/open-browser-agent
+
+URL: https://github.com/sakurachris0-max/open-browser-agent
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Early Playwright MCP service with persistent Chromium profile, snapshots and bounded ordered step execution.
+
+FIT:
+Linux-capable small browser layer for comparison with Ego Lite.
+
+PROJECT:
+Circus disposable Chromium profile.
+
+NEXT:
+Test on local fixture pages and compare composable steps with existing Playwright tooling.
+
+---
+
 ### sharonita610/agent-harness
 
 URL: https://github.com/sharonita610/agent-harness
@@ -18031,6 +18735,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### subhadipjana866/cf-image-agents
+
+URL: https://github.com/subhadipjana866/cf-image-agents
+VERDICT: KEEP
+SCORE: 35
+STARS: 0
+
+WHAT:
+Cloudflare Agents SDK example with interpret-select-readiness-dispatch loop, Durable Object state, R2 image versions and Python container agents.
+
+FIT:
+Useful reference for typed task decomposition, pending inputs, and versioned creative assets.
+
+PROJECT:
+Creative workflow orchestration; Lancelot Cloudflare lab.
+
+NEXT:
+Review state transitions and asset revision schema; reproduce only the orchestration pattern with synthetic assets.
 
 ---
 
@@ -18750,6 +19475,27 @@ Use it when designing a first Lancelot MCP App that needs structured tool output
 
 ---
 
+### Ziqing7226/BossLoop
+
+URL: https://github.com/Ziqing7226/BossLoop
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Portable workflow specifications for long-horizon engineering and research, bounded rounds, review and resumable ledger; validated by authors on ZCode.
+
+FIT:
+Compare round acceptance, cold review and human steering with our existing harness.
+
+PROJECT:
+Noosphere task execution and research review design.
+
+NEXT:
+Read both SPEC files; prototype one bounded round using local fixture and objective acceptance tests.
+
+---
+
 ### zzet/gortex
 
 URL: https://github.com/zzet/gortex
@@ -19017,6 +19763,31 @@ path, а MCP/REST/CLI — быть adapters вокруг неё.
 
 ---
 
+## BUCKET: Learning / Agent Harness
+
+Cards: 1
+
+### amosblomqvist/learnharness
+
+URL: https://github.com/amosblomqvist/learnharness
+VERDICT: KEEP
+SCORE: 0
+STARS: 12204
+
+WHAT:
+Agent harness for learning difficult concepts through assessment, prerequisite structure and incremental reasoning practice.
+
+FIT:
+Separates possession of knowledge from demonstrated understanding; useful for simulations designed to teach rather than merely answer.
+
+PROJECT:
+UZ management simulator; personal learning; Lancelot epistemic history.
+
+NEXT:
+Build one small learning scenario with prerequisite checks and delayed recall; compare demonstrated learning against ordinary Q&A.
+
+---
+
 ## BUCKET: LLM Engineering / RAG & Retrieval
 
 Cards: 1
@@ -19202,6 +19973,31 @@ PROJECT:
 
 NEXT:
 TRY на Camelot: CUDA detection, небольшой SD/LLM, Whisper, переключение Image ↔ LLM и проверка освобождения VRAM.
+
+---
+
+## BUCKET: Media / Linear Streaming
+
+Cards: 1
+
+### doctor-ew/yata
+
+URL: https://github.com/doctor-ew/yata
+VERDICT: KEEP
+SCORE: 0
+STARS: 1
+
+WHAT:
+Retro linear-TV app with channel guide, local station clock, interstitial scheduling, channel registry and catalog-based discovery.
+
+FIT:
+Strong donor for a common radio/TV programming core: catalog + rules + clock + interstitials + identity.
+
+PROJECT:
+Programmable Station; coma.fm; potential coma.tv; SUB/WAVE; RadioBox.
+
+NEXT:
+Inspect schedule builder and join-live behavior; extract a minimal scheduler experiment separate from UI and cloud retrieval.
 
 ---
 
@@ -21329,7 +22125,7 @@ TRY на фото с известной скрытой точкой: 3–4 landm
 
 ## BUCKET: OSINT / Investigations
 
-Cards: 36
+Cards: 37
 
 ### AlanBacker/audio-flyover-geolocation
 
@@ -21370,6 +22166,27 @@ Identity evidence/enrichment pipeline; username/email pivots; manual investigati
 
 NEXT:
 Benchmark against Maigret on twenty known handles and a small consented/test email set. Normalize results into one evidence schema and measure unique hits, false positives, runtime and failure reasons.
+
+---
+
+### ArgeliusLabs/chinese_osint_search_dorks
+
+URL: https://github.com/ArgeliusLabs/chinese_osint_search_dorks
+VERDICT: KEEP
+SCORE: 23
+STARS: 123
+
+WHAT:
+Bilingual guide to Chinese-language web research, public institutional sources and verification; includes fictional procurement exercise and validation register.
+
+FIT:
+Improve regional institutional and corporate research, primary-source selection and query interpretation.
+
+PROJECT:
+WSB; SearXNG regional research design.
+
+NEXT:
+Review public procurement exercise and evidence-log schema; verify institutional sources before relying on results.
 
 ---
 
@@ -22499,6 +23316,56 @@ NEXT:
 Проверить 10 известных компаний в нескольких юрисдикциях: поиск, officers, shareholders, filings и raw documents.
 
 Сравнить completeness с прямыми registry interfaces и OpenCorporates. Отдельно проверить quotas, evidence preservation и лицензии конкретных upstream datasets.
+
+---
+
+## BUCKET: Personal Knowledge / Capture
+
+Cards: 1
+
+### ericerkz/kept
+
+URL: https://github.com/ericerkz/kept
+VERDICT: KEEP
+SCORE: 0
+STARS: 502
+
+WHAT:
+Self-hosted Google Keep-style capture app with offline mode, mobile capture, reminders, export and MCP access.
+
+FIT:
+Low-friction input for notes, links, voice and observations; typed on-device AI actions and user confirmation offer useful safety patterns.
+
+PROJECT:
+Personal Agent; Obsidian; Theorem; GBrain; Small Model Fabric.
+
+NEXT:
+Try Android device-only capture first; test sharing, voice, reminders and export. Evaluate self-host and MCP only if the workflow sticks.
+
+---
+
+## BUCKET: Personal Knowledge / Reading
+
+Cards: 1
+
+### Fundaments-Work/Theorem
+
+URL: https://github.com/Fundaments-Work/Theorem
+VERDICT: KEEP
+SCORE: 0
+STARS: 19
+
+WHAT:
+Local-first reading app for EPUB, PDF, MOBI, CBZ and RSS, with annotations, TTS, P2P sync and Markdown export.
+
+FIT:
+Human highlights and annotations are valuable selection signals for the second-hemisphere project; portable notes avoid lock-in.
+
+PROJECT:
+Personal Agent; Obsidian; GBrain; TextFold comparison.
+
+NEXT:
+Read and annotate a representative document; export Markdown and check links, notes and portability before enabling sync.
 
 ---
 
@@ -23934,6 +24801,81 @@ NEXT:
 
 ---
 
+## BUCKET: Research / Agent Context / Reading
+
+Cards: 1
+
+### chenxiachan/textfold
+
+URL: https://github.com/chenxiachan/textfold
+VERDICT: KEEP
+SCORE: 0
+STARS: 1467
+
+WHAT:
+Apache-2.0 local-first reader and CLI with five levels: original full text, verbatim brief, generated key, takeaway and topic.
+
+FIT:
+Preserves a path from compact representations to original paragraphs; useful for human reading and selective agent context loading.
+
+PROJECT:
+Circus reading workstation; Theorem; Obsidian; Lancelot; PaperOrchestra; WSB.
+
+NEXT:
+Install in isolated Python environment on Circus after radar backlog is clear; test public reports and long project Markdown, then compare full vs folded task accuracy and token cost.
+
+---
+
+## BUCKET: Research / Evidence Synthesis
+
+Cards: 1
+
+### google-research/paper-orchestra
+
+URL: https://github.com/google-research/paper-orchestra
+VERDICT: KEEP
+SCORE: 0
+STARS: 6336
+
+WHAT:
+Google Research multi-agent paper writing framework with outline, literature discovery, section writing, refinement and evaluation.
+
+FIT:
+The investigation graph and bounded review loop are donors for research synthesis after collection; independent evidence checking should be added.
+
+PROJECT:
+WSB; research briefs; PaperOrchestra-style Research Harness; Evidence Ledger.
+
+NEXT:
+Replay one already verified public research brief; compare coverage, unsupported claims, citations, caveats and editing effort.
+
+---
+
+## BUCKET: Research Infrastructure / Search
+
+Cards: 1
+
+### searxng/searxng
+
+URL: https://github.com/searxng/searxng
+VERDICT: KEEP
+SCORE: 0
+STARS: 39848
+
+WHAT:
+AGPL-3.0 metasearch service with heterogeneous upstream adapters, merged results, engine provenance and configurable JSON API.
+
+FIT:
+One stable discovery interface can replace repeated search integration work while retaining provider provenance and partial failures.
+
+PROJECT:
+Duke private search service; DeepResearch; Dexter; media-monitoring; WSB; GitRadar.
+
+NEXT:
+Start on Circus, enable JSON, benchmark known public-source queries, then compare Duke upstream health and recall before integration.
+
+---
+
 ## BUCKET: Reverse Engineering / Binary Analysis
 
 Cards: 24
@@ -24459,7 +25401,28 @@ NEXT:
 
 ## BUCKET: Search / Retrieval Engineering
 
-Cards: 38
+Cards: 40
+
+### ai3inc/opentoolsearch
+
+URL: https://github.com/ai3inc/opentoolsearch
+VERDICT: KEEP
+SCORE: 18
+STARS: 8
+
+WHAT:
+Open-weight 0.6B tool embedder and 0.6B reranker with incremental indexing and published evaluation records.
+
+FIT:
+Retrieve a small relevant tool subset rather than expose the whole catalog to a model.
+
+PROJECT:
+Lancelot T5 discoverability experiments; Camelot GPU.
+
+NEXT:
+Compare with current T5 baseline on the same frozen catalog and queries; record recall@k, selection errors, latency and VRAM.
+
+---
 
 ### al1-nasir/weigh_swarm
 
@@ -24781,6 +25744,27 @@ PROJECT:
 
 NEXT:
 TRY as a lexical backend beside embeddings and compare exact-hit recall, fuzzy behavior, index cost and highlight correctness.
+
+---
+
+### louvain-ai/louvain-engine
+
+URL: https://github.com/louvain-ai/louvain-engine
+VERDICT: KEEP
+SCORE: 18
+STARS: 14
+
+WHAT:
+Self-hosted keyword/vector retrieval with per-query permission filters and MCP/HTTP endpoints.
+
+FIT:
+Filter permitted corpus before ranking/counting/returning content; compare with local retrieval design.
+
+PROJECT:
+Noosphere knowledge layers; isolated Postgres fixture.
+
+NEXT:
+Test two synthetic readers with disjoint collections; check search, direct lookup, snippets and counts.
 
 ---
 
@@ -25487,7 +26471,7 @@ NEXT:
 
 ## BUCKET: Speech / TTS & Voice
 
-Cards: 34
+Cards: 37
 
 ### 5uck1ess/tts-bench
 
@@ -26088,6 +27072,48 @@ NEXT:
 
 ---
 
+### sipeter/CloneTTS
+
+URL: https://github.com/sipeter/CloneTTS
+VERDICT: KEEP
+SCORE: 20
+STARS: 906
+
+WHAT:
+Android system TTS with on-device voice synthesis, local HTTP API and optional LAN OpenAI-compatible TTS backend.
+
+FIT:
+Read documents aloud on mobile; compare offline and LAN speech backends.
+
+PROJECT:
+Android; Camelot optional TTS server.
+
+NEXT:
+Test ordinary narration with authorized voices, offline playback and LAN fallback.
+
+---
+
+### super-libre/super-voice
+
+URL: https://github.com/super-libre/super-voice
+VERDICT: KEEP
+SCORE: 18
+STARS: 78
+
+WHAT:
+Rust Linux speech daemon with model backends, desktop clients, CLI and local socket protocol.
+
+FIT:
+System-wide dictation and reading aloud; reusable speech interface for personal agents.
+
+PROJECT:
+Circus desktop; optional local speech models; Lancelot.
+
+NEXT:
+Test local dictation and TTS in editor, browser and terminal; inspect socket consent and desktop compatibility.
+
+---
+
 ### supertone-oss-archive/supertonic
 
 URL: https://github.com/supertone-oss-archive/supertonic
@@ -26149,6 +27175,27 @@ PROJECT:
 
 NEXT:
 Сравнить с соседними карточками этого lane по API boundary, deployability, observability/evidence, provenance/QA и стоимости интеграции. Внедрять только если сохраняется отдельная архитектурная роль.
+
+---
+
+### undsky/doudou-stt-skill
+
+URL: https://github.com/undsky/doudou-stt-skill
+VERDICT: KEEP
+SCORE: 18
+STARS: 0
+
+WHAT:
+Skill wrapping undsky-docker-whisper HTTP backend with faster-whisper, WhisperX and offline SpeechBrain diarization.
+
+FIT:
+Potential complement to Fision for multi-speaker interviews and word-level aligned subtitles.
+
+PROJECT:
+Camelot GPU lab; existing Fision transcription workflow.
+
+NEXT:
+Compare on the same consented multi-speaker recording: word error, speaker labels, timestamp drift and memory.
 
 ---
 
@@ -26217,7 +27264,7 @@ NEXT:
 
 ## BUCKET: System Architecture / Engineering Patterns
 
-Cards: 37
+Cards: 39
 
 ### a2ui-project/a2ui
 
@@ -26431,6 +27478,27 @@ PROJECT:
 
 NEXT:
 Reuse the boundary pattern when designing any future privileged maintenance action on Circus.
+
+---
+
+### davidnussio/effect-cqrs
+
+URL: https://github.com/davidnussio/effect-cqrs
+VERDICT: KEEP
+SCORE: 23
+STARS: 8
+
+WHAT:
+Experimental Effect v4 port of CQRS/event sourcing with typed events, projections, upcasting and replay demo.
+
+FIT:
+Useful reference for reconstructable task state and event schema evolution.
+
+PROJECT:
+Research harness event ledger; UI projections.
+
+NEXT:
+Review event replay, version upcasting and projection failure demo.
 
 ---
 
@@ -27172,6 +28240,27 @@ NEXT:
 Использовать как benign scanner fixture:
 
 /proc environ + env persistence + send-keys + command replay.
+
+---
+
+### orcher-io/orcher
+
+URL: https://github.com/orcher-io/orcher
+VERDICT: KEEP
+SCORE: 18
+STARS: 6
+
+WHAT:
+Rust workflow engine with PostgreSQL journal, Python/TS/Rust SDKs, schedules, timers and worker recovery.
+
+FIT:
+Compare restart-safe execution with n8n and existing schedulers.
+
+PROJECT:
+Circus isolated Docker lab; eventual Duke only after resource measurement.
+
+NEXT:
+Run a synthetic workflow, terminate worker between steps, recover and check duplicate side effects.
 
 ---
 
@@ -31172,6 +32261,31 @@ Keep as a source/reference until suitable GPU capacity is available. Inspect the
 
 ---
 
+## BUCKET: Video Production / Rendering
+
+Cards: 1
+
+### shinyobjectz/raea
+
+URL: https://github.com/shinyobjectz/raea
+VERDICT: KEEP
+SCORE: 0
+STARS: 5063
+
+WHAT:
+Render Anything Engine: Rust/Bevy-based GPU renderer for agent-authored React/TypeScript video, motion graphics and interactive scenes.
+
+FIT:
+Potential render backend for editable generated visuals; compare with Remotion and OpenMotion rather than duplicate authoring tools.
+
+PROJECT:
+Media Factory; WSB visuals; Programmable Station visual packages.
+
+NEXT:
+Recreate one existing short motion composition and compare fidelity, render time, repeatability and GPU usage.
+
+---
+
 ## BUCKET: Visual Systems / Data Storytelling
 
 Cards: 1
@@ -31582,6 +32696,31 @@ PROJECT:
 
 NEXT:
 WATCH/LAB LATER; использовать архитектурные идеи, не строить критический Linux workflow на текущем product.
+
+---
+
+## BUCKET: Web Data / Platform Discovery
+
+Cards: 1
+
+### XD-MHLOO/facebook-gql-scraper
+
+URL: https://github.com/XD-MHLOO/facebook-gql-scraper
+VERDICT: KEEP
+SCORE: 0
+STARS: 89
+
+WHAT:
+Facebook GraphQL client using internal endpoints and rediscovery of changing document identifiers from site scripts.
+
+FIT:
+Useful source for adapter resilience and public publication discovery where authorized access is available.
+
+PROJECT:
+Media monitoring; public post discovery; platform adapter architecture.
+
+NEXT:
+Review access requirements and platform terms; test only authorized public-content queries in an isolated account/context, with rate limits and minimal retention.
 
 ---
 
